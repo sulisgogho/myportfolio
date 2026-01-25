@@ -12,14 +12,19 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata = {
-  title: 'Sulistyowati Munawaroh - Data Analyst & Fullstack Developer',
-  description: 'Portfolio Sulistyowati Munawaroh.',
+  title: 'Sulistyowati Munawaroh',
+  description: 'Portfolio Data Analyst & Full Stack Developer',
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning={true} // <-- TAMBAHKAN BARIS INI
+      >
+        {children}
+      </body>
     </html>
   )
 }
