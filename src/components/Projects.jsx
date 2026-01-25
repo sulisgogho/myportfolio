@@ -9,7 +9,7 @@ const Projects = ({ isDarkMode }) => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
           <div className="mb-4 md:mb-0">
             <h2 className={`text-3xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Projek Unggulan</h2>
-            <p className={`max-w-xl ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>Kumpulan studi kasus Full Stack dan Data Science.</p>
+            <p className={`max-w-xl ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>Kumpulan studi kasus Data Analyst dan Fullstack </p>
           </div>
         </div>
 
