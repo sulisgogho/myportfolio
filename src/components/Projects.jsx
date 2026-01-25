@@ -171,6 +171,16 @@ const Projects = ({ isDarkMode }) => {
                         <h4 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Solusi Teknis</h4>
                         <p className={`leading-relaxed ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>{selectedProject.details.solution}</p>
                       </div>
+
+                      <div>
+                        <h4 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Hasil Analisis</h4>
+                        <p className={`leading-relaxed ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>{selectedProject.details.analysis_results}</p>
+                      </div>
+
+                      <div>
+                        <h4 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Rekomendasi Bisnis</h4>
+                        <p className={`leading-relaxed ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>{selectedProject.details.business_recommendations}</p>
+                      </div>
                     </>
                   )}
                 </div>

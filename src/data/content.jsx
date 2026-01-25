@@ -25,13 +25,28 @@ export const projects = [
     title: 'Instacart Analytics & Recommendation Engine',
     description: 'Platform analitik end-to-end yang memanfaatkan machine learning untuk mengungkap pola belanja, memprediksi risiko churn, dan memberikan rekomendasi produk cerdas bagi optimalisasi bisnis ritel',
     details: {
-      problem: 'Ritel online kesulitan mengidentifikasi pola kombinasi pembelian produk (cross-selling) dan memprediksi kapan pelanggan akan berhenti berbelanja (churn) di tengah jutaan data transaksi.',
-      solution: 'Membangun platform Full-Stack Data Science berbasis Microservices (Docker). Mengintegrasikan algoritma Market Basket Analysis untuk rekomendasi produk dan model prediktif untuk strategi retensi pelanggan.',
-      features: ['Sistem Rekomendasi Produk Otomatis (Association Rules)', 'Prediksi Risiko Churn & Customer Segmentation', 'Arsitektur Terisolasi (Docker, FastAPI, Next.js)'],
+      problem: 'Ritel online kesulitan mengidentifikasi pola kombinasi pembelian produk (cross-selling) dan memprediksi churn rate pelanggan di tengah jutaan data transaksi yang tidak terstruktur.',
+
+      solution: 'Membangun platform Full-Stack Data Science (Microservices) yang mengolah data mentah menjadi insight. Menggunakan algoritma Apriori untuk rekomendasi produk dan Random Forest untuk prediksi retensi.',
+
+      features: ['Sistem Rekomendasi Produk Otomatis (Association Rules)', 'Prediksi Risiko Churn & Segmentasi User', 'Dashboard Interaktif Real-time (Next.js + Docker)'],
+
+      analysis_results: [
+        'Produk Organik memiliki tingkat re-order tertinggi (65%) dibanding kategori lain.',
+        'Puncak waktu belanja terjadi pada hari Minggu & Senin pukul 10:00 - 15:00.',
+        'Ditemukan korelasi kuat (Lift > 3.0) antara pembelian Buah Segar dengan Yogurt.',
+      ],
+
+      business_recommendations: [
+        'Strategi Bundling: Buat paket "Sarapan Sehat" (Buah + Yogurt) di halaman checkout untuk menaikkan nilai keranjang.',
+        'Logistik: Tingkatkan stok barang segar 20% lebih banyak pada Sabtu malam untuk antisipasi lonjakan Minggu.',
+        'Retensi: Kirim notifikasi promo personal pada Jumat sore kepada user yang diprediksi akan churn.',
+      ],
+
       date: 'Jan 2026',
     },
     tags: ['Python', 'Next.js', 'Docker', 'PostgreSQL'],
-    stats: 'MAE: <5%',
+    stats: 'Max Lift: > 4.0 | Accuracy: 87%',
     link: '#',
     github: 'https://github.com/sulisgogho/instacart-project',
     category: 'AI & Web Integration',
@@ -46,10 +61,21 @@ export const projects = [
       problem: 'Kesulitan bisnis retail dalam mengidentifikasi segmen pelanggan bernilai tinggi dan memantau tren penjualan secara real-time dari ribuan data transaksi mentah yang kompleks.',
       solution: 'Saya mengembangkan sistem analisis Full-Stack menggunakan Python (Pandas) untuk pemrosesan data otomatis dan algoritma RFM Segmentation, yang kemudian divisualisasikan melalui dashboard interaktif React JS.',
       features: ['Segmentasi Pelanggan Otomatis (Metode RFM)', 'Visualisasi Tren Penjualan & KPI Real-time', 'Upload & Parsing Dataset CSV Skala Besar', 'Arsitektur Terpisah (Decoupled) React & Flask'],
+      analysis_results: [
+        'Kategori Teknologi menyumbang pendapatan terbesar (~$836k) berkat nilai jual produk yang tinggi (High-Ticket Items), meskipun volume transaksinya lebih rendah dibanding kategori lain',
+        'Office Supplies (Alat Tulis) berfungsi sebagai "Traffic Driver" utama dengan frekuensi pembelian tertinggi, menjadikannya pintu masuk utama untuk akuisisi pelanggan baru',
+        'Analisis RFM mengidentifikasi segmen krusial "At Risk" (sekitar 10-15% dari pelanggan top), yaitu pelanggan bernilai tinggi yang sudah tidak bertransaksi lebih dari 150 hari.',
+      ],
+
+      business_recommendations: [
+        'Cross-Selling Strategis: Implementasikan rekomendasi "Sering Dibeli Bersama" untuk aksesoris Teknologi (seperti Mouse atau Flashdisk) pada halaman checkout Office Supplies guna meningkatkan Nilai Rata-rata Pesanan (AOV).',
+        'Pencegahan Churn: Aktifkan kampanye email otomatis "Win-Back" berisi insentif personal (seperti gratis ongkir atau diskon khusus) yang ditargetkan hanya untuk segmen "At Risk" sebelum mereka permanen pindah ke kompetitor.',
+        'Program Loyalitas VIP: Untuk segmen "Champions", alihkan fokus dari diskon harga ke "Experiential Rewards" (seperti Akses Awal Produk Baru atau Layanan Prioritas) untuk menjaga loyalitas tanpa menggerus margin keuntungan.',
+      ],
       date: 'Des 2025',
     },
     tags: ['React', 'Flask', 'Pandas', 'Recharts'],
-    stats: 'User Base: 1,000+',
+    stats: '793 Customers | $2.3M Sales',
     link: 'https://superstore-analysis-phi.vercel.app/',
     github: 'https://github.com/sulisgogho/superstore-analysis',
     category: 'Data Analysis& Web Dev',
