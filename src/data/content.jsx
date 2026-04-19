@@ -98,6 +98,40 @@ export const projects = [
     category: 'Data Engineering',
     image: 'https://images.unsplash.com/photo-1558494949-ef526b0042a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   },
+  {
+    id: 4,
+    title: 'CatetDuit - Private Financial SaaS',
+    description: 'Aplikasi manajemen keuangan berbasis Progressive Web App (PWA) dengan sistem multi-tenant untuk melacak pengeluaran personal maupun pasangan secara real-time.',
+    details: {
+      problem: 'Individu dan pasangan seringkali kesulitan melacak proporsi pengeluaran bersama secara transparan, serta kurangnya visibilitas terhadap tren pengeluaran bulanan karena pencatatan manual yang tersebar.',
+
+      solution: 'Membangun platform SaaS tertutup dengan arsitektur role-based menggunakan Next.js App Router. Mengamankan logika pencatatan akun Single dan Couple melalui database relasional, serta membungkusnya dalam format PWA.',
+
+      features: ['Dashboard Kalkulasi Finansial & Persentase Tren Otomatis', 'Dynamic Render Filtering untuk akun tipe Couple', 'Sistem Autentikasi Multi-Role (Super Admin & Client)', 'Progressive Web App (PWA) siap instalasi'],
+
+      // Di UI portofolio, label bagian ini bisa kamu tulis sebagai "Technical Highlights"
+      analysis_results: [
+        'Penerapan Server Components memangkas load time di sisi klien karena proses kalkulasi tren dan persentase dieksekusi langsung di server.',
+        'Logika filtering dinamis berhasil dibangun dengan memanfaatkan data Session JWT, menghilangkan kebutuhan hardcode nama pengguna.',
+        'Integrasi PWA module berjalan optimal dengan Webpack bundler, memungkinkan aplikasi diinstal layaknya native app di iOS dan Android.',
+      ],
+
+      // Di UI portofolio, label bagian ini bisa kamu tulis sebagai "Development Roadmap"
+      business_recommendations: [
+        'Settlement Logic: Menambahkan algoritma kalkulator patungan 50:50 otomatis pada akhir bulan untuk pengguna akun Couple.',
+        'Data Visualization: Integrasi library chart (seperti Recharts) untuk memvisualisasikan tren pengeluaran harian dan proporsi kategori.',
+        'Push Notifications: Mengaktifkan Service Worker untuk mengirim daily reminder pencatatan kepada pengguna.',
+      ],
+
+      date: 'Apr 2026',
+    },
+    tags: ['Next.js', 'Prisma', 'PostgreSQL', 'Tailwind CSS', 'PWA'],
+    stats: 'Multi-Tenant SaaS | Server Actions',
+    link: 'https://the-atelier.vercel.app', // Sesuaikan link Vercel
+    github: 'https://github.com/sulisgogho/the-atelier', // Sesuaikan link Github
+    category: 'Full-Stack Web Development',
+    image: '/assets/atelier_foto.png', // Sesuaikan path gambar
+  },
 ]
 
 export const blogPosts = [

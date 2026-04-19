@@ -151,13 +151,7 @@ const Projects = ({ isDarkMode }) => {
                 <div className="md:col-span-2 space-y-6">
                   <div>
                     <h3 className={`text-xl font-bold mb-3 flex items-center gap-2 ${isDarkMode ? 'text-blue-400' : 'text-blue-700'}`}>Tentang Project</h3>
-                    <p className={`leading-relaxed ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-                      {selectedProject.description}
-                      {/* Jika ada teks tambahan panjang, taruh di sini */}
-                      <br />
-                      <br />
-                      Proyek ini dirancang untuk menjawab kebutuhan spesifik di industri {selectedProject.category}, dengan fokus pada skalabilitas dan akurasi data.
-                    </p>
+                    <p className={`leading-relaxed ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>{selectedProject.description}</p>
                   </div>
 
                   {selectedProject.details && (
@@ -172,15 +166,53 @@ const Projects = ({ isDarkMode }) => {
                         <p className={`leading-relaxed ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>{selectedProject.details.solution}</p>
                       </div>
 
-                      <div>
-                        <h4 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Hasil Analisis</h4>
-                        <p className={`leading-relaxed ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>{selectedProject.details.analysis_results}</p>
-                      </div>
+                      {/* --- BAGIAN DINAMIS: HASIL ANALISIS / SOROTAN TEKNIS --- */}
+                      {selectedProject.details.analysis_results && (
+                        <div>
+                          <h4 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+                            {/* Cek apakah ini project Web/SaaS atau Data */}
+                            {selectedProject.category.toLowerCase().includes('web') || selectedProject.category.toLowerCase().includes('saas') || selectedProject.category.toLowerCase().includes('full-stack')
+                              ? 'Sorotan Teknis'
+                              : 'Hasil Analisis'}
+                          </h4>
 
-                      <div>
-                        <h4 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Rekomendasi Bisnis</h4>
-                        <p className={`leading-relaxed ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>{selectedProject.details.business_recommendations}</p>
-                      </div>
+                          {/* Render sebagai list agar rapi jika datanya Array */}
+                          {Array.isArray(selectedProject.details.analysis_results) ? (
+                            <ul className="list-disc pl-5 space-y-1">
+                              {selectedProject.details.analysis_results.map((item, idx) => (
+                                <li key={idx} className={`leading-relaxed ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <p className={`leading-relaxed ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>{selectedProject.details.analysis_results}</p>
+                          )}
+                        </div>
+                      )}
+
+                      {/* --- BAGIAN DINAMIS: REKOMENDASI BISNIS / RENCANA PENGEMBANGAN --- */}
+                      {selectedProject.details.business_recommendations && (
+                        <div>
+                          <h4 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+                            {selectedProject.category.toLowerCase().includes('web') || selectedProject.category.toLowerCase().includes('saas') || selectedProject.category.toLowerCase().includes('full-stack')
+                              ? 'Rencana Pengembangan (Roadmap)'
+                              : 'Rekomendasi Bisnis'}
+                          </h4>
+
+                          {Array.isArray(selectedProject.details.business_recommendations) ? (
+                            <ul className="list-disc pl-5 space-y-1">
+                              {selectedProject.details.business_recommendations.map((item, idx) => (
+                                <li key={idx} className={`leading-relaxed ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <p className={`leading-relaxed ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>{selectedProject.details.business_recommendations}</p>
+                          )}
+                        </div>
+                      )}
                     </>
                   )}
                 </div>
