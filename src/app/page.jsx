@@ -588,7 +588,11 @@ export default function Home() {
             </div>
             <div className="p-4 md:p-8 overflow-y-auto">
               {selectedCert.imageUrl && (
-                <img src={selectedCert.imageUrl} alt={selectedCert.title} className="w-full h-120 rounded-xl md:rounded-2xl border-2 md:border-4 border-slate-100 dark:border-slate-800 mb-4 md:mb-6 object-cover aspect-video shadow-md" />
+                <img
+                  src={selectedCert.imageUrl}
+                  alt={selectedCert.title}
+                  className="w-full h-60 md:h-120 rounded-xl md:rounded-2xl border-2 md:border-4 border-slate-100 dark:border-slate-800 mb-4 md:mb-6 object-cover aspect-video shadow-md"
+                />
               )}
               <h2 className="text-lg md:text-3xl font-extrabold text-slate-800 dark:text-slate-100 mb-2 leading-tight">{selectedCert.title}</h2>
               <div className="flex gap-2 md:gap-4 items-center mb-4 md:mb-6 text-[10px] md:text-sm font-bold text-slate-500">

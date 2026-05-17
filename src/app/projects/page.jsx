@@ -17,7 +17,7 @@ export default function AllProjects() {
   const [activeTab, setActiveTab] = useState('Semua')
   const [selectedProject, setSelectedProject] = useState(null)
 
-  const tabs = ['Semua', 'Software', 'Data', 'Trading', 'Admin']
+  const tabs = ['Semua', 'Website', 'Data', 'Trading', 'Admin']
   const filteredProjects = activeTab === 'Semua' ? projects : projects.filter((p) => p.category === activeTab)
 
   return (
