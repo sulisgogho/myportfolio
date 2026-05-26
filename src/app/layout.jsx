@@ -3,7 +3,7 @@ import Navbar from '@/components/Navbar'
 import { personalInfo } from '@/lib/data'
 
 export const metadata = {
-  title: `${personalInfo.name} | Portfolio`,
+  title: `${personalInfo.name}`,
   description: personalInfo.tagline,
 }
 

@@ -171,7 +171,7 @@ export const projects = [
   {
     id: 1,
     title: 'Sistem Pencatatan Keuangan Harian ',
-    category: 'Web App',
+    category: 'Website',
     shortDesc: 'Web application untuk pelacakan pengeluaran keuangan harian untuk single dan couple',
     fullDesc: 'Membangun aplikasi full-stack untuk melacak inventaris barang secara real-time dengan fitur notifikasi dan dashboard.',
     role: 'Fullstack Developer',
@@ -182,6 +182,35 @@ export const projects = [
   },
   {
     id: 2,
+    title: 'AdventureWorks Enterprise Control Tower & 10-Module Interactive Dashboard',
+    category: 'Data',
+    shortDesc: 'Dashboard analitik korporat terintegrasi berbasis React, FastAPI, dan Pandas untuk visualisasi data warehouse 10 pilar bisnis.',
+    fullDesc: `Membangun platform "Control Tower" berskala enterprise untuk menganalisis data warehouse AdventureWorks secara real-time melalui arsitektur decoupled (Frontend React.js & Backend FastAPI Python).
+
+Detail kompetensi teknis dan alur kerja yang diterapkan:
+
+• ETL Framework & Data Wrangling (Python & Pandas):
+Mengekstrak data dari berbagai tabel dimensi dan fakta (seperti FactInternetSales, DimCustomer, DimEmployee, dsb.). Membangun pipa pengolahan data tangguh menggunakan Pandas untuk pembersihan data, penanganan inkonsistensi header CSV secara dinamis, penanganan missing values, dan dynamic fallback mechanism jika terjadi kerusakan struktur data.
+
+• Multi-Dimensional Business Analytics (FastAPI & Python):
+Merancang dan mengimplementasikan 10 modul analitik backend yang melayani data agregasi kompleks lewat REST API, meliputi: Sales Performance, E-Commerce Retail (B2C), Logistics & Supply Chain, PPIC & Inventory, Customer Call Center, Market Research & CSAT, Corporate Finance Tower, Human Capital Performance, Global Sales & Territory, serta Marketing & Campaign Impact.
+
+• Advanced Data Visualization & Dashboarding (React & Recharts):
+Mengembangkan antarmuka dashboard interaktif (Dark Mode) modern menggunakan React.js dan Tailwind CSS. Memanfaatkan library Recharts untuk menyajikan visualisasi data multi-panel tingkat tinggi seperti Composed Charts (Bar & Line), Donut Charts pangsa pasar kontinental, Horizontal Bar Charts alokasi headcount, hingga Radar Charts matriks sentimen kepuasan pelanggan (CSAT).
+
+• Production Deployment (Vercel & Railway):
+Berhasil melakukan deployment terpisah untuk optimalisasi performa. Frontend React.js dideploy ke Vercel dengan penanganan SPA Routing (vercel.json rewrites), dan Backend FastAPI + Data Warehouse CSV dideploy ke Railway menggunakan arsitektur Web Service berbasis Procfile.`,
+    role: 'Data Analyst / Quantitative Analyst',
+    tags: ['Python', 'FastAPI', 'Pandas', 'React.js', 'Recharts', 'Data Warehouse', 'Data Visualization'],
+    documentUrl: 'https://drive.google.com/uc?export=download&id=1KtEjQtAfK2GVPGF308nOejAWOx2dBJwc', // Nanti bisa kamu ganti dengan link dokumentasi/CV barumu jika ada
+    documentType: 'pdf',
+    websiteUrl: 'https://adventure-works-silk.vercel.app/',
+    githubUrl: 'https://github.com/sulisgogho/AdventureWorks',
+    imageUrl: '/project/project7.png', // Sesuaikan dengan nama asset gambar/screenshot dashboard kamu
+  },
+
+  {
+    id: 3,
     title: 'Analyzing Emerging Skill Requirements and Technology Trends',
     category: 'Data',
     shortDesc: 'Dashboard interaktif berbasis Python dan SQLite untuk analisis tren ekosistem developer global.',
@@ -204,7 +233,7 @@ Membangun dashboard pemangku kepentingan interaktif dengan visualisasi multi-pan
     imageUrl: '/project/project1.png',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Website Company Profile UD Cahaya Makmur',
     category: 'Website',
     shortDesc: 'Website company profile serta katalog UD Cahaya Makmur.',
@@ -216,7 +245,7 @@ Membangun dashboard pemangku kepentingan interaktif dengan visualisasi multi-pan
     imageUrl: '/project/project3.png',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Bot Trading Momentum Candle',
     category: 'Trading',
     shortDesc: 'Bot trading otomatis dengan strategi Momentum Candle.',
@@ -229,7 +258,7 @@ Membangun dashboard pemangku kepentingan interaktif dengan visualisasi multi-pan
     documentType: 'pdf',
   },
   {
-    id: 5,
+    id: 6,
     title: 'Superstore Sales Analysis & Customer Segmentation Engine',
     category: 'Data',
     shortDesc: 'Model Machine Learning untuk Mengoptimalkan Strategi Pemasaran Menggunakan Python (RFM) & React Dashboard.',
@@ -241,7 +270,7 @@ Membangun dashboard pemangku kepentingan interaktif dengan visualisasi multi-pan
     imageUrl: '/project/project5.png',
   },
   {
-    id: 6,
+    id: 7,
     title: 'Game Ular Tangga Deeptalk',
     category: 'Web App',
     shortDesc: 'Game ular tangga untuk pasangan deeptalk',
