@@ -1,30 +1,119 @@
 @import "tailwindcss";
-
-/* 1. Baris ini wajib untuk Tailwind v4: Mengubah Dark Mode dari bawaan OS menjadi manual (berbasis class) */
-@variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  /* Warna default (Light Mode) */
-  --background: #f8fafc; /* Menyerupai warna slate-50 */
-  --foreground: #0f172a; /* Menyerupai warna slate-900 */
+  --background: #E8E8E8;
+  --foreground: #09090b; /* Zinc 950 - extremely dark */
+  --card-bg: #ffffff;
+  --card-border: rgba(43,122,75,0.2);
+  --input-bg: #ffffff;
+  --muted: #52525b; /* Zinc 600 */
+}
+
+.dark {
+  --background: #1c1c1a;
+  --foreground: #ffffff; /* Pure white for maximum clarity */
+  --card-bg: #27271f;
+  --card-border: rgba(43,122,75,0.35);
+  --input-bg: #2e2e26;
+  --muted: #d4d4d8; /* Zinc 300 - much lighter */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-urbanist);
+  --font-mono: var(--font-urbanist);
+  --font-serif: var(--font-urbanist);
+  --color-brand-green: #2b7a4b;
+  --color-brand-light: #e8f3ec;
+  --animate-slide-in-right: slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+@keyframes slideInRight {
+  0% { transform: translateX(100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
 
-.dark {
-  --background: #0f172a; /* Warna background saat Dark Mode aktif */
-  --foreground: #f8fafc; /* Warna teks saat Dark Mode aktif */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s step-end infinite;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Tambahan animasi halus saat ganti tema */
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Dark mode — white cards become dark cards */
+.dark .bg-white {
+  background-color: var(--card-bg) !important;
+}
+
+.dark .border-zinc-200,
+.dark .border-zinc-100 {
+  border-color: rgba(255,255,255,0.08) !important;
+}
+
+.dark .text-zinc-900 {
+  color: #ffffff !important;
+}
+
+.dark .text-zinc-800 {
+  color: #f4f4f5 !important;
+}
+
+.dark .text-zinc-700 {
+  color: #e4e4e7 !important;
+}
+
+.dark .text-zinc-600 {
+  color: #d4d4d8 !important;
+}
+
+.dark .text-zinc-500 {
+  color: #a1a1aa !important;
+}
+
+.dark .text-zinc-400 {
+  color: #71717a !important;
+}
+
+.dark .bg-zinc-50,
+.dark .bg-zinc-100 {
+  background-color: #2e2e26 !important;
+}
+
+.dark .bg-\[\#E8E8E8\] {
+  background-color: var(--background) !important;
+}
+
+.dark .border-zinc-300 {
+  border-color: rgba(255,255,255,0.12) !important;
+}
+
+.dark input,
+.dark textarea {
+  background-color: var(--input-bg) !important;
+  color: var(--foreground) !important;
+}
+
+* {
+  font-family: var(--font-urbanist) !important;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

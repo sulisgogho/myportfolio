@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { Terminal, Database, TrendingUp, Code2, FileSpreadsheet } from 'lucide-react'
 
 export const personalInfo = {
@@ -7,6 +8,8 @@ export const personalInfo = {
   about:
     'Saya adalah seorang profesional multidisiplin yang menggabungkan logika pemrograman dari Software Engineering, wawasan berbasis angka dari Data Analysis, manajemen risiko dari Trading, dan efisiensi operasional dari Administrasi.',
   email: 'sulistyowatimunawaroh@gmail.com',
+  phone: '+62-822-3344-7474',
+  address: 'Probolinggo, East Java, Indonesia',
   github: 'https://github.com/sulisgogho',
   linkedin: 'https://linkedin.com/in/sulistyowati-munawaroh',
   instagram: 'https://instagram.com/sulisgogho123',
@@ -34,13 +37,13 @@ export const techStacks = [
 export const mainSkillsPills = [
   { name: 'Excel', icon: <FileSpreadsheet className="w-5 h-5 text-emerald-600" /> },
   { name: 'Data Mining', icon: <Database className="w-5 h-5 text-indigo-500" /> },
-  { name: 'React.js', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-5 h-5" /> },
-  { name: 'Python', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-5 h-5" /> },
-  { name: 'SQL', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" className="w-5 h-5" /> },
-  { name: 'Tableau', icon: <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" alt="Tableau" className="w-5 h-5 object-contain" /> },
-  { name: 'Node.js', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-5 h-5" /> },
-  { name: 'Docker', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" className="w-5 h-5" /> },
-  { name: 'Figma', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" className="w-5 h-5" /> },
+  { name: 'React.js', icon: <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" width={20} height={20} className="w-5 h-5" /> },
+  { name: 'Python', icon: <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width={20} height={20} className="w-5 h-5" /> },
+  { name: 'SQL', icon: <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" width={20} height={20} className="w-5 h-5" /> },
+  { name: 'Tableau', icon: <Image src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" alt="Tableau" width={20} height={20} className="w-5 h-5 object-contain" /> },
+  { name: 'Node.js', icon: <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" width={20} height={20} className="w-5 h-5" /> },
+  { name: 'Docker', icon: <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" width={20} height={20} className="w-5 h-5" /> },
+  { name: 'Figma', icon: <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" width={20} height={20} className="w-5 h-5" /> },
 ]
 
 export const experiences = [
@@ -124,7 +127,7 @@ export const certificates = [
   },
   {
     id: 2,
-    title: 'Microsoft Excel Data Analysis',
+    title: 'Microsoft Excel',
     issuer: 'Coursera',
     year: '2026',
     description: [
@@ -171,7 +174,7 @@ export const projects = [
   {
     id: 1,
     title: 'Sistem Pencatatan Keuangan Harian ',
-    category: 'Website',
+    category: 'Web App',
     shortDesc: 'Web application untuk pelacakan pengeluaran keuangan harian untuk single dan couple',
     fullDesc: 'Membangun aplikasi full-stack untuk melacak inventaris barang secara real-time dengan fitur notifikasi dan dashboard.',
     role: 'Fullstack Developer',
@@ -182,50 +185,10 @@ export const projects = [
   },
   {
     id: 2,
-    title: 'AdventureWorks Enterprise Control Tower & 10-Module Interactive Dashboard',
-    category: 'Data',
-    shortDesc: 'Dashboard analitik korporat terintegrasi berbasis React, FastAPI, dan Pandas untuk visualisasi data warehouse 10 pilar bisnis.',
-    fullDesc: `Membangun platform "Control Tower" berskala enterprise untuk menganalisis data warehouse AdventureWorks secara real-time melalui arsitektur decoupled (Frontend React.js & Backend FastAPI Python).
-
-Detail kompetensi teknis dan alur kerja yang diterapkan:
-
-• ETL Framework & Data Wrangling (Python & Pandas):
-Mengekstrak data dari berbagai tabel dimensi dan fakta (seperti FactInternetSales, DimCustomer, DimEmployee, dsb.). Membangun pipa pengolahan data tangguh menggunakan Pandas untuk pembersihan data, penanganan inkonsistensi header CSV secara dinamis, penanganan missing values, dan dynamic fallback mechanism jika terjadi kerusakan struktur data.
-
-• Multi-Dimensional Business Analytics (FastAPI & Python):
-Merancang dan mengimplementasikan 10 modul analitik backend yang melayani data agregasi kompleks lewat REST API, meliputi: Sales Performance, E-Commerce Retail (B2C), Logistics & Supply Chain, PPIC & Inventory, Customer Call Center, Market Research & CSAT, Corporate Finance Tower, Human Capital Performance, Global Sales & Territory, serta Marketing & Campaign Impact.
-
-• Advanced Data Visualization & Dashboarding (React & Recharts):
-Mengembangkan antarmuka dashboard interaktif (Dark Mode) modern menggunakan React.js dan Tailwind CSS. Memanfaatkan library Recharts untuk menyajikan visualisasi data multi-panel tingkat tinggi seperti Composed Charts (Bar & Line), Donut Charts pangsa pasar kontinental, Horizontal Bar Charts alokasi headcount, hingga Radar Charts matriks sentimen kepuasan pelanggan (CSAT).
-
-• Production Deployment (Vercel & Railway):
-Berhasil melakukan deployment terpisah untuk optimalisasi performa. Frontend React.js dideploy ke Vercel dengan penanganan SPA Routing (vercel.json rewrites), dan Backend FastAPI + Data Warehouse CSV dideploy ke Railway menggunakan arsitektur Web Service berbasis Procfile.`,
-    role: 'Data Analyst / Quantitative Analyst',
-    tags: ['Python', 'FastAPI', 'Pandas', 'React.js', 'Recharts', 'Data Warehouse', 'Data Visualization'],
-    documentUrl: 'https://drive.google.com/uc?export=download&id=1KtEjQtAfK2GVPGF308nOejAWOx2dBJwc', // Nanti bisa kamu ganti dengan link dokumentasi/CV barumu jika ada
-    documentType: 'pdf',
-    websiteUrl: 'https://adventure-works-silk.vercel.app/',
-    githubUrl: 'https://github.com/sulisgogho/AdventureWorks',
-    imageUrl: '/project/project7.png', // Sesuaikan dengan nama asset gambar/screenshot dashboard kamu
-  },
-
-  {
-    id: 3,
     title: 'Analyzing Emerging Skill Requirements and Technology Trends',
     category: 'Data',
     shortDesc: 'Dashboard interaktif berbasis Python dan SQLite untuk analisis tren ekosistem developer global.',
-    fullDesc: `Menganalisis ekosistem developer global menggunakan data Stack Overflow Survey, data web-scraping BeautifulSoup, dan simulasi API untuk mengidentifikasi pergeseran tren teknologi masa depan.
-
-Detail kompetensi teknis dan alur kerja yang dipelajari:
-
-• Data Collection & Wrangling (SQL & Python):
-Menggabungkan data survei CSV dengan data gaji eksternal hasil scraping, menangani missing values (Mode/Median), menghapus duplikasi data, serta menyaring data pencilan menggunakan metode Interquartile Range (IQR).
-
-• Exploratory Data Analysis (Python):
-Melakukan manipulasi string multi-value dan agregasi data menggunakan Pandas dan NumPy untuk memetakan tren bahasa pemrograman, database, infrastruktur cloud, hingga data demografi secara mendalam.
-
-• Visualisasi Data & Dashboarding (Plotly, Seaborn, & WordCloud):
-Membangun dashboard pemangku kepentingan interaktif dengan visualisasi multi-panel seperti Bubble Charts, Word Clouds, Treemaps, dan pemetaan geografis dinamis untuk menghasilkan insight bisnis yang actionable.`,
+    fullDesc: `Menganalisis ekosistem developer global menggunakan data Stack Overflow Survey, data web-scraping BeautifulSoup, dan simulasi API untuk mengidentifikasi pergeseran tren teknologi masa depan.\n\nDetail kompetensi teknis dan alur kerja yang dipelajari:\n\n• Data Collection & Wrangling (SQL & Python):\nMenggabungkan data survei CSV dengan data gaji eksternal hasil scraping, menangani missing values (Mode/Median), menghapus duplikasi data, serta menyaring data pencilan menggunakan metode Interquartile Range (IQR).\n\n• Exploratory Data Analysis (Python):\nMelakukan manipulasi string multi-value dan agregasi data menggunakan Pandas dan NumPy untuk memetakan tren bahasa pemrograman, database, infrastruktur cloud, hingga data demografi secara mendalam.\n\n• Visualisasi Data & Dashboarding (Plotly, Seaborn, & WordCloud):\nMembangun dashboard pemangku kepentingan interaktif dengan visualisasi multi-panel seperti Bubble Charts, Word Clouds, Treemaps, dan pemetaan geografis dinamis untuk menghasilkan insight bisnis yang actionable.`,
     role: 'Data Analyst / Quantitative Analyst',
     tags: ['Python', 'SQL', 'Pandas', 'BeautifulSoup', 'Plotly', 'Data Visualization'],
     documentUrl: 'https://drive.google.com/uc?export=download&id=1p5NZLzX5qTIP72Ps6SCA0RFLc0qxMd5j',
@@ -233,7 +196,7 @@ Membangun dashboard pemangku kepentingan interaktif dengan visualisasi multi-pan
     imageUrl: '/project/project1.png',
   },
   {
-    id: 4,
+    id: 3,
     title: 'Website Company Profile UD Cahaya Makmur',
     category: 'Website',
     shortDesc: 'Website company profile serta katalog UD Cahaya Makmur.',
@@ -245,7 +208,7 @@ Membangun dashboard pemangku kepentingan interaktif dengan visualisasi multi-pan
     imageUrl: '/project/project3.png',
   },
   {
-    id: 5,
+    id: 4,
     title: 'Bot Trading Momentum Candle',
     category: 'Trading',
     shortDesc: 'Bot trading otomatis dengan strategi Momentum Candle.',
@@ -258,7 +221,7 @@ Membangun dashboard pemangku kepentingan interaktif dengan visualisasi multi-pan
     documentType: 'pdf',
   },
   {
-    id: 6,
+    id: 5,
     title: 'Superstore Sales Analysis & Customer Segmentation Engine',
     category: 'Data',
     shortDesc: 'Model Machine Learning untuk Mengoptimalkan Strategi Pemasaran Menggunakan Python (RFM) & React Dashboard.',
@@ -270,7 +233,7 @@ Membangun dashboard pemangku kepentingan interaktif dengan visualisasi multi-pan
     imageUrl: '/project/project5.png',
   },
   {
-    id: 7,
+    id: 6,
     title: 'Game Ular Tangga Deeptalk',
     category: 'Web App',
     shortDesc: 'Game ular tangga untuk pasangan deeptalk',
@@ -281,7 +244,103 @@ Membangun dashboard pemangku kepentingan interaktif dengan visualisasi multi-pan
     githubUrl: 'https://github.com/sulisgogho/ular-tangga',
     imageUrl: '/project/project6.png',
   },
-]
+  {
+    id: 7,
+    title: 'Tangkas Hitung',
+    category: 'Web App',
+    shortDesc: 'Aplikasi permainan edukatif untuk melatih kecepatan dan akurasi aritmatika dasar.',
+    fullDesc: 'Membangun platform interaktif berbasis web untuk menguji kemampuan berhitung cepat pengguna dengan berbagai tingkat kesulitan, kalkulasi waktu presisi, dan sistem skor dinamis langsung di layar.',
+    role: 'Fullstack Developer',
+    tags: ['React', 'JavaScript', 'Tailwind CSS'],
+    websiteUrl: 'https://tangkas-hitung.vercel.app/',
+    githubUrl: '',
+    imageUrl: '/project/TangkasHitung.png',
+  },
+  {
+    id: 8,
+    title: 'Data Vault',
+    category: 'Web App',
+    shortDesc: 'Sistem arsitektur penyimpanan dan manajemen data terenkripsi.',
+    fullDesc: 'Mengembangkan arsitektur basis data yang aman dengan menerapkan validasi input tingkat lanjut dan manajemen sesi untuk melindungi data rahasia serta menyediakan antarmuka akses yang terkontrol.',
+    role: 'Fullstack Developer',
+    tags: ['PostgreSQL', 'Node.js', 'Python', 'Cryptography'],
+    websiteUrl: 'https://the-data-vault-eight.vercel.app/',
+    githubUrl: '',
+    imageUrl: '/project/the data vault.jfif',
+  },
+  {
+    id: 12,
+    title: 'Absensi Les',
+    category: 'Web App',
+    shortDesc: 'Sistem manajemen kehadiran digital terintegrasi untuk bimbingan belajar.',
+    fullDesc: 'Aplikasi berbasis web untuk melacak kehadiran siswa secara real-time. Sistem ini dilengkapi dengan fitur rekapitulasi otomatis bulanan dan dashboard pelaporan analitis untuk memudahkan pemantauan oleh tentor.',
+    role: 'Fullstack Developer',
+    tags: ['React', 'Express.js', 'MySQL', 'Tailwind', 'Chart.js'],
+    websiteUrl: 'https://absensi-les.vercel.app/',
+    githubUrl: '',
+    imageUrl: '/project/absensi-les.png',
+  },
+  {
+    id: 13,
+    title: 'Infly Network',
+    category: 'Web App',
+    shortDesc: 'Platform portal web dan layanan jaringan informasi terpadu.',
+    fullDesc: 'Membangun antarmuka digital yang responsif untuk layanan Infly Network. Berfokus pada optimasi SEO, performa muat situs yang cepat, dan pengalaman pengguna (UX) yang mulus di berbagai perangkat.',
+    role: 'Fullstack Developer',
+    tags: ['Next.js', 'Tailwind CSS', 'Supabase', 'Responsive Design'],
+    websiteUrl: 'https://infly-networks.vercel.app/',
+    githubUrl: '',
+    imageUrl: '/project/infly.png',
+  },
+  {
+    id: 11,
+    title: 'The Megablue Print',
+    category: 'Web App',
+    shortDesc: 'Sistem digitalisasi perancangan alur kerja dan standar operasional (SOP).',
+    fullDesc: 'Alat perancangan arsitektur operasional yang memungkinkan pengguna memvisualisasikan, mendokumentasikan, dan mengelola cetak biru strategi perusahaan maupun SOP secara terstruktur dan efisien.',
+    role: 'Fullstack Developer',
+    tags: ['React', 'Node.js', 'MongoDB'],
+    websiteUrl: 'https://the-mega-blueprint.vercel.app/',
+    githubUrl: '',
+    imageUrl: '/project/the mega blueprint.jfif',
+  },
+  {
+    id: 10,
+    title: 'The Grand Archieve',
+    category: 'Web App',
+    shortDesc: 'Repositori digital komprehensif untuk pengarsipan dokumen.',
+    fullDesc: 'Sistem manajemen dokumen arsip (Document Management System) berskala menengah dengan kemampuan kategorisasi dinamis dan pencarian metadata untuk mengelola ribuan rekaman digital tanpa kehilangan struktur referensi.',
+    role: 'Fullstack Developer',
+    tags: ['React', 'PostgreSQL', 'Express.js'],
+    websiteUrl: 'https://the-grand-archieve.vercel.app/',
+    githubUrl: '',
+    imageUrl: '/project/the grand archieve.jfif',
+  },
+  {
+    id: 9,
+    title: 'Test Koran',
+    category: 'Web App',
+    shortDesc: 'Simulasi psikotes Kraepelin/Pauli berbasis web untuk latihan rekrutmen.',
+    fullDesc: 'Mendigitalisasi tes konsentrasi angka (tes koran) menjadi aplikasi web dinamis. Sistem mampu menghitung matriks kecepatan, tingkat akurasi, dan menghasilkan grafik ketahanan kerja pengguna secara instan begitu sesi tes usai.',
+    role: 'Fullstack Developer',
+    tags: ['React', 'JavaScript', 'Recharts'],
+    websiteUrl: 'https://tes-koran-rho.vercel.app/',
+    githubUrl: '',
+    imageUrl: '/project/teskoran.png',
+  },
+  {
+    id: 14,
+    title: 'Web Probolinggo',
+    category: 'Website',
+    shortDesc: 'Portal informasi digital terintegrasi untuk mempromosikan pariwisata dan potensi daerah Probolinggo.',
+    fullDesc: 'Membangun platform website responsif yang menyajikan informasi terkini, destinasi wisata, dan UMKM lokal di Probolinggo. Mengintegrasikan desain modern dan sistem manajemen konten untuk memudahkan pembaruan informasi daerah secara berkala.',
+    role: 'Fullstack Developer',
+    tags: ['React', 'Next.js', 'Tailwind CSS', 'CMS'],
+    websiteUrl: 'https://kabpro-delta.vercel.app/',
+    githubUrl: '',
+    imageUrl: '/project/kabpro.png',
+  }
+].sort((a, b) => b.id - a.id);
 
 export const blogPosts = [
   {

@@ -15,12 +15,14 @@ export default function AnimatedSection({ children, className = '', delay = 0 })
       { threshold: 0.1 }
     )
 
-    if (domRef.current) {
-      observer.observe(domRef.current)
+    const currentRef = domRef.current;
+
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     return () => {
-      if (domRef.current) observer.unobserve(domRef.current)
+      if (currentRef) observer.unobserve(currentRef)
     }
   }, [])
 
