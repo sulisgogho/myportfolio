@@ -258,7 +258,7 @@ export const projects = [
   },
   {
     id: 8,
-    title: 'Data Vault',
+    title: 'The Data Vault',
     category: 'Web App',
     shortDesc: 'Sistem arsitektur penyimpanan dan manajemen data terenkripsi.',
     fullDesc: 'Mengembangkan arsitektur basis data yang aman dengan menerapkan validasi input tingkat lanjut dan manajemen sesi untuk melindungi data rahasia serta menyediakan antarmuka akses yang terkontrol.',
@@ -266,7 +266,7 @@ export const projects = [
     tags: ['PostgreSQL', 'Node.js', 'Python', 'Cryptography'],
     websiteUrl: 'https://the-data-vault-eight.vercel.app/',
     githubUrl: '',
-    imageUrl: '/project/the data vault.jfif',
+    imageUrl: '/project/the-data-vault.jpg',
   },
   {
     id: 12,
@@ -302,7 +302,7 @@ export const projects = [
     tags: ['React', 'Node.js', 'MongoDB'],
     websiteUrl: 'https://the-mega-blueprint.vercel.app/',
     githubUrl: '',
-    imageUrl: '/project/the mega blueprint.jfif',
+    imageUrl: '/project/the-mega-blueprint.jpg',
   },
   {
     id: 10,
@@ -314,7 +314,7 @@ export const projects = [
     tags: ['React', 'PostgreSQL', 'Express.js'],
     websiteUrl: 'https://the-grand-archieve.vercel.app/',
     githubUrl: '',
-    imageUrl: '/project/the grand archieve.jfif',
+    imageUrl: '/project/the-grand-archieve.jpg',
   },
   {
     id: 9,
