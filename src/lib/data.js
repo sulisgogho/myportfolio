@@ -182,6 +182,13 @@ export const projects = [
     websiteUrl: 'https://catetduit.vercel.app/login',
     githubUrl: 'https://github.com/sulisgogho/CatetDuit',
     imageUrl: '/project/project2.png',
+    projectImages: [
+      '/project/project2.png',
+      '/project/project2.png',
+      '/project/project2.png',
+      '/project/project2.png',
+      '/project/project2.png',
+    ],
   },
   {
     id: 2,
@@ -194,6 +201,13 @@ export const projects = [
     documentUrl: 'https://drive.google.com/uc?export=download&id=1p5NZLzX5qTIP72Ps6SCA0RFLc0qxMd5j',
     documentType: 'pdf',
     imageUrl: '/project/project1.png',
+    projectImages: [
+      '/project/project1.png',
+      '/project/project1.png',
+      '/project/project1.png',
+      '/project/project1.png',
+      '/project/project1.png',
+    ],
   },
   {
     id: 3,
@@ -206,6 +220,13 @@ export const projects = [
     websiteUrl: 'https://www.udcahayamakmur.id/',
     githubUrl: 'https://github.com/sulisgogho/cahaya-makmur',
     imageUrl: '/project/project3.png',
+    projectImages: [
+      '/project/project3.png',
+      '/project/project3.png',
+      '/project/project3.png',
+      '/project/project3.png',
+      '/project/project3.png',
+    ],
   },
   {
     id: 4,
@@ -219,6 +240,13 @@ export const projects = [
     imageUrl: '/project/project4.png',
     documentUrl: 'https://drive.google.com/uc?export=download&id=1x43LhPeDvp0Dd5mqykYSc1iLm5jU8dHe',
     documentType: 'pdf',
+    projectImages: [
+      '/project/project4.png',
+      '/project/project4.png',
+      '/project/project4.png',
+      '/project/project4.png',
+      '/project/project4.png',
+    ],
   },
   {
     id: 5,
@@ -231,6 +259,13 @@ export const projects = [
     websiteUrl: 'https://superstore-analysis-phi.vercel.app/',
     githubUrl: 'https://github.com/sulisgogho/superstore-analysis',
     imageUrl: '/project/project5.png',
+    projectImages: [
+      '/project/project5.png',
+      '/project/project5.png',
+      '/project/project5.png',
+      '/project/project5.png',
+      '/project/project5.png',
+    ],
   },
   {
     id: 6,
@@ -243,6 +278,13 @@ export const projects = [
     websiteUrl: 'https://ulartanggacinta.vercel.app/',
     githubUrl: 'https://github.com/sulisgogho/ular-tangga',
     imageUrl: '/project/project6.png',
+    projectImages: [
+      '/project/project6.png',
+      '/project/project6.png',
+      '/project/project6.png',
+      '/project/project6.png',
+      '/project/project6.png',
+    ],
   },
   {
     id: 7,
@@ -255,6 +297,13 @@ export const projects = [
     websiteUrl: 'https://tangkas-hitung.vercel.app/',
     githubUrl: '',
     imageUrl: '/project/TangkasHitung.png',
+    projectImages: [
+      '/project/TangkasHitung.png',
+      '/project/TangkasHitung.png',
+      '/project/TangkasHitung.png',
+      '/project/TangkasHitung.png',
+      '/project/TangkasHitung.png',
+    ],
   },
   {
     id: 8,
@@ -267,6 +316,13 @@ export const projects = [
     websiteUrl: 'https://the-data-vault-eight.vercel.app/',
     githubUrl: '',
     imageUrl: '/project/the-data-vault.jpg',
+    projectImages: [
+      '/project/the-data-vault.jpg',
+      '/project/the-data-vault.jpg',
+      '/project/the-data-vault.jpg',
+      '/project/the-data-vault.jpg',
+      '/project/the-data-vault.jpg',
+    ],
   },
   {
     id: 12,
@@ -279,6 +335,13 @@ export const projects = [
     websiteUrl: 'https://absensi-les.vercel.app/',
     githubUrl: '',
     imageUrl: '/project/absensi-les.png',
+    projectImages: [
+      '/project/absensi-les.png',
+      '/project/absensi-les.png',
+      '/project/absensi-les.png',
+      '/project/absensi-les.png',
+      '/project/absensi-les.png',
+    ],
   },
   {
     id: 13,
@@ -291,6 +354,13 @@ export const projects = [
     websiteUrl: 'https://infly-networks.vercel.app/',
     githubUrl: '',
     imageUrl: '/project/infly.png',
+    projectImages: [
+      '/project/infly.png',
+      '/project/infly.png',
+      '/project/infly.png',
+      '/project/infly.png',
+      '/project/infly.png',
+    ],
   },
   {
     id: 11,
@@ -303,6 +373,13 @@ export const projects = [
     websiteUrl: 'https://the-mega-blueprint.vercel.app/',
     githubUrl: '',
     imageUrl: '/project/the-mega-blueprint.jpg',
+    projectImages: [
+      '/project/the-mega-blueprint.jpg',
+      '/project/the-mega-blueprint.jpg',
+      '/project/the-mega-blueprint.jpg',
+      '/project/the-mega-blueprint.jpg',
+      '/project/the-mega-blueprint.jpg',
+    ],
   },
   {
     id: 10,
@@ -315,6 +392,13 @@ export const projects = [
     websiteUrl: 'https://the-grand-archieve.vercel.app/',
     githubUrl: '',
     imageUrl: '/project/the-grand-archieve.jpg',
+    projectImages: [
+      '/project/the-grand-archieve.jpg',
+      '/project/the-grand-archieve.jpg',
+      '/project/the-grand-archieve.jpg',
+      '/project/the-grand-archieve.jpg',
+      '/project/the-grand-archieve.jpg',
+    ],
   },
   {
     id: 9,
@@ -327,6 +411,13 @@ export const projects = [
     websiteUrl: 'https://tes-koran-rho.vercel.app/',
     githubUrl: '',
     imageUrl: '/project/teskoran.png',
+    projectImages: [
+      '/project/teskoran.png',
+      '/project/teskoran.png',
+      '/project/teskoran.png',
+      '/project/teskoran.png',
+      '/project/teskoran.png',
+    ],
   },
   {
     id: 14,
@@ -339,6 +430,13 @@ export const projects = [
     websiteUrl: 'https://kabpro-delta.vercel.app/',
     githubUrl: '',
     imageUrl: '/project/kabpro.png',
+    projectImages: [
+      '/project/kabpro.png',
+      '/project/kabpro.png',
+      '/project/kabpro.png',
+      '/project/kabpro.png',
+      '/project/kabpro.png',
+    ],
   }
 ].sort((a, b) => b.id - a.id);
 

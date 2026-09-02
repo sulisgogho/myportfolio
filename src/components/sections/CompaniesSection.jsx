@@ -83,31 +83,31 @@ export default function CompaniesSection() {
                   </div>
 
                   {/* Contact Info area */}
-                  <div className="flex items-center gap-8 relative z-10">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 relative z-10 w-full">
                     {/* Avatar with concentric circles */}
-                    <div className="relative w-28 h-28 flex items-center justify-center">
+                    <div className="relative w-24 h-24 flex-shrink-0 flex items-center justify-center">
                       <div className="absolute inset-0 border border-brand-green/20 rounded-full"></div>
                       <div className="absolute inset-3 border border-brand-green/30 rounded-full"></div>
-                      <div className="w-14 h-14 rounded-full overflow-hidden relative z-10 border-2 border-white bg-zinc-100">
+                      <div className="w-12 h-12 rounded-full overflow-hidden relative z-10 border-2 border-white bg-zinc-100">
                         <Image src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=150" alt="Avatar" fill sizes="(max-width: 768px) 100vw, 150px" className="object-cover" />
                       </div>
-                      <div className="absolute bottom-7 right-7 w-2.5 h-2.5 bg-brand-green rounded-full z-20 border-[1.5px] border-white"></div>
+                      <div className="absolute bottom-6 right-6 w-2.5 h-2.5 bg-brand-green rounded-full z-20 border-[1.5px] border-white"></div>
                     </div>
 
-                    <div className="flex flex-col gap-3 font-mono text-sm md:text-base text-zinc-600">
-                      <div className="flex items-center gap-3">
-                        <FacebookIcon className="w-5 h-5 text-zinc-800 fill-zinc-800" />
-                        <span>sulis.gogho</span>
+                    <div className="flex flex-col gap-2.5 font-mono text-sm text-zinc-600 min-w-0 flex-1">
+                      <div className="flex items-center gap-2.5">
+                        <FacebookIcon className="w-4 h-4 flex-shrink-0 text-zinc-800 fill-zinc-800" />
+                        <span className="truncate">sulis.gogho</span>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <Phone className="w-5 h-5 text-zinc-800 fill-zinc-800" />
-                        <a href="https://wa.me/6282233447474" target="_blank" rel="noreferrer" className="hover:text-brand-green transition-colors">+62-822-3344-7474</a>
+                      <div className="flex items-center gap-2.5">
+                        <Phone className="w-4 h-4 flex-shrink-0 text-zinc-800 fill-zinc-800" />
+                        <a href="https://wa.me/6282233447474" target="_blank" rel="noreferrer" className="hover:text-brand-green transition-colors whitespace-nowrap">+62-822-3344-7474</a>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-zinc-800 text-white flex items-center justify-center rounded-sm">
-                          <Mail className="w-3 h-3" />
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-4 h-4 flex-shrink-0 bg-zinc-800 text-white flex items-center justify-center rounded-sm">
+                          <Mail className="w-2.5 h-2.5" />
                         </div>
-                        <a href="mailto:sulistyowatimunawaroh@gmail.com" className="hover:text-brand-green transition-colors">sulistyowatimunawaroh@gmail.com</a>
+                        <a href="mailto:sulistyowatimunawaroh@gmail.com" className="hover:text-brand-green transition-colors truncate min-w-0 text-xs sm:text-sm">sulistyowatimunawaroh@gmail.com</a>
                       </div>
                     </div>
                   </div>
