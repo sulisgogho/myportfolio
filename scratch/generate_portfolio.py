@@ -1,0 +1,565 @@
+import json
+import re
+import os
+
+# Create the portfolio.ts string manually since we have all the data.
+
+portfolio_ts = """import { PortfolioData } from '@/types';
+
+export const portfolioData: PortfolioData = {
+    personal: {
+        name: 'Sulistyowati Munawaroh',
+        title: 'Fullstack Developer & Data Analyst',
+        subtitle: 'Membangun Sistem, Menganalisis Data, Mengelola Risiko, & Mengoptimalkan Proses.',
+        bio: 'Saya adalah seorang profesional multidisiplin yang menggabungkan logika pemrograman dari Software Engineering, wawasan berbasis angka dari Data Analysis, manajemen risiko dari Trading, dan efisiensi operasional dari Administrasi.',
+        avatar: '/avatar.jpg',
+        location: 'Probolinggo, East Java, Indonesia',
+        email: 'sulistyowatimunawaroh@gmail.com',
+        phone: '+62-822-3344-7474',
+        website: '',
+        socialLinks: [
+            { platform: 'GitHub', url: 'https://github.com/sulisgogho', icon: 'github' },
+            { platform: 'LinkedIn', url: 'https://linkedin.com/in/sulistyowati-munawaroh', icon: 'linkedin' },
+            { platform: 'Instagram', url: 'https://instagram.com/sulisgogho123', icon: 'instagram' }
+        ],
+        languages: [
+            { name: 'Indonesian', level: 'Native' },
+            { name: 'English', level: 'Professional' }
+        ]
+    },
+    projects: [
+        {
+            id: 'proj-1',
+            slug: 'sistem-pencatatan-keuangan',
+            title: 'Sistem Pencatatan Keuangan Harian',
+            description: 'Web application untuk pelacakan pengeluaran keuangan harian untuk single dan couple',
+            longDescription: 'Membangun aplikasi full-stack untuk melacak inventaris barang secara real-time dengan fitur notifikasi dan dashboard.',
+            image: '/project/project2.png',
+            techStack: ['React', 'Node.js', 'Tailwind'],
+            tools: ['VS Code', 'Git'],
+            status: 'completed',
+            demoUrl: 'https://catetduit.vercel.app/login',
+            repoUrl: 'https://github.com/sulisgogho/CatetDuit',
+            startDate: '2023-01-01',
+            category: 'Web App',
+            role: 'Fullstack Developer',
+            galleryImages: [
+                '/project/project2.png',
+                '/project/project2.png',
+                '/project/project2.png',
+                '/project/project2.png',
+                '/project/project2.png',
+            ]
+        },
+        {
+            id: 'proj-2',
+            slug: 'emerging-skill-trends',
+            title: 'Analyzing Emerging Skill Requirements and Technology Trends',
+            description: 'Dashboard interaktif berbasis Python dan SQLite untuk analisis tren ekosistem developer global.',
+            longDescription: `Menganalisis ekosistem developer global menggunakan data Stack Overflow Survey, data web-scraping BeautifulSoup, dan simulasi API untuk mengidentifikasi pergeseran tren teknologi masa depan.
+Detail kompetensi teknis dan alur kerja yang dipelajari:
+• Data Collection & Wrangling (SQL & Python): Menggabungkan data survei CSV dengan data gaji eksternal hasil scraping, menangani missing values (Mode/Median), menghapus duplikasi data, serta menyaring data pencilan menggunakan metode Interquartile Range (IQR).
+• Exploratory Data Analysis (Python): Melakukan manipulasi string multi-value dan agregasi data menggunakan Pandas dan NumPy untuk memetakan tren bahasa pemrograman, database, infrastruktur cloud, hingga data demografi secara mendalam.
+• Visualisasi Data & Dashboarding (Plotly, Seaborn, & WordCloud): Membangun dashboard pemangku kepentingan interaktif dengan visualisasi multi-panel seperti Bubble Charts, Word Clouds, Treemaps, dan pemetaan geografis dinamis untuk menghasilkan insight bisnis yang actionable.`,
+            image: '/project/project1.png',
+            techStack: ['Python', 'SQL', 'Pandas', 'BeautifulSoup', 'Plotly', 'Data Visualization'],
+            tools: ['Jupyter', 'SQLite'],
+            status: 'completed',
+            demoUrl: 'https://drive.google.com/uc?export=download&id=1p5NZLzX5qTIP72Ps6SCA0RFLc0qxMd5j',
+            startDate: '2023-01-01',
+            category: 'Data',
+            role: 'Data Analyst / Quantitative Analyst',
+            galleryImages: [
+                '/project/project1.png',
+                '/project/project1.png',
+                '/project/project1.png',
+                '/project/project1.png',
+                '/project/project1.png',
+            ]
+        },
+        {
+            id: 'proj-3',
+            slug: 'cahaya-makmur-profile',
+            title: 'Website Company Profile UD Cahaya Makmur',
+            description: 'Website company profile serta katalog UD Cahaya Makmur.',
+            longDescription: 'Website company profile untuk branding dan memudahkan calon customer mengetahui katalog penjualan dari UD Cahaya Makmur.',
+            image: '/project/project3.png',
+            techStack: ['React', 'Node.js', 'Tailwind'],
+            tools: ['VS Code'],
+            status: 'completed',
+            demoUrl: 'https://www.udcahayamakmur.id/',
+            repoUrl: 'https://github.com/sulisgogho/cahaya-makmur',
+            startDate: '2023-01-01',
+            category: 'Website',
+            role: 'Fullstack Developer',
+            galleryImages: [
+                '/project/project3.png',
+                '/project/project3.png',
+                '/project/project3.png',
+                '/project/project3.png',
+                '/project/project3.png',
+            ]
+        },
+        {
+            id: 'proj-4',
+            slug: 'bot-trading-momentum',
+            title: 'Bot Trading Momentum Candle',
+            description: 'Bot trading otomatis dengan strategi Momentum Candle.',
+            longDescription: 'Mengembangkan bot trading otomatis menggunakan MQL5 yang mengeksekusi strategi di pasar Forex XAUUSD.',
+            image: '/project/project4.png',
+            techStack: ['MQ5', 'Momentum Candle', 'Forex Trading'],
+            tools: ['MetaTrader 5'],
+            status: 'completed',
+            demoUrl: 'https://drive.google.com/uc?export=download&id=1x43LhPeDvp0Dd5mqykYSc1iLm5jU8dHe',
+            repoUrl: 'https://github.com/sulisgogho/bot-trading-momentum',
+            startDate: '2023-01-01',
+            category: 'Trading',
+            role: 'Quant Developer',
+            galleryImages: [
+                '/project/project4.png',
+                '/project/project4.png',
+                '/project/project4.png',
+                '/project/project4.png',
+                '/project/project4.png',
+            ]
+        },
+        {
+            id: 'proj-5',
+            slug: 'superstore-sales-analysis',
+            title: 'Superstore Sales Analysis & Customer Segmentation Engine',
+            description: 'Model Machine Learning untuk Mengoptimalkan Strategi Pemasaran Menggunakan Python (RFM) & React Dashboard.',
+            longDescription: 'Saya mengembangkan sistem analisis Full-Stack menggunakan Python (Pandas) untuk pemrosesan data otomatis dan algoritma RFM Segmentation, yang kemudian divisualisasikan melalui dashboard interaktif React JS.',
+            image: '/project/project5.png',
+            techStack: ['Python Flask', 'Pandas', 'React', 'Rechart'],
+            tools: ['VS Code', 'Jupyter'],
+            status: 'completed',
+            demoUrl: 'https://superstore-analysis-phi.vercel.app/',
+            repoUrl: 'https://github.com/sulisgogho/superstore-analysis',
+            startDate: '2023-01-01',
+            category: 'Data',
+            role: 'Data Analyst',
+            galleryImages: [
+                '/project/project5.png',
+                '/project/project5.png',
+                '/project/project5.png',
+                '/project/project5.png',
+                '/project/project5.png',
+            ]
+        },
+        {
+            id: 'proj-6',
+            slug: 'game-ular-tangga-deeptalk',
+            title: 'Game Ular Tangga Deeptalk',
+            description: 'Game ular tangga untuk pasangan deeptalk',
+            longDescription: 'Game ular tangga untuk pasangan deeptalk',
+            image: '/project/project6.png',
+            techStack: ['React', 'Node.js', 'Tailwind'],
+            tools: ['VS Code'],
+            status: 'completed',
+            demoUrl: 'https://ulartanggacinta.vercel.app/',
+            repoUrl: 'https://github.com/sulisgogho/ular-tangga',
+            startDate: '2023-01-01',
+            category: 'Web App',
+            role: 'Fullstack Developer',
+            galleryImages: [
+                '/project/project6.png',
+                '/project/project6.png',
+                '/project/project6.png',
+                '/project/project6.png',
+                '/project/project6.png',
+            ]
+        },
+        {
+            id: 'proj-7',
+            slug: 'tangkas-hitung',
+            title: 'Tangkas Hitung',
+            description: 'Aplikasi permainan edukatif untuk melatih kecepatan dan akurasi aritmatika dasar.',
+            longDescription: 'Membangun platform interaktif berbasis web untuk menguji kemampuan berhitung cepat pengguna dengan berbagai tingkat kesulitan, kalkulasi waktu presisi, dan sistem skor dinamis langsung di layar.',
+            image: '/project/TangkasHitung.png',
+            techStack: ['React', 'JavaScript', 'Tailwind CSS'],
+            tools: ['VS Code'],
+            status: 'completed',
+            demoUrl: 'https://tangkas-hitung.vercel.app/',
+            startDate: '2023-01-01',
+            category: 'Web App',
+            role: 'Fullstack Developer',
+            galleryImages: [
+                '/project/TangkasHitung.png',
+                '/project/TangkasHitung.png',
+                '/project/TangkasHitung.png',
+                '/project/TangkasHitung.png',
+                '/project/TangkasHitung.png',
+            ]
+        },
+        {
+            id: 'proj-8',
+            slug: 'the-data-vault',
+            title: 'The Data Vault',
+            description: 'Sistem arsitektur penyimpanan dan manajemen data terenkripsi.',
+            longDescription: 'Mengembangkan arsitektur basis data yang aman dengan menerapkan validasi input tingkat lanjut dan manajemen sesi untuk melindungi data rahasia serta menyediakan antarmuka akses yang terkontrol.',
+            image: '/project/the-data-vault.jpg',
+            techStack: ['PostgreSQL', 'Node.js', 'Python', 'Cryptography'],
+            tools: ['VS Code'],
+            status: 'completed',
+            demoUrl: 'https://the-data-vault-eight.vercel.app/',
+            startDate: '2023-01-01',
+            category: 'Web App',
+            role: 'Fullstack Developer',
+            galleryImages: [
+                '/project/the-data-vault.jpg',
+                '/project/the-data-vault.jpg',
+                '/project/the-data-vault.jpg',
+                '/project/the-data-vault.jpg',
+                '/project/the-data-vault.jpg',
+            ]
+        },
+        {
+            id: 'proj-12',
+            slug: 'absensi-les',
+            title: 'Absensi Les',
+            description: 'Sistem manajemen kehadiran digital terintegrasi untuk bimbingan belajar.',
+            longDescription: 'Aplikasi berbasis web untuk melacak kehadiran siswa secara real-time. Sistem ini dilengkapi dengan fitur rekapitulasi otomatis bulanan dan dashboard pelaporan analitis untuk memudahkan pemantauan oleh tentor.',
+            image: '/project/absensi-les.png',
+            techStack: ['React', 'Express.js', 'MySQL', 'Tailwind', 'Chart.js'],
+            tools: ['VS Code'],
+            status: 'completed',
+            demoUrl: 'https://absensi-les.vercel.app/',
+            startDate: '2023-01-01',
+            category: 'Web App',
+            role: 'Fullstack Developer',
+            galleryImages: [
+                '/project/absensi-les.png',
+                '/project/absensi-les.png',
+                '/project/absensi-les.png',
+                '/project/absensi-les.png',
+                '/project/absensi-les.png',
+            ]
+        },
+        {
+            id: 'proj-13',
+            slug: 'infly-network',
+            title: 'Infly Network',
+            description: 'Platform portal web dan layanan jaringan informasi terpadu.',
+            longDescription: 'Membangun antarmuka digital yang responsif untuk layanan Infly Network. Berfokus pada optimasi SEO, performa muat situs yang cepat, dan pengalaman pengguna (UX) yang mulus di berbagai perangkat.',
+            image: '/project/infly.png',
+            techStack: ['Next.js', 'Tailwind CSS', 'Supabase', 'Responsive Design'],
+            tools: ['VS Code'],
+            status: 'completed',
+            demoUrl: 'https://infly-networks.vercel.app/',
+            startDate: '2023-01-01',
+            category: 'Web App',
+            role: 'Fullstack Developer',
+            galleryImages: [
+                '/project/infly.png',
+                '/project/infly.png',
+                '/project/infly.png',
+                '/project/infly.png',
+                '/project/infly.png',
+            ]
+        },
+        {
+            id: 'proj-11',
+            slug: 'the-megablue-print',
+            title: 'The Megablue Print',
+            description: 'Sistem digitalisasi perancangan alur kerja dan standar operasional (SOP).',
+            longDescription: 'Alat perancangan arsitektur operasional yang memungkinkan pengguna memvisualisasikan, mendokumentasikan, dan mengelola cetak biru strategi perusahaan maupun SOP secara terstruktur dan efisien.',
+            image: '/project/the-mega-blueprint.jpg',
+            techStack: ['React', 'Node.js', 'MongoDB'],
+            tools: ['VS Code'],
+            status: 'completed',
+            demoUrl: 'https://the-mega-blueprint.vercel.app/',
+            startDate: '2023-01-01',
+            category: 'Web App',
+            role: 'Fullstack Developer',
+            galleryImages: [
+                '/project/the-mega-blueprint.jpg',
+                '/project/the-mega-blueprint.jpg',
+                '/project/the-mega-blueprint.jpg',
+                '/project/the-mega-blueprint.jpg',
+                '/project/the-mega-blueprint.jpg',
+            ]
+        },
+        {
+            id: 'proj-10',
+            slug: 'the-grand-archieve',
+            title: 'The Grand Archieve',
+            description: 'Repositori digital komprehensif untuk pengarsipan dokumen.',
+            longDescription: 'Sistem manajemen dokumen arsip (Document Management System) berskala menengah dengan kemampuan kategorisasi dinamis dan pencarian metadata untuk mengelola ribuan rekaman digital tanpa kehilangan struktur referensi.',
+            image: '/project/the-grand-archieve.jpg',
+            techStack: ['React', 'PostgreSQL', 'Express.js'],
+            tools: ['VS Code'],
+            status: 'completed',
+            demoUrl: 'https://the-grand-archieve.vercel.app/',
+            startDate: '2023-01-01',
+            category: 'Web App',
+            role: 'Fullstack Developer',
+            galleryImages: [
+                '/project/the-grand-archieve.jpg',
+                '/project/the-grand-archieve.jpg',
+                '/project/the-grand-archieve.jpg',
+                '/project/the-grand-archieve.jpg',
+                '/project/the-grand-archieve.jpg',
+            ]
+        },
+        {
+            id: 'proj-9',
+            slug: 'test-koran',
+            title: 'Test Koran',
+            description: 'Simulasi psikotes Kraepelin/Pauli berbasis web untuk latihan rekrutmen.',
+            longDescription: 'Mendigitalisasi tes konsentrasi angka (tes koran) menjadi aplikasi web dinamis. Sistem mampu menghitung matriks kecepatan, tingkat akurasi, dan menghasilkan grafik ketahanan kerja pengguna secara instan begitu sesi tes usai.',
+            image: '/project/teskoran.png',
+            techStack: ['React', 'JavaScript', 'Recharts'],
+            tools: ['VS Code'],
+            status: 'completed',
+            demoUrl: 'https://tes-koran-rho.vercel.app/',
+            startDate: '2023-01-01',
+            category: 'Web App',
+            role: 'Fullstack Developer',
+            galleryImages: [
+                '/project/teskoran.png',
+                '/project/teskoran.png',
+                '/project/teskoran.png',
+                '/project/teskoran.png',
+                '/project/teskoran.png',
+            ]
+        },
+        {
+            id: 'proj-14',
+            slug: 'web-probolinggo',
+            title: 'Web Probolinggo',
+            description: 'Portal informasi digital terintegrasi untuk mempromosikan pariwisata dan potensi daerah Probolinggo.',
+            longDescription: 'Membangun platform website responsif yang menyajikan informasi terkini, destinasi wisata, dan UMKM lokal di Probolinggo. Mengintegrasikan desain modern dan sistem manajemen konten untuk memudahkan pembaruan informasi daerah secara berkala.',
+            image: '/project/kabpro.png',
+            techStack: ['React', 'Next.js', 'Tailwind CSS', 'CMS'],
+            tools: ['VS Code'],
+            status: 'completed',
+            demoUrl: 'https://kabpro-delta.vercel.app/',
+            startDate: '2023-01-01',
+            category: 'Website',
+            role: 'Fullstack Developer',
+            galleryImages: [
+                '/project/kabpro.png',
+                '/project/kabpro.png',
+                '/project/kabpro.png',
+                '/project/kabpro.png',
+                '/project/kabpro.png',
+            ]
+        }
+    ],
+    experiences: [
+        {
+            id: 'exp-1',
+            company: 'PT Global Jet Express (J&T Express)',
+            position: 'Daily Worker Staff Processing',
+            description: 'Mengelola akurasi data paket logistik inbound/outbound serta mengoptimalkan pengolahan data distribusi harian menggunakan fungsi Excel tingkat lanjut.\\n\\nBertanggung jawab memastikan sinkronisasi data logistik secara real-time antara pemindaian fisik dan database pusat menggunakan sistem logistik terintegrasi.',
+            skills: ['Excel', 'Data Processing', 'Logistics'],
+            startDate: '2026-01-01',
+            isOngoing: true,
+            location: 'Gresik, Indonesia',
+            type: 'contract',
+            responsibilities: [
+                'Sinkronisasi Data: Mengelola akurasi data paket inbound dan outbound untuk memastikan konsistensi data pada sistem logistik pusat.',
+                'Analisis KPI Operasional: Memantau dan menganalisis laporan KPI operasional, termasuk mengevaluasi tingkat miss-route (salah rute) dan efisiensi distribusi di berbagai drop point.',
+                'Quality Control: Melakukan validasi berkala pada status pengiriman dan inspeksi QC untuk memastikan integritas paket serta konsistensi data di dalam sistem.',
+                'Optimasi Laporan: Mengoptimalkan pemrosesan data distribusi harian menggunakan fungsi Advanced Excel untuk menghasilkan laporan analitis yang mendukung pengambilan keputusan operasional gudang.'
+            ]
+        },
+        {
+            id: 'exp-2',
+            company: 'PT Federal International Finance (FIF Group)',
+            position: 'Account Officer',
+            description: 'Melakukan verifikasi dokumen pelanggan, manajemen basis data laporan harian, serta pemeliharaan arsip administrasi perusahaan.\\n\\nBertanggung jawab atas validitas data pengajuan dan akurasi pelaporan administrasi harian konsumen.',
+            skills: ['Data Entry', 'Verification', 'Archiving'],
+            startDate: '2025-03-01',
+            endDate: '2025-08-01',
+            isOngoing: false,
+            location: 'Indonesia',
+            type: 'contract',
+            responsibilities: [
+                'Verifikasi Dokumen: Memeriksa dan memvalidasi berkas dan dokumen pelanggan untuk memastikan seluruh data yang diajukan akurat, valid, dan lengkap sesuai prosedur.',
+                'Entri Data & Pelaporan: Menginput data lapangan ke dalam basis data (database) perusahaan secara terstruktur untuk penyusunan pelaporan harian.',
+                'Manajemen Arsip: Mengelola rekam medis/catatan pelanggan serta menjaga file administratif tetap terorganisir dan up-to-date.'
+            ]
+        },
+        {
+            id: 'exp-3',
+            company: 'BEM Fakultas Teknik',
+            position: 'Ketua Divisi Riset dan Teknologi',
+            description: 'Memimpin divisi yang bergerak di bidang pengembangan riset dan implementasi teknologi di lingkungan organisasi mahasiswa Fakultas Teknik.',
+            skills: ['Leadership', 'Event Management', 'Tech Strategy'],
+            startDate: '2022-09-01',
+            endDate: '2023-08-01',
+            isOngoing: false,
+            location: 'Jember, Indonesia',
+            type: 'volunteer',
+            responsibilities: [
+                'Pengembang Workshop: Memimpin pelaksanaan berbagai workshop berbasis teknologi untuk meningkatkan kompetensi digital mahasiswa.',
+                'Manajemen Informasi: Bertanggung jawab penuh dalam mengelola sistem informasi digital fakultas serta memastikan aksesibilitas data berjalan dengan baik.',
+                'Administrasi Organisasi: Mengelola seluruh dokumentasi, pencatatan, dan pelaporan berkala dari aktivitas organisasi.'
+            ]
+        },
+        {
+            id: 'exp-4',
+            company: 'Relawan TIK Jember',
+            position: 'Pengurus Divisi Sumber Daya Manusia',
+            description: 'Memberikan edukasi literasi digital kepada lebih dari 1.000 peserta dan melakukan sosialisasi teknologi ke berbagai instansi publik.',
+            skills: ['Public Speaking', 'Digital Literacy', 'Event Organizing'],
+            startDate: '2022-07-01',
+            endDate: '2025-02-01',
+            isOngoing: false,
+            location: 'Jember, Indonesia',
+            type: 'volunteer',
+            responsibilities: [
+                'Edukasi Masif: Berhasil menyampaikan pelatihan dan edukasi literasi digital kepada lebih dari 1.000 peserta dari berbagai latar belakang.',
+                'Sosialisasi Teknologi: Menyelenggarakan program sosialisasi teknologi dan penjangkauan eksternal untuk sekolah-sekolah serta lembaga publik.'
+            ]
+        }
+    ],
+    education: [
+        {
+            id: 'edu-1',
+            institution: 'Universitas Muhammadiyah Jember',
+            degree: 'Sarjana (S1)',
+            major: 'Informatika',
+            startDate: '2020-08-01',
+            endDate: '2024-06-01',
+            isOngoing: false,
+            gpa: '3.86',
+            achievements: [
+                'Wisudawan Berprestasi Utama (IPK Tertinggi Fakultas Teknik)',
+                'Medali Emas Lomba Karya Tulis Ilmiah Nasional APSI PTMA'
+            ]
+        }
+    ],
+    achievements: [
+        {
+            id: 'cert-1',
+            title: 'IBM Data Analyst',
+            issuer: 'Coursera',
+            date: '2026',
+            description: 'Memberikan pemahaman mendalam mengenai seluruh siklus hidup analisis data, mulai dari tahap persiapan data mentah hingga visualisasi akhir yang siap pakai untuk kebutuhan bisnis.',
+            image: '/Data Analyst.jpg',
+            category: 'certification'
+        },
+        {
+            id: 'cert-2',
+            title: 'Microsoft Excel',
+            issuer: 'Coursera',
+            date: '2026',
+            description: 'Memberikan keahlian mendalam dalam mengolah, menganalisis, dan menyajikan data secara profesional menggunakan Microsoft Excel untuk kebutuhan bisnis dan pelaporan keuangan.',
+            image: '/Microsoft Excel.jpg',
+            category: 'certification'
+        },
+        {
+            id: 'cert-3',
+            title: 'IPK Tertinggi Fakultas Teknik (3.86)',
+            issuer: 'Universitas Muhammadiyah Jember',
+            date: '2024',
+            description: 'Penghargaan akademis tertinggi yang diberikan langsung oleh Rektor Universitas Muhammadiyah Jember pada Wisuda Periode Semester Genap TA 2023/2024.',
+            image: '/IPK Tertinggi.jpg',
+            category: 'award'
+        },
+        {
+            id: 'cert-4',
+            title: 'Medali Emas LKTIN APSI PTMA',
+            issuer: 'Asosiasi Program Studi Informatika (APSI) PTMA',
+            date: '2022',
+            description: 'Juara 1 (Peraih Medali Emas) dalam kompetisi Karya Tulis Ilmiah pada Rapat Koordinasi Nasional (RAKORNAS) APSI PTMA yang diselenggarakan di Ternate.',
+            image: '/APSI.jpg',
+            category: 'award'
+        }
+    ],
+    techStack: [
+        { name: 'React.js', icon: 'react', category: 'framework' },
+        { name: 'Node.js', icon: 'nodejs', category: 'framework' },
+        { name: 'Python', icon: 'python', category: 'language' },
+        { name: 'Tailwind CSS', icon: 'tailwind', category: 'framework' },
+        { name: 'PostgreSQL', icon: 'postgresql', category: 'database' },
+        { name: 'Pandas', icon: 'pandas', category: 'tool' },
+        { name: 'Power BI', icon: 'powerbi', category: 'tool' },
+        { name: 'Tableau', icon: 'tableau', category: 'tool' },
+        { name: 'Microsoft Excel', icon: 'excel', category: 'tool' },
+    ],
+    hardSkills: [
+        { name: 'Data Mining', category: 'data' },
+        { name: 'Data Visualization', category: 'data' },
+        { name: 'Web Development', category: 'frontend' },
+        { name: 'Backend Development', category: 'backend' },
+        { name: 'Trading Strategy', category: 'other' },
+    ],
+    softSkills: [
+        { name: 'Problem Solving' },
+        { name: 'Analytical Thinking' },
+        { name: 'Adaptability' },
+        { name: 'Time Management' },
+        { name: 'Communication' }
+    ],
+    tools: [
+        { name: 'Figma', icon: 'figma', category: 'design' },
+        { name: 'Docker', icon: 'docker', category: 'devops' },
+        { name: 'Google Workspace', icon: 'google', category: 'productivity' },
+    ],
+    faqs: [
+        { question: 'Apakah Anda menerima proyek freelance?', answer: 'Ya, saya terbuka untuk proyek freelance terkait Web Development dan Data Analysis.' },
+        { question: 'Tech stack apa yang paling sering Anda gunakan?', answer: 'Saya sering menggunakan ekosistem React/Next.js untuk frontend, Node.js untuk backend, serta Python dan Excel untuk analisis data.' }
+    ],
+    blogs: [
+        {
+            id: 'blog-1',
+            slug: 'menggabungkan-coding-dan-trading',
+            title: 'Menggabungkan Coding dan Trading: Panduan Pemula',
+            excerpt: 'Bagaimana keterampilan pemrograman dapat memberi Anda keunggulan analitis di pasar keuangan.',
+            content: 'Banyak trader mengandalkan insting, tetapi di era modern, data adalah raja. Dengan mempelajari bahasa pemrograman seperti Python, Anda dapat menarik data historis pasar menggunakan API, melakukan backtesting strategi Anda dalam hitungan detik, dan mengotomatiskan eksekusi perdagangan. Artikel ini membahas langkah-langkah dasar bagaimana saya memulai perjalanan algotrading saya, mulai dari menguasai Pandas untuk manipulasi data hingga menghubungkan script saya ke Binance API.',
+            image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800',
+            date: '2024-05-12',
+            category: 'Finance',
+            tags: ['Trading', 'Python', 'Algorithm'],
+            author: { name: 'Sulistyowati Munawaroh', avatar: '/avatar.jpg' },
+            readTime: '5 min read'
+        },
+        {
+            id: 'blog-2',
+            slug: 'pentingnya-data-cleaning',
+            title: 'Pentingnya Data Cleaning Sebelum Mengambil Keputusan',
+            excerpt: 'Data yang kotor menghasilkan keputusan yang salah. Berikut alur kerja ETL yang biasa saya gunakan.',
+            content: "Dalam analisis data, ada pepatah 'Garbage In, Garbage Out'. Jika Anda membangun model machine learning canggih atau dashboard yang indah di atas data yang cacat, hasilnya tidak akan valid. Di artikel ini, saya membagikan alur kerja ETL (Extract, Transform, Load) harian saya: menangani missing values, normalisasi format tanggal, hingga mendeteksi outlier menggunakan metode Z-score.",
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+            date: '2024-04-28',
+            category: 'Data Science',
+            tags: ['Data Cleaning', 'ETL', 'Python'],
+            author: { name: 'Sulistyowati Munawaroh', avatar: '/avatar.jpg' },
+            readTime: '7 min read'
+        },
+        {
+            id: 'blog-3',
+            slug: 'sop-fondasi-rahasia-skalabilitas',
+            title: 'SOP: Fondasi Rahasia Skalabilitas Startup',
+            excerpt: 'Mengapa sistem administrasi yang terstruktur adalah kunci rahasia untuk mengembangkan perusahaan.',
+            content: 'Seringkali SOP (Standard Operating Procedure) dianggap sebagai hal yang kaku dan membosankan. Namun, setelah merancang ulang alur kerja di beberapa perusahaan, saya menemukan bahwa SOP yang baik justru memberikan kebebasan. Ketika proses berulang sudah terdokumentasi dan terotomatisasi, tim Anda dapat fokus pada kreativitas dan pemecahan masalah strategis, bukan sekadar mengingat langkah-langkah administratif dasar.',
+            image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800',
+            date: '2024-03-15',
+            category: 'Management',
+            tags: ['SOP', 'Operations', 'Startup'],
+            author: { name: 'Sulistyowati Munawaroh', avatar: '/avatar.jpg' },
+            readTime: '4 min read'
+        },
+        {
+            id: 'blog-4',
+            slug: 'react-vs-vue-untuk-dashboard',
+            title: 'React vs Vue untuk Dashboard Internal',
+            excerpt: 'Perbandingan objektif dalam memilih framework frontend untuk aplikasi manajemen data.',
+            content: 'Memilih framework seringkali memicu perdebatan panjang. Dalam proyek terakhir saya, saya membuat perbandingan langsung antara React dan Vue untuk kebutuhan dashboard internal...',
+            image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=800',
+            date: '2024-02-02',
+            category: 'Web Development',
+            tags: ['React', 'Vue', 'Frontend'],
+            author: { name: 'Sulistyowati Munawaroh', avatar: '/avatar.jpg' },
+            readTime: '6 min read'
+        }
+    ],
+    gallery: []
+};
+"""
+
+with open("c:/Users/sulis/Videos/Fullstack/portfolio/src/data/portfolio.ts", "w", encoding="utf-8") as f:
+    f.write(portfolio_ts)
