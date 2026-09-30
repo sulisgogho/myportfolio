@@ -8,7 +8,7 @@ import { cn, formatDate } from '@/lib/utils';
 import { portfolioData } from '@/data/portfolio';
 import { Education, Experience } from '@/types/index';
 
-type TabType = 'education' | 'journey' | 'experience';
+type TabType = 'experience' | 'education';
 
 interface TabButtonProps {
     label: string;
@@ -165,7 +165,7 @@ function EducationContent() {
     );
 }
 
-function JourneyContent() {
+function ExperienceContent() {
     const experiences = portfolioData.experiences;
 
     const groupedExperiences = useMemo(() => {
@@ -197,10 +197,10 @@ function JourneyContent() {
         >
             <div className="space-y-2">
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                    Changelog from my journey
+                    Work Experience
                 </h2>
                 <p className="text-muted-foreground max-w-lg">
-                    I've been working on various projects and roles. Here's a timeline of my professional journey.
+                    I've been working on various projects and roles. Here's a timeline of my professional experience.
                 </p>
             </div>
 
@@ -208,9 +208,10 @@ function JourneyContent() {
                 {groupedExperiences.map((group, groupIndex) => (
                     <motion.div
                         key={group.year}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: groupIndex * 0.1 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.1 }}
+                        transition={{ delay: 0.1, duration: 0.6 }}
                         className="relative"
                     >
                         <div className="flex items-start gap-6">
@@ -225,9 +226,10 @@ function JourneyContent() {
                                 {group.experiences.slice(0, 3).map((exp: Experience, expIndex: number) => (
                                     <motion.div
                                         key={exp.id}
-                                        initial={{ opacity: 0, x: -10 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: groupIndex * 0.1 + expIndex * 0.05 }}
+                                        initial={{ opacity: 0, x: -20, filter: 'blur(4px)' }}
+                                        whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                                        viewport={{ once: false, amount: 0.15 }}
+                                        transition={{ delay: expIndex * 0.1, duration: 0.5, type: 'spring', stiffness: 100 }}
                                         className="relative"
                                     >
                                         <div className="absolute -left-[25px] top-2 w-2 h-2 rounded-full bg-secondary" />
@@ -282,62 +284,45 @@ function JourneyContent() {
     );
 }
 
-function ExperienceContent() {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-            className="flex flex-col items-center justify-center py-16 text-center space-y-4"
-        >
-            <div className="p-4 rounded-2xl bg-primary/10">
-                <Rocket className="w-12 h-12 text-primary" />
-            </div>
-            <h3 className="text-2xl font-bold text-foreground">Coming Soon</h3>
-            <p className="text-muted-foreground max-w-md">
-                Detailed experience breakdown with project highlights and achievements will be available here soon.
-            </p>
-        </motion.div>
-    );
-}
-
 export default function ExperienceTabsSection() {
-    const [activeTab, setActiveTab] = useState<TabType>('journey');
+    const [activeTab, setActiveTab] = useState<TabType>('experience');
     const { resolvedTheme } = useTheme();
 
     const tabs = [
+        { id: 'experience' as TabType, label: 'Work Experience', icon: <Briefcase className="w-4 h-4" /> },
         { id: 'education' as TabType, label: 'Education', icon: <GraduationCap className="w-4 h-4" /> },
-        { id: 'journey' as TabType, label: 'Journey', icon: <Briefcase className="w-4 h-4" /> },
-        { id: 'experience' as TabType, label: 'Experience', icon: <Rocket className="w-4 h-4" /> },
     ];
 
     return (
-        <div className="py-16 space-y-12">
+        <section id="experience" className="container mx-auto px-4 md:px-8 max-w-7xl py-16 space-y-12">
             <motion.div
                 className="p-8 rounded-3xl bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 dark:from-primary/10 dark:via-transparent dark:to-secondary/10 border border-primary/10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
                 <div className="flex items-center justify-center gap-2 mb-4">
+                    {activeTab === 'experience' && <Briefcase className="w-8 h-8 text-primary" />}
                     {activeTab === 'education' && <GraduationCap className="w-8 h-8 text-primary" />}
-                    {activeTab === 'journey' && <Briefcase className="w-8 h-8 text-primary" />}
-                    {activeTab === 'experience' && <Rocket className="w-8 h-8 text-primary" />}
                 </div>
                 <h3 className="text-2xl font-bold text-center text-foreground capitalize">
+                    {activeTab === 'experience' && 'Professional Experience'}
                     {activeTab === 'education' && 'Academic Foundation'}
-                    {activeTab === 'journey' && 'Professional Journey'}
-                    {activeTab === 'experience' && 'Work Experience'}
                 </h3>
                 <p className="text-center text-muted-foreground mt-2 max-w-md mx-auto">
+                    {activeTab === 'experience' && 'A timeline of roles, responsibilities, and growth'}
                     {activeTab === 'education' && 'Building strong foundations through academic excellence'}
-                    {activeTab === 'journey' && 'A timeline of roles, responsibilities, and growth'}
-                    {activeTab === 'experience' && 'Detailed breakdown of professional experiences'}
                 </p>
             </motion.div>
 
-            <div className="flex flex-wrap justify-center gap-3">
+            <motion.div 
+                className="flex flex-wrap justify-center gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.8 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+            >
                 {tabs.map((tab) => (
                     <TabButton
                         key={tab.id}
@@ -347,15 +332,20 @@ export default function ExperienceTabsSection() {
                         icon={tab.icon}
                     />
                 ))}
-            </div>
+            </motion.div>
 
-            <div className="min-h-[400px]">
+            <motion.div 
+                className="min-h-[400px]"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.1 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+            >
                 <AnimatePresence mode="wait">
-                    {activeTab === 'education' && <EducationContent key="education" />}
-                    {activeTab === 'journey' && <JourneyContent key="journey" />}
                     {activeTab === 'experience' && <ExperienceContent key="experience" />}
+                    {activeTab === 'education' && <EducationContent key="education" />}
                 </AnimatePresence>
-            </div>
-        </div>
+            </motion.div>
+        </section>
     );
 }

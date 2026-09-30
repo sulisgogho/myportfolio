@@ -1,144 +1,135 @@
 'use client';
 
-import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
-import dynamic from 'next/dynamic';
-import { motion, useScroll, useTransform, AnimatePresence, useSpring, useMotionValue, useMotionTemplate } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useIsMobile } from "@/hooks/useIsMobile";
-
-import { Sparkles, Mail, ArrowRight, ArrowDown } from 'lucide-react';
-import { LoadingScreen } from '@/components/layout';
-import { TextPressure } from '@/components/ui/TextPressure';
-import { portfolioData } from '@/data/portfolio';
-import { cn } from "@/lib/utils";
-import { SocialCorner } from '@/components/layout/SocialCorner';
-import { DeferredMount } from '@/components/ui/DeferredMount';
-
-if (typeof window !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-}
-
-const Hyperspeed = dynamic(() => import('@/components/ui/Hyperspeed'), { ssr: false });
-const { hyperspeedPresets } = require('@/components/ui/Hyperspeed');
-
-const Scene3D = dynamic(() => import('@/components/three/Scene3D').then(mod => ({ default: mod.Scene3D })), {
-    ssr: false,
-    loading: () => null
-});
-
-import AboutSection from "@/components/sections/AboutSection";
-import ExpertiseSection from "@/components/sections/ExpertiseSection";
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { HeroVisual } from "@/components/sections/HeroVisual";
-import StatsSection from "@/components/sections/StatsSection";
-import CTASection from "@/components/sections/CTASection";
-import { usePreloadState } from "@/components/ui/arc-preloader-hero";
-
-
-// ─── Helpers (Keeping Original Design) ───────────────────────────────────────
-
-const MetricCTAHijack = () => {
-    return (
-        <>
-            <StatsSection showOnly="top" />
-            <section className="relative">
-                {/* Layer 1: The Blog/Book Slider (Sticky) */}
-                <div className="sticky top-0 z-0 overflow-hidden">
-                    <StatsSection showOnly="bottom" />
-                </div>
-
-                {/* Layer 2: The CTA Section (Slides Over) */}
-                <div className="relative z-20 bg-background dark:bg-black">
-                    {/* Top shadow element to prevent downward bleeding into footer */}
-                    <div className="absolute top-0 left-0 w-full h-10 dark:shadow-[0_-50px_150px_rgba(0,0,0,0.8)] -z-10" />
-
-                    <div className="h-[10vh]" />
-                    <CTASection />
-                    <div className="h-20" />
-                </div>
-            </section>
-        </>
-    );
-};
-
-// ─── Main Page ───────────────────────────────────────────────────────────────
+import { BrandScroller } from "@/components/ui/brand-scroller";
+import { BeamDivider } from "@/components/ui/BeamDivider";
+import { DeveloperActivitySection } from "@/components/sections/DeveloperActivitySection";
+import { FeaturedProjectsSection } from "@/components/sections/FeaturedProjectsSection";
+import { VibeCoderValueSection } from "@/components/sections/VibeCoderValueSection";
+import { TrustStatsBanner } from "@/components/sections/TrustStatsBanner";
+import { CertificatesMarquee } from "@/components/sections/CertificatesMarquee";
+import ExperienceTabsSection from "@/components/sections/ExperienceTabsSection";
+import { SocialCorner } from '@/components/layout/SocialCorner';
+import { ScrollNavigationHUD } from "@/components/ui/ScrollNavigationHUD";
+import Link from 'next/link';
+import { Sparkles, ArrowUpRight } from 'lucide-react';
 
 export default function HomePage() {
-    const { phase } = usePreloadState();
-    const [isLoading, setIsLoading] = useState(true);
-    const [isInitialLoadingExit, setIsInitialLoadingExit] = useState(false);
-    const [skipAnimation, setSkipAnimation] = useState(false);
+    // 1. Smooth Spring Scroll Progress Bar
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
 
-    useEffect(() => {
-        const hasLoaded = sessionStorage.getItem('portfolioLoaded');
-        if (hasLoaded) {
-            setSkipAnimation(true);
-            setIsLoading(false);
-        }
-
-        if (typeof window === 'undefined' || !('ResizeObserver' in window)) return;
-        const refreshLayout = () => {
-            window.dispatchEvent(new Event('resize'));
-            ScrollTrigger.refresh();
-        };
-        const resizeObserver = new ResizeObserver(() => { refreshLayout(); });
-        resizeObserver.observe(document.body);
-        window.addEventListener('load', refreshLayout);
-        return () => {
-            resizeObserver.disconnect();
-            window.removeEventListener('load', refreshLayout);
-            ScrollTrigger.getAll().forEach(t => t.kill());
-        };
-    }, []);
-
-    // Animasikan konten saat LoadingScreen selesai (visit pertama) 
-    // ATAU saat arc preloader mulai naik/selesai (visit kedua dst)
-    const isReadyToAnimate = isLoading ? isInitialLoadingExit : (phase === "reveal" || phase === "done");
-
-    useEffect(() => {
-        if (isReadyToAnimate) {
-            const timer = setTimeout(() => {
-                ScrollTrigger.refresh();
-            }, 1500); // Once, after transition is likely done
-            return () => clearTimeout(timer);
-        }
-    }, [isReadyToAnimate]);
-
-    const handleLoadingComplete = () => {
-        setIsLoading(false);
-        window.scrollTo({ top: 0, behavior: 'instant' });
-        sessionStorage.setItem('portfolioLoaded', 'true');
-        setTimeout(() => { ScrollTrigger.refresh(); }, 100);
-    };
-
-    const handleExitStart = () => {
-        setIsInitialLoadingExit(true);
-    };
+    // Parallax values for global background blobs
+    const { scrollY } = useScroll();
+    const y1 = useTransform(scrollY, [0, 5000], [0, 1000]);
+    const y2 = useTransform(scrollY, [0, 5000], [0, -800]);
+    const y3 = useTransform(scrollY, [0, 5000], [0, 1500]);
 
     return (
-        <>
-            {isLoading && <LoadingScreen onComplete={handleLoadingComplete} onExitStart={handleExitStart} duration={2500} />}
-            <motion.main
-                initial={skipAnimation ? false : { opacity: 0, y: 40 }}
-                animate={skipAnimation ? { opacity: 1, y: 0 } : (isReadyToAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 })}
-                transition={{
-                    duration: skipAnimation ? 0 : 1.4,
-                    ease: skipAnimation ? "linear" : [0.16, 1, 0.3, 1], // Expo out for snappy yet smooth feel
-                    opacity: { duration: skipAnimation ? 0 : 0.8 }
-                }}
-                className="relative overflow-x-clip will-change-transform will-change-opacity"
-            >
-                <HeroVisual isExiting={isReadyToAnimate} />
+        <motion.main
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative min-h-screen bg-background text-foreground overflow-x-clip selection:bg-primary/20"
+        >
+            {/* Top Interactive Scroll Progress Glow Bar */}
+            <motion.div
+                style={{ scaleX }}
+                className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-sky-400 via-primary to-purple-500 origin-left z-[110] shadow-[0_0_12px_rgba(56,189,248,0.7)]"
+            />
 
-                <DeferredMount>
-                    <ExpertiseSection />
-                    <AboutSection />
-                    <MetricCTAHijack />
-                    <SocialCorner className="fixed bottom-12 right-12 z-[30]" />
-                </DeferredMount>
-            </motion.main>
-        </>
+            {/* Global Parallax Background Effects - Elegant Aurora */}
+            <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden bg-background">
+                <motion.div 
+                    style={{ y: y1 }} 
+                    className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] max-w-[1000px] max-h-[1000px] rounded-full bg-primary/10 blur-[120px] mix-blend-screen dark:bg-primary/5 dark:mix-blend-lighten" 
+                />
+                <motion.div 
+                    style={{ y: y2 }} 
+                    className="absolute top-[30%] -right-[10%] w-[50vw] h-[50vw] max-w-[800px] max-h-[800px] rounded-full bg-purple-500/10 blur-[130px] mix-blend-screen dark:bg-purple-500/5 dark:mix-blend-lighten" 
+                />
+                <motion.div 
+                    style={{ y: y3 }} 
+                    className="absolute bottom-[-10%] left-[20%] w-[70vw] h-[70vw] max-w-[1200px] max-h-[1200px] rounded-full bg-sky-500/10 blur-[150px] mix-blend-screen dark:bg-sky-500/5 dark:mix-blend-lighten" 
+                />
+            </div>
+
+            {/* Floating Interactive Scroll HUD (Circular Gauge + Section Spy + Jump-to-Section) */}
+            <ScrollNavigationHUD />
+
+            {/* 1. Sleek, Modern Hero (DATA & FULL STACK DEVELOPER) with Scroll Parallax */}
+            <HeroVisual isExiting={true} />
+
+            {/* Moving Laser Beam Divider */}
+            <BeamDivider orientation="horizontal" className="relative z-20" />
+
+            {/* 2. Infinite Tech & Tool Scroller */}
+            <div id="tech-stack" className="pt-16 pb-12 sm:pt-24 sm:pb-16 bg-muted/20">
+                <BrandScroller />
+            </div>
+
+            {/* 5. Fullstack & Data Analytics Capabilities */}
+            <VibeCoderValueSection />
+
+            {/* Moving Laser Beam Divider */}
+            <BeamDivider orientation="horizontal" className="relative z-20" />
+
+            {/* 4. Highlighted Featured Projects / Portfolio with Scroll-Reactive 3D Three.js & Bento Grid */}
+            <FeaturedProjectsSection />
+
+            {/* Moving Laser Beam Divider */}
+            <BeamDivider orientation="horizontal" className="relative z-20" />
+
+            {/* 3. Live GitHub Activity & Public Repositories */}
+            <DeveloperActivitySection />
+
+            {/* Moving Laser Beam Divider */}
+            <BeamDivider orientation="horizontal" reverse={true} className="relative z-20" />
+
+            {/* Experience & Journey */}
+            <ExperienceTabsSection />
+
+            {/* Trust Stats Banner */}
+            <TrustStatsBanner />
+
+            {/* Certificates Marquee */}
+            <CertificatesMarquee />
+
+            {/* Direct CTA with Scroll Reveal */}
+            <motion.div
+                initial={{ opacity: 0, y: 25, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                className="mt-32 mb-40 text-center"
+            >
+                <div className="inline-flex flex-col sm:flex-row items-center gap-4">
+                    <Link
+                        href="/contact"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-sm hover:opacity-95 shadow-lg shadow-primary/20 transition-all hover:scale-105"
+                    >
+                        <Sparkles className="w-4 h-4" />
+                        Mulai Diskusi Proyek
+                    </Link>
+                    <a
+                        href="https://wa.me/6282233447474"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-black/15 dark:border-white/15 bg-background font-semibold text-sm hover:bg-muted transition-all"
+                    >
+                        Chat via WhatsApp
+                        <ArrowUpRight className="w-4 h-4" />
+                    </a>
+                </div>
+            </motion.div>
+
+            {/* Floating Social Corner */}
+            <SocialCorner className="fixed bottom-8 right-8 z-[30]" />
+        </motion.main>
     );
 }

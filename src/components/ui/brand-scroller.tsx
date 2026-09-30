@@ -17,7 +17,7 @@ const getIconUrl = (icon: string) => {
         case 'pandas': return devicon('pandas');
         case 'powerbi': return 'https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg';
         case 'tableau': return 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png';
-        case 'excel': return 'https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg';
+        case 'excel': return '/excel-logo.png';
         case 'figma': return devicon('figma');
         case 'docker': return devicon('docker');
         case 'google': return 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Workspace_Logo.svg';

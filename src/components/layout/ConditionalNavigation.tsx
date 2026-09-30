@@ -23,10 +23,6 @@ export function ConditionalNavigation({ children }: { children: React.ReactNode 
     // but only actually render the conditional logic once mounted to avoid mismatches.
     const useFullLayout = !(isProjectDetail || isBlogDetail);
 
-    if (!mounted) {
-        return <>{children}</>;
-    }
-
     return (
         <div
             className={useFullLayout ? "relative min-h-screen flex flex-col" : "contents"}

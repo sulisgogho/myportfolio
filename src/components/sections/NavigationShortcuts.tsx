@@ -10,7 +10,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useTranslations } from 'next-intl';
 
 const GALLERY_IMAGES = [
-    '/gallery/Foto Utama.webp',
+    '/gallery/tyo-lanscape.png',
     '/gallery/FotoSC1.webp',
     '/gallery/FotoSC2.webp',
     '/gallery/FotoSC3.webp',

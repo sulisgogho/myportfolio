@@ -36,21 +36,21 @@
     },
     "hero": {
         "greeting": "Welcome to my digital space",
-        "subtitle": "Full Stack Developer • AI Engineer • Data Scientist",
+        "subtitle": "Full Stack Developer • Data Analyst • Software Engineer",
         "cta": {
             "primary": "Explore Projects",
             "secondary": "Get in Touch",
             "exploreMore": "Explore More"
         },
-        "badge": "Available for opportunities",
+        "badge": "Available for collaboration",
         "scroll": "Scroll Down",
-        "role": "Software Engineer",
-        "description": "Building intelligent systems at the intersection of <span class='text-primary font-semibold'>AI</span>, <span class='text-secondary font-semibold'>Engineering</span>, and <span class='text-accent font-semibold'>Scalable Architecture</span>."
+        "role": "Full Stack Developer",
+        "description": "Building intelligent systems at the intersection of <span class='text-primary font-semibold'>Full Stack Development</span>, <span class='text-secondary font-semibold'>Data Analytics</span>, and <span class='text-accent font-semibold'>Engineering</span>."
     },
     "about": {
         "title": "About Me",
-        "subtitle": "Tech Explorer & Problem Solver",
-        "description": "A passionate tech explorer specializing in Full Stack Development, Artificial Intelligence, and Data Science. Currently diving deep into AI Agents and Blockchain technology.",
+        "subtitle": "Full Stack Developer & Data Analyst",
+        "description": "Informatics Engineering graduate (GPA 3.86) specializing in Full Stack Development and Data Analytics. Experienced in building high-performance interactive web apps and data-driven intelligence systems.",
         "stats": {
             "experience": "Years Learning",
             "projects": "Projects Done",
@@ -497,7 +497,7 @@
     },
     "chatbot": {
         "title": "AI Assistant",
-        "subtitle": "Ask me about Azril",
+        "subtitle": "Ask me about Sulis",
         "placeholder": "Type a message...",
         "greeting": "Hi! I'm an AI assistant for **{name}**. 👋\n\nI can answer questions about:\n- Skills & technical expertise\n- Projects and work\n- Experience\n- Education\n- And more!\n\nAnything you'd like to ask?",
         "suggestions": [

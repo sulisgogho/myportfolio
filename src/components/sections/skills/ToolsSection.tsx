@@ -17,6 +17,10 @@ const toolLogos: Record<string, string> = {
     'Git': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
     'Conda': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/anaconda/anaconda-original.svg',
     'Google Colab': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecolab/googlecolab-original.svg',
+    'Microsoft Excel': '/excel-logo.png',
+    'Google Workspace': 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Workspace_Logo.svg',
+    'Power BI': 'https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg',
+    'Tableau': 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png',
 };
 
 export const ToolsSection = () => {

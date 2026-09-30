@@ -36,21 +36,21 @@
     },
     "hero": {
         "greeting": "Selamat datang di ruang digital saya",
-        "subtitle": "Full Stack Developer • AI Engineer • Data Scientist",
+        "subtitle": "Full Stack Developer • Data Analyst • Software Engineer",
         "cta": {
             "primary": "Jelajahi Proyek",
             "secondary": "Hubungi Saya",
             "exploreMore": "Jelajahi Lebih Lanjut"
         },
-        "badge": "Terbuka untuk peluang",
+        "badge": "Terbuka untuk kolaborasi proyek",
         "scroll": "Gulir ke Bawah",
-        "role": "Software Engineer",
-        "description": "Membangun sistem cerdas di persimpangan <span class='text-primary font-semibold'>AI</span>, <span class='text-secondary font-semibold'>Rekayasa</span>, dan <span class='text-accent font-semibold'>Arsitektur Skalabel</span>."
+        "role": "Full Stack Developer",
+        "description": "Membangun sistem cerdas di persimpangan <span class='text-primary font-semibold'>Full Stack Development</span>, <span class='text-secondary font-semibold'>Data Analytics</span>, dan <span class='text-accent font-semibold'>Engineering</span>."
     },
     "about": {
         "title": "Tentang Saya",
-        "subtitle": "Tech Explorer & Problem Solver",
-        "description": "Seorang tech explorer yang bersemangat dengan spesialisasi dalam Full Stack Development, Artificial Intelligence, dan Data Science. Saat ini sedang mendalami AI Agents dan teknologi Blockchain.",
+        "subtitle": "Full Stack Developer & Data Analyst",
+        "description": "Lulusan Teknik Informatika (IPK 3.86) dengan fokus pada Full Stack Development dan Data Analytics. Berpengalaman membangun aplikasi web interaktif, performa tinggi, dan analisis data bisnis berbasis komputasi cerdas.",
         "stats": {
             "experience": "Tahun Belajar",
             "projects": "Proyek Selesai",
@@ -482,7 +482,7 @@
     },
     "chatbot": {
         "title": "Asisten AI",
-        "subtitle": "Tanya saya tentang Azril",
+        "subtitle": "Tanya saya tentang Sulis",
         "placeholder": "Ketik pesan...",
         "greeting": "Halo! Saya asisten AI untuk **{name}**. 👋\n\nSaya bisa menjawab pertanyaan seputar:\n- Skill & keahlian teknis\n- Project dan karya\n- Pengalaman kerja\n- Pendidikan\n- Dan info lainnya!\n\nAda yang ingin kamu tanyakan?",
         "suggestions": [

@@ -229,14 +229,16 @@ export const IdentitySequence = ({ scrollYProgress, isVisible }: IdentitySequenc
                                                 className="relative h-full w-full" 
                                                 style={{ y: imageParallaxY }}
                                             >
-                                                <Image
-                                                    src={portfolioData.personal.avatar}
-                                                    alt="Profile"
-                                                    fill
-                                                    className="object-cover object-bottom grayscale-0"
-                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-                                                    priority
-                                                />
+                                                <div className="absolute inset-0 top-[25vh]">
+                                                    <Image
+                                                        src="/gallery/tyo-lanscape.png"
+                                                        alt="Profile"
+                                                        fill
+                                                        className="object-cover object-top grayscale-0"
+                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                                                        priority
+                                                    />
+                                                </div>
                                             </motion.div>
                                         </div>
                                     </div>

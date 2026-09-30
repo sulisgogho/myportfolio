@@ -27,6 +27,7 @@ const techDescriptions: Record<string, string> = {
     'Scikit-learn': 'Predictive data analysis and machine learning.',
     'Pandas': 'High-performance data manipulation and analysis.',
     'NumPy': 'Fundamental scientific computing capabilities.',
+    'Matplotlib': 'Comprehensive data visualization and plotting.',
     'Tailwind CSS': 'Rapid utility-first styling and design.',
     'Redis': 'In-memory data structure store and caching.',
     'PostgreSQL': 'Robust relational database architecture.',

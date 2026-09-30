@@ -4,9 +4,9 @@ export const portfolioData: PortfolioData = {
     personal: {
         name: 'Sulistyowati Munawaroh',
         title: 'Fullstack Developer & Data Analyst',
-        subtitle: 'Membangun Sistem, Menganalisis Data, Mengelola Risiko, & Mengoptimalkan Proses.',
-        bio: 'Saya adalah seorang profesional multidisiplin yang menggabungkan logika pemrograman dari Software Engineering, wawasan berbasis angka dari Data Analysis, manajemen risiko dari Trading, dan efisiensi operasional dari Administrasi.',
-        avatar: '/avatar.jpg',
+        subtitle: 'Membangun Aplikasi Fullstack Skalabel & Analisis Data Terintegrasi.',
+        bio: 'Lulusan Teknik Informatika (IPK 3.86) yang berfokus pada Fullstack Development dan Data Analytics. Berpengalaman merakit aplikasi web interaktif performa tinggi dengan React, Next.js, TypeScript, serta visualisasi dan pemrosesan data analitis berbasis Python dan SQL.',
+        avatar: '/about/tyo.png',
         location: 'Probolinggo, East Java, Indonesia',
         email: 'sulistyowatimunawaroh@gmail.com',
         phone: '+62-822-3344-7474',
@@ -441,7 +441,7 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             issuer: 'Coursera',
             date: '2026',
             description: 'Memberikan keahlian mendalam dalam mengolah, menganalisis, dan menyajikan data secara profesional menggunakan Microsoft Excel untuk kebutuhan bisnis dan pelaporan keuangan.',
-            image: '/Microsoft Excel.jpg',
+            image: '/excel-logo.png',
             category: 'certification'
         },
         {
@@ -466,6 +466,7 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
     techStack: [
         { name: 'Python', icon: 'python', category: 'language' },
         { name: 'Pandas', icon: 'pandas', category: 'tool' },
+        { name: 'Matplotlib', icon: 'matplotlib', category: 'tool' },
         { name: 'FastAPI', icon: 'fastapi', category: 'framework' },
         { name: 'TypeScript', icon: 'typescript', category: 'language' },
         { name: 'JavaScript', icon: 'javascript', category: 'language' },
@@ -475,9 +476,6 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         { name: 'React.js', icon: 'react', category: 'framework' },
         { name: 'Node.js', icon: 'nodejs', category: 'framework' },
         { name: 'Tailwind CSS', icon: 'tailwind', category: 'framework' },
-        { name: 'Power BI', icon: 'powerbi', category: 'tool' },
-        { name: 'Tableau', icon: 'tableau', category: 'tool' },
-        { name: 'Microsoft Excel', icon: 'excel', category: 'tool' },
     ],
     hardSkills: [
         { name: 'Data Mining', category: 'data' },
@@ -501,6 +499,9 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         { name: 'GitHub', icon: 'github', category: 'devops' },
         { name: 'Git', icon: 'git', category: 'devops' },
         { name: 'Google Workspace', icon: 'google', category: 'productivity' },
+        { name: 'Power BI', icon: 'powerbi', category: 'data' },
+        { name: 'Tableau', icon: 'tableau', category: 'data' },
+        { name: 'Microsoft Excel', icon: 'excel', category: 'data' },
     ],
     faqs: [
         { question: 'Apakah Anda menerima proyek freelance?', answer: 'Ya, saya terbuka untuk proyek freelance terkait Web Development dan Data Analysis.' },
@@ -517,7 +518,7 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             date: '2024-05-12',
             category: 'Finance',
             tags: ['Trading', 'Python', 'Algorithm'],
-            author: { name: 'Sulistyowati Munawaroh', avatar: '/avatar.jpg' },
+            author: { name: 'Sulistyowati Munawaroh', avatar: '/about/tyo.png' },
             readTime: '5 min read'
         },
         {
@@ -530,7 +531,7 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             date: '2024-04-28',
             category: 'Data Science',
             tags: ['Data Cleaning', 'ETL', 'Python'],
-            author: { name: 'Sulistyowati Munawaroh', avatar: '/avatar.jpg' },
+            author: { name: 'Sulistyowati Munawaroh', avatar: '/about/tyo.png' },
             readTime: '7 min read'
         },
         {
@@ -543,7 +544,7 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             date: '2024-03-15',
             category: 'Management',
             tags: ['SOP', 'Operations', 'Startup'],
-            author: { name: 'Sulistyowati Munawaroh', avatar: '/avatar.jpg' },
+            author: { name: 'Sulistyowati Munawaroh', avatar: '/about/tyo.png' },
             readTime: '4 min read'
         },
         {
@@ -556,7 +557,7 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             date: '2024-02-02',
             category: 'Web Development',
             tags: ['React', 'Vue', 'Frontend'],
-            author: { name: 'Sulistyowati Munawaroh', avatar: '/avatar.jpg' },
+            author: { name: 'Sulistyowati Munawaroh', avatar: '/about/tyo.png' },
             readTime: '6 min read'
         }
     ],

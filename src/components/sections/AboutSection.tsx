@@ -30,58 +30,25 @@ import { GitHubShowcase } from "@/components/ui/github-showcase";
 import { WakaTimeShowcase } from "@/components/ui/wakatime-showcase";
 import { ShowcaseStack } from "@/components/ui/showcase-stack";
 
+const fallbackImages = [
+    "/journey/researchassistant2.webp",
+    "/journey/aideveloperintern1.webp",
+    "/journey/computernetworkpracticumassistant2.webp",
+    "/journey/chiefcommittee1.webp",
+    "/journey/dataentryassistant1.webp"
+];
+
 const showcaseMembers = [
-    // 1. Cyber Physical Systems Laboratory
-    ...portfolioData.experiences.filter(exp => exp.id === 'prof-7').map(exp => ({
-        id: exp.id,
-        name: "Cyber Physical Systems Laboratory",
-        role: exp.position.replace(' (Contract-Based)', ''),
-        description: exp.description,
-        period: "August 2025 - Present",
-        image: "/journey/researchassistant2.webp",
-        social: exp.externalLink ? { website: Array.isArray(exp.externalLink) ? exp.externalLink[0] : exp.externalLink } : undefined
-    })),
-    // 2. HUMIC Engineering
-    ...portfolioData.experiences.filter(exp => exp.id === 'prof-3').map(exp => ({
-        id: exp.id,
-        name: "HUMIC Engineering",
-        role: exp.position,
-        description: exp.description,
-        period: "September 2025 - December 2025",
-        image: "/journey/aideveloperintern1.webp",
-        social: exp.externalLink ? { website: Array.isArray(exp.externalLink) ? exp.externalLink[0] : exp.externalLink } : undefined
-    })),
-    // 3. Informatics Laboratory, Telkom University
-    ...portfolioData.experiences.filter(exp => exp.id === 'prof-6').map(exp => ({
-        id: exp.id,
-        name: exp.company,
-        role: exp.position.replace(' (Contract-Based)', ''),
-        description: exp.description,
-        period: "September 2025 - January 2026",
-        image: "/journey/computernetworkpracticumassistant2.webp",
-        social: exp.externalLink ? { website: Array.isArray(exp.externalLink) ? exp.externalLink[0] : exp.externalLink } : undefined
-    })),
-    // 4. Digistar Club by Telkom Indonesia
-    ...portfolioData.experiences.filter(exp => exp.id === 'lead-2').map(exp => ({
+    ...portfolioData.experiences.slice(0, 5).map((exp, index) => ({
         id: exp.id,
         name: exp.company,
         role: exp.position,
         description: exp.description,
-        period: "October 2025 - December 2025",
-        image: "/journey/chiefcommittee1.webp",
+        period: exp.isOngoing ? `${exp.startDate} - Present` : `${exp.startDate} - ${exp.endDate || 'Present'}`,
+        image: fallbackImages[index % fallbackImages.length],
         social: exp.externalLink ? { website: Array.isArray(exp.externalLink) ? exp.externalLink[0] : exp.externalLink } : undefined
     })),
-    // 5. Food and Agriculture Office of Bandung City
-    ...portfolioData.experiences.filter(exp => exp.id === 'prof-8').map(exp => ({
-        id: exp.id,
-        name: "Food and Agriculture Office of Bandung City",
-        role: exp.position,
-        description: exp.description,
-        period: "July - September 2025",
-        image: "/journey/dataentryassistant1.webp",
-        social: exp.externalLink ? { website: Array.isArray(exp.externalLink) ? exp.externalLink[0] : exp.externalLink } : undefined
-    })),
-    // 6. View more
+    // View more
     {
         id: 'view-more',
         name: 'View more',
@@ -92,7 +59,7 @@ const showcaseMembers = [
 ];
 
 const GALLERY_IMAGES = [
-    "/gallery/Foto Utama.webp",
+    "/gallery/tyo-lanscape.png",
     "/gallery/FotoSC1.webp",
     "/gallery/FotoSC2.webp",
     "/gallery/FotoSC3.webp",
@@ -665,20 +632,13 @@ export default function AboutSection() {
                                                 </p>
                                             )}
 
-                                            <div className="w-full mt-4 rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden relative group/card h-32">
-                                                <img
-                                                    src={member.image}
-                                                    alt={member.name}
-                                                    className="w-full h-full object-cover opacity-90 group-hover/card:opacity-100 transition-opacity duration-500 group-hover/card:scale-105"
-                                                />
-                                                {member.social?.website && (
-                                                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-                                                        <Link href={member.social.website} target="_blank" className="px-5 py-2.5 bg-white text-black text-xs font-bold rounded-full hover:scale-105 transition-transform">
-                                                            View Details
-                                                        </Link>
-                                                    </div>
-                                                )}
-                                            </div>
+                                            {member.social?.website && (
+                                                <div className="mt-4 pt-4 border-t border-neutral-100 dark:border-neutral-800">
+                                                    <Link href={member.social.website} target="_blank" className="inline-flex items-center text-xs font-bold text-primary hover:underline">
+                                                        View Details →
+                                                    </Link>
+                                                </div>
+                                            )}
                                         </div>
                                     )
                                 }))} />
@@ -690,15 +650,10 @@ export default function AboutSection() {
                             <CertificateShowcase />
                         </div>
 
-                        {/* Stacking Card Showcases */}
-                        <ShowcaseStack>
-                            <div className="w-full">
-                                <GitHubShowcase />
-                            </div>
-                            <div className="w-full">
-                                <WakaTimeShowcase />
-                            </div>
-                        </ShowcaseStack>
+                        {/* GitHub Showcase Section - Streamlined without sticky hijack */}
+                        <div className="w-full mt-12 mb-8">
+                            <GitHubShowcase />
+                        </div>
                     </div>
                     <AuditFunnel />
                 </div>

@@ -304,7 +304,7 @@ export const GitHubShowcase = () => {
   const springTransition = { type: "spring", damping: 25, stiffness: 120 };
 
   return (
-    <section id='github-stats' className='w-full max-w-[1700px] mx-auto px-6 pt-10 pb-24 md:pt-14 md:pb-32'>
+    <div id='github-stats' className='w-full max-w-[1700px] mx-auto'>
       <style dangerouslySetInnerHTML={{
         __html: `
         .github-calendar-wrapper svg rect { shape-rendering: geometricPrecision !important; rx: 4px !important; ry: 4px !important; }
@@ -340,9 +340,9 @@ export const GitHubShowcase = () => {
       <motion.div
         layout
         transition={springTransition}
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
+        initial={{ opacity: 0, y: 35, scale: 0.96 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: false, amount: 0.15 }}
         className={cn(
           "relative bg-white dark:bg-[#0A0A0A] border border-black/5 dark:border-white/10 rounded-[3rem] shadow-2xl overflow-hidden transition-all duration-700",
           isExpanded ? "p-6 md:p-12" : "p-8 md:p-10 cursor-pointer group/master"
@@ -355,6 +355,7 @@ export const GitHubShowcase = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           className="absolute top-8 right-8 z-50 p-4 bg-black dark:bg-white text-white dark:text-black rounded-full shadow-2xl"
+          aria-label={isExpanded ? "Minimize" : "Maximize"}
         >
           {isExpanded ? <Minimize2 size={24} /> : <Maximize2 size={24} />}
         </motion.button>
@@ -381,13 +382,13 @@ export const GitHubShowcase = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-3xl font-black text-[#39d353] tabular-nums tracking-tighter">
-                  <Counter value={data.stats.followers} trigger={!loading} />
+                  <Counter value={data.stats.followers || 80} trigger={!loading} />
                 </span>
                 <span className="text-[10px] font-black uppercase opacity-40 tracking-widest">Followers</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-3xl font-black text-[#39d353] tabular-nums tracking-tighter">
-                  <Counter value={data.stats.totalRepos} trigger={!loading} />
+                  <Counter value={data.stats.totalRepos || 58} trigger={!loading} />
                 </span>
                 <span className="text-[10px] font-black uppercase opacity-40 tracking-widest">Repositories</span>
               </div>
@@ -426,6 +427,7 @@ export const GitHubShowcase = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   className="absolute top-8 right-8 z-50 p-4 bg-black dark:bg-white text-white dark:text-black rounded-full shadow-2xl"
+                  aria-label="Close"
                 >
                   <Minimize2 size={24} />
                 </motion.button>
@@ -444,7 +446,6 @@ export const GitHubShowcase = () => {
                       </span>
                     </h2>
                   </div>
-
                 </div>
 
                 <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-4", loading ? "opacity-30 blur-sm" : "opacity-100 blur-0")}>
@@ -464,7 +465,6 @@ export const GitHubShowcase = () => {
                       <div className="w-full overflow-x-auto py-4 scrollbar-hide relative github-calendar-wrapper">
                         <GithubCalendar username={GITHUB_USER} cellSize={15} cellGap={4} />
                       </div>
-
                     </div>
                   </div>
 
@@ -497,7 +497,7 @@ export const GitHubShowcase = () => {
                           </div>
                         </div>
 
-                        {/* Stack Mastery (no title) */}
+                        {/* Stack Mastery */}
                         <div className="flex flex-col gap-4 shrink-0 pb-4">
                           <div className="space-y-3">
                             {data.topLanguages.slice(0, 5).map((lang, idx) => (
@@ -603,7 +603,7 @@ export const GitHubShowcase = () => {
         </AnimatePresence>,
         document.body
       )}
-    </section>
+    </div>
   );
 };
 

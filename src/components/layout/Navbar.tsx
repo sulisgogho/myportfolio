@@ -52,7 +52,6 @@ const useNavItems = () => {
                 { label: t('achievements'), href: "/achievements", description: t('achievementsDesc') },
                 { label: t('skills'), href: "/skills", description: t('skillsDesc') },
                 { label: t('experience'), href: "/experience", description: t('experienceDesc') },
-                { label: t('projects'), href: "/projects", description: t('projectsDesc') },
                 { label: t('blog'), href: "/blog", description: t('blogDesc') },
             ]
         }
@@ -154,9 +153,9 @@ export function Navbar() {
         <>
             <motion.nav
                 variants={navVariants}
-                initial="hidden"
-                animate={!isPreloadActive && (isVisible || isMenuOpen) ? 'visible' : 'hidden'}
-                transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                initial="visible"
+                animate={(isVisible || isMenuOpen) ? 'visible' : 'hidden'}
+                transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                 className="fixed top-0 left-0 right-0 z-[100]"
             >
                 <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-24 py-4 md:py-6">
@@ -189,6 +188,7 @@ export function Navbar() {
                                 )}
                             </Link>
 
+
                             <CardNav
                                 items={navItems}
                                 theme={isDark ? 'dark' : 'light'}
@@ -216,9 +216,9 @@ export function Navbar() {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="p-2 md:p-2.5 rounded-full bg-muted/80 hover:bg-muted transition-colors"
-                                aria-label="Focus mode"
+                                aria-label="Resume"
                             >
-                                <Link href="https://arfazrllworkspace.vercel.app/" target="_blank" rel="noopener noreferrer">
+                                <Link href="/resume" title="View Resume">
                                     <Focus className="w-4 h-4" />
                                 </Link>
                             </motion.button>

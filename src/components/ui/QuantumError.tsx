@@ -159,10 +159,10 @@ export function QuantumError({ type = '404', reset }: QuantumErrorProps) {
                     <div className="flex items-center gap-2 text-primary font-black text-[11px] tracking-[0.2em] uppercase mb-1 opacity-80">
                         <span>PROBOLINGGO, INDONESIA</span>
                     </div>
-                    <div className="text-[10px] font-black uppercase tracking-[0.1em] text-foreground/40 mb-2">
+                    <div suppressHydrationWarning className="text-[10px] font-black uppercase tracking-[0.1em] text-foreground/40 mb-2">
                         {formattedDate}
                     </div>
-                    <div className="text-4xl font-black text-foreground/10 tracking-tighter leading-none">
+                    <div suppressHydrationWarning className="text-4xl font-black text-foreground/10 tracking-tighter leading-none">
                         {formattedTime.replace(/:/g, '.')}
                     </div>
                 </div>

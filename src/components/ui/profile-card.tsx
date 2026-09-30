@@ -60,7 +60,7 @@ export function ProfileCard(props: ProfileCardProps) {
             alt={name}
             width={480}
             height={480}
-            className='w-full h-full object-cover'
+            className='w-full h-full object-cover scale-[1.15] origin-[center_20%] -translate-x-4'
             draggable={false}
             priority
           />
@@ -117,7 +117,7 @@ export function ProfileCard(props: ProfileCardProps) {
             alt={name}
             width={400}
             height={400}
-            className='w-full h-full object-cover'
+            className='w-full h-full object-cover scale-[1.15] origin-[center_20%] -translate-x-4'
             draggable={false}
             priority
           />

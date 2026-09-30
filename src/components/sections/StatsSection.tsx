@@ -26,7 +26,7 @@ export default function StatsSection({ scrollYProgress, showOnly }: { scrollYPro
 
     useEffect(() => {
         const galleryImages = [
-            { src: '/gallery/Foto Utama.webp', alt: 'Foto Utama' },
+            { src: '/gallery/tyo-lanscape.png', alt: 'Foto Utama' },
             { src: '/gallery/FotoSC1.webp', alt: 'Foto SC1' },
             { src: '/gallery/FotoSC2.webp', alt: 'Foto SC2' },
             { src: '/gallery/FotoSC3.webp', alt: 'Foto SC3' },
