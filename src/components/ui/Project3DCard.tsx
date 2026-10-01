@@ -169,7 +169,7 @@ export function Project3DCard({ project, featured = false, className = '' }: Pro
                             <Link
                                 href={`/projects/${project.slug}`}
                                 className="w-9 h-9 rounded-full bg-muted/80 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300 flex-shrink-0 group-hover:scale-110"
-                                title="Lihat Detail Proyek"
+                                title="View Project Details"
                             >
                                 <ArrowUpRight className="w-4 h-4" />
                             </Link>

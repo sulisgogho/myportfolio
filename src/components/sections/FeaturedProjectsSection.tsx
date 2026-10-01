@@ -9,6 +9,7 @@ import { Sparkles, ArrowRight, ArrowUpRight, ExternalLink, Github, Layers, Chevr
 import { portfolioData } from '@/data/portfolio';
 import { Project } from '@/types';
 
+import { Counter } from '@/components/ui/Counter';
 import { cn } from '@/lib/utils';
 
 export function FeaturedProjectsSection() {
@@ -19,17 +20,17 @@ export function FeaturedProjectsSection() {
     const allProjects = portfolioData.projects || [];
     const featuredProjects = allProjects.slice(0, 4);
 
-    // 2. State untuk Project Utama di Bagian Atas yang Berganti Tiap 2 Detik
+    // State untuk spotlight project di bagian atas
     const [activeIndex, setActiveIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
 
-    // Rotasi Otomatis Tiap 2 Detik (background timer halus)
+    // Auto-switch project setiap 4 detik
     useEffect(() => {
         if (isPaused || featuredProjects.length === 0) return;
 
         const interval = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % featuredProjects.length);
-        }, 2000);
+        }, 4000);
 
         return () => clearInterval(interval);
     }, [isPaused, featuredProjects.length]);
@@ -40,8 +41,8 @@ export function FeaturedProjectsSection() {
         offset: ["start end", "end start"]
     });
 
-    const smoothProgress = useSpring(scrollYProgress, { damping: 25, stiffness: 120 });
-    const yHero = useTransform(smoothProgress, [0, 1], [25, -25]);
+    const smoothProgress = useSpring(scrollYProgress, { damping: 30, stiffness: 100 });
+    const yHero = useTransform(smoothProgress, [0, 1], [10, -10]);
 
     const activeProject = featuredProjects[activeIndex] || featuredProjects[0];
 
@@ -62,68 +63,59 @@ export function FeaturedProjectsSection() {
                 {/* Header Section dengan Desain Mewah & Eye-Catching */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
                     <motion.div
-                        initial={{ opacity: 0, y: 35, scale: 0.97, filter: 'blur(8px)' }}
-                        whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-                        viewport={{ once: false, amount: 0.2 }}
-                        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
                     >
-                        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-sky-500/10 via-primary/15 to-purple-500/10 text-primary text-xs font-bold uppercase tracking-wider mb-4 border border-primary/20 backdrop-blur-xl shadow-lg shadow-primary/5">
-                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                            <Sparkles className="w-3.5 h-3.5 text-primary" />
-                            Curated Portfolio • 4 Flagship Works
-                        </div>
                         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-foreground leading-[1.05]">
-                            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-primary to-purple-500">Creations</span>
+                            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-primary to-purple-500">Projects</span>
                         </h2>
-                        <p className="text-muted-foreground mt-3 max-w-2xl text-sm sm:text-base leading-relaxed">
-                            Eksplorasi sistem web interaktif, platform analitik data, dan rekayasa fullstack yang dibangun dengan presisi tinggi. Klik proyek untuk melihat studi kasus lengkap.
-                        </p>
+
                     </motion.div>
 
-                    {/* Minimalist Interactive Carousel Controller */}
-                    <div className="flex items-center gap-3 self-start md:self-end">
-                        <div className="flex items-center gap-1 p-1 rounded-2xl bg-card/80 border border-black/10 dark:border-white/10 backdrop-blur-xl shadow-sm">
-                            <button
-                                onClick={() => setActiveIndex((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length)}
-                                className="w-8 h-8 rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
-                                aria-label="Previous project"
-                            >
-                                <ChevronLeft className="w-4 h-4" />
-                            </button>
-                            <span className="text-xs font-mono font-bold px-2.5 text-foreground">
-                                0{activeIndex + 1} <span className="text-muted-foreground/60 font-normal">/</span> 04
+                    {/* Big Number Total Projects Stat */}
+                    <Link
+                        href="/projects"
+                        className="group flex items-center gap-4 px-5 py-3 rounded-2xl bg-card/70 hover:bg-card border border-black/10 dark:border-white/10 hover:border-primary/40 backdrop-blur-xl shadow-md transition-all self-start md:self-end hover:-translate-y-0.5"
+                    >
+                        <div className="flex items-baseline">
+                            <span className="text-4xl sm:text-5xl font-black tracking-tight text-foreground group-hover:text-primary transition-colors font-mono">
+                                <Counter value={allProjects.length} decimal={0} duration={2} />
                             </span>
-                            <button
-                                onClick={() => setActiveIndex((prev) => (prev + 1) % featuredProjects.length)}
-                                className="w-8 h-8 rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all"
-                                aria-label="Next project"
-                            >
-                                <ChevronRight className="w-4 h-4" />
-                            </button>
+                            <span className="text-2xl sm:text-3xl font-black text-primary ml-0.5">+</span>
                         </div>
-                    </div>
+                        <div className="flex flex-col border-l border-black/10 dark:border-white/10 pl-3.5 text-left">
+                            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground flex items-center gap-1 group-hover:text-primary transition-colors">
+                                Total Projects
+                                <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                            </span>
+                            <span className="text-[11px] text-muted-foreground font-medium">
+                                Explore full archive
+                            </span>
+                        </div>
+                    </Link>
                 </div>
 
-                {/* 1. PROJECT UTAMA DI BAGIAN ATAS (Berganti Otomatis Tiap 2 Detik) */}
+                {/* 1. PROJECT UTAMA DI BAGIAN ATAS */}
                 <motion.div
-                    style={{ y: yHero }}
-                    initial={{ opacity: 0, y: 60, scale: 0.94, filter: 'blur(12px)' }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-                    viewport={{ once: false, amount: 0.1 }}
-                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.1 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                     className="mb-14"
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                 >
                     <div className="relative rounded-3xl border border-black/15 dark:border-white/15 bg-gradient-to-b from-card/95 via-card/85 to-card/65 backdrop-blur-2xl overflow-hidden shadow-2xl transition-all duration-300 hover:border-primary/40">
-                        {/* Dynamic Smooth Linear Progress Line (2s duration) */}
+                        {/* Dynamic Smooth Linear Progress Line (4s duration) */}
                         <div className="w-full h-[2.5px] bg-muted/30 overflow-hidden relative">
                             {!isPaused && (
                                 <motion.div
                                     key={activeIndex}
                                     initial={{ width: "0%" }}
                                     animate={{ width: "100%" }}
-                                    transition={{ duration: 2, ease: "linear" }}
+                                    transition={{ duration: 4, ease: "linear" }}
                                     className="h-full bg-gradient-to-r from-sky-400 via-primary to-purple-500"
                                 />
                             )}
@@ -131,6 +123,7 @@ export function FeaturedProjectsSection() {
                                 <div className="h-full w-full bg-primary/70" />
                             )}
                         </div>
+
 
                         {/* Top Window Chrome & 5 Selector Tabs */}
                         <div className="px-6 py-4 border-b border-black/5 dark:border-white/10 flex items-center justify-between gap-4 bg-muted/20">
@@ -140,7 +133,7 @@ export function FeaturedProjectsSection() {
                                 <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
                                 <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
                                 <span className="ml-3 text-[11px] font-mono tracking-widest uppercase font-bold text-muted-foreground">
-                                    SPOTLIGHT CREATION • 0{activeIndex + 1}
+                                    SPOTLIGHT PROJECT • 0{activeIndex + 1}
                                 </span>
                             </div>
 
@@ -262,7 +255,7 @@ export function FeaturedProjectsSection() {
                                     {/* Hover prompt */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                                         <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-black font-bold text-xs shadow-lg">
-                                            Klik untuk membuka halaman detail
+                                            Click to view case study details
                                             <ArrowUpRight className="w-3.5 h-3.5" />
                                         </span>
                                     </div>
@@ -272,17 +265,13 @@ export function FeaturedProjectsSection() {
                     </div>
                 </motion.div>
 
-                {/* 2. GRID 4 PROYEK UNGGULAN */}
+                {/* 2. GRID 4 Top Projects */}
                 <div className="mb-14">
-                    <div className="flex items-center justify-between mb-6">
-                        <div>
-                            <h3 className="text-xl sm:text-2xl font-black text-foreground tracking-tight">
-                                4 Proyek Unggulan
-                            </h3>
-                            <p className="text-xs sm:text-sm text-muted-foreground mt-1">
-                                Klik salah satu kartu di bawah untuk membuka halaman detailnya, atau arahkan kursor untuk menyorot ke bagian atas.
-                            </p>
-                        </div>
+                    {/* Centered 4 Top Projects Header */}
+                    <div className="text-center max-w-2xl mx-auto mb-10">
+                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-foreground tracking-tight">
+                            4 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-primary to-purple-500">Top Projects</span>
+                        </h3>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -291,21 +280,21 @@ export function FeaturedProjectsSection() {
                             return (
                                 <motion.div
                                     key={project.id || project.slug}
-                                    initial={{ opacity: 0, y: 50, scale: 0.94, filter: 'blur(8px)' }}
-                                    whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-                                    viewport={{ once: false, amount: 0.12 }}
-                                    transition={{ duration: 0.65, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                                    onClick={() => handleOpenDetail(project.slug)}
+                                    initial={{ opacity: 0, y: 25 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.1 }}
+                                    transition={{ duration: 0.5, delay: idx * 0.08, ease: "easeOut" }}
+                                    onClick={() => setActiveIndex(idx)}
                                     onMouseEnter={() => {
                                         setActiveIndex(idx);
                                         setIsPaused(true);
                                     }}
                                     onMouseLeave={() => setIsPaused(false)}
-                                    whileHover={{ y: -8, scale: 1.02 }}
+                                    whileHover={{ y: -4 }}
                                     className={cn(
-                                        "relative rounded-2xl border p-4 flex flex-col justify-between cursor-pointer transition-all duration-300 backdrop-blur-xl group",
+                                        "relative rounded-2xl border p-4 flex flex-col justify-between cursor-pointer transition-colors duration-300 backdrop-blur-xl group",
                                         isCurrent
-                                            ? "border-primary bg-primary/10 shadow-xl shadow-primary/10 ring-2 ring-primary/40"
+                                            ? "border-primary bg-primary/10 shadow-lg shadow-primary/10 ring-1 ring-primary/40"
                                             : "border-black/10 dark:border-white/10 bg-card/80 hover:border-primary/40 hover:bg-card"
                                     )}
                                 >
@@ -317,12 +306,11 @@ export function FeaturedProjectsSection() {
                                             </span>
                                             {isCurrent ? (
                                                 <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary text-primary-foreground text-[10px] font-bold">
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                                                    Aktif
+                                                    Active
                                                 </span>
                                             ) : (
                                                 <span className="text-[10px] font-mono text-muted-foreground/60 group-hover:text-primary transition-colors">
-                                                    Pilih
+                                                    Select
                                                 </span>
                                             )}
                                         </div>
@@ -368,17 +356,17 @@ export function FeaturedProjectsSection() {
 
                 {/* 3. CTA Seluruh Arsip Proyek */}
                 <motion.div
-                    initial={{ opacity: 0, y: 25, scale: 0.96 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: false, amount: 0.2 }}
-                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center"
                 >
                     <Link
                         href="/projects"
                         className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-foreground text-background font-extrabold text-sm hover:opacity-90 transition-all shadow-xl hover:gap-3.5 group"
                     >
-                        Jelajahi Seluruh Arsip Proyek ({allProjects.length})
+                        Explore Full Project Archive ({allProjects.length})
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </motion.div>

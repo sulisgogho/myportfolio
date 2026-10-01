@@ -294,14 +294,14 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
                 href="#projects"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-background font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all shadow-md"
               >
-                Lihat Proyek
+                View Projects
                 <ArrowDown className="w-3.5 h-3.5" />
               </a>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-black/15 dark:border-white/20 bg-background/80 backdrop-blur-sm text-foreground font-semibold text-xs uppercase tracking-wider hover:bg-muted transition-all"
               >
-                Konsultasi / Kontak
+                Consultation / Contact
               </Link>
             </div>
 

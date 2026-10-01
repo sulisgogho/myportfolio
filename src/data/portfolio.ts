@@ -4,8 +4,8 @@ export const portfolioData: PortfolioData = {
     personal: {
         name: 'Sulistyowati Munawaroh',
         title: 'Fullstack Developer & Data Analyst',
-        subtitle: 'Membangun Aplikasi Fullstack Skalabel & Analisis Data Terintegrasi.',
-        bio: 'Lulusan Teknik Informatika (IPK 3.86) yang berfokus pada Fullstack Development dan Data Analytics. Berpengalaman merakit aplikasi web interaktif performa tinggi dengan React, Next.js, TypeScript, serta visualisasi dan pemrosesan data analitis berbasis Python dan SQL.',
+        subtitle: 'Building Scalable Fullstack Applications & Integrated Data Analytics.',
+        bio: 'Informatics Engineering graduate (3.86 GPA) focusing on Fullstack Development and Data Analytics. Experienced in building high-performance interactive web applications with React, Next.js, TypeScript, as well as data visualization and analytical processing using Python and SQL.',
         avatar: '/about/tyo.png',
         location: 'Probolinggo, East Java, Indonesia',
         email: 'sulistyowatimunawaroh@gmail.com',
@@ -24,10 +24,10 @@ export const portfolioData: PortfolioData = {
     projects: [
         {
             id: 'proj-1',
-            slug: 'sistem-pencatatan-keuangan',
-            title: 'Sistem Pencatatan Keuangan Harian',
-            description: 'Web application untuk pelacakan pengeluaran keuangan harian untuk single dan couple',
-            longDescription: 'Membangun aplikasi full-stack untuk melacak inventaris barang secara real-time dengan fitur notifikasi dan dashboard.',
+            slug: 'daily-finance-tracker',
+            title: 'Daily Financial Tracking System',
+            description: 'Web application for tracking daily financial expenses for singles and couples.',
+            longDescription: 'Built a full-stack application to track inventory items in real-time with notification features and a comprehensive dashboard.',
             image: '/project/project2.png',
             techStack: ['React', 'Node.js', 'Tailwind'],
             tools: ['VS Code', 'Git'],
@@ -49,12 +49,12 @@ export const portfolioData: PortfolioData = {
             id: 'proj-2',
             slug: 'emerging-skill-trends',
             title: 'Analyzing Emerging Skill Requirements and Technology Trends',
-            description: 'Dashboard interaktif berbasis Python dan SQLite untuk analisis tren ekosistem developer global.',
-            longDescription: `Menganalisis ekosistem developer global menggunakan data Stack Overflow Survey, data web-scraping BeautifulSoup, dan simulasi API untuk mengidentifikasi pergeseran tren teknologi masa depan.
-Detail kompetensi teknis dan alur kerja yang dipelajari:
-• Data Collection & Wrangling (SQL & Python): Menggabungkan data survei CSV dengan data gaji eksternal hasil scraping, menangani missing values (Mode/Median), menghapus duplikasi data, serta menyaring data pencilan menggunakan metode Interquartile Range (IQR).
-• Exploratory Data Analysis (Python): Melakukan manipulasi string multi-value dan agregasi data menggunakan Pandas dan NumPy untuk memetakan tren bahasa pemrograman, database, infrastruktur cloud, hingga data demografi secara mendalam.
-• Visualisasi Data & Dashboarding (Plotly, Seaborn, & WordCloud): Membangun dashboard pemangku kepentingan interaktif dengan visualisasi multi-panel seperti Bubble Charts, Word Clouds, Treemaps, dan pemetaan geografis dinamis untuk menghasilkan insight bisnis yang actionable.`,
+            description: 'Interactive dashboard using Python and SQLite to analyze global developer ecosystem trends.',
+            longDescription: `Analyzed the global developer ecosystem using Stack Overflow Survey data, BeautifulSoup web-scraping data, and API simulations to identify future technology trend shifts.
+Detailed technical competencies and workflows learned:
+• Data Collection & Wrangling (SQL & Python): Merged survey CSV data with external scraped salary data, handled missing values (Mode/Median), removed duplicates, and filtered outliers using the Interquartile Range (IQR) method.
+• Exploratory Data Analysis (Python): Performed string manipulation and data aggregation using Pandas and NumPy to map programming language trends, databases, cloud infrastructure, and demographics in depth.
+• Data Visualization & Dashboarding (Plotly, Seaborn, & WordCloud): Built interactive stakeholder dashboards with multi-panel visualizations such as Bubble Charts, Word Clouds, Treemaps, and dynamic geographic mapping to generate actionable business insights.`,
             image: '/project/project1.png',
             techStack: ['Python', 'SQL', 'Pandas', 'BeautifulSoup', 'Plotly', 'Data Visualization'],
             tools: ['Jupyter', 'SQLite'],
@@ -74,9 +74,9 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         {
             id: 'proj-3',
             slug: 'cahaya-makmur-profile',
-            title: 'Website Company Profile UD Cahaya Makmur',
-            description: 'Website company profile serta katalog UD Cahaya Makmur.',
-            longDescription: 'Website company profile untuk branding dan memudahkan calon customer mengetahui katalog penjualan dari UD Cahaya Makmur.',
+            title: 'UD Cahaya Makmur Company Profile',
+            description: 'Company profile and catalog website for UD Cahaya Makmur.',
+            longDescription: 'A company profile website for branding purposes and making it easier for potential customers to view the sales catalog of UD Cahaya Makmur.',
             image: '/project/project3.png',
             techStack: ['React', 'Node.js', 'Tailwind'],
             tools: ['VS Code'],
@@ -97,9 +97,9 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         {
             id: 'proj-4',
             slug: 'bot-trading-momentum',
-            title: 'Bot Trading Momentum Candle',
-            description: 'Bot trading otomatis dengan strategi Momentum Candle.',
-            longDescription: 'Mengembangkan bot trading otomatis menggunakan MQL5 yang mengeksekusi strategi di pasar Forex XAUUSD.',
+            title: 'Momentum Candle Trading Bot',
+            description: 'Automated trading bot implementing the Momentum Candle strategy.',
+            longDescription: 'Developed an automated trading bot using MQL5 that executes strategies in the XAUUSD Forex market.',
             image: '/project/project4.png',
             techStack: ['MQ5', 'Momentum Candle', 'Forex Trading'],
             tools: ['MetaTrader 5'],
@@ -121,8 +121,8 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             id: 'proj-5',
             slug: 'superstore-sales-analysis',
             title: 'Superstore Sales Analysis & Customer Segmentation Engine',
-            description: 'Model Machine Learning untuk Mengoptimalkan Strategi Pemasaran Menggunakan Python (RFM) & React Dashboard.',
-            longDescription: 'Saya mengembangkan sistem analisis Full-Stack menggunakan Python (Pandas) untuk pemrosesan data otomatis dan algoritma RFM Segmentation, yang kemudian divisualisasikan melalui dashboard interaktif React JS.',
+            description: 'Machine Learning model to optimize marketing strategies using Python (RFM) & React Dashboard.',
+            longDescription: 'Developed a Full-Stack analysis system using Python (Pandas) for automated data processing and RFM Segmentation algorithms, subsequently visualized through an interactive React JS dashboard.',
             image: '/project/project5.png',
             techStack: ['Python Flask', 'Pandas', 'React', 'Rechart'],
             tools: ['VS Code', 'Jupyter'],
@@ -143,9 +143,9 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         {
             id: 'proj-6',
             slug: 'game-ular-tangga-deeptalk',
-            title: 'Game Ular Tangga Deeptalk',
-            description: 'Game ular tangga untuk pasangan deeptalk',
-            longDescription: 'Game ular tangga untuk pasangan deeptalk',
+            title: 'Deep Talk Snakes and Ladders Game',
+            description: 'Snakes and ladders game designed for couples to have deep talks.',
+            longDescription: 'An interactive snakes and ladders game specifically tailored for couples to engage in meaningful and deep conversations.',
             image: '/project/project6.png',
             techStack: ['React', 'Node.js', 'Tailwind'],
             tools: ['VS Code'],
@@ -166,9 +166,9 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         {
             id: 'proj-7',
             slug: 'tangkas-hitung',
-            title: 'Tangkas Hitung',
-            description: 'Aplikasi permainan edukatif untuk melatih kecepatan dan akurasi aritmatika dasar.',
-            longDescription: 'Membangun platform interaktif berbasis web untuk menguji kemampuan berhitung cepat pengguna dengan berbagai tingkat kesulitan, kalkulasi waktu presisi, dan sistem skor dinamis langsung di layar.',
+            title: 'Math Agility',
+            description: 'Educational game application to train speed and accuracy in basic arithmetic.',
+            longDescription: 'Built an interactive web-based platform to test users fast counting skills with various difficulty levels, precision timing calculations, and a dynamic on-screen scoring system.',
             image: '/project/TangkasHitung.png',
             techStack: ['React', 'JavaScript', 'Tailwind CSS'],
             tools: ['VS Code'],
@@ -189,8 +189,8 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             id: 'proj-8',
             slug: 'the-data-vault',
             title: 'The Data Vault',
-            description: 'Sistem arsitektur penyimpanan dan manajemen data terenkripsi.',
-            longDescription: 'Mengembangkan arsitektur basis data yang aman dengan menerapkan validasi input tingkat lanjut dan manajemen sesi untuk melindungi data rahasia serta menyediakan antarmuka akses yang terkontrol.',
+            description: 'Encrypted data storage and management architecture system.',
+            longDescription: 'Developed a secure database architecture by implementing advanced input validation and session management to protect confidential data and provide a controlled access interface.',
             image: '/project/the-data-vault.jpg',
             techStack: ['PostgreSQL', 'Node.js', 'Python', 'Cryptography'],
             tools: ['VS Code'],
@@ -210,9 +210,9 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         {
             id: 'proj-12',
             slug: 'absensi-les',
-            title: 'Absensi Les',
-            description: 'Sistem manajemen kehadiran digital terintegrasi untuk bimbingan belajar.',
-            longDescription: 'Aplikasi berbasis web untuk melacak kehadiran siswa secara real-time. Sistem ini dilengkapi dengan fitur rekapitulasi otomatis bulanan dan dashboard pelaporan analitis untuk memudahkan pemantauan oleh tentor.',
+            title: 'Tutoring Attendance System',
+            description: 'Integrated digital attendance management system for tutoring centers.',
+            longDescription: 'Web-based application for tracking student attendance in real-time. This system is equipped with automatic monthly recapitulation features and an analytical reporting dashboard to facilitate monitoring by tutors.',
             image: '/project/absensi-les.png',
             techStack: ['React', 'Express.js', 'MySQL', 'Tailwind', 'Chart.js'],
             tools: ['VS Code'],
@@ -233,8 +233,8 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             id: 'proj-13',
             slug: 'infly-network',
             title: 'Infly Network',
-            description: 'Platform portal web dan layanan jaringan informasi terpadu.',
-            longDescription: 'Membangun antarmuka digital yang responsif untuk layanan Infly Network. Berfokus pada optimasi SEO, performa muat situs yang cepat, dan pengalaman pengguna (UX) yang mulus di berbagai perangkat.',
+            description: 'Integrated web portal platform and information network services.',
+            longDescription: 'Built a responsive digital interface for Infly Network services. Focused on SEO optimization, fast site load performance, and seamless user experience (UX) across multiple devices.',
             image: '/project/infly.png',
             techStack: ['Next.js', 'Tailwind CSS', 'Supabase', 'Responsive Design'],
             tools: ['VS Code'],
@@ -255,8 +255,8 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             id: 'proj-11',
             slug: 'the-megablue-print',
             title: 'The Megablue Print',
-            description: 'Sistem digitalisasi perancangan alur kerja dan standar operasional (SOP).',
-            longDescription: 'Alat perancangan arsitektur operasional yang memungkinkan pengguna memvisualisasikan, mendokumentasikan, dan mengelola cetak biru strategi perusahaan maupun SOP secara terstruktur dan efisien.',
+            description: 'Digitization system for workflow design and standard operating procedures (SOP).',
+            longDescription: 'An operational architecture design tool that allows users to visualize, document, and manage company strategy blueprints and SOPs in a structured and efficient manner.',
             image: '/project/the-mega-blueprint.jpg',
             techStack: ['React', 'Node.js', 'MongoDB'],
             tools: ['VS Code'],
@@ -277,8 +277,8 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             id: 'proj-10',
             slug: 'the-grand-archieve',
             title: 'The Grand Archieve',
-            description: 'Repositori digital komprehensif untuk pengarsipan dokumen.',
-            longDescription: 'Sistem manajemen dokumen arsip (Document Management System) berskala menengah dengan kemampuan kategorisasi dinamis dan pencarian metadata untuk mengelola ribuan rekaman digital tanpa kehilangan struktur referensi.',
+            description: 'Comprehensive digital repository for document archiving.',
+            longDescription: 'A mid-scale Document Management System (DMS) with dynamic categorization and metadata search capabilities to manage thousands of digital records without losing reference structure.',
             image: '/project/the-grand-archieve.jpg',
             techStack: ['React', 'PostgreSQL', 'Express.js'],
             tools: ['VS Code'],
@@ -298,9 +298,9 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         {
             id: 'proj-9',
             slug: 'test-koran',
-            title: 'Test Koran',
-            description: 'Simulasi psikotes Kraepelin/Pauli berbasis web untuk latihan rekrutmen.',
-            longDescription: 'Mendigitalisasi tes konsentrasi angka (tes koran) menjadi aplikasi web dinamis. Sistem mampu menghitung matriks kecepatan, tingkat akurasi, dan menghasilkan grafik ketahanan kerja pengguna secara instan begitu sesi tes usai.',
+            title: 'Kraepelin Test',
+            description: 'Web-based Kraepelin/Pauli psychological test simulation for recruitment practice.',
+            longDescription: 'Digitized the number concentration test (newspaper test) into a dynamic web application. The system can calculate speed metrics, accuracy rates, and generate a user work endurance graph instantly once the test session ends.',
             image: '/project/teskoran.png',
             techStack: ['React', 'JavaScript', 'Recharts'],
             tools: ['VS Code'],
@@ -320,9 +320,9 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         {
             id: 'proj-14',
             slug: 'web-probolinggo',
-            title: 'Web Probolinggo',
-            description: 'Portal informasi digital terintegrasi untuk mempromosikan pariwisata dan potensi daerah Probolinggo.',
-            longDescription: 'Membangun platform website responsif yang menyajikan informasi terkini, destinasi wisata, dan UMKM lokal di Probolinggo. Mengintegrasikan desain modern dan sistem manajemen konten untuk memudahkan pembaruan informasi daerah secara berkala.',
+            title: 'Probolinggo Web Portal',
+            description: 'Integrated digital information portal to promote tourism and regional potential of Probolinggo.',
+            longDescription: 'Built a responsive website platform presenting the latest information, tourist destinations, and local SMEs in Probolinggo. Integrated modern design and a content management system to facilitate regular regional information updates.',
             image: '/project/kabpro.png',
             techStack: ['React', 'Next.js', 'Tailwind CSS', 'CMS'],
             tools: ['VS Code'],
@@ -345,24 +345,24 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             id: 'exp-1',
             company: 'PT Global Jet Express (J&T Express)',
             position: 'Daily Worker Staff Processing',
-            description: 'Mengelola akurasi data paket logistik inbound/outbound serta mengoptimalkan pengolahan data distribusi harian menggunakan fungsi Excel tingkat lanjut.\n\nBertanggung jawab memastikan sinkronisasi data logistik secara real-time antara pemindaian fisik dan database pusat menggunakan sistem logistik terintegrasi.',
+            description: 'Managed the accuracy of inbound/outbound logistics package data and optimized daily distribution data processing using advanced Excel functions.\n\nResponsible for ensuring real-time logistics data synchronization between physical scanning and the central database using an integrated logistics system.',
             skills: ['Excel', 'Data Processing', 'Logistics'],
             startDate: '2026-01-01',
             isOngoing: true,
             location: 'Gresik, Indonesia',
             type: 'contract',
             responsibilities: [
-                'Sinkronisasi Data: Mengelola akurasi data paket inbound dan outbound untuk memastikan konsistensi data pada sistem logistik pusat.',
-                'Analisis KPI Operasional: Memantau dan menganalisis laporan KPI operasional, termasuk mengevaluasi tingkat miss-route (salah rute) dan efisiensi distribusi di berbagai drop point.',
-                'Quality Control: Melakukan validasi berkala pada status pengiriman dan inspeksi QC untuk memastikan integritas paket serta konsistensi data di dalam sistem.',
-                'Optimasi Laporan: Mengoptimalkan pemrosesan data distribusi harian menggunakan fungsi Advanced Excel untuk menghasilkan laporan analitis yang mendukung pengambilan keputusan operasional gudang.'
+                'Data Synchronization: Managed the accuracy of inbound and outbound package data to ensure data consistency in the central logistics system.',
+                'Operational KPI Analysis: Monitored and analyzed operational KPI reports, including evaluating miss-route rates and distribution efficiency at various drop points.',
+                'Quality Control: Conducted periodic validations on delivery status and QC inspections to ensure package integrity and data consistency within the system.',
+                'Report Optimization: Optimized daily distribution data processing using Advanced Excel functions to generate analytical reports supporting warehouse operational decision-making.'
             ]
         },
         {
             id: 'exp-2',
             company: 'PT Federal International Finance (FIF Group)',
             position: 'Account Officer',
-            description: 'Melakukan verifikasi dokumen pelanggan, manajemen basis data laporan harian, serta pemeliharaan arsip administrasi perusahaan.\n\nBertanggung jawab atas validitas data pengajuan dan akurasi pelaporan administrasi harian konsumen.',
+            description: 'Verified customer documents, managed daily report databases, and maintained corporate administrative archives.\n\nResponsible for the validity of application data and the accuracy of daily consumer administrative reporting.',
             skills: ['Data Entry', 'Verification', 'Archiving'],
             startDate: '2025-03-01',
             endDate: '2025-08-01',
@@ -370,16 +370,16 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             location: 'Indonesia',
             type: 'contract',
             responsibilities: [
-                'Verifikasi Dokumen: Memeriksa dan memvalidasi berkas dan dokumen pelanggan untuk memastikan seluruh data yang diajukan akurat, valid, dan lengkap sesuai prosedur.',
-                'Entri Data & Pelaporan: Menginput data lapangan ke dalam basis data (database) perusahaan secara terstruktur untuk penyusunan pelaporan harian.',
-                'Manajemen Arsip: Mengelola rekam medis/catatan pelanggan serta menjaga file administratif tetap terorganisir dan up-to-date.'
+                'Document Verification: Checked and validated customer files and documents to ensure all submitted data is accurate, valid, and complete according to procedures.',
+                'Data Entry & Reporting: Inputted field data into the company database in a structured manner for the preparation of daily reports.',
+                'Archive Management: Managed medical records/customer records and kept administrative files organized and up-to-date.'
             ]
         },
         {
             id: 'exp-3',
-            company: 'BEM Fakultas Teknik',
-            position: 'Ketua Divisi Riset dan Teknologi',
-            description: 'Memimpin divisi yang bergerak di bidang pengembangan riset dan implementasi teknologi di lingkungan organisasi mahasiswa Fakultas Teknik.',
+            company: 'Faculty of Engineering Student Executive Board (BEM FT)',
+            position: 'Head of Research and Technology Division',
+            description: 'Led the division engaged in research development and technology implementation within the Engineering Faculty student organization environment.',
             skills: ['Leadership', 'Event Management', 'Tech Strategy'],
             startDate: '2022-09-01',
             endDate: '2023-08-01',
@@ -387,16 +387,16 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             location: 'Jember, Indonesia',
             type: 'volunteer',
             responsibilities: [
-                'Pengembang Workshop: Memimpin pelaksanaan berbagai workshop berbasis teknologi untuk meningkatkan kompetensi digital mahasiswa.',
-                'Manajemen Informasi: Bertanggung jawab penuh dalam mengelola sistem informasi digital fakultas serta memastikan aksesibilitas data berjalan dengan baik.',
-                'Administrasi Organisasi: Mengelola seluruh dokumentasi, pencatatan, dan pelaporan berkala dari aktivitas organisasi.'
+                'Workshop Developer: Led the implementation of various technology-based workshops to improve students digital competencies.',
+                'Information Management: Took full responsibility for managing the faculty digital information system and ensuring data accessibility runs well.',
+                'Organizational Administration: Managed all documentation, recording, and periodic reporting of organizational activities.'
             ]
         },
         {
             id: 'exp-4',
-            company: 'Relawan TIK Jember',
-            position: 'Pengurus Divisi Sumber Daya Manusia',
-            description: 'Memberikan edukasi literasi digital kepada lebih dari 1.000 peserta dan melakukan sosialisasi teknologi ke berbagai instansi publik.',
+            company: 'ICT Volunteers (Relawan TIK) Jember',
+            position: 'Human Resources Division Board',
+            description: 'Provided digital literacy education to more than 1,000 participants and conducted technology socialization to various public institutions.',
             skills: ['Public Speaking', 'Digital Literacy', 'Event Organizing'],
             startDate: '2022-07-01',
             endDate: '2025-02-01',
@@ -404,8 +404,8 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             location: 'Jember, Indonesia',
             type: 'volunteer',
             responsibilities: [
-                'Edukasi Masif: Berhasil menyampaikan pelatihan dan edukasi literasi digital kepada lebih dari 1.000 peserta dari berbagai latar belakang.',
-                'Sosialisasi Teknologi: Menyelenggarakan program sosialisasi teknologi dan penjangkauan eksternal untuk sekolah-sekolah serta lembaga publik.'
+                'Massive Education: Successfully delivered digital literacy training and education to more than 1,000 participants from various backgrounds.',
+                'Technology Socialization: Organized technology socialization programs and external outreach for schools and public institutions.'
             ]
         }
     ],
@@ -413,15 +413,15 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         {
             id: 'edu-1',
             institution: 'Universitas Muhammadiyah Jember',
-            degree: 'Sarjana (S1)',
-            major: 'Informatika',
+            degree: 'Bachelor Degree (S1)',
+            major: 'Informatics Engineering',
             startDate: '2020-08-01',
             endDate: '2024-06-01',
             isOngoing: false,
             gpa: '3.86',
             achievements: [
-                'Wisudawan Berprestasi Utama (IPK Tertinggi Fakultas Teknik)',
-                'Medali Emas Lomba Karya Tulis Ilmiah Nasional APSI PTMA'
+                'Best Graduate (Highest GPA in Faculty of Engineering)',
+                'Gold Medalist at National Scientific Paper Competition APSI PTMA'
             ]
         }
     ],
@@ -431,7 +431,7 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             title: 'IBM Data Analyst',
             issuer: 'Coursera',
             date: '2026',
-            description: 'Memberikan pemahaman mendalam mengenai seluruh siklus hidup analisis data, mulai dari tahap persiapan data mentah hingga visualisasi akhir yang siap pakai untuk kebutuhan bisnis.',
+            description: 'Provided an in-depth understanding of the entire data analysis lifecycle, from raw data preparation to final visualizations ready for business needs.',
             image: '/Data Analyst.jpg',
             category: 'certification'
         },
@@ -440,25 +440,25 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
             title: 'Microsoft Excel',
             issuer: 'Coursera',
             date: '2026',
-            description: 'Memberikan keahlian mendalam dalam mengolah, menganalisis, dan menyajikan data secara profesional menggunakan Microsoft Excel untuk kebutuhan bisnis dan pelaporan keuangan.',
+            description: 'Provided in-depth expertise in processing, analyzing, and presenting data professionally using Microsoft Excel for business needs and financial reporting.',
             image: '/excel-logo.png',
             category: 'certification'
         },
         {
             id: 'cert-3',
-            title: 'IPK Tertinggi Fakultas Teknik (3.86)',
+            title: 'Highest GPA in Faculty of Engineering (3.86)',
             issuer: 'Universitas Muhammadiyah Jember',
             date: '2024',
-            description: 'Penghargaan akademis tertinggi yang diberikan langsung oleh Rektor Universitas Muhammadiyah Jember pada Wisuda Periode Semester Genap TA 2023/2024.',
+            description: 'The highest academic award presented directly by the Rector of Universitas Muhammadiyah Jember at the Graduation Ceremony for the Even Semester of the 2023/2024 Academic Year.',
             image: '/IPK Tertinggi.jpg',
             category: 'award'
         },
         {
             id: 'cert-4',
-            title: 'Medali Emas LKTIN APSI PTMA',
-            issuer: 'Asosiasi Program Studi Informatika (APSI) PTMA',
+            title: 'Gold Medalist LKTIN APSI PTMA',
+            issuer: 'Informatics Study Program Association (APSI) PTMA',
             date: '2022',
-            description: 'Juara 1 (Peraih Medali Emas) dalam kompetisi Karya Tulis Ilmiah pada Rapat Koordinasi Nasional (RAKORNAS) APSI PTMA yang diselenggarakan di Ternate.',
+            description: '1st Place (Gold Medalist) in the National Scientific Paper competition at the APSI PTMA National Coordination Meeting (RAKORNAS) held in Ternate.',
             image: '/APSI.jpg',
             category: 'award'
         }
@@ -504,16 +504,16 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         { name: 'Microsoft Excel', icon: 'excel', category: 'data' },
     ],
     faqs: [
-        { question: 'Apakah Anda menerima proyek freelance?', answer: 'Ya, saya terbuka untuk proyek freelance terkait Web Development dan Data Analysis.' },
-        { question: 'Tech stack apa yang paling sering Anda gunakan?', answer: 'Saya sering menggunakan ekosistem React/Next.js untuk frontend, Node.js untuk backend, serta Python dan Excel untuk analisis data.' }
+        { question: 'Do you accept freelance projects?', answer: 'Yes, I am open to freelance projects related to Web Development and Data Analysis.' },
+        { question: 'What tech stack do you use most often?', answer: 'I primarily use the React/Next.js ecosystem for the frontend, Node.js for the backend, as well as Python and Excel for data analysis.' }
     ],
     blogs: [
         {
             id: 'blog-1',
-            slug: 'menggabungkan-coding-dan-trading',
-            title: 'Menggabungkan Coding dan Trading: Panduan Pemula',
-            excerpt: 'Bagaimana keterampilan pemrograman dapat memberi Anda keunggulan analitis di pasar keuangan.',
-            content: 'Banyak trader mengandalkan insting, tetapi di era modern, data adalah raja. Dengan mempelajari bahasa pemrograman seperti Python, Anda dapat menarik data historis pasar menggunakan API, melakukan backtesting strategi Anda dalam hitungan detik, dan mengotomatiskan eksekusi perdagangan. Artikel ini membahas langkah-langkah dasar bagaimana saya memulai perjalanan algotrading saya, mulai dari menguasai Pandas untuk manipulasi data hingga menghubungkan script saya ke Binance API.',
+            slug: 'combining-coding-and-trading',
+            title: 'Combining Coding and Trading: A Beginners Guide',
+            excerpt: 'How programming skills can give you an analytical edge in financial markets.',
+            content: 'Many traders rely on gut feeling, but in the modern era, data is king. By learning programming languages like Python, you can pull historical market data using APIs, backtest your strategies in seconds, and automate trade execution. This article discusses the basic steps of how I started my algorithmic trading journey, from mastering Pandas for data manipulation to connecting my scripts to the Binance API.',
             image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800',
             date: '2024-05-12',
             category: 'Finance',
@@ -523,10 +523,10 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         },
         {
             id: 'blog-2',
-            slug: 'pentingnya-data-cleaning',
-            title: 'Pentingnya Data Cleaning Sebelum Mengambil Keputusan',
-            excerpt: 'Data yang kotor menghasilkan keputusan yang salah. Berikut alur kerja ETL yang biasa saya gunakan.',
-            content: "Dalam analisis data, ada pepatah 'Garbage In, Garbage Out'. Jika Anda membangun model machine learning canggih atau dashboard yang indah di atas data yang cacat, hasilnya tidak akan valid. Di artikel ini, saya membagikan alur kerja ETL (Extract, Transform, Load) harian saya: menangani missing values, normalisasi format tanggal, hingga mendeteksi outlier menggunakan metode Z-score.",
+            slug: 'the-importance-of-data-cleaning',
+            title: 'The Importance of Data Cleaning Before Decision Making',
+            excerpt: 'Dirty data leads to wrong decisions. Here is the ETL workflow I usually use.',
+            content: "In data analysis, there is a saying 'Garbage In, Garbage Out'. If you build sophisticated machine learning models or beautiful dashboards on top of flawed data, the results will not be valid. In this article, I share my daily ETL (Extract, Transform, Load) workflow: handling missing values, normalizing date formats, and detecting outliers using the Z-score method.",
             image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
             date: '2024-04-28',
             category: 'Data Science',
@@ -536,10 +536,10 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         },
         {
             id: 'blog-3',
-            slug: 'sop-fondasi-rahasia-skalabilitas',
-            title: 'SOP: Fondasi Rahasia Skalabilitas Startup',
-            excerpt: 'Mengapa sistem administrasi yang terstruktur adalah kunci rahasia untuk mengembangkan perusahaan.',
-            content: 'Seringkali SOP (Standard Operating Procedure) dianggap sebagai hal yang kaku dan membosankan. Namun, setelah merancang ulang alur kerja di beberapa perusahaan, saya menemukan bahwa SOP yang baik justru memberikan kebebasan. Ketika proses berulang sudah terdokumentasi dan terotomatisasi, tim Anda dapat fokus pada kreativitas dan pemecahan masalah strategis, bukan sekadar mengingat langkah-langkah administratif dasar.',
+            slug: 'sop-the-secret-foundation-of-scalability',
+            title: 'SOP: The Secret Foundation of Startup Scalability',
+            excerpt: 'Why structured administrative systems are the secret key to growing a company.',
+            content: 'Often SOPs (Standard Operating Procedures) are considered rigid and boring. However, after redesigning workflows in several companies, I found that good SOPs actually provide freedom. When repetitive processes are documented and automated, your team can focus on creativity and strategic problem-solving, rather than just remembering basic administrative steps.',
             image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800',
             date: '2024-03-15',
             category: 'Management',
@@ -549,10 +549,10 @@ Detail kompetensi teknis dan alur kerja yang dipelajari:
         },
         {
             id: 'blog-4',
-            slug: 'react-vs-vue-untuk-dashboard',
-            title: 'React vs Vue untuk Dashboard Internal',
-            excerpt: 'Perbandingan objektif dalam memilih framework frontend untuk aplikasi manajemen data.',
-            content: 'Memilih framework seringkali memicu perdebatan panjang. Dalam proyek terakhir saya, saya membuat perbandingan langsung antara React dan Vue untuk kebutuhan dashboard internal...',
+            slug: 'react-vs-vue-for-dashboards',
+            title: 'React vs Vue for Internal Dashboards',
+            excerpt: 'An objective comparison in choosing a frontend framework for data management applications.',
+            content: 'Choosing a framework often sparks long debates. In my last project, I made a direct comparison between React and Vue for internal dashboard requirements...',
             image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=800',
             date: '2024-02-02',
             category: 'Web Development',

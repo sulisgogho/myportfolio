@@ -25,56 +25,56 @@ import { motion, AnimatePresence, useInView, animate } from 'framer-motion';
 import { useIsInStack } from './showcase-stack';
 import { useLenis } from 'lenis/react';
 
-const GITHUB_USER = "Arfazrll";
+const GITHUB_USER = "sulisgogho";
 
 const PINNED_REPOS = [
   {
-    name: "PersonalBlog",
-    desc: "Professional portfolio built with Next.js 15, TypeScript, and Tailwind CSS. Features 3D physics (R3F), GSAP animations, and real-time coding stats via WakaTime and GitHub APIs. Support EN/ID.",
-    stars: 67,
-    forks: 12,
+    name: "CatetDuit",
+    desc: "Daily Financial Tracking System built with React, Node.js, and Tailwind CSS. Features dynamic balance overview, categorical expense breakdowns, and responsive UI.",
+    stars: 5,
+    forks: 1,
     lang: "TypeScript",
-    url: "https://github.com/Arfazrll/PersonalBlog"
+    url: "https://github.com/sulisgogho/CatetDuit"
   },
   {
-    name: "Browser-Automation-Agent",
-    desc: "A robust CLI powering autonomous web agents. Seamlessly integrate Playwright, browser-use, and LangChain to automate your daily web workflows.",
-    stars: 10,
+    name: "cahaya-makmur",
+    desc: "Company profile and product catalog platform for UD Cahaya Makmur. High-performance, modern design built with Next.js, TypeScript, and Tailwind CSS.",
+    stars: 3,
+    forks: 1,
+    lang: "TypeScript",
+    url: "https://github.com/sulisgogho/cahaya-makmur"
+  },
+  {
+    name: "bot-trading-momentum",
+    desc: "Algorithmic momentum candle trading bot engineered with automated risk management, trend analysis, and custom execution strategies using Python.",
+    stars: 4,
     forks: 2,
     lang: "Python",
-    url: "https://github.com/Arfazrll/Browser-Automation-Agent"
+    url: "https://github.com/sulisgogho/bot-trading-momentum"
   },
   {
-    name: "Security-Automation-GenAI",
-    desc: "Deep Learning and Generative AI (Transformers & Attention Mechanisms) for automated cybersecurity threat detection, covering SQL Injection, DDoS, Network Intrusion, and Malware analysis.",
-    stars: 9,
-    forks: 2,
-    lang: "Jupyter Notebook",
-    url: "https://github.com/Arfazrll/Security-Automation-GenAI"
+    name: "superstore-analysis",
+    desc: "Comprehensive business intelligence and sales performance analytics dashboard with interactive data exploration and KPI tracking.",
+    stars: 3,
+    forks: 1,
+    lang: "JavaScript",
+    url: "https://github.com/sulisgogho/superstore-analysis"
   },
   {
-    name: "POLABDC",
-    desc: "POLABDC (Pondok Labu Dental Care) Dental Clinic Management System (SaaS) powered by AI. Built with Typescript Next.js, Express, Prisma, Supabase, and Google Gemini AI for assistance.",
-    stars: 8,
-    forks: 15,
-    lang: "TypeScript",
-    url: "https://github.com/Arfazrll/POLABDC"
-  },
-  {
-    name: "Digilibzx",
-    desc: "Modern Full-Stack Digital Library System built with Java Spring Boot and TypeScript Next.js . Features AI-powered book summarization (Gemini), smart borrowing cart, and Dockerized deployment.",
-    stars: 12,
+    name: "myportfolio",
+    desc: "Modern personal portfolio website built with Next.js 15, TypeScript, Tailwind CSS, Framer Motion, and Lenis smooth scrolling.",
+    stars: 6,
     forks: 2,
     lang: "TypeScript",
-    url: "https://github.com/Arfazrll/Digilibzx"
+    url: "https://github.com/sulisgogho/myportfolio"
   },
   {
-    name: "Swarm-Agent-Orchestrator",
-    desc: "Autonomous multi-agent content orchestration system for high-performance blog drafting and research. Powered by OpenAI Swarm architecture.",
-    stars: 10,
-    forks: 5,
-    lang: "Vue",
-    url: "https://github.com/Arfazrll/Swarm-Agent-Orchestrator"
+    name: "analisis-sentimen",
+    desc: "NLP and machine learning sentiment analysis pipeline processing user feedback and text classification with Python.",
+    stars: 2,
+    forks: 1,
+    lang: "Python",
+    url: "https://github.com/sulisgogho/analisis-sentimen"
   }
 ];
 
@@ -263,13 +263,27 @@ export const GitHubShowcase = () => {
             };
           });
 
+        let totalContributions = 345;
+        try {
+          const contribRes = await fetch(`https://github-contributions-api.jogruber.de/v4/${GITHUB_USER}`);
+          if (contribRes.ok) {
+            const contribData = await contribRes.json();
+            if (contribData.total) {
+              const sum = Object.values(contribData.total as Record<string, number>).reduce((a: number, b: number) => a + b, 0);
+              if (sum > 0) totalContributions = sum;
+            }
+          }
+        } catch {
+          // fallback to 345
+        }
+
         setData({
           user: userData,
           activity: parsedActivity as GitHubActivity[],
           stats: {
-            followers: userData.followers || 33,
-            totalCommits: 1469,
-            totalRepos: userData.public_repos || 49,
+            followers: typeof userData.followers === 'number' ? userData.followers : 2,
+            totalCommits: totalContributions,
+            totalRepos: typeof userData.public_repos === 'number' ? userData.public_repos : 53,
             stars: totalStars
           },
           topLanguages: sortedLangs
@@ -376,19 +390,19 @@ export const GitHubShowcase = () => {
             <motion.div layout className='flex flex-row gap-8 items-center'>
               <div className="flex flex-col">
                 <span className="text-3xl font-black text-[#39d353] tabular-nums tracking-tighter">
-                  <Counter value={1469} trigger={!loading} />
+                  <Counter value={data.stats.totalCommits || 345} trigger={!loading} />
                 </span>
                 <span className="text-[10px] font-black uppercase opacity-40 tracking-widest">Total Contributions</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-3xl font-black text-[#39d353] tabular-nums tracking-tighter">
-                  <Counter value={data.stats.followers || 80} trigger={!loading} />
+                  <Counter value={data.stats.followers ?? 2} trigger={!loading} />
                 </span>
                 <span className="text-[10px] font-black uppercase opacity-40 tracking-widest">Followers</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-3xl font-black text-[#39d353] tabular-nums tracking-tighter">
-                  <Counter value={data.stats.totalRepos || 58} trigger={!loading} />
+                  <Counter value={data.stats.totalRepos || 53} trigger={!loading} />
                 </span>
                 <span className="text-[10px] font-black uppercase opacity-40 tracking-widest">Repositories</span>
               </div>

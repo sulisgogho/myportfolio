@@ -31,7 +31,7 @@ export function TrustStatsBanner() {
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="relative z-10 max-w-6xl mx-auto px-6"
             >
                 {/* Compact Glass Container */}
@@ -44,7 +44,7 @@ export function TrustStatsBanner() {
                             <span className="text-muted-foreground text-lg ml-1 font-semibold">/ 4.0</span>
                         </span>
                         <span className="block text-sm font-bold text-foreground/90 mt-1">
-                            IPK Teknik Informatika
+                            Informatics Engineering GPA
                         </span>
                         <span className="block text-xs text-muted-foreground mt-0.5">
                             Universitas Muhammadiyah Jember
@@ -54,13 +54,13 @@ export function TrustStatsBanner() {
                     {/* Stat 2 */}
                     <motion.div variants={itemVariants} className="flex flex-col items-center flex-1 text-center border-b md:border-b-0 md:border-r border-black/5 dark:border-white/5 pb-6 md:pb-0">
                         <span className="text-3xl font-black text-amber-500 tracking-tight">
-                            Medali Emas
+                            Gold Medal
                         </span>
                         <span className="block text-sm font-bold text-foreground/90 mt-1">
-                            Prestasi Nasional
+                            National Achievement
                         </span>
                         <span className="block text-xs text-muted-foreground mt-0.5">
-                            Juara 1 LKTIN APSI PTMA
+                            1st Place National Scientific Paper
                         </span>
                     </motion.div>
 
@@ -70,7 +70,7 @@ export function TrustStatsBanner() {
                             IBM & Microsoft
                         </span>
                         <span className="block text-sm font-bold text-foreground/90 mt-1">
-                            Sertifikasi Analisis
+                            Data Analysis Certification
                         </span>
                         <span className="block text-xs text-muted-foreground mt-0.5">
                             Coursera Professional Certified
@@ -82,10 +82,10 @@ export function TrustStatsBanner() {
                         <span className="text-3xl font-black text-foreground tracking-tight flex items-center justify-center">
                             <Counter value={14} decimal={0} duration={2} />
                             <span className="text-primary text-xl ml-0.5 font-bold">+</span>
-                            <span className="text-sm text-muted-foreground ml-1.5 font-medium">Sistem</span>
+                            <span className="text-sm text-muted-foreground ml-1.5 font-medium">Systems</span>
                         </span>
                         <span className="block text-sm font-bold text-foreground/90 mt-1">
-                            Proyek Selesai
+                            Completed Projects
                         </span>
                         <span className="block text-xs text-muted-foreground mt-0.5">
                             Fullstack Web & Data Apps

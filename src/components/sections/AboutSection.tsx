@@ -154,7 +154,7 @@ const AboutLeadIn = () => {
                 initial="hidden"
                 whileInView="show"
                 whileHover="hover"
-                viewport={{ once: false, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
                 variants={{
                     hidden: { opacity: 0, y: 80, scale: 0.96 },
                     show: { 

@@ -11,9 +11,9 @@ export function DeveloperActivitySection() {
         offset: ["start end", "end start"]
     });
 
-    const smoothProgress = useSpring(scrollYProgress, { damping: 25, stiffness: 120 });
-    const yParallaxGlow = useTransform(smoothProgress, [0, 1], [-50, 50]);
-    const yGitCard = useTransform(smoothProgress, [0, 1], [25, -20]);
+    const smoothProgress = useSpring(scrollYProgress, { damping: 30, stiffness: 100 });
+    const yParallaxGlow = useTransform(smoothProgress, [0, 1], [-20, 20]);
+    const yGitCard = useTransform(smoothProgress, [0, 1], [10, -10]);
 
     return (
         <section
@@ -35,10 +35,10 @@ export function DeveloperActivitySection() {
                 {/* GitHub Showcase with Smooth Scroll Parallax */}
                 <motion.div
                     style={{ y: yGitCard }}
-                    initial={{ opacity: 0, y: 35, scale: 0.97, filter: 'blur(8px)' }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-                    viewport={{ once: false, amount: 0.15 }}
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.15 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
                     className="w-full"
                 >
                     <GitHubShowcase />

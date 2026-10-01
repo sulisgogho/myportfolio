@@ -5,6 +5,8 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ChevronUp, Code2, Sparkles, Github, Layers, Compass, Briefcase } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+import { useLenis } from 'lenis/react';
+
 interface SectionItem {
     id: string;
     label: string;
@@ -15,12 +17,13 @@ const SECTIONS: SectionItem[] = [
     { id: 'hero', label: 'Overview', icon: Compass },
     { id: 'tech-stack', label: 'Tech Stack', icon: Code2 },
     { id: 'capabilities', label: 'Capabilities', icon: Layers },
-    { id: 'projects', label: 'Creations', icon: Sparkles },
+    { id: 'projects', label: 'Project', icon: Sparkles },
     { id: 'github-activity', label: 'GitHub', icon: Github },
     { id: 'experience', label: 'Experience', icon: Briefcase },
 ];
 
 export function ScrollNavigationHUD() {
+    const lenis = useLenis();
     const { scrollYProgress } = useScroll();
     const smoothProgress = useSpring(scrollYProgress, {
         stiffness: 120,
@@ -43,45 +46,78 @@ export function ScrollNavigationHUD() {
         return () => unsubscribe();
     }, [smoothProgress]);
 
-    // Active Section Spy via Intersection Observer
-    useEffect(() => {
-        const observerCallback: IntersectionObserverCallback = (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
-                    setActiveSection(entry.target.id);
+    // Robust Active Section Spy supporting all screen sizes & long sections
+    const checkActiveSection = React.useCallback(() => {
+        if (typeof window === 'undefined') return;
+
+        const scrollY = window.scrollY || window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+
+        // If user scrolled near bottom of page (or reached final section area), activate Experience
+        if (windowHeight + scrollY >= documentHeight - 350) {
+            setActiveSection(SECTIONS[SECTIONS.length - 1].id);
+            return;
+        }
+
+        // Active trigger line: 60% from the top of the viewport (responsif dan cepat berpindah saat section mulai masuk)
+        const triggerPoint = windowHeight * 0.6;
+        let currentActive = SECTIONS[0].id;
+
+        for (let i = 0; i < SECTIONS.length; i++) {
+            const section = SECTIONS[i];
+            const el = document.getElementById(section.id);
+            if (el) {
+                const rect = el.getBoundingClientRect();
+                // Section has reached or scrolled past the trigger point
+                if (rect.top <= triggerPoint) {
+                    currentActive = section.id;
                 }
-            });
-        };
+            }
+        }
 
-        const observer = new IntersectionObserver(observerCallback, {
-            root: null,
-            rootMargin: '-20% 0px -50% 0px',
-            threshold: [0.25, 0.5]
-        });
-
-        SECTIONS.forEach((s) => {
-            const el = document.getElementById(s.id);
-            if (el) observer.observe(el);
-        });
-
-        return () => observer.disconnect();
+        setActiveSection(currentActive);
     }, []);
+
+    useEffect(() => {
+        checkActiveSection();
+        window.addEventListener('scroll', checkActiveSection, { passive: true });
+        window.addEventListener('resize', checkActiveSection, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', checkActiveSection);
+            window.removeEventListener('resize', checkActiveSection);
+        };
+    }, [checkActiveSection]);
+
+    // Sync with smooth Lenis scroll frames
+    useLenis(() => {
+        checkActiveSection();
+    });
 
     const scrollTo = (id: string) => {
         const el = document.getElementById(id);
         if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (lenis) {
+                lenis.scrollTo(el, { offset: -20 });
+            } else {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
     };
 
     const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (lenis) {
+            lenis.scrollTo(0);
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     };
 
     return (
         <aside
             aria-label="Scroll Navigation"
-            className="fixed right-5 top-1/2 -translate-y-1/2 z-[45] hidden md:flex flex-col items-center gap-4 select-none pointer-events-auto"
+            className="fixed right-5 top-1/2 -translate-y-1/2 z-[45] hidden md:flex flex-col items-center gap-2.5 select-none pointer-events-auto"
         >
             {/* 1. Circular Gauge Progress HUD */}
             <motion.div
@@ -90,7 +126,7 @@ export function ScrollNavigationHUD() {
                 transition={{ duration: 0.4 }}
                 className="relative flex items-center justify-center w-12 h-12 rounded-full bg-background/80 dark:bg-card/80 backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-lg group cursor-pointer"
                 onClick={scrollToTop}
-                title="Scroll Progress (Klik untuk ke atas)"
+                title="Scroll Progress (Click to go up)"
             >
                 {/* SVG Progress Circle */}
                 <svg className="w-10 h-10 -rotate-90" viewBox="0 0 36 36">

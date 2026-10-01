@@ -12,7 +12,7 @@ const certificates = [
     { id: 5, title: 'Meta Front-End Developer', issuer: 'Coursera' },
     { id: 6, title: 'Fullstack Web Development', issuer: 'Dicoding' },
     { id: 7, title: 'Machine Learning Specialization', issuer: 'Stanford' },
-    { id: 8, title: 'Juara 1 LKTIN Nasional', issuer: 'APSI PTMA' },
+    { id: 8, title: '1st Place National Scientific Paper', issuer: 'APSI PTMA' },
     { id: 9, title: 'React Advanced Concepts', issuer: 'Udemy' },
     { id: 10, title: 'UI/UX Design Principles', issuer: 'Google' },
 ];
@@ -22,7 +22,7 @@ const marqueeItems = [...certificates, ...certificates];
 
 export function CertificatesMarquee() {
     return (
-        <section className="relative w-full py-20 lg:py-28 bg-background overflow-hidden border-b border-black/5 dark:border-white/5">
+        <section className="relative w-full py-8 md:py-10 bg-background overflow-hidden border-b border-black/5 dark:border-white/5">
             <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10 pointer-events-none" />
             
             <div className="flex w-[200%] md:w-max">

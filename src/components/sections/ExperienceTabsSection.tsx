@@ -208,10 +208,10 @@ function ExperienceContent() {
                 {groupedExperiences.map((group, groupIndex) => (
                     <motion.div
                         key={group.year}
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.1 }}
-                        transition={{ delay: 0.1, duration: 0.6 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ delay: 0.05, duration: 0.45, ease: "easeOut" }}
                         className="relative"
                     >
                         <div className="flex items-start gap-6">
@@ -226,10 +226,10 @@ function ExperienceContent() {
                                 {group.experiences.slice(0, 3).map((exp: Experience, expIndex: number) => (
                                     <motion.div
                                         key={exp.id}
-                                        initial={{ opacity: 0, x: -20, filter: 'blur(4px)' }}
-                                        whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-                                        viewport={{ once: false, amount: 0.15 }}
-                                        transition={{ delay: expIndex * 0.1, duration: 0.5, type: 'spring', stiffness: 100 }}
+                                        initial={{ opacity: 0, x: -12 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true, amount: 0.1 }}
+                                        transition={{ delay: expIndex * 0.05, duration: 0.4, ease: "easeOut" }}
                                         className="relative"
                                     >
                                         <div className="absolute -left-[25px] top-2 w-2 h-2 rounded-full bg-secondary" />
@@ -294,13 +294,13 @@ export default function ExperienceTabsSection() {
     ];
 
     return (
-        <section id="experience" className="container mx-auto px-4 md:px-8 max-w-7xl py-16 space-y-12">
+        <section id="experience" className="container mx-auto px-4 md:px-8 max-w-7xl py-10 md:py-12 space-y-8">
             <motion.div
                 className="p-8 rounded-3xl bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 dark:from-primary/10 dark:via-transparent dark:to-secondary/10 border border-primary/10"
-                initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: false, amount: 0.3 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
             >
                 <div className="flex items-center justify-center gap-2 mb-4">
                     {activeTab === 'experience' && <Briefcase className="w-8 h-8 text-primary" />}
@@ -318,10 +318,10 @@ export default function ExperienceTabsSection() {
 
             <motion.div 
                 className="flex flex-wrap justify-center gap-3"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.8 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
             >
                 {tabs.map((tab) => (
                     <TabButton
@@ -336,10 +336,10 @@ export default function ExperienceTabsSection() {
 
             <motion.div 
                 className="min-h-[400px]"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.1 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
             >
                 <AnimatePresence mode="wait">
                     {activeTab === 'experience' && <ExperienceContent key="experience" />}

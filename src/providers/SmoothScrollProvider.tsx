@@ -6,9 +6,9 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     return (
         <ReactLenis root options={{
             lerp: 0.1,
-            duration: 1.5,
+            duration: 1.0,
             smoothWheel: true,
-            // smoothTouch is causing TS error in this version's types
+            wheelMultiplier: 1.0,
             // @ts-ignore
             smoothTouch: false
         }}>
