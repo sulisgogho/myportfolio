@@ -37,22 +37,22 @@ export const HeroParallax = ({
   const translateX = useTransform(scrollYProgress, [0, 1], [0, isLowPowerMode ? 200 : 800]);
   const translateXReverse = useTransform(scrollYProgress, [0, 1], [0, isLowPowerMode ? -200 : -800]);
 
-  const rotateXRaw = useTransform(scrollYProgress, [0, 0.2], [isLowPowerMode ? 0 : 5, 0]);
+  const rotateXRaw = useTransform(scrollYProgress, [0, 0.25], [isLowPowerMode ? 0 : 5, 0]);
   const rotateX = useSpring(rotateXRaw, rotateSpringConfig);
 
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [isLowPowerMode ? 0.8 : 0.2, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.25], [isLowPowerMode ? 0.8 : 0.2, 1]);
 
-  const rotateZRaw = useTransform(scrollYProgress, [0, 0.2], [isLowPowerMode ? 0 : 5, 0]);
+  const rotateZRaw = useTransform(scrollYProgress, [0, 0.25], [isLowPowerMode ? 0 : 5, 0]);
   const rotateZ = useSpring(rotateZRaw, rotateSpringConfig);
-  const translateY = useTransform(scrollYProgress, [0, 0.2], [isLowPowerMode ? -100 : -500, isLowPowerMode ? 100 : 500]);
+  const translateY = useTransform(scrollYProgress, [0, 0.25], [isLowPowerMode ? -60 : -300, isLowPowerMode ? 40 : 150]);
   return (
     <div
       ref={ref}
       className={cn(
-        "pt-10 pb-20 sm:pb-40 overflow-hidden antialiased relative flex flex-col self-auto",
+        "pt-10 pb-10 sm:pb-14 overflow-hidden antialiased relative flex flex-col self-auto",
         isLowPowerMode
-          ? "h-[100vh] sm:h-[120vh]"
-          : "h-[180vh] sm:h-[200vh] lg:h-[250vh] [perspective:2000px] [transform-style:preserve-3d]"
+          ? "h-[105vh] sm:h-[115vh]"
+          : "h-[145vh] sm:h-[155vh] lg:h-[165vh] [perspective:2000px] [transform-style:preserve-3d]"
       )}
     >
       <Header />
@@ -64,7 +64,7 @@ export const HeroParallax = ({
         }}
         className=""
       >
-        <motion.div className={cn("flex flex-row-reverse space-x-reverse space-x-20 mb-20", isLowPowerMode && "mb-10 space-x-10")}>
+        <motion.div className={cn("flex flex-row-reverse space-x-reverse space-x-20 mb-12 sm:mb-16", isLowPowerMode && "mb-8 space-x-10")}>
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -74,7 +74,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className={cn("flex flex-row mb-20 space-x-20", isLowPowerMode && "mb-10 space-x-10")}>
+        <motion.div className={cn("flex flex-row mb-8 sm:mb-10 space-x-20", isLowPowerMode && "mb-6 space-x-10")}>
           {secondRow.map((product) => (
             <ProductCard
               product={product}

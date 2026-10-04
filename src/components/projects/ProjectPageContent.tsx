@@ -82,11 +82,24 @@ const ProjectGallery = ({
     viewLessText: string
 }) => {
     const [showAll, setShowAll] = useState(false);
-    const visibleImages = showAll ? images : images.slice(0, 2);
+    const initialCount = 2;
+    const visibleImages = showAll ? images : images.slice(0, initialCount);
+
+    const handleToggle = () => {
+        if (showAll) {
+            setShowAll(false);
+            const galleryEl = document.getElementById('gallery');
+            if (galleryEl) {
+                galleryEl.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            setShowAll(true);
+        }
+    };
 
     return (
         <div className="flex flex-col gap-8 pb-12">
-            <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-10">
                 {visibleImages.map((img, idx) => (
                     <motion.div
                         key={idx}
@@ -94,15 +107,16 @@ const ProjectGallery = ({
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-10%" }}
                         transition={{ duration: 0.6, delay: idx * 0.1 }}
-                        className="group relative w-full cursor-zoom-in"
+                        className="group relative w-full cursor-zoom-in rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-secondary/5 shadow-xl shadow-black/10 dark:shadow-black/40 flex items-center justify-center"
                         onClick={() => onImageClick(img)}
                     >
-                        {/* Real Image Tag - Floating with deep shadow */}
+                        {/* Real Image Tag - Floating with natural aspect ratio & strictly no cropping */}
                         <img
                             src={img}
                             alt={`Gallery Image ${idx + 1}`}
                             loading="lazy"
-                            className="w-full h-auto object-contain block rounded-lg shadow-2xl shadow-black/20 dark:shadow-black/60 transition-transform duration-500 group-hover:scale-[1.01]"
+                            className="w-full h-auto max-h-none object-contain block rounded-2xl transition-transform duration-500 group-hover:scale-[1.005]"
+                            style={{ width: '100%', height: 'auto', maxHeight: 'none', objectFit: 'contain' }}
                         />
 
                         {/* Tech UI (Minimal Floating Label) */}
@@ -116,11 +130,11 @@ const ProjectGallery = ({
                 ))}
             </div>
 
-            {images.length > 2 && (
+            {images.length > initialCount && (
                 <div className="flex justify-center pt-4">
                     <button
-                        onClick={() => setShowAll(!showAll)}
-                        className="px-6 py-3 rounded-full border border-border/40 hover:bg-secondary/10 transition-colors text-sm font-bold tracking-wide uppercase flex items-center gap-2 group"
+                        onClick={handleToggle}
+                        className="px-6 py-3 rounded-full border border-border/40 hover:bg-secondary/10 transition-colors text-sm font-bold tracking-wide uppercase flex items-center gap-2 group cursor-pointer"
                     >
                         <span>{showAll ? viewLessText : viewMoreText}</span>
                         <ChevronRight className={cn("w-4 h-4 transition-transform duration-300", showAll ? "rotate-[-90deg]" : "rotate-90")} />
@@ -249,17 +263,19 @@ export function ProjectPageContent({ project, isLowPowerMode }: { project: Proje
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.7, delay: 0.2 }}
-                    className="relative w-full aspect-video md:aspect-[2/1] rounded-3xl overflow-hidden border border-black/15 dark:border-border/40 shadow-2xl bg-secondary/5 group"
+                    className="relative w-full rounded-3xl overflow-hidden border border-black/15 dark:border-border/40 shadow-2xl bg-secondary/5 group"
                     onClick={() => project.image && setSelectedImage(project.image)}
                 >
                     {project.image ? (
                         <motion.img
                             src={project.image}
                             alt={project.title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 cursor-zoom-in"
+                            className="w-full h-auto object-contain block transition-transform duration-700 group-hover:scale-[1.01] cursor-zoom-in"
                         />
                     ) : (
-                        <ProjectPlaceholder className="rounded-none border-0 bg-transparent pb-0 [&>div.z-10]:scale-125" title={project.title} />
+                        <div className="w-full aspect-video md:aspect-[2/1]">
+                            <ProjectPlaceholder className="rounded-none border-0 bg-transparent pb-0 [&>div.z-10]:scale-125" title={project.title} />
+                        </div>
                     )}
 
                     {/* Overlay Gradient */}

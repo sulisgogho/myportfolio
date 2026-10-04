@@ -3,18 +3,15 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-// import { portfolioData } from "@/data/portfolio";
+import { portfolioData } from "@/data/portfolio";
+import { GalleryItem } from "@/types";
 import { X, Play, Maximize2, ChevronLeft, ChevronRight, Minimize2, ListFilter, ArrowDownUp, ImageIcon, Video, ArrowRight, LayoutGrid, StretchHorizontal, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getAllGalleryImages, GalleryImage } from "@/app/actions/getGalleryImages";
 import MagneticEffect from "@/components/ui/MagneticEffect";
 import { InfiniteImageField } from "@/components/ui/infinite-image-field";
 
-type FilterType = 'all' | 'image' | 'video';
-// type SortType = 'newest' | 'oldest';
-
-
-
+type FilterType = 'all' | 'image' | 'video' | string;
 
 export default function CleanFilmGrid({ isLowPowerMode }: { isLowPowerMode?: boolean }) {
     const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -22,23 +19,35 @@ export default function CleanFilmGrid({ isLowPowerMode }: { isLowPowerMode?: boo
     const [viewMode, setViewMode] = useState<'rows' | 'grid' | 'infinite'>('grid'); // Default grid
     const [isLightboxMaximized, setIsLightboxMaximized] = useState(false);
     const [visibleCount, setVisibleCount] = useState(12);
-    const [galleryItems, setGalleryItems] = useState<any[]>([]);
+    const [galleryItems, setGalleryItems] = useState<GalleryItem[]>(portfolioData.gallery);
 
     useEffect(() => {
         const fetchImages = async () => {
             try {
                 const images = await getAllGalleryImages();
-                const formattedItems = images.map((img, index) => ({
-                    id: `gallery-${index}`,
-                    title: img.filename.split('.')[0].replace(/-/g, ' '),
-                    type: 'image',
-                    category: 'Gallery',
-                    date: '2024',
-                    thumbnail: img.src,
-                    url: img.src,
-                    description: 'Gallery Image'
-                }));
-                setGalleryItems(formattedItems);
+                const metaMap = new Map(portfolioData.gallery.map(item => [item.url, item]));
+
+                const formattedItems: GalleryItem[] = images.map((img, index) => {
+                    const existing = metaMap.get(img.src);
+                    if (existing) {
+                        return existing;
+                    }
+                    const nameWithoutExt = img.filename.split('.')[0];
+                    return {
+                        id: `gallery-${index + 1}`,
+                        title: nameWithoutExt.replace(/[-_]/g, ' '),
+                        type: 'image',
+                        category: 'Gallery',
+                        date: '2024',
+                        thumbnail: img.src,
+                        url: img.src,
+                        description: `Dokumentasi galeri ${nameWithoutExt}.`
+                    };
+                });
+
+                if (formattedItems.length > 0) {
+                    setGalleryItems(formattedItems);
+                }
             } catch (error) {
                 console.error("Failed to load gallery images", error);
             }
@@ -46,8 +55,14 @@ export default function CleanFilmGrid({ isLowPowerMode }: { isLowPowerMode?: boo
         fetchImages();
     }, []);
 
-    // Use dynamic items instead of portfolioData
-    const allItems = galleryItems;
+    const allItems = galleryItems.length > 0 ? galleryItems : portfolioData.gallery;
+
+    // Filter Options based on available categories
+    const filterOptions = useMemo(() => {
+        const rawCategories = allItems.map(i => i.category).filter(Boolean) as string[];
+        const uniqueCategories = Array.from(new Set(rawCategories));
+        return ['all', ...uniqueCategories];
+    }, [allItems]);
 
     // Grouping Logic
     const groupedItems = useMemo(() => {
@@ -55,7 +70,10 @@ export default function CleanFilmGrid({ isLowPowerMode }: { isLowPowerMode?: boo
 
         // 1. Filter
         if (filter !== 'all') {
-            items = items.filter(item => item.type === filter);
+            items = items.filter(item => 
+                item.category?.toLowerCase() === filter.toLowerCase() ||
+                item.type === filter
+            );
         }
 
         // 2. Sort (Removed as per request)
@@ -164,19 +182,19 @@ export default function CleanFilmGrid({ isLowPowerMode }: { isLowPowerMode?: boo
                 <div className="flex flex-wrap items-center gap-4 md:gap-8 w-full md:w-auto">
 
                     {/* Filter Tabs */}
-                    <div className="flex items-center gap-1 bg-black/5 dark:bg-white/5 p-1 rounded-full backdrop-blur-md border border-black/5 dark:border-white/5 shadow-inner transition-colors duration-300">
-                        {(['all', 'image', 'video'] as FilterType[]).map((f) => (
+                    <div className="flex flex-wrap items-center gap-1 bg-black/5 dark:bg-white/5 p-1 rounded-full backdrop-blur-md border border-black/5 dark:border-white/5 shadow-inner transition-colors duration-300">
+                        {filterOptions.map((f) => (
                             <button
                                 key={f}
                                 onClick={() => setFilter(f)}
                                 className={cn(
-                                    "px-5 py-2 rounded-full text-xs font-medium tracking-wide transition-all duration-300",
+                                    "px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-300 capitalize",
                                     filter === f
                                         ? "bg-white dark:bg-neutral-800 text-foreground shadow-md ring-1 ring-black/5 dark:ring-white/10"
                                         : "text-muted-foreground hover:text-foreground hover:bg-white/50 dark:hover:bg-white/10"
                                 )}
                             >
-                                {f === 'all' ? 'All' : f === 'image' ? 'Photos' : 'Videos'}
+                                {f === 'all' ? 'All' : f}
                             </button>
                         ))}
                     </div>
@@ -402,7 +420,7 @@ export default function CleanFilmGrid({ isLowPowerMode }: { isLowPowerMode?: boo
                                                 height={600}
                                                 loading="lazy"
                                                 className={cn(
-                                                    "object-cover transition-transform duration-700",
+                                                    "w-full h-auto object-cover transition-transform duration-700",
                                                     !isLowPowerMode && "group-hover:scale-105"
                                                 )}
                                             />

@@ -1019,10 +1019,11 @@ export default function ProjectsPage() {
     const [selectedCategory, setSelectedCategory] = useState('All');
 
     const categories = [
-        { id: 'All', label: 'All Realms', icon: Globe },
-        { id: 'AI & Machine Learning', label: 'Artificial Intelligence', icon: Brain },
-        { id: 'Software Engineering', label: 'Software Architecture', icon: Database },
-        { id: 'More', label: 'More', icon: Layers },
+        { id: 'All', label: 'All Projects', icon: Globe },
+        { id: 'Website', label: 'Website', icon: Layers },
+        { id: 'Data', label: 'Data', icon: Database },
+        { id: 'Goghotech', label: 'Goghotech', icon: Sparkles },
+        { id: 'Trading', label: 'Trading', icon: Zap },
     ];
 
     const [projects, setProjects] = useState(portfolioData.projects);
@@ -1058,11 +1059,7 @@ export default function ProjectsPage() {
 
         // Category Filter
         if (selectedCategory !== 'All') {
-            if (selectedCategory === 'More') {
-                currentProjects = currentProjects.filter(p => p.category && ['IoT & Embedded', 'Blockchain', 'Creative Tech'].includes(p.category));
-            } else {
-                currentProjects = currentProjects.filter(p => p.category === selectedCategory);
-            }
+            currentProjects = currentProjects.filter(p => p.category?.toLowerCase() === selectedCategory.toLowerCase());
         }
 
         // Search Filter

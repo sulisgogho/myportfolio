@@ -113,7 +113,7 @@ export function Project3DCard({ project, featured = false, className = '' }: Pro
                             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                         </div>
                         <span className="ml-2 text-[11px] font-mono tracking-wider text-muted-foreground bg-muted/60 px-2.5 py-0.5 rounded-full border border-black/5 dark:border-white/5">
-                            {project.category || 'Web App'}
+                            {project.category || 'Website'}
                         </span>
                     </div>
 

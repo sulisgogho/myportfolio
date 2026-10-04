@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Send, CheckCircle, AlertCircle, Loader2, Disc, Music, ArrowUpRight, Sparkles, HelpCircle, MessageSquare, ExternalLink, Github, Linkedin, Twitter, Instagram, ChevronDown } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa6';
 import { cn } from '@/lib/utils';
 import { portfolioData } from '@/data/portfolio';
 import dynamic from 'next/dynamic';
@@ -61,6 +62,7 @@ const socialIconsMap: Record<string, React.ElementType> = {
 
 function SocialCard({ item }: { item: any }) {
     const Icon = item.image || ArrowUpRight;
+    const cleanUsername = (item.username || '').replace(/^@+/, '');
     return (
         <a
             href={item.url}
@@ -76,17 +78,17 @@ function SocialCard({ item }: { item: any }) {
                 <div className="relative h-12 w-12 flex items-center justify-center rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-inner ring-1 ring-white/5">
                     <Icon className="w-6 h-6" />
                 </div>
-                <div className="flex flex-col">
-                    <span className="text-lg font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">{item.name}</span>
-                    <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground/80">@{item.username}</span>
+                <div className="flex flex-col min-w-0">
+                    <span className="text-lg font-bold text-foreground group-hover:text-primary transition-colors tracking-tight truncate">{item.name}</span>
+                    <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground/80 truncate">@{cleanUsername}</span>
                 </div>
             </div>
 
             <div className="relative z-10 flex items-center justify-between mt-auto pt-4 border-t border-border">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/60 group-hover:text-foreground/70 transition-colors">
-                    Connect
+                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/60 group-hover:text-foreground/70 transition-colors truncate max-w-[200px]">
+                    {item.body || "Connect"}
                 </span>
-                <ExternalLink className="w-3 h-3 text-muted-foreground group-hover:text-primary opacity-50 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
+                <ExternalLink className="w-3 h-3 text-muted-foreground group-hover:text-primary opacity-50 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0 flex-shrink-0" />
             </div>
         </a>
     );
@@ -128,29 +130,36 @@ function ContactForm() {
     const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('loading');
 
         try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+            const rawPhone = portfolioData.personal.phone || '+6282233447474';
+            const cleanPhone = rawPhone.replace(/\D/g, '');
 
-            if (response.ok) {
-                setStatus('success');
+            const messageLines = [
+                `Halo Sulistyowati Munawaroh,`,
+                ``,
+                `Perkenalkan nama saya *${formData.name}* (${formData.email}).`,
+                `*Subjek:* ${formData.subject || 'Diskusi Proyek'}`,
+                ``,
+                `*Pesan:*`,
+                `${formData.message}`
+            ];
+
+            const waUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(messageLines.join('\n'))}`;
+
+            window.open(waUrl, '_blank', 'noopener,noreferrer');
+            setStatus('success');
+
+            setTimeout(() => {
+                setStatus('idle');
                 setFormData({ name: '', email: '', subject: '', message: '' });
-            } else {
-                setStatus('error');
-            }
+            }, 2500);
         } catch (error) {
-            console.error('Error submitting form:', error);
+            console.error('Error opening WhatsApp:', error);
             setStatus('error');
-        } finally {
             setTimeout(() => setStatus('idle'), 3000);
         }
     };
@@ -191,14 +200,19 @@ function ContactForm() {
                     className="group relative w-full flex items-center justify-between border-b-2 border-foreground py-8 text-left hover:bg-foreground/5 transition-colors disabled:opacity-50"
                     whileTap={{ scale: 0.98 }}
                 >
-                    <span className="text-3xl md:text-4xl font-bold tracking-tight text-foreground group-hover:pl-4 transition-all duration-300">
-                        {status === 'loading' ? t('form.sending') : status === 'success' ? t('form.sent') : t('form.submit')}
-                    </span>
+                    <div className="flex flex-col">
+                        <span className="text-3xl md:text-4xl font-bold tracking-tight text-foreground group-hover:pl-4 transition-all duration-300 flex items-center gap-3">
+                            {status === 'loading' ? t('form.sending') : status === 'success' ? t('form.sent') : t('form.submit')}
+                        </span>
+                        <span className="text-xs text-muted-foreground mt-1 group-hover:pl-4 transition-all duration-300">
+                            {portfolioData.personal.phone} · Chat langsung via WhatsApp
+                        </span>
+                    </div>
 
-                    <div className="relative overflow-hidden w-12 h-12 flex items-center justify-center rounded-full bg-foreground text-background group-hover:scale-110 transition-transform duration-500">
+                    <div className="relative overflow-hidden w-12 h-12 flex items-center justify-center rounded-full bg-emerald-500 text-white group-hover:scale-110 group-hover:bg-emerald-600 transition-all duration-500 shadow-lg shadow-emerald-500/20">
                         {status === 'loading' ? <Loader2 className="w-6 h-6 animate-spin" /> :
                             status === 'success' ? <CheckCircle className="w-6 h-6" /> :
-                                <ArrowUpRight className="w-6 h-6 group-hover:rotate-45 transition-transform duration-300" />
+                                <FaWhatsapp className="w-6 h-6" />
                         }
                     </div>
                 </motion.button>
@@ -288,10 +302,10 @@ function FAQSection() {
 }
 
 const socialDescriptions: Record<string, string> = {
-    GitHub: "Open Source",
-    LinkedIn: "Professional",
+    GitHub: "Open Source & Code",
+    LinkedIn: "Career & Network",
+    Instagram: "Creative & Moments",
     Twitter: "Thoughts",
-    Instagram: "Lifestyle",
     Discord: "Community",
     Spotify: "Music"
 };
@@ -303,10 +317,12 @@ export default function ContactPage() {
     const { isLowPowerMode } = usePerformance();
 
     const getSocialItem = (platform: string) => {
-        const link = portfolioData.personal.socialLinks.find(l => l.platform.toLowerCase() === platform);
+        const link = portfolioData.personal.socialLinks.find(l => l.platform.toLowerCase() === platform.toLowerCase());
+        const rawUsername = link?.username || (link?.url ? link.url.replace(/\/+$/, '').split('/').pop() : '') || 'sulisgogho';
+        const cleanUsername = rawUsername.replace(/^@+/, '');
         return {
-            name: (link?.platform || platform).charAt(0).toUpperCase() + (link?.platform || platform).slice(1),
-            username: link?.username || '@user',
+            name: link?.platform || (platform.charAt(0).toUpperCase() + platform.slice(1)),
+            username: cleanUsername,
             body: socialDescriptions[link?.platform || platform] || "Connect",
             image: socialIconsMap[platform.toLowerCase()] || ArrowUpRight,
             url: link?.url || '#'

@@ -125,7 +125,7 @@ export function ProjectStats({ isLowPowerMode }: { isLowPowerMode?: boolean }) {
     ];
 
     return (
-        <section className="relative py-16 sm:py-20 md:py-24 overflow-hidden bg-background">
+        <section className="relative pt-12 sm:pt-16 md:pt-20 pb-16 sm:pb-20 md:pb-24 overflow-hidden bg-background">
 
             <div className="container-creative relative z-10 px-4 sm:px-6 md:px-8">
                 {/* Section Header */}

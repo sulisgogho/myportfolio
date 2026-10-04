@@ -89,7 +89,7 @@ const CenterImage = ({ scrollY }: { scrollY: MotionValue<number> }) => {
                     borderRadius,
                     opacity,
                     backgroundImage:
-                        "url('/gallery/tyo-lanscape.png')",
+                        "url('/gallery/Foto%20Utama.webp')",
                     backgroundPosition: "center",
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",

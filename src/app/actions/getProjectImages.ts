@@ -7,52 +7,89 @@ export async function getProjectImages(slug: string, title?: string): Promise<st
     const publicDir = path.join(process.cwd(), 'public');
     const projectDir = path.join(publicDir, 'project'); // Folder: public/project
     const validImages: string[] = [];
+    const imageExtensions = ['.webp', '.png', '.jpg', '.jpeg', '.svg'];
 
-    // Strategy 1: Slug-based (terraflow-platform -> terraflowplatform)
-    const sanitizedSlug = slug.replace(/-/g, '');
+    try {
+        if (!fs.existsSync(projectDir)) {
+            return [];
+        }
 
-    // Strategy 2: Title-based (SNBTIn - Platform... -> snbtinplatformpersiapansnbt2025)
-    // Remove all non-alphanumeric characters and lowercase
-    const sanitizedTitle = title ? title.toLowerCase().replace(/[^a-z0-9]/g, '') : '';
+        // Strategy 1: Check if there is a matching subfolder in public/project/ (e.g. infly, kabpro, golib, cahaya)
+        const entries = fs.readdirSync(projectDir, { withFileTypes: true });
+        const subDirs = entries.filter(e => e.isDirectory() && e.name !== 'parallax').map(e => e.name);
 
-    // We will check both strategies. If title matches user preference, it will be found.
-    // We prioritize Title if it exists, as per user request for SNBTIn.
-    const searchBases = sanitizedTitle ? [sanitizedTitle, sanitizedSlug] : [sanitizedSlug];
+        const sanitizedSlug = slug.replace(/-/g, '').toLowerCase();
+        const normalizedSlug = slug.toLowerCase();
+        const normalizedTitle = title ? title.toLowerCase() : '';
 
-    // Remove duplicates if title and slug normalize to the same string
-    const uniqueBases = [...new Set(searchBases)];
+        // Find candidate directory
+        let matchedDir = subDirs.find(dir => {
+            const d = dir.toLowerCase();
+            return (
+                normalizedSlug.includes(d) ||
+                d.includes(normalizedSlug) ||
+                sanitizedSlug.includes(d) ||
+                (normalizedTitle && normalizedTitle.includes(d))
+            );
+        });
 
-    for (const baseName of uniqueBases) {
-        if (!baseName) continue;
+        // Special fallback mapping if directory name differs from slug
+        if (!matchedDir) {
+            if (slug.includes('probolinggo')) matchedDir = 'kabpro';
+        }
 
-        for (let i = 1; i <= 10; i++) {
-            const extensions = ['webp', 'png', 'jpg', 'jpeg'];
+        if (matchedDir) {
+            const dirPath = path.join(projectDir, matchedDir);
+            const files = fs.readdirSync(dirPath)
+                .filter(file => imageExtensions.includes(path.extname(file).toLowerCase()));
 
-            for (const ext of extensions) {
-                const filename = `${baseName}${i}.${ext}`;
-                const filePath = path.join(projectDir, filename);
+            if (files.length > 0) {
+                // Natural sort: main/cover first, then numbered 1, 2, 3...
+                files.sort((a, b) => {
+                    const aBase = path.basename(a, path.extname(a)).toLowerCase();
+                    const bBase = path.basename(b, path.extname(b)).toLowerCase();
 
-                try {
+                    // If exact match with folder name (e.g. infly.png in infly/) or 'cover', put first
+                    const aIsCover = aBase === matchedDir?.toLowerCase() || aBase === 'cover';
+                    const bIsCover = bBase === matchedDir?.toLowerCase() || bBase === 'cover';
+                    if (aIsCover && !bIsCover) return -1;
+                    if (!aIsCover && bIsCover) return 1;
+
+                    return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
+                });
+
+                return files.map(file => `/project/${matchedDir}/${file}`);
+            }
+        }
+
+        // Strategy 2: Flat files in public/project/ (e.g. project1.png, TangkasHitung.png, or slug-based)
+        const sanitizedTitle = title ? title.toLowerCase().replace(/[^a-z0-9]/g, '') : '';
+        const searchBases = sanitizedTitle ? [sanitizedTitle, sanitizedSlug] : [sanitizedSlug];
+        const uniqueBases = [...new Set(searchBases)];
+
+        for (const baseName of uniqueBases) {
+            if (!baseName) continue;
+
+            for (let i = 1; i <= 10; i++) {
+                for (const ext of ['webp', 'png', 'jpg', 'jpeg']) {
+                    const filename = `${baseName}${i}.${ext}`;
+                    const filePath = path.join(projectDir, filename);
+
                     if (fs.existsSync(filePath)) {
-                        // Avoid duplicates if we check multiple bases
                         const imagePath = `/project/${filename}`;
                         if (!validImages.includes(imagePath)) {
                             validImages.push(imagePath);
                         }
-                        break; // Stop checking extensions for this number
+                        break;
                     }
-                } catch (error) {
-                    // Ignore errors
                 }
             }
+            if (validImages.length > 0) break;
         }
 
-        // If we found images with this base, we might stop? 
-        // Or should we merge? validImages will collect from both if they exist.
-        // Assuming user uses ONE convention per project. 
-        // If we found images, we can break the base loop to avoid mixing if they have both (unlikely).
-        if (validImages.length > 0) break;
+        return validImages;
+    } catch (error) {
+        console.error('Error in getProjectImages:', error);
+        return [];
     }
-
-    return validImages;
 }

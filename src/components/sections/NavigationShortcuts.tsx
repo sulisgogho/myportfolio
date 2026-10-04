@@ -10,21 +10,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useTranslations } from 'next-intl';
 
 const GALLERY_IMAGES = [
-    '/gallery/tyo-lanscape.png',
-    '/gallery/FotoSC1.webp',
-    '/gallery/FotoSC2.webp',
-    '/gallery/FotoSC3.webp',
-    '/gallery/FotoSC4.webp',
-    '/gallery/FotoSC5.webp',
-    '/gallery/academicaffairsdivision1.webp',
-    '/gallery/computernetworkpracticumassistant2.webp',
-    '/gallery/dataentryassistant1.webp',
-    '/gallery/delegateaiesecfutureleaders20241.webp',
-    '/gallery/environmentalhygieneteam1.webp',
-    '/gallery/environmentalhygieneteam2.webp',
-    '/gallery/logisticsoperatorcampusexpo20242.webp',
-    '/gallery/researchassistant1.webp',
-    '/gallery/researchassistant2.webp',
+    '/gallery/Foto Utama.webp',
+    '/gallery/hockey1.jpg',
+    '/gallery/imm1.jpg',
+    '/gallery/rtik1.jpeg',
+    '/gallery/rtik2.jpg',
+    '/gallery/rtik3.jpg',
+    '/gallery/rtik4.jpeg',
+    '/gallery/rtik6.jpg',
+    '/gallery/rtik7.jpg',
+    '/gallery/rtik8.jpg',
+    '/gallery/rtik9.jpg',
+    '/gallery/rtik10.jpeg',
 ];
 
 export const NavigationShortcuts = () => {

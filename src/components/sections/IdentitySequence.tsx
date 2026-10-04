@@ -231,7 +231,7 @@ export const IdentitySequence = ({ scrollYProgress, isVisible }: IdentitySequenc
                                             >
                                                 <div className="absolute inset-0 top-[25vh]">
                                                     <Image
-                                                        src="/gallery/tyo-lanscape.png"
+                                                        src="/gallery/Foto Utama.webp"
                                                         alt="Profile"
                                                         fill
                                                         className="object-cover object-top grayscale-0"

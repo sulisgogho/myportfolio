@@ -25,23 +25,14 @@ export default function StatsSection({ scrollYProgress, showOnly }: { scrollYPro
     const visibleCount = 3;
 
     useEffect(() => {
-        const galleryImages = [
-            { src: '/gallery/tyo-lanscape.png', alt: 'Foto Utama' },
-            { src: '/gallery/FotoSC1.webp', alt: 'Foto SC1' },
-            { src: '/gallery/FotoSC2.webp', alt: 'Foto SC2' },
-            { src: '/gallery/FotoSC3.webp', alt: 'Foto SC3' },
-            { src: '/gallery/FotoSC4.webp', alt: 'Foto SC4' },
-            { src: '/gallery/FotoSC5.webp', alt: 'Foto SC5' },
-            { src: '/gallery/academicaffairsdivision1.webp', alt: 'Academic Affairs' },
-            { src: '/gallery/computernetworkpracticumassistant2.webp', alt: 'Computer Network' },
-            { src: '/gallery/dataentryassistant1.webp', alt: 'Data Entry' },
-            { src: '/gallery/delegateaiesecfutureleaders20241.webp', alt: 'AIESEC' },
-            { src: '/gallery/environmentalhygieneteam1.webp', alt: 'Hygiene Team 1' },
-            { src: '/gallery/environmentalhygieneteam2.webp', alt: 'Hygiene Team 2' },
-            { src: '/gallery/logisticsoperatorcampusexpo20242.webp', alt: 'Logistics' },
-            { src: '/gallery/researchassistant1.webp', alt: 'Research Assistant 1' },
-            { src: '/gallery/researchassistant2.webp', alt: 'Research Assistant 2' },
-        ];
+        const galleryImages = portfolioData.gallery.length > 0
+            ? portfolioData.gallery.map(item => ({ src: item.url, alt: item.title }))
+            : [
+                { src: '/gallery/Foto Utama.webp', alt: 'Foto Utama' },
+                { src: '/gallery/hockey1.jpg', alt: 'Hockey' },
+                { src: '/gallery/imm1.jpg', alt: 'IMM' },
+                { src: '/gallery/rtik1.jpeg', alt: 'Relawan TIK' }
+            ];
         // Shuffle images randomly
         const shuffledImages = [...galleryImages].sort(() => 0.5 - Math.random());
         setImages(shuffledImages);

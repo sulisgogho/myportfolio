@@ -704,8 +704,8 @@ export default function AchievementsPage() {
         const total = portfolioData.achievements.length;
         const awards = portfolioData.achievements.filter(a => a.category.toLowerCase() === 'award').length;
         const certifications = portfolioData.achievements.filter(a => a.category.toLowerCase() === 'certification').length;
-        const competitions = portfolioData.achievements.filter(a => a.category.toLowerCase() === 'competition').length;
-        return { total, awards, certifications, competitions };
+        const recognitions = portfolioData.achievements.filter(a => a.category.toLowerCase() === 'recognition').length;
+        return { total, awards, certifications, recognitions };
     }, []);
 
     const filteredAchievements = useMemo(() => {
@@ -872,6 +872,9 @@ export default function AchievementsPage() {
                             <motion.div variants={staggerItem}>
                                 <NavItem label="Competitions" active={activeCategory === 'competition'} onClick={() => setActiveCategory('competition')} count={getCategoryCount('competition')} isCollapsed={isSidebarCollapsed} />
                             </motion.div>
+                            <motion.div variants={staggerItem}>
+                                <NavItem label="Recognitions" active={activeCategory === 'recognition'} onClick={() => setActiveCategory('recognition')} count={getCategoryCount('recognition')} isCollapsed={isSidebarCollapsed} />
+                            </motion.div>
                         </motion.nav>
 
                         {/* Moved Controls (when scrolled out of view) */}
@@ -927,7 +930,8 @@ export default function AchievementsPage() {
                                 {[
                                     { icon: Trophy, value: stats.total },
                                     { icon: Medal, value: stats.awards },
-                                    { icon: Award, value: stats.certifications }
+                                    { icon: Award, value: stats.certifications },
+                                    { icon: Target, value: stats.recognitions }
                                 ].map((stat, i) => (
                                     <motion.div
                                         key={i}

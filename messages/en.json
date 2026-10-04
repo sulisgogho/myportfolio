@@ -322,10 +322,10 @@
             "message": "Your Message",
             "messagePlaceholder": "Tell me about your project...",
             "send": "Send Message",
-            "submit": "SEND MESSAGE",
-            "sending": "SENDING...",
-            "sent": "SENT!",
-            "success": "Message sent successfully!",
+            "submit": "SEND VIA WHATSAPP",
+            "sending": "OPENING WHATSAPP...",
+            "sent": "OPENED!",
+            "success": "Opening WhatsApp...",
             "error": "Something went wrong. Please try again."
         },
         "social": {
@@ -430,8 +430,8 @@
         "loadStable": "SYSTEM_LOAD: STABLE"
     },
     "projectHeader": {
-        "title": "Architecting Digital Reality",
-        "subtitle": "A curated showcase of technical innovation and creative engineering. Exploring the frontiers of <span class='font-bold text-foreground'>Artificial Intelligence</span>, Blockchain, Data, and Immersive Web experiences."
+        "title": "Architecting Scalable Web & Data Systems",
+        "subtitle": "A curated showcase of technical innovation and creative engineering. Exploring the synergy of <span class='font-bold text-foreground'>Fullstack Web Development</span>, Data Analytics, and Automated Systems."
     },
     "common": {
         "loading": "Loading...",

@@ -26,6 +26,7 @@ export async function getAllGalleryImages(): Promise<GalleryImage[]> {
                 const ext = path.extname(file).toLowerCase();
                 return imageExtensions.includes(ext);
             })
+            .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
             .map(file => ({
                 src: `/gallery/${file}`,
                 filename: file

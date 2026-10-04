@@ -307,10 +307,10 @@
             "message": "Pesan Anda",
             "messagePlaceholder": "Ceritakan tentang proyek Anda...",
             "send": "Kirim Pesan",
-            "submit": "KIRIM PESAN",
-            "sending": "MENGIRIM...",
-            "sent": "TERKIRIM!",
-            "success": "Pesan berhasil dikirim!",
+            "submit": "KIRIM VIA WHATSAPP",
+            "sending": "MEMBUKA WHATSAPP...",
+            "sent": "TERBUKA!",
+            "success": "Membuka WhatsApp...",
             "error": "Terjadi kesalahan. Silakan coba lagi."
         },
         "social": {
@@ -377,8 +377,8 @@
         "loadStable": "BEBAN_SISTEM: STABIL"
     },
     "projectHeader": {
-        "title": "Merancang Realitas Digital",
-        "subtitle": "Pameran kurasi inovasi teknis dan rekayasa kreatif. Menjelajahi batas-batas <span class='font-bold text-foreground'>Kecerdasan Buatan</span>, Blockchain, Data, dan pengalaman Web Imersif."
+        "title": "Merancang Solusi Web & Sistem Data",
+        "subtitle": "Pameran kurasi inovasi teknis dan rekayasa kreatif. Menjelajahi sinergi antara <span class='font-bold text-foreground'>Fullstack Web Development</span>, Analisis Data, dan Sistem Otomatisasi."
     },
     "footer": {
         "copyright": "Hak cipta dilindungi.",
