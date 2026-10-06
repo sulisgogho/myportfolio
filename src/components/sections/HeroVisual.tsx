@@ -27,7 +27,6 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
   const instagramRef = useRef(null);
   const zapRef = useRef(null);
   const zapSmallRef = useRef(null);
-  const botRef = useRef(null);
 
   useEffect(() => {
     if (!isExiting) return;
@@ -105,17 +104,6 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
         repeat: -1,
         yoyo: true,
         ease: "power2.inOut",
-        force3D: true
-      });
-
-      // Bot floating - Responsive and smooth
-      gsap.to(botRef.current, {
-        rotation: 8,
-        y: -10,
-        duration: 1.8,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
         force3D: true
       });
     });

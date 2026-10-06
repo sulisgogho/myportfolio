@@ -25,7 +25,7 @@ extend({ MeshLineGeometry, MeshLineMaterial });
 // Preload assets for faster startup
 useGLTF.preload('/lanyard/card.glb');
 useTexture.preload('/lanyard/lanyard.webp');
-useTexture.preload('/lanyard/desain-kartu.webp');
+useTexture.preload('/lanyard/tyo-card.webp');
 
 interface LanyardProps {
     position?: [number, number, number];
@@ -60,7 +60,8 @@ export function Lanyard({
             <div className="w-full h-full flex items-center justify-center p-8">
                 <div className="relative group transition-all duration-500 hover:scale-105">
                     <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-blue-500/10 to-purple-500/20 rounded-[3rem] blur-2xl opacity-50 group-hover:opacity-100 transition-opacity" />
-                    <div className="relative w-64 aspect-[1.5/2.3] bg-[#0a0a12]/90 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col items-center justify-center text-center p-6">
+                    {/* Adjusted aspect ratio to be in the sweet spot (1 / 1.55) */}
+                    <div className="relative w-64 aspect-[1/1.155] bg-[#0a0a12]/90 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col items-center justify-center text-center p-6">
                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-blue-500 to-purple-500" />
                         <div className="relative w-32 h-32 mb-6 rounded-2xl overflow-hidden border-2 border-white/20 shadow-xl">
                             <img
@@ -172,10 +173,14 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, isDark = false }:
 
     const { nodes, materials } = useGLTF('/lanyard/card.glb') as any;
     const texture = useTexture('/lanyard/lanyard.webp');
-    const customCardTexture = useTexture('/lanyard/desain-kartu.webp');
+    const customCardTexture = useTexture('/lanyard/tyo-card.webp');
 
     // The GLTF model requires flipY to be false for its UV mapping
     customCardTexture.flipY = false;
+    // tyo-card.webp has tshe card graphic extending to y = 0.88, while card.glb UV only spans to V = 0.755.
+    // repeat.y = 1.166 (0.88 / 0.755) maps the entire card height (including barcode & website) without cutting off the bottom.
+    customCardTexture.repeat.set(1, 1.166);
+    customCardTexture.offset.set(0, 0);
 
     // Use the custom card texture directly without color inversion,
     // so user photos don't look like negative films in light mode.
@@ -300,7 +305,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, isDark = false }:
                     {...segmentProps}
                     type={dragged ? ('kinematicPosition' as RigidBodyProps['type']) : ('dynamic' as RigidBodyProps['type'])}
                 >
-                    <CuboidCollider args={[0.8, 1.125, 0.01]} />
+                    <CuboidCollider args={[0.8, 1.42, 0.01]} position={[0, -0.15, 0]} />
                     <group
                         scale={2.25}
                         position={[0, -1.2, -0.05]}
@@ -315,7 +320,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, isDark = false }:
                             drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())));
                         }}
                     >
-                        <mesh geometry={nodes.card.geometry}>
+                        <mesh geometry={nodes.card.geometry} scale={[1, 1.26, 1]} position={[0, -0.266, 0]}>
                             <meshBasicMaterial
                                 map={cardTexture}
                                 map-anisotropy={16}

@@ -42,9 +42,8 @@ function BlogContent() {
     const springConfig = { stiffness: 1000, damping: 50, mass: 0.1 };
     const springX = useSpring(mouseX, springConfig);
     const springY = useSpring(mouseY, springConfig);
-
     const gridRef = useRef<HTMLDivElement>(null);
-    const categories = ['all', 'applied-ai', 'software-development', 'about-me', 'more'];
+    const categories = ['all', 'Data', 'Fullstack', 'Trading'];
 
     const filteredPosts = portfolioData.blogs
         .filter((post) => {

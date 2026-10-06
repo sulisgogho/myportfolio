@@ -464,10 +464,10 @@
         "back": "Kembali ke Blog",
         "noResults": "Tidak ada artikel ditemukan",
         "categories": {
-            "applied-ai": "Applied AI",
-            "software-development": "Software Dev",
-            "about-me": "About Me",
-            "more": "More"
+            "Data": "Data",
+            "Fullstack": "Fullstack",
+            "Trading": "Trading",
+            "more": "Lainnya"
         }
     },
     "gallery": {

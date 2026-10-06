@@ -479,9 +479,9 @@
         "back": "Back to Blog",
         "noResults": "No articles found",
         "categories": {
-            "applied-ai": "Applied AI",
-            "software-development": "Software Dev",
-            "about-me": "About Me",
+            "Data": "Data",
+            "Fullstack": "Fullstack",
+            "Trading": "Trading",
             "more": "More"
         }
     },
