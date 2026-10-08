@@ -47,12 +47,15 @@ const useNavItems = () => {
     const t = useTranslations('navigation.menu');
     return [
         {
-            label: "About",
+            label: "Explore",
             links: [
-                { label: t('achievements'), href: "/achievements", description: t('achievementsDesc') },
-                { label: t('skills'), href: "/skills", description: t('skillsDesc') },
+                { label: 'Projects', href: "/projects", description: 'Discover my latest builds' },
                 { label: t('experience'), href: "/experience", description: t('experienceDesc') },
+                { label: t('skills'), href: "/skills", description: t('skillsDesc') },
+                { label: t('achievements'), href: "/achievements", description: t('achievementsDesc') },
                 { label: t('blog'), href: "/blog", description: t('blogDesc') },
+                { label: 'Gallery', href: "/gallery", description: 'Visual portfolio' },
+                { label: 'Resume', href: "/resume", description: 'View or download my CV' },
             ]
         }
     ];

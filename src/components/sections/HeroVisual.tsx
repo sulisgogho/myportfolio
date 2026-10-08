@@ -142,7 +142,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
         style={{ y: heroY, opacity: heroOpacity, scale: heroScale }}
         className="relative flex-1 flex flex-col justify-center pt-40 pb-20 z-10 max-w-[105rem] w-full mx-auto will-change-transform"
       >
-        <div className="flex relative gap-4 px-6 md:items-center w-full flex-col justify-center">
+        <div className="flex relative gap-4 px-6 md:items-center w-full flex-col items-start justify-center">
 
           {/* Follow-Cursor Tooltip */}
           <AnimatePresence>
@@ -173,12 +173,12 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-[10px] md:text-xs text-muted-foreground text-start md:text-right leading-relaxed max-w-[200px] md:max-w-[220px] font-medium uppercase tracking-[0.2em]"
+              className="text-[10px] md:text-xs text-muted-foreground text-start md:text-right leading-relaxed max-w-[200px] md:max-w-[220px] font-medium uppercase tracking-[0.2em] mb-6 md:mb-0"
             >
               Hi, I'm {personal.name}. I engineer scalable web systems & data intelligence.
             </motion.p>
             <div className="relative">
-              <div ref={githubRef} className="absolute -top-4 right-0 md:right-2 text-primary/60 hover:text-primary z-20 opacity-0">
+              <div ref={githubRef} className="hidden md:block absolute -top-4 right-2 text-primary/60 hover:text-primary z-20 opacity-0">
                 <a
                   href={personal.socialLinks.find(s => s.platform === 'GitHub')?.url}
                   target="_blank"
@@ -191,7 +191,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isExiting ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[clamp(3rem,11vw,13rem)] font-black leading-[0.85] tracking-tighter text-shiny will-change-transform px-4"
+                className="text-[clamp(3rem,11vw,13rem)] font-black leading-[0.95] md:leading-[0.85] tracking-tighter text-shiny will-change-transform md:px-4"
               >
                 DATA &
               </motion.h1>
@@ -201,7 +201,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
           {/* Line 2: SOFT [ICON] WARE */}
           <div className="md:flex gap-8 items-center relative">
             <div className="relative">
-              <div ref={linkedinRef} className="absolute -top-8 left-4 text-primary/60 hover:text-primary z-20 opacity-0">
+              <div ref={linkedinRef} className="hidden md:block absolute -top-8 left-4 text-primary/60 hover:text-primary z-20 opacity-0">
                 <a
                   href={personal.socialLinks.find(s => s.platform === 'LinkedIn')?.url}
                   target="_blank"
@@ -210,7 +210,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
                   <Linkedin size={32} />
                 </a>
               </div>
-              <div ref={instagramRef} className="absolute -bottom-12 right-24 md:right-36 text-primary/60 hover:text-primary z-20 opacity-0">
+              <div ref={instagramRef} className="hidden md:block absolute -bottom-12 right-36 text-primary/60 hover:text-primary z-20 opacity-0">
                 <a
                   href={personal.socialLinks.find(s => s.platform === 'Instagram')?.url}
                   target="_blank"
@@ -223,7 +223,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isExiting ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[clamp(3rem,11vw,13rem)] md:flex items-center font-black leading-[0.85] tracking-tighter text-shiny will-change-transform px-4"
+                className="text-[clamp(3rem,11vw,13rem)] md:flex items-center font-black leading-[0.95] md:leading-[0.85] tracking-tighter text-shiny will-change-transform md:px-4"
               >
                 <span className="">FULL</span>
                 <div
@@ -257,7 +257,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
               initial={{ opacity: 0, y: 30 }}
               animate={isExiting ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[clamp(3rem,11vw,13rem)] md:flex items-center font-black leading-[0.85] tracking-tighter text-shiny will-change-transform px-4"
+              className="text-[clamp(3rem,11vw,13rem)] md:flex items-center font-black leading-[0.95] md:leading-[0.85] tracking-tighter text-shiny will-change-transform md:px-4"
             >
               <span className="">DEVELOPER</span>
             </motion.h1>
@@ -266,18 +266,36 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-[10px] md:text-xs text-muted-foreground pt-4 md:pt-8 leading-relaxed max-w-[250px] md:max-w-[200px] font-medium uppercase tracking-widest"
+              className="text-[10px] md:text-xs text-muted-foreground pt-6 md:pt-8 leading-relaxed max-w-[250px] md:max-w-[200px] font-medium uppercase tracking-widest"
             >
               Open to fullstack development, data analytics, and software projects.
             </motion.p>
           </div>
+
+          {/* Mobile Socials (Flows neatly below text instead of overlapping) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex md:hidden gap-6 px-4 pt-6 items-center text-primary/60"
+          >
+            <a href={personal.socialLinks.find(s => s.platform === 'GitHub')?.url} target="_blank" className="hover:text-primary transition-colors">
+              <Github size={24} />
+            </a>
+            <a href={personal.socialLinks.find(s => s.platform === 'LinkedIn')?.url} target="_blank" className="hover:text-primary transition-colors">
+              <Linkedin size={24} />
+            </a>
+            <a href={personal.socialLinks.find(s => s.platform === 'Instagram')?.url} target="_blank" className="hover:text-primary transition-colors">
+              <Instagram size={24} />
+            </a>
+          </motion.div>
         </div>
 
         {/* Action Buttons & Separator Section */}
         <div className="mx-auto max-w-[105rem] w-full px-6 md:px-20 mt-10 md:mt-16">
-          <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-4">
             {/* Quick Action Links */}
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <a
                 href="#projects"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-background font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all shadow-md"
@@ -302,9 +320,9 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
                 className="group flex items-center"
               >
                 <motion.div
-                  className="relative flex items-center bg-zinc-100 dark:bg-white h-11 w-11 group-hover:w-40 rounded-full transition-all duration-500 ease-[timing-function:cubic-bezier(0.23,1,0.32,1)] overflow-hidden shadow-lg"
+                  className="relative flex items-center bg-zinc-100 dark:bg-white h-11 w-32 md:w-11 md:group-hover:w-40 rounded-full transition-all duration-500 ease-[timing-function:cubic-bezier(0.23,1,0.32,1)] overflow-hidden shadow-lg"
                 >
-                  <span className="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 group-hover:delay-150 text-[10px] font-black uppercase tracking-widest text-zinc-900 dark:text-black pl-5 pr-10">
+                  <span className="whitespace-nowrap opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 group-hover:delay-150 text-[10px] font-black uppercase tracking-widest text-zinc-900 dark:text-black pl-5 pr-10">
                     Resume
                   </span>
                   <div className="absolute right-0 flex items-center justify-center size-11 text-zinc-900 dark:text-black group-hover:rotate-45 transition-transform duration-500">

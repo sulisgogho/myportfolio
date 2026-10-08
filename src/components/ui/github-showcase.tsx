@@ -387,7 +387,7 @@ export const GitHubShowcase = () => {
                   <Gift className="inline-flex text-[#39d353] rotate-12" size={40} />
                 </span></>}
             </motion.h2>
-            <motion.div layout className='flex flex-row gap-8 items-center'>
+            <motion.div layout className='flex flex-wrap md:flex-row gap-4 md:gap-8 items-center'>
               <div className="flex flex-col">
                 <span className="text-3xl font-black text-[#39d353] tabular-nums tracking-tighter">
                   <Counter value={data.stats.totalCommits || 345} trigger={!loading} />
@@ -498,7 +498,7 @@ export const GitHubShowcase = () => {
                       <div className="absolute inset-0 flex flex-col gap-8 overflow-y-auto pr-2 custom-scrollbar">
                         {/* Achievements Badges */}
                         <div className="flex flex-col items-center shrink-0 pt-2 w-full">
-                          <div className="grid grid-cols-3 gap-x-8 gap-y-6 w-full px-6">
+                          <div className="grid grid-cols-3 gap-x-4 md:gap-x-8 gap-y-6 w-full px-2 md:px-6">
                             {[
                               { id: "starstruck", x: 3 }, { id: "pull-shark", x: 2 },
                               { id: "arctic-code-vault-contributor", x: 1 }, { id: "pair-extraordinaire", x: 1 },
