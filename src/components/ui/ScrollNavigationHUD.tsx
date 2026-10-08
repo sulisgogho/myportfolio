@@ -46,54 +46,52 @@ export function ScrollNavigationHUD() {
         return () => unsubscribe();
     }, [smoothProgress]);
 
-    // Robust Active Section Spy supporting all screen sizes & long sections
-    const checkActiveSection = React.useCallback(() => {
-        if (typeof window === 'undefined') return;
-
-        const scrollY = window.scrollY || window.pageYOffset;
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-
-        // If user scrolled near bottom of page (or reached final section area), activate Experience
-        if (windowHeight + scrollY >= documentHeight - 350) {
-            setActiveSection(SECTIONS[SECTIONS.length - 1].id);
-            return;
-        }
-
-        // Active trigger line: 60% from the top of the viewport (responsif dan cepat berpindah saat section mulai masuk)
-        const triggerPoint = windowHeight * 0.6;
-        let currentActive = SECTIONS[0].id;
-
-        for (let i = 0; i < SECTIONS.length; i++) {
-            const section = SECTIONS[i];
-            const el = document.getElementById(section.id);
-            if (el) {
-                const rect = el.getBoundingClientRect();
-                // Section has reached or scrolled past the trigger point
-                if (rect.top <= triggerPoint) {
-                    currentActive = section.id;
-                }
-            }
-        }
-
-        setActiveSection(currentActive);
-    }, []);
-
     useEffect(() => {
-        checkActiveSection();
-        window.addEventListener('scroll', checkActiveSection, { passive: true });
-        window.addEventListener('resize', checkActiveSection, { passive: true });
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px -50% 0px',
+            threshold: 0
+        };
+
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        SECTIONS.forEach((section) => {
+            const el = document.getElementById(section.id);
+            if (el) observer.observe(el);
+        });
+
+        // Special check for bottom of page to handle short final sections
+        const handleScrollEnd = () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+                setActiveSection(SECTIONS[SECTIONS.length - 1].id);
+            }
+        };
+        
+        let scrollTimeout: NodeJS.Timeout;
+        const throttledScroll = () => {
+            if (scrollTimeout) return;
+            scrollTimeout = setTimeout(() => {
+                handleScrollEnd();
+                scrollTimeout = undefined as any;
+            }, 150);
+        };
+
+        window.addEventListener('scroll', throttledScroll, { passive: true });
 
         return () => {
-            window.removeEventListener('scroll', checkActiveSection);
-            window.removeEventListener('resize', checkActiveSection);
+            observer.disconnect();
+            window.removeEventListener('scroll', throttledScroll);
+            if (scrollTimeout) clearTimeout(scrollTimeout);
         };
-    }, [checkActiveSection]);
-
-    // Sync with smooth Lenis scroll frames
-    useLenis(() => {
-        checkActiveSection();
-    });
+    }, []);
 
     const scrollTo = (id: string) => {
         const el = document.getElementById(id);

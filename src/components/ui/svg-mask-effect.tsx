@@ -56,18 +56,28 @@ export const MaskContainer = ({
 
     const container = containerRef.current;
     if (!container) return;
+    
+    let scrollTimeout: NodeJS.Timeout;
+    const throttledUpdateRect = () => {
+        if (scrollTimeout) return;
+        scrollTimeout = setTimeout(() => {
+            updateRect();
+            scrollTimeout = undefined as any;
+        }, 100);
+    };
 
     // Recalculate rect on resize/scroll or mouse enter to ensure accuracy
     window.addEventListener("resize", updateRect);
-    window.addEventListener("scroll", updateRect); // Handle scrolling affecting fixed/relative pos
+    window.addEventListener("scroll", throttledUpdateRect, { passive: true }); // Handle scrolling affecting fixed/relative pos
     container.addEventListener("mouseenter", updateRect);
     container.addEventListener("mousemove", updateMousePosition);
 
     return () => {
       window.removeEventListener("resize", updateRect);
-      window.removeEventListener("scroll", updateRect);
+      window.removeEventListener("scroll", throttledUpdateRect);
       container.removeEventListener("mouseenter", updateRect);
       container.removeEventListener("mousemove", updateMousePosition);
+      if (scrollTimeout) clearTimeout(scrollTimeout);
     };
   }, [updateMousePosition]);
 

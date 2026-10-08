@@ -75,18 +75,7 @@ export default function Testimonial1() {
         <div className="flex justify-center mb-6">
           <div className="bg-[#f1efec] dark:bg-zinc-900 border border-neutral-200 dark:border-zinc-800 text-black dark:text-white px-5 py-1.5 rounded-full text-xs uppercase tracking-wider font-semibold flex items-center gap-2.5 shadow-sm">
             <span className="relative flex h-2.5 w-2.5">
-              <motion.span
-                animate={{
-                  scale: [1, 2, 1],
-                  opacity: [0.6, 0, 0.6],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute inline-flex h-full w-full rounded-full bg-green-400/60"
-              />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-green-400/60 opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)]" />
             </span>
             Professional Statistics

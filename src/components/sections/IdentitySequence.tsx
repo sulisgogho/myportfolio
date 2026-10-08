@@ -1,14 +1,13 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useTransform, useSpring, easeOut, easeInOut, circOut, useMotionValueEvent } from "framer-motion";
+import React from "react";
+import { motion, useTransform, easeInOut, useMotionValueEvent } from "framer-motion";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { portfolioData } from "@/data/portfolio";
 import { InfiniteMarquee } from "@/components/ui/InfiniteMarquee";
 import { BrandScroller, BrandScrollerReverse } from "@/components/ui/brand-scroller";
-import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import MagneticEffect from "@/components/ui/MagneticEffect";
 

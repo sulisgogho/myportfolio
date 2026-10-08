@@ -89,7 +89,7 @@ export default function ScrollAdventure() {
     return (
         <div ref={containerRef} className="relative h-[800vh] w-full pointer-events-none">
             <motion.div
-                style={{ scale: enterScale, opacity: enterOpacity, borderRadius: enterBorderRadius }}
+                style={{ scale: enterScale, opacity: enterOpacity, borderRadius: enterBorderRadius, willChange: "transform, opacity" }}
                 className="sticky top-0 h-screen w-full overflow-hidden bg-background dark:bg-black pointer-events-auto origin-center"
             >
                 {pages.map((page, i) => {
@@ -309,7 +309,7 @@ function EditorialContent({ content, index }: { content: any, index: number }) {
                     </span>
                     <div className="h-[1px] w-12 bg-primary/20" />
                 </div>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-tight text-foreground font-sans transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:translate-x-6 hover:text-foreground/50 pointer-events-auto cursor-default origin-left">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-tight text-foreground font-sans transition-all duration-500 ease-[timing-function:cubic-bezier(0.16,1,0.3,1)] hover:translate-x-6 hover:text-foreground/50 pointer-events-auto cursor-default origin-left">
                     {content.heading}
                 </h2>
                 <p className="text-xl md:text-2xl text-muted-foreground font-medium leading-tight max-w-lg">

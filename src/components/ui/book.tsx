@@ -62,7 +62,7 @@ export const Book = ({
   return (
     <div className={clsx("inline-block w-fit", className)} style={{ perspective: 900 }}>
       <div
-        className="aspect-[49/60] w-fit relative rotate-0 duration-[250ms] book-rotate"
+        className="aspect-[49/60] w-fit relative rotate-0 duration-300 book-rotate"
         style={{ transformStyle: "preserve-3d", minWidth: _width, containerType: "inline-size" }}
       >
         <div

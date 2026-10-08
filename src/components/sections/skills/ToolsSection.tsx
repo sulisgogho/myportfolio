@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 import Image from 'next/image';
@@ -89,7 +90,7 @@ export const ToolsSection = () => {
 
 const MarqueeRow = ({ items, direction, speed }: { items: any[], direction: 'left' | 'right', speed: number }) => {
     // 4x duplication for ultra-smooth loop on all screen widths
-    const doubledItems = [...items, ...items, ...items, ...items];
+    const doubledItems = React.useMemo(() => [...items, ...items, ...items, ...items], [items]);
 
     return (
         <div className="flex w-full overflow-hidden py-4">

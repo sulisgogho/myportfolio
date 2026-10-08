@@ -11,11 +11,47 @@ interface QuantumErrorProps {
     reset?: () => void;
 }
 
+const RealTimeClock = () => {
+    const [currentTime, setCurrentTime] = useState(new Date());
+    
+    useEffect(() => {
+        const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+        return () => clearInterval(timer);
+    }, []);
+
+    const formattedDate = currentTime.toLocaleDateString('id-ID', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    }).toUpperCase();
+
+    const formattedTime = currentTime.toLocaleTimeString('id-ID', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    });
+
+    return (
+        <div className="flex flex-col font-mono text-left select-none">
+            <div className="flex items-center gap-2 text-primary font-black text-[11px] tracking-[0.2em] uppercase mb-1 opacity-80">
+                <span>PROBOLINGGO, INDONESIA</span>
+            </div>
+            <div suppressHydrationWarning className="text-[10px] font-black uppercase tracking-[0.1em] text-foreground/40 mb-2">
+                {formattedDate}
+            </div>
+            <div suppressHydrationWarning className="text-4xl font-black text-foreground/10 tracking-tighter leading-none">
+                {formattedTime.replace(/:/g, '.')}
+            </div>
+        </div>
+    );
+};
+
 export function QuantumError({ type = '404', reset }: QuantumErrorProps) {
     const { isLowPowerMode } = usePerformance();
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
-    const [currentTime, setCurrentTime] = useState(new Date());
     const frameRef = React.useRef<number | null>(null);
 
     const springConfig = { damping: 25, stiffness: 150 };
@@ -35,12 +71,10 @@ export function QuantumError({ type = '404', reset }: QuantumErrorProps) {
                 mouseY.set(e.clientY);
             });
         };
-        const timer = setInterval(() => setCurrentTime(new Date()), 1000);
 
         window.addEventListener('mousemove', handleMouseMove);
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
-            clearInterval(timer);
             if (frameRef.current) {
                 cancelAnimationFrame(frameRef.current);
             }
@@ -52,20 +86,6 @@ export function QuantumError({ type = '404', reset }: QuantumErrorProps) {
     const description = type === '404'
         ? "The page you're looking for is missing."
         : "An internal technical error has occurred.";
-
-    const formattedDate = currentTime.toLocaleDateString('id-ID', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    }).toUpperCase();
-
-    const formattedTime = currentTime.toLocaleTimeString('id-ID', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-    });
 
     return (
         <div className="fixed inset-0 z-[99999] bg-white dark:bg-[#000000] flex flex-col items-center justify-center font-sans overflow-hidden select-none">
@@ -155,17 +175,7 @@ export function QuantumError({ type = '404', reset }: QuantumErrorProps) {
 
             {/* Decorative Elements - Real-time Info Panel */}
             <div className="absolute bottom-12 left-12 z-20 hidden md:block">
-                <div className="flex flex-col font-mono text-left select-none">
-                    <div className="flex items-center gap-2 text-primary font-black text-[11px] tracking-[0.2em] uppercase mb-1 opacity-80">
-                        <span>PROBOLINGGO, INDONESIA</span>
-                    </div>
-                    <div suppressHydrationWarning className="text-[10px] font-black uppercase tracking-[0.1em] text-foreground/40 mb-2">
-                        {formattedDate}
-                    </div>
-                    <div suppressHydrationWarning className="text-4xl font-black text-foreground/10 tracking-tighter leading-none">
-                        {formattedTime.replace(/:/g, '.')}
-                    </div>
-                </div>
+                <RealTimeClock />
             </div>
 
             {/* Subtle Noise / Grain */}

@@ -302,7 +302,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
                 className="group flex items-center"
               >
                 <motion.div
-                  className="relative flex items-center bg-zinc-100 dark:bg-white h-11 w-11 group-hover:w-40 rounded-full transition-all duration-500 ease-[0.23,1,0.32,1] overflow-hidden shadow-lg"
+                  className="relative flex items-center bg-zinc-100 dark:bg-white h-11 w-11 group-hover:w-40 rounded-full transition-all duration-500 ease-[timing-function:cubic-bezier(0.23,1,0.32,1)] overflow-hidden shadow-lg"
                 >
                   <span className="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 group-hover:delay-150 text-[10px] font-black uppercase tracking-widest text-zinc-900 dark:text-black pl-5 pr-10">
                     Resume

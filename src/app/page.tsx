@@ -23,12 +23,6 @@ export default function HomePage() {
         restDelta: 0.001
     });
 
-    // Parallax values for global background blobs (subtle & elegant)
-    const { scrollY } = useScroll();
-    const y1 = useTransform(scrollY, [0, 5000], [0, 300]);
-    const y2 = useTransform(scrollY, [0, 5000], [0, -250]);
-    const y3 = useTransform(scrollY, [0, 5000], [0, 400]);
-
     return (
         <motion.main
             initial={{ opacity: 0 }}
@@ -42,20 +36,12 @@ export default function HomePage() {
                 className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-sky-400 via-primary to-purple-500 origin-left z-[110] shadow-[0_0_12px_rgba(56,189,248,0.7)]"
             />
 
-            {/* Global Parallax Background Effects - Elegant Aurora */}
+            {/* Global Background Effects - Optimized (Static, No Blur, No Mix-Blend during Scroll) */}
             <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden bg-background">
-                <motion.div 
-                    style={{ y: y1 }} 
-                    className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] max-w-[1000px] max-h-[1000px] rounded-full bg-primary/10 blur-[120px] mix-blend-screen dark:bg-primary/5 dark:mix-blend-lighten" 
-                />
-                <motion.div 
-                    style={{ y: y2 }} 
-                    className="absolute top-[30%] -right-[10%] w-[50vw] h-[50vw] max-w-[800px] max-h-[800px] rounded-full bg-purple-500/10 blur-[130px] mix-blend-screen dark:bg-purple-500/5 dark:mix-blend-lighten" 
-                />
-                <motion.div 
-                    style={{ y: y3 }} 
-                    className="absolute bottom-[-10%] left-[20%] w-[70vw] h-[70vw] max-w-[1200px] max-h-[1200px] rounded-full bg-sky-500/10 blur-[150px] mix-blend-screen dark:bg-sky-500/5 dark:mix-blend-lighten" 
-                />
+                {/* Simplified radial gradients for GPU performance instead of heavy blur filters */}
+                <div className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] max-w-[1000px] max-h-[1000px] rounded-full bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.05)_0,transparent_60%)] dark:bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.02)_0,transparent_60%)]" />
+                <div className="absolute top-[30%] -right-[10%] w-[50vw] h-[50vw] max-w-[800px] max-h-[800px] rounded-full bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.05)_0,transparent_60%)] dark:bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.02)_0,transparent_60%)]" />
+                <div className="absolute bottom-[-10%] left-[20%] w-[70vw] h-[70vw] max-w-[1200px] max-h-[1200px] rounded-full bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.05)_0,transparent_60%)] dark:bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.02)_0,transparent_60%)]" />
             </div>
 
             {/* Floating Interactive Scroll HUD (Circular Gauge + Section Spy + Jump-to-Section) */}

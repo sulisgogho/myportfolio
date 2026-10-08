@@ -41,34 +41,13 @@ export const StickyScroll = ({
     setActiveCard(closestBreakpointIndex);
   });
 
-  useEffect(() => {
-    const container = ref.current;
-    if (!container) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      const { scrollTop, scrollHeight, clientHeight } = container;
-      const isAtTop = scrollTop <= 0;
-      const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1;
-
-      if ((e.deltaY < 0 && isAtTop) || (e.deltaY > 0 && isAtBottom)) {
-        return;
-      }
-
-      e.preventDefault();
-      e.stopPropagation();
-      container.scrollTop += e.deltaY;
-    };
-
-    container.addEventListener('wheel', handleWheel, { passive: false });
-    return () => container.removeEventListener('wheel', handleWheel);
-  }, []);
-
   return (
     <div className="relative group">
 
       <motion.div
         className="relative flex h-[35rem] justify-center lg:justify-between space-x-0 lg:space-x-10 overflow-y-scroll custom-scrollbar rounded-[2.5rem] p-6 md:p-12 bg-transparent transition-all duration-700"
         ref={ref}
+        data-lenis-prevent="true"
       >
         {/* Left Content Side */}
         <div className="relative flex items-start px-2 md:px-6 w-full lg:w-3/5">

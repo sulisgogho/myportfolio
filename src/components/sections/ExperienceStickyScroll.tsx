@@ -60,8 +60,8 @@ export default function ExperienceStickyScroll({ isLowPowerMode = false }: { isL
 
                         <div className="relative z-10 flex flex-col items-center transition-transform duration-500 group-hover:scale-105">
                             <div className="relative mb-6">
-                                <GraduationCap className={cn("w-20 h-20 text-white drop-shadow-xl", !isLowPowerMode && "animate-pulse")} />
-                                <Binary className={cn("w-8 h-8 text-blue-400 absolute -top-2 -right-2 opacity-80", !isLowPowerMode && "animate-bounce")} />
+                                <GraduationCap className={cn("w-20 h-20 text-white drop-shadow-xl transition-all duration-300", !isLowPowerMode && "group-hover:animate-pulse")} />
+                                <Binary className={cn("w-8 h-8 text-blue-400 absolute -top-2 -right-2 opacity-80 transition-all duration-300", !isLowPowerMode && "group-hover:-translate-y-2 group-hover:opacity-100")} />
                             </div>
 
                             <div className="flex flex-wrap gap-2 justify-center mb-4">
@@ -122,7 +122,7 @@ export default function ExperienceStickyScroll({ isLowPowerMode = false }: { isL
                         <div className="relative z-10 flex flex-col items-center">
                             <div className="relative mb-6">
                                 <BookOpen className="w-20 h-20 text-white drop-shadow-xl group-hover:rotate-12 transition-transform duration-500" />
-                                <Sparkles className={cn("w-6 h-6 text-yellow-400 absolute -bottom-2 -left-2", !isLowPowerMode && "animate-pulse")} />
+                                <Sparkles className={cn("w-6 h-6 text-yellow-400 absolute -bottom-2 -left-2 transition-all duration-300", !isLowPowerMode && "group-hover:scale-125")} />
                             </div>
 
                             <div className="flex flex-wrap gap-2 justify-center mb-4">
