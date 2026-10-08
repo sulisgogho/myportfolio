@@ -228,7 +228,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
                 <span className="">FULL</span>
                 <div
                   ref={zapRef}
-                  className="hidden lg:block mx-[0.05em] relative cursor-pointer group"
+                  className="hidden lg:inline-block mx-[0.05em] relative cursor-pointer group"
                   onClick={() => window.location.href = '/projects'}
                   onMouseEnter={(e) => setTooltip({ show: true, text: "Explore Projects", icon: 'zap', x: e.clientX, y: e.clientY })}
                   onMouseMove={(e) => setTooltip(prev => ({ ...prev, x: e.clientX, y: e.clientY }))}
@@ -238,7 +238,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
                 </div>
                 <div
                   ref={zapSmallRef}
-                  className="block lg:hidden mx-[0.02em] relative cursor-pointer group"
+                  className="inline-block lg:hidden mx-[0.02em] relative cursor-pointer group"
                   onClick={() => window.location.href = '/projects'}
                   onMouseEnter={(e) => setTooltip({ show: true, text: "Explore Projects", icon: 'zap', x: e.clientX, y: e.clientY })}
                   onMouseMove={(e) => setTooltip(prev => ({ ...prev, x: e.clientX, y: e.clientY }))}

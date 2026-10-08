@@ -165,12 +165,12 @@ function PageSlide({ page, isActive, scrollProgress, index }: { page: any, isAct
     return (
         <motion.div style={{ zIndex }} className="absolute inset-0 flex items-center justify-center pointer-events-none p-4 md:p-8 lg:p-12">
             {/* Unified Card Container */}
-            <div className="relative w-full h-full max-w-[1600px] flex pointer-events-auto">
+            <div className="relative w-full h-full max-w-[1600px] flex flex-col md:flex-row pointer-events-auto">
 
                 {/* LEFT HALF OF THE SPLIT CARD */}
                 <motion.div
                     style={{ y: leftY }}
-                    className="relative w-1/2 h-full bg-background dark:bg-black z-10 rounded-l-3xl overflow-hidden"
+                    className="relative w-full h-1/2 md:w-1/2 md:h-full bg-background dark:bg-black z-10 md:rounded-l-3xl overflow-hidden"
                 >
                     <div className="w-full h-full relative overflow-hidden">
                         {page.leftComponent ? (
@@ -194,7 +194,7 @@ function PageSlide({ page, isActive, scrollProgress, index }: { page: any, isAct
                 {/* RIGHT HALF OF THE SPLIT CARD */}
                 <motion.div
                     style={{ y: rightY }}
-                    className="relative w-1/2 h-full bg-background dark:bg-black z-10 rounded-r-3xl overflow-hidden"
+                    className="relative w-full h-1/2 md:w-1/2 md:h-full bg-background dark:bg-black z-10 md:rounded-r-3xl overflow-hidden"
                 >
                     <div className="w-full h-full relative overflow-hidden">
                         {page.rightComponent ? (
@@ -301,23 +301,23 @@ function BlendedVisual({ src, component, side }: { src?: string, component?: Rea
 
 function EditorialContent({ content, index }: { content: any, index: number }) {
     return (
-        <div className="flex flex-col items-start text-left space-y-12 max-w-2xl w-full relative z-10">
-            <div className="space-y-6">
-                <div className="flex items-center gap-6">
-                    <span className="text-[11px] font-mono font-black tracking-[0.5em] text-primary uppercase opacity-60">
+        <div className="flex flex-col items-start text-left space-y-6 md:space-y-12 max-w-2xl w-full relative z-10">
+            <div className="space-y-4 md:space-y-6">
+                <div className="flex items-center gap-4 md:gap-6">
+                    <span className="text-[9px] md:text-[11px] font-mono font-black tracking-[0.3em] md:tracking-[0.5em] text-primary uppercase opacity-60">
                         FEATURE — 0{index + 1}
                     </span>
-                    <div className="h-[1px] w-12 bg-primary/20" />
+                    <div className="h-[1px] w-8 md:w-12 bg-primary/20" />
                 </div>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-tight text-foreground font-sans transition-all duration-500 ease-[timing-function:cubic-bezier(0.16,1,0.3,1)] hover:translate-x-6 hover:text-foreground/50 pointer-events-auto cursor-default origin-left">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-tight text-foreground font-sans transition-all duration-500 ease-[timing-function:cubic-bezier(0.16,1,0.3,1)] md:hover:translate-x-6 hover:text-foreground/50 pointer-events-auto cursor-default origin-left">
                     {content.heading}
                 </h2>
-                <p className="text-xl md:text-2xl text-muted-foreground font-medium leading-tight max-w-lg">
+                <p className="text-base md:text-xl lg:text-2xl text-muted-foreground font-medium leading-tight max-w-lg">
                     {content.description}
                 </p>
             </div>
             {content.skills && (
-                <div className="flex flex-wrap gap-4 pt-6">
+                <div className="flex flex-wrap gap-2 md:gap-4 pt-4 md:pt-6">
                     {content.skills.map((skill: string, idx: number) => (
                         <MagneticTag key={skill} text={skill} index={idx} />
                     ))}
