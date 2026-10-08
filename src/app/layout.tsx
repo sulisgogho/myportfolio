@@ -66,10 +66,9 @@ export const metadata: Metadata = {
         },
     },
     icons: {
-        icon: [
-            { url: '/sulisgogho_light.svg', media: '(prefers-color-scheme: light)' },
-            { url: '/sulisgogho_dark.svg', media: '(prefers-color-scheme: dark)' },
-        ],
+        icon: '/about/logogue.png',
+        shortcut: '/about/logogue.png',
+        apple: '/about/logogue.png',
     },
 };
 

@@ -29,10 +29,11 @@ export const portfolioData: PortfolioData = {
             description: 'A comprehensive customer management and multi-month billing application designed specifically for WiFi service providers.',
             longDescription: 'Developed a full-stack customer management system tailored for Infly Networks to streamline their WiFi service operations. The application facilitates efficient subscriber data management, network service tracking, and multi-month billing cycles. Built with Next.js, Tailwind CSS, and Supabase, the platform provides administrators with a secure, fast, and responsive dashboard to manage daily business operations and customer relationships seamlessly.',
             image: '/project/infly/infly.png',
-            techStack: ['Next.js', 'Tailwind CSS', 'Supabase', 'Responsive Design'],
+            techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Recharts', 'PWA'],
             tools: ['VS Code'],
             status: 'completed',
             demoUrl: 'https://infly-networks.vercel.app/',
+            repoUrl: 'https://github.com/sulisgogho/infly-networks',
             startDate: '2026-09-10',
             category: 'Website',
             role: 'Fullstack Developer',
@@ -42,6 +43,39 @@ export const portfolioData: PortfolioData = {
                 '/project/infly/infly3.png',
                 '/project/infly/infly4.png',
                 '/project/infly/infly5.png',
+            ],
+            features: [
+                {
+                    title: "Subscriber Management",
+                    items: [
+                        "**Centralized Dashboard**: Track active and inactive WiFi subscribers instantly.",
+                        "**Detailed Profiles**: Maintain comprehensive customer records, including service history and installed network packages."
+                    ]
+                },
+                {
+                    title: "Advanced Billing System",
+                    items: [
+                        "**Multi-Month Cycles**: Support flexible billing logic covering multiple months.",
+                        "**Automated Tracking**: Real-time payment tracking and invoice generation."
+                    ]
+                },
+                {
+                    title: "Role-Based Access",
+                    items: [
+                        "**Admin Controls**: Secure authentication and authorization powered by Supabase.",
+                        "**Data Security**: Strict Row-Level Security (RLS) policies to protect sensitive customer data."
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: "Handling complex multi-month billing logic with prorated dates without sacrificing database performance.",
+                    solution: "Designed a normalized relational database schema in Supabase, utilizing optimized SQL queries and custom Edge Functions to handle heavy calculations asynchronously."
+                },
+                {
+                    problem: "The admin dashboard experienced lag when rendering hundreds of subscriber records and billing history tables simultaneously.",
+                    solution: "Implemented server-side pagination and selective data fetching with Next.js, drastically reducing the initial page load time and improving overall UI responsiveness."
+                }
             ]
         },
         {
@@ -51,10 +85,10 @@ export const portfolioData: PortfolioData = {
             description: 'Integrated digital information portal to promote tourism and regional potential of Probolinggo.',
             longDescription: 'Built a responsive website platform presenting the latest information, tourist destinations, and local SMEs in Probolinggo. Integrated modern design and a content management system to facilitate regular regional information updates.',
             image: '/project/kabpro/kabpro.png',
-            techStack: ['React', 'Next.js', 'Tailwind CSS', 'CMS'],
-            tools: ['VS Code'],
+            techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'GSAP', 'Radix UI'], tools: ['VS Code'],
             status: 'completed',
             demoUrl: 'https://kabpro-delta.vercel.app/',
+            repoUrl: 'https://github.com/sulisgogho/KabPro',
             startDate: '2026-07-8',
             category: 'Website',
             role: 'Fullstack Developer',
@@ -68,25 +102,58 @@ export const portfolioData: PortfolioData = {
         },
         {
             id: 'proj-3',
-            slug: 'superstore-sales-analysis',
-            title: 'Superstore Sales Analysis & Customer Segmentation Engine',
-            description: 'Machine Learning model to optimize marketing strategies using Python (RFM) & React Dashboard.',
-            longDescription: 'Developed a Full-Stack analysis system using Python (Pandas) for automated data processing and RFM Segmentation algorithms, subsequently visualized through an interactive React JS dashboard.',
-            image: '/project/project5.png',
-            techStack: ['Python Flask', 'Pandas', 'React', 'Rechart'],
-            tools: ['VS Code', 'Jupyter'],
+            slug: 'dataco-supply-chain-audit',
+            title: 'DataCo Supply Chain Analysis',
+            description: 'An end-to-end data analytics and storytelling project identifying logistical inefficiencies and revenue risks for C-Level executives.',
+            longDescription: 'Conducted a comprehensive C-Level data storytelling and performance audit based on the DataCo Supply Chain dashboard. Analyzed global operational data (2015-2017) to identify the root causes behind a low net profit margin (10.8%) despite a high gross revenue of $36.7M. The analysis uncovered major logistical bottlenecks causing $20.1M in late delivery costs, destructive discount strategies, and over $827K in potential fraud risks detected via AI predictive modeling.',
+            image: '/project/dataco.png',
+            techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Radix UI', 'Recharts', 'TanStack Table', 'React Simple Maps', 'Lucide React'],
+            tools: ['Python', 'SQL', 'Data Visualization', 'AI Anomaly Detection'],
             status: 'completed',
-            demoUrl: 'https://superstore-analysis-phi.vercel.app/',
-            repoUrl: 'https://github.com/sulisgogho/superstore-analysis',
-            startDate: '2023-01-01',
+            demoUrl: 'https://dataco-supplychain.vercel.app/',
+            repoUrl: 'https://github.com/sulisgogho/dataco',
+            docUrl: 'https://drive.google.com/file/d/1znuUFspzsCmJIz8AznKIlD33qiMujSyg/view?usp=sharing',
+            startDate: '2026-10-07',
             category: 'Data',
-            role: 'Data Analyst',
+            role: 'Senior Data Analyst / Lead Data Scientist',
             galleryImages: [
-                '/project/project5.png',
-                '/project/project5.png',
-                '/project/project5.png',
-                '/project/project5.png',
-                '/project/project5.png',
+                '/project/dataco/dataco1.png',
+                '/project/dataco/dataco2.png',
+                '/project/dataco/dataco3.png',
+                '/project/dataco/dataco4.png',
+            ],
+            features: [
+                {
+                    title: "Logistics & SLA Analytics",
+                    items: [
+                        "**Root Cause Identification**: Uncovered that 'Standard Class' shipments caused a massive +1.6 days lead time deviation, dropping SLA compliance to 40.9%.",
+                        "**Cost Impact Tracking**: Calculated $20.1M in direct financial losses due to late delivery penalties and $1.5M in canceled orders."
+                    ]
+                },
+                {
+                    title: "Sales & Profitability Drivers",
+                    items: [
+                        "**Discount Impact Analysis**: Visualized how aggressive clearance discounts destroyed product margins, dropping them below 0%.",
+                        "**Segment Profiling**: Identified the Consumer segment as the primary revenue driver ($18.94M) and contrasted it with highly profitable categories like Fishing and Cleats."
+                    ]
+                },
+                {
+                    title: "Risk & Fraud Anomaly Detection",
+                    items: [
+                        "**AI Predictive Modeling**: Highlighted 4,062 suspected fraud transactions worth $827.7K using AI anomaly scores.",
+                        "**Actionable Mitigation**: Proposed automated transaction blocking for high-risk transfer payments in LATAM and Europe based on AI feature importance."
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: "There was a huge gap between Gross Revenue ($36.7M) and Net Profit ($3.9M), with executives unable to pinpoint the exact operational leaks.",
+                    solution: "Performed deep-dive root cause analysis to isolate the issues, pinpointing severe regional bottlenecks in Western Europe and a heavy reliance on unprofitable discount tiers."
+                },
+                {
+                    problem: "C-Level executives needed actionable business strategies, not just raw dashboard data and technical metrics.",
+                    solution: "Designed a structured data storytelling presentation that translated complex data points into concrete strategic recommendations, projecting a potential $10M savings by restructuring specific logistics routes."
+                }
             ]
         },
         {
@@ -100,7 +167,7 @@ The website features an interactive flipbook-style reading interface, complete w
 
 Disclaimer: The GoLib platform is intended purely as an educational medium[cite: 1]. I strongly encourage all readers to continue appreciating and supporting the authors' works by reading or purchasing books legally through official websites, bookstores, or authorized provider applications[cite: 1].`,
             image: '/project/golib/golib.png',
-            techStack: ['Next.js', 'React', 'Tailwind CSS', 'shadcn/ui'],
+            techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'GSAP', 'Radix UI'],
             tools: ['Git', 'VS Code'],
             status: 'completed',
             demoUrl: 'https://golib-rho.vercel.app/',
@@ -112,16 +179,42 @@ Disclaimer: The GoLib platform is intended purely as an educational medium[cite:
                 '/project/golib/golib2.png',
                 '/project/golib/golib3.png',
                 '/project/golib/golib4.png'
+            ],
+            features: [
+                {
+                    title: "Interactive Flipbook Reading",
+                    items: [
+                        "**Realistic Interface**: Provides a book-like digital reading experience with animated page-flipping features.",
+                        "**Theme Modes**: Equipped with light and dark themes to reduce eye strain during extended reading."
+                    ]
+                },
+                {
+                    title: "Organized PDF Library",
+                    items: [
+                        "**Virtual Bookshelves**: Beautifully structured layout resembling a real library for easy book discovery.",
+                        "**Accessible Design**: Smoothly handles multiple large PDF files dynamically."
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: "Rendering large PDF files dynamically in the browser often caused memory leaks and UI freezing.",
+                    solution: "Integrated a lightweight PDF rendering solution with lazy-loading mechanisms to parse and render pages on demand, keeping memory footprint low."
+                },
+                {
+                    problem: "Providing an intuitive flipbook experience that works flawlessly on mobile screens.",
+                    solution: "Implemented highly responsive touch-gestures and container queries via Tailwind CSS to ensure page flipping is smooth across all viewports."
+                }
             ]
         },
         {
             id: 'proj-5',
             slug: 'gonotes-productivity-app',
             title: 'GoNotes - Productivity & Habit Tracker',
-            description: 'Aplikasi produktivitas berbasis web yang dilengkapi dengan habit tracker, to-do list, timer Pomodoro, jurnal harian, dan dashboard analitik.',
-            longDescription: 'Berawal dari keresahan pribadi untuk mengatur jadwal harian yang berantakan, GoNotes dikembangkan menjadi aplikasi produktivitas yang komprehensif. Aplikasi ini dilengkapi dengan fitur kustomisasi habit, to-do list terintegrasi Pomodoro, jurnal harian, dan dashboard analitik dari skala harian hingga tahunan. Dibangun menggunakan Next.js, Firebase (Autentikasi & Database), dan Tailwind CSS, aplikasi ini mendukung Dark/Light mode, responsif, dan dapat diinstal (PWA) di berbagai perangkat.',
+            description: 'A web-based productivity application equipped with a habit tracker, to-do list, Pomodoro timer, daily journal, and analytics dashboard.',
+            longDescription: 'Stemming from a personal struggle to manage a disorganized daily schedule, GoNotes was developed into a comprehensive productivity application. It features custom habit tracking, a Pomodoro-integrated to-do list, daily journaling, and analytical dashboards spanning daily to yearly scales. Built with Next.js, Firebase (Authentication & Database), and Tailwind CSS, the application supports Dark/Light mode, is fully responsive, and can be installed as a PWA across various devices.',
             image: '/project/gonotes/gonotes.png',
-            techStack: ['Next.js', 'Tailwind CSS', 'Firebase'],
+            techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Firebase', 'shadcn/ui'],
             tools: ['VS Code', 'Git', 'Vercel'],
             status: 'completed',
             demoUrl: 'https://fokusku-dun.vercel.app/',
@@ -134,6 +227,32 @@ Disclaimer: The GoLib platform is intended purely as an educational medium[cite:
                 '/project/gonotes/gonotes2.png',
                 '/project/gonotes/gonotes3.png',
                 '/project/gonotes/gonotes4.png'
+            ],
+            features: [
+                {
+                    title: "Comprehensive Productivity Suite",
+                    items: [
+                        "**Habit Tracker & Pomodoro**: Fully integrated habit monitoring and focus timer.",
+                        "**Daily Journal & Tasks**: Seamless daily to-do lists and journaling capabilities."
+                    ]
+                },
+                {
+                    title: "Advanced Analytics",
+                    items: [
+                        "**Data Insights**: Visual dashboards providing daily, monthly, and yearly productivity metrics.",
+                        "**PWA Ready**: Installable as a Progressive Web App for offline access and native-like feel."
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: "Synchronizing complex user habits, timers, and offline states across multiple sessions without data loss.",
+                    solution: "Leveraged Firebase Realtime Database and Authentication with robust Next.js client-side state management for secure, persistent syncing."
+                },
+                {
+                    problem: "Structuring varied data types (journals, habits, tasks) cleanly in a single dashboard.",
+                    solution: "Designed a clean, modular UI with Tailwind CSS and Next.js layouts, reducing cognitive overload and boosting user engagement."
+                }
             ]
         },
         {
@@ -143,7 +262,7 @@ Disclaimer: The GoLib platform is intended purely as an educational medium[cite:
             description: 'Company profile and catalog website for UD Cahaya Makmur.',
             longDescription: 'A company profile website for branding purposes and making it easier for potential customers to view the sales catalog of UD Cahaya Makmur.',
             image: '/project/cahaya/cahaya.png',
-            techStack: ['React', 'Node.js', 'Tailwind'],
+            techStack: ['Next.js', 'React', 'Tailwind CSS', 'Prisma', 'Lucide React'],
             tools: ['VS Code'],
             status: 'completed',
             demoUrl: 'https://www.udcahayamakmur.id/',
@@ -157,6 +276,21 @@ Disclaimer: The GoLib platform is intended purely as an educational medium[cite:
                 '/project/cahaya/cahaya3.png',
                 '/project/cahaya/cahaya4.png',
                 '/project/cahaya/cahaya5.png',
+            ],
+            features: [
+                {
+                    title: "Digital Catalog",
+                    items: [
+                        "**Product Showcase**: A structured layout to display various construction materials and items.",
+                        "**Brand Identity**: Enhances the company's professional image for prospective clients."
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: "The client needed a digital presence fast, without complex backend maintenance overhead.",
+                    solution: "Built a robust static-oriented React site utilizing Node.js for simple integrations, achieving high performance with zero maintenance."
+                }
             ]
         },
         {
@@ -176,32 +310,71 @@ Disclaimer: The GoLib platform is intended purely as an educational medium[cite:
             role: 'Quant Developer',
             galleryImages: [
                 '/project/project4.png',
-                '/project/project4.png',
-                '/project/project4.png',
-                '/project/project4.png',
-                '/project/project4.png',
+            ],
+            features: [
+                {
+                    title: "Automated Strategy Execution",
+                    items: [
+                        "**Momentum Trading**: Executes trades automatically based on the precise Momentum Candle strategy.",
+                        "**Risk Management**: Built-in trailing stops, take-profit, and stop-loss logic."
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: "Market noise in XAUUSD often triggered false momentum signals.",
+                    solution: "Coded strict multi-timeframe confirmation filters in MQL5 to validate true market momentum, significantly increasing win rates."
+                }
             ]
         },
         {
             id: 'proj-8',
-            slug: 'game-ular-tangga-deeptalk',
-            title: 'Deep Talk Snakes and Ladders Game',
-            description: 'Snakes and ladders game designed for couples to have deep talks.',
-            longDescription: 'An interactive snakes and ladders game specifically tailored for couples to engage in meaningful and deep conversations.',
-            image: '/project/project6.png',
-            techStack: ['React', 'Node.js', 'Tailwind'],
-            tools: ['VS Code'],
+            slug: 'adventure-works-control-tower',
+            title: 'AdventureWorks Enterprise Analytics',
+            description: 'Full-stack enterprise analytics dashboard combining Sales, Logistics, and PPIC data using FastAPI and React.',
+            longDescription: 'Developed an Enterprise Control Tower providing comprehensive analytics for Sales, Logistics, PPIC, Finance, HR, Territory, and Sentiment. The backend is powered by Python (FastAPI) to process complex data and deliver insights via RESTful APIs, which are then consumed and interactively visualized through a modern React dashboard using Recharts.',
+            image: '/project/adventure.png',
+            techStack: ['Python FastAPI', 'React', 'Recharts', 'Vite', 'Lucide React'],
+            tools: ['VS Code', 'Git'],
             status: 'completed',
-            demoUrl: 'https://ulartanggacinta.vercel.app/',
-            repoUrl: 'https://github.com/sulisgogho/ular-tangga',
-            startDate: '2023-01-01',
-            category: 'Website',
-            role: 'Fullstack Developer',
+            demoUrl: 'https://adventure-works-ashy.vercel.app/',
+            repoUrl: 'https://github.com/sulisgogho/adventure-works',
+            docUrl: 'https://drive.google.com/file/d/1KtEjQtAfK2GVPGF308nOejAWOx2dBJwc/view?usp=drive_link',
+            startDate: '2026-06-05',
+            category: 'Data',
+            role: 'Full-Stack Developer',
             galleryImages: [
-                '/project/project6.png',
-
+                '/project/adventure/adventure1.png',
+                '/project/adventure/adventure2.png',
+                '/project/adventure/adventure3.png',
+                '/project/adventure/adventure4.png',
+                '/project/adventure/adventure5.png'
+            ],
+            features: [
+                {
+                    title: 'Comprehensive Data Analytics',
+                    items: [
+                        '**Modular Backend API**: Built dedicated analytic modules for Sales, Logistics, PPIC, HR, Finance, and B2C, seamlessly integrated via FastAPI.',
+                        '**Interactive Visualizations**: Dynamic and responsive charts built with React and Recharts for clear data interpretation.'
+                    ]
+                },
+                {
+                    title: 'Unified Enterprise Dashboard',
+                    items: [
+                        '**Control Tower System**: A single pane of glass for monitoring critical KPIs across different enterprise departments.',
+                        '**Integrated Serving**: Configured FastAPI to serve the React frontend build concurrently alongside the REST API, streamlining the deployment process.'
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: 'Unifying diverse enterprise data points (from logistics to sales and HR) into a single, cohesive, and performant dashboard.',
+                    solution: 'Built a highly modular FastAPI backend that segregates analytics into specific routing endpoints, providing a structured and fast API for the React frontend to map onto unified visualizations.'
+                }
             ]
         },
+
+
         {
             id: 'proj-9',
             slug: 'gogames',
@@ -218,6 +391,21 @@ Disclaimer: The GoLib platform is intended purely as an educational medium[cite:
             role: 'Fullstack Developer',
             galleryImages: [
                 '/project/TangkasHitung.png',
+            ],
+            features: [
+                {
+                    title: "Dynamic Scoring System",
+                    items: [
+                        "**Arithmetic Challenges**: Variable difficulty levels for basic arithmetic.",
+                        "**Precision Timing**: Real-time calculation of response speed and accuracy."
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: "Handling high-frequency timer events and real-time user inputs without UI lag.",
+                    solution: "Optimized React re-renders and separated game-loop logic from presentation layers to maintain smooth 60fps performance."
+                }
             ]
         },
         {
@@ -237,12 +425,24 @@ Disclaimer: The GoLib platform is intended purely as an educational medium[cite:
             role: 'Fullstack Developer',
             galleryImages: [
                 '/project/project2.png',
-                '/project/project2.png',
-                '/project/project2.png',
-                '/project/project2.png',
-                '/project/project2.png',
+            ],
+            features: [
+                {
+                    title: "Collaborative Tracking",
+                    items: [
+                        "**Couples Budgeting**: Features allowing couples to sync and track joint financial expenses.",
+                        "**Analytical Dashboard**: Visual breakdown of daily inventory and budget allocations."
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: "Syncing real-time financial inputs across different devices for couples.",
+                    solution: "Implemented a robust Node.js backend integrated with React to handle concurrent updates and real-time dashboard reflections."
+                }
             ]
         },
+
         {
             id: 'proj-11',
             slug: 'emerging-skill-trends',
@@ -267,6 +467,21 @@ Detailed technical competencies and workflows learned:
                 '/project/project1.png',
                 '/project/project1.png',
                 '/project/project1.png',
+            ],
+            features: [
+                {
+                    title: "Global Tech Trends Analysis",
+                    items: [
+                        "**Data Wrangling**: Handled massive datasets using SQL, Pandas, and IQR outlier filtration.",
+                        "**Interactive Visualization**: Dashboards featuring Bubble Charts, Word Clouds, and Treemaps via Plotly."
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: "Dealing with missing values and massive outliers in global developer salary data.",
+                    solution: "Applied rigorous statistical methods (Interquartile Range) and Mode/Median imputation in Python to sanitize the dataset before visualization."
+                }
             ]
         },
         {
@@ -285,6 +500,21 @@ Detailed technical competencies and workflows learned:
             role: 'Fullstack Developer',
             galleryImages: [
                 '/project/teskoran.png'
+            ],
+            features: [
+                {
+                    title: "Psychological Test Simulation",
+                    items: [
+                        "**Dynamic Kraepelin**: Digitized number concentration testing with real-time feedback.",
+                        "**Performance Graphs**: Generates endurance and accuracy graphs instantly post-test."
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: "Calculating complex endurance metrics in real-time as users rapidly input data.",
+                    solution: "Built a highly optimized state management flow in React, integrating Recharts for immediate post-test data plotting."
+                }
             ]
         },
         {
@@ -306,6 +536,21 @@ Detailed technical competencies and workflows learned:
                 '/project/absensi/absensi2.png',
                 '/project/absensi/absensi3.png',
                 '/project/absensi/absensi4.png',
+            ],
+            features: [
+                {
+                    title: "Digital Attendance Management",
+                    items: [
+                        "**Real-time Tracking**: Monitor student presence instantly.",
+                        "**Automated Recapitulation**: Monthly reports generated automatically with analytical dashboards."
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: "Replacing error-prone manual paper attendance with a reliable digital system.",
+                    solution: "Developed an Express.js & MySQL backend to handle relational student data efficiently, visualized beautifully via Chart.js on the frontend."
+                }
             ]
         },
         {
@@ -320,14 +565,64 @@ Detailed technical competencies and workflows learned:
             status: 'completed',
             demoUrl: 'https://superstore-analysis-phi.vercel.app/',
             repoUrl: 'https://github.com/sulisgogho/superstore-analysis',
+            docUrl: 'https://drive.google.com/file/d/1HIdwt4MuQJsNBoc7-EeuTr-OascpgEHq/view?usp=drive_link',
             startDate: '2025-07-01',
             category: 'Data',
             role: 'Data Analyst',
             galleryImages: [
                 '/project/project5.png'
-
+            ],
+            features: [
+                {
+                    title: "RFM Segmentation",
+                    items: [
+                        "**Machine Learning**: Automated customer segmentation using Recency, Frequency, and Monetary (RFM) models.",
+                        "**Interactive Insights**: Full-stack integration visualizing Python analytics on a React dashboard."
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: "Bridging complex Python data processing logic with a modern frontend interface.",
+                    solution: "Built a REST API using Flask to serve processed Pandas DataFrames to the React frontend, rendering interactive charts with Recharts."
+                }
             ]
         },
+        {
+            id: 'proj-15',
+            slug: 'game-ular-tangga-deeptalk',
+            title: 'Deep Talk Snakes and Ladders Game',
+            description: 'Snakes and ladders game designed for couples to have deep talks.',
+            longDescription: 'An interactive snakes and ladders game specifically tailored for couples to engage in meaningful and deep conversations.',
+            image: '/project/project6.png',
+            techStack: ['React', 'Node.js', 'Tailwind'],
+            tools: ['VS Code'],
+            status: 'completed',
+            demoUrl: 'https://ulartanggacinta.vercel.app/',
+            repoUrl: 'https://github.com/sulisgogho/ular-tangga',
+            startDate: '2023-01-01',
+            category: 'Website',
+            role: 'Fullstack Developer',
+            galleryImages: [
+                '/project/project6.png',
+            ],
+            features: [
+                {
+                    title: "Interactive Gameplay",
+                    items: [
+                        "**Couples Deep Talk**: Custom board game mechanics that prompt meaningful conversation topics.",
+                        "**Digital Board**: Modern web-based recreation of the classic Snakes and Ladders."
+                    ]
+                }
+            ],
+            challengesAndSolutions: [
+                {
+                    problem: "Designing an engaging multiplayer experience on the same screen without clutter.",
+                    solution: "Utilized React state management for seamless turn-based tracking and Tailwind for a clean, distraction-free board UI."
+                }
+            ]
+        },
+
     ],
     experiences: [
         {
