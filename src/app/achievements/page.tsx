@@ -41,6 +41,7 @@ const AchievementCard = React.memo(React.forwardRef<HTMLDivElement, {
     viewMode?: 'grid' | 'list';
 }>(
     ({ achievement, onClick, index, isLowPowerMode, viewMode = 'grid' }, ref) => {
+        const t = useTranslations('achievements');
         const [isHovered, setIsHovered] = useState(false);
         const mouseX = useMotionValue(0);
         const mouseY = useMotionValue(0);
@@ -202,7 +203,7 @@ const AchievementCard = React.memo(React.forwardRef<HTMLDivElement, {
                         {/* Credential ID - Mono style */}
                         <div className="absolute bottom-4 left-4 z-20">
                             <div className="text-[10px] font-mono text-white/60 uppercase tracking-widest mb-1 shadow-black/50 drop-shadow-sm">
-                                {achievement.credentialId ? achievement.credentialId : "Verified Credential"}
+                                {achievement.credentialId ? achievement.credentialId : t('verifiedCredential')}
                             </div>
                         </div>
 
@@ -241,7 +242,7 @@ const AchievementCard = React.memo(React.forwardRef<HTMLDivElement, {
                         )}>
                             <div className="flex items-center gap-2">
                                 <Eye className="w-4 h-4 text-muted-foreground/40" />
-                                <span className="text-[10px] text-muted-foreground/50 font-bold uppercase tracking-wider">Expand Archive</span>
+                                <span className="text-[10px] text-muted-foreground/50 font-bold uppercase tracking-wider">{t('expandArchive')}</span>
                             </div>
                             <motion.div
                                 animate={{ x: isHovered ? [0, 4, 0] : 0 }}
@@ -375,6 +376,7 @@ const AchievementModal = React.forwardRef<HTMLDivElement, {
     totalCount,
     isLowPowerMode
 }, ref) => {
+    const t = useTranslations('achievements');
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -528,7 +530,7 @@ const AchievementModal = React.forwardRef<HTMLDivElement, {
                                             className="group relative inline-flex items-center justify-center gap-2.5 px-4 py-2 bg-foreground text-background font-black rounded-xl text-[9px] uppercase tracking-[0.2em] transition-all hover:-translate-y-0.5 active:scale-95 shadow-lg overflow-hidden"
                                         >
                                             <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity" />
-                                            <span>Verify Source</span>
+                                            <span>{t('verifySource')}</span>
                                             <ExternalLink className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform" />
                                         </a>
                                     )}
@@ -588,7 +590,7 @@ export default function AchievementsPage() {
                                 <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within/search:text-foreground transition-colors" />
                                 <input
                                     type="text"
-                                    placeholder="Search archive..."
+                                    placeholder={t('searchPlaceholder')}
                                     value={searchQuery}
                                     onChange={e => setSearchQuery(e.target.value)}
                                     className="w-full h-full bg-transparent pl-9 pr-8 text-sm outline-none placeholder:text-muted-foreground/40"
@@ -608,7 +610,7 @@ export default function AchievementsPage() {
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within:text-foreground transition-colors" />
                             <input
                                 type="text"
-                                placeholder="Search..."
+                                placeholder={t('searchPlaceholderMobile')}
                                 value={searchQuery}
                                 onChange={e => setSearchQuery(e.target.value)}
                                 className="w-full bg-white dark:bg-secondary/20 border border-zinc-200 dark:border-border/40 focus:border-foreground/30 rounded-xl pl-10 pr-8 py-2.5 text-sm outline-none transition-all placeholder:text-muted-foreground/40 shadow-sm focus:shadow-md"
@@ -833,7 +835,7 @@ export default function AchievementsPage() {
                                     <div className="flex items-center gap-3 mb-2">
                                         <div className="w-2 h-2 rounded-full bg-foreground" />
                                         <h1 className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
-                                            The Archive
+                                            {t('theArchive')}
                                         </h1>
                                     </div>
                                     <div className="h-1.5 w-20 bg-foreground opacity-100" />
@@ -861,19 +863,19 @@ export default function AchievementsPage() {
                             animate="show"
                         >
                             <motion.div variants={staggerItem}>
-                                <NavItem label="All Entries" active={activeCategory === 'all'} onClick={() => setActiveCategory('all')} count={getCategoryCount('all')} isCollapsed={isSidebarCollapsed} />
+                                <NavItem label={t('allEntries')} active={activeCategory === 'all'} onClick={() => setActiveCategory('all')} count={getCategoryCount('all')} isCollapsed={isSidebarCollapsed} />
                             </motion.div>
                             <motion.div variants={staggerItem}>
-                                <NavItem label="Certifications" active={activeCategory === 'certification'} onClick={() => setActiveCategory('certification')} count={getCategoryCount('certification')} isCollapsed={isSidebarCollapsed} />
+                                <NavItem label={t('certifications')} active={activeCategory === 'certification'} onClick={() => setActiveCategory('certification')} count={getCategoryCount('certification')} isCollapsed={isSidebarCollapsed} />
                             </motion.div>
                             <motion.div variants={staggerItem}>
-                                <NavItem label="Awards" active={activeCategory === 'award'} onClick={() => setActiveCategory('award')} count={getCategoryCount('award')} isCollapsed={isSidebarCollapsed} />
+                                <NavItem label={t('awards')} active={activeCategory === 'award'} onClick={() => setActiveCategory('award')} count={getCategoryCount('award')} isCollapsed={isSidebarCollapsed} />
                             </motion.div>
                             <motion.div variants={staggerItem}>
-                                <NavItem label="Competitions" active={activeCategory === 'competition'} onClick={() => setActiveCategory('competition')} count={getCategoryCount('competition')} isCollapsed={isSidebarCollapsed} />
+                                <NavItem label={t('competitions')} active={activeCategory === 'competition'} onClick={() => setActiveCategory('competition')} count={getCategoryCount('competition')} isCollapsed={isSidebarCollapsed} />
                             </motion.div>
                             <motion.div variants={staggerItem}>
-                                <NavItem label="Recognitions" active={activeCategory === 'recognition'} onClick={() => setActiveCategory('recognition')} count={getCategoryCount('recognition')} isCollapsed={isSidebarCollapsed} />
+                                <NavItem label={t('recognitions')} active={activeCategory === 'recognition'} onClick={() => setActiveCategory('recognition')} count={getCategoryCount('recognition')} isCollapsed={isSidebarCollapsed} />
                             </motion.div>
                         </motion.nav>
 
@@ -909,7 +911,7 @@ export default function AchievementsPage() {
                                 </motion.div>
                                 <div className="text-[10px] font-bold text-muted-foreground/50 uppercase tracking-widest flex items-center gap-2 -mt-4 transition-colors duration-500 group-hover:text-muted-foreground">
                                     <Award className="w-3 h-3" />
-                                    Achievements
+                                    {t('achievementsCountLabel')}
                                 </div>
                             </motion.div>
                         )}
@@ -986,14 +988,14 @@ export default function AchievementsPage() {
                                                 <Search className="w-10 h-10 text-muted-foreground/30" />
                                             </div>
                                             <div className="space-y-1">
-                                                <h3 className="text-xl font-black text-foreground/80 tracking-tight">No Archive Entries Found</h3>
-                                                <p className="text-sm font-mono text-muted-foreground/40 uppercase tracking-widest">[ ERROR 404: RESOURCE_NOT_FOUND ]</p>
+                                                <h3 className="text-xl font-black text-foreground/80 tracking-tight">{t('noEntriesFound')}</h3>
+                                                <p className="text-sm font-mono text-muted-foreground/40 uppercase tracking-widest">{t('resourceNotFound')}</p>
                                             </div>
                                             <button
                                                 onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
                                                 className="px-6 py-2.5 rounded-xl bg-foreground text-background font-black text-[10px] uppercase tracking-widest hover:scale-105 transition-all active:scale-95"
                                             >
-                                                $ reset --query
+                                                {t('resetQuery')}
                                             </button>
                                         </motion.div>
                                     )}
@@ -1010,7 +1012,7 @@ export default function AchievementsPage() {
                                 <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 2, repeat: Infinity }}>
                                     <Award className="w-16 h-16 text-muted-foreground/20 mb-4" />
                                 </motion.div>
-                                <p className="text-sm font-medium text-muted-foreground/50">No achievements found</p>
+                                <p className="text-sm font-medium text-muted-foreground/50">{t('noAchievements')}</p>
                             </motion.div>
                         )}
                     </div>
@@ -1032,10 +1034,10 @@ export default function AchievementsPage() {
                             className="text-center mb-12"
                         >
                             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black mb-3">
-                                Technical Universe
+                                {t('technicalUniverse')}
                             </h2>
                             <p className="text-sm text-muted-foreground/60 max-w-lg mx-auto leading-relaxed">
-                                Interact with the core technologies and values that drive my research and development journey.
+                                {t('technicalUniverseDesc')}
                             </p>
                         </motion.div>
 

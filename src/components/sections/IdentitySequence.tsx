@@ -290,7 +290,7 @@ export const IdentitySequence = ({ scrollYProgress, isVisible }: IdentitySequenc
                     >
                         <div className="px-8 md:px-16 lg:px-24 mb-6">
                             <h4 className="text-lg md:text-xl uppercase tracking-[0.15em] font-bold text-zinc-500 dark:text-zinc-400">
-                                Tech Stack & Ecosystem
+                                {t("techStackEcosystem")}
                             </h4>
                         </div>
                         <BrandScroller />

@@ -7,6 +7,7 @@ import { usePerformance } from '@/hooks/usePerformance';
 import { PdfViewer } from '@/components/ui/pdf-viewer';
 
 export default function ResumePage() {
+    const t = useTranslations('resume');
     const { isLowPowerMode } = usePerformance();
     // File ID: 1mfYs2MOHpwEFLe-Ld4OCcgS1Lbo6wW7O
     const fileId = "1mfYs2MOHpwEFLe-Ld4OCcgS1Lbo6wW7O";
@@ -29,7 +30,7 @@ export default function ResumePage() {
                     className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
                 >
                     <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                    <span>Back to Portfolio</span>
+                    <span>{t('backToPortfolio')}</span>
                 </Link>
 
                 <div className="flex items-center gap-4">
@@ -40,7 +41,7 @@ export default function ResumePage() {
                         className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary/10 text-primary font-medium hover:bg-primary/20 transition-all active:scale-95 shadow-sm"
                     >
                         <ExternalLink className="w-4 h-4" />
-                        <span>Open in New Tab</span>
+                        <span>{t('openInNewTab')}</span>
                     </a>
                 </div>
             </motion.div>

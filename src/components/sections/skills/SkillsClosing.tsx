@@ -3,28 +3,30 @@ import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { MoveRight } from 'lucide-react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { usePerformance } from '@/hooks/usePerformance';
 
 export const SkillsClosing = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const { isLowPowerMode } = usePerformance();
+    const t = useTranslations('skillsClosing');
 
     const phases = [
         {
-            time: "Stage 01",
-            title: "Concept Audit",
-            desc: "Analyzing project requirements, feasibility check, and establishing core technical objectives."
+            time: t('phases.stage1.time'),
+            title: t('phases.stage1.title'),
+            desc: t('phases.stage1.desc')
         },
         {
-            time: "Stage 02",
-            title: "Strategic Blueprint",
-            desc: "Architecting the system design, choosing the stack, and finalizing the development roadmap."
+            time: t('phases.stage2.time'),
+            title: t('phases.stage2.title'),
+            desc: t('phases.stage2.desc')
         },
         {
-            time: "Stage 03",
-            title: "Launch & Scale",
-            desc: "Full-scale development, rigorous testing, and initial deployment of the production system."
+            time: t('phases.stage3.time'),
+            title: t('phases.stage3.title'),
+            desc: t('phases.stage3.desc')
         }
     ];
 
@@ -47,8 +49,8 @@ export const SkillsClosing = () => {
                     transition={isLowPowerMode ? {} : { duration: 40, repeat: Infinity, ease: "linear" }}
                     className="flex whitespace-nowrap gap-24 text-[12vw] font-black uppercase leading-none text-foreground"
                 >
-                    <span>System Architecture</span>
-                    <span>System Architecture</span>
+                    <span>{t('marquee1')}</span>
+                    <span>{t('marquee1')}</span>
                 </motion.div>
             </div>
 
@@ -58,8 +60,8 @@ export const SkillsClosing = () => {
                     transition={isLowPowerMode ? {} : { duration: 45, repeat: Infinity, ease: "linear" }}
                     className="flex whitespace-nowrap gap-24 text-[12vw] font-black uppercase leading-none text-foreground"
                 >
-                    <span>Creative Engineering</span>
-                    <span>Creative Engineering</span>
+                    <span>{t('marquee2')}</span>
+                    <span>{t('marquee2')}</span>
                 </motion.div>
             </div>
 
@@ -76,13 +78,12 @@ export const SkillsClosing = () => {
                         className="space-y-6"
                     >
                         <h2 className="font-black tracking-tighter text-foreground leading-[0.8] uppercase flex flex-col">
-                            <span className="text-7xl md:text-9xl lg:text-[140px]">DRIVE</span>
-                            <span className="text-5xl md:text-7xl lg:text-[80px] lg:tracking-[-0.04em]">INNOVATION</span>
+                            <span className="text-7xl md:text-9xl lg:text-[140px]">{t('title1')}</span>
+                            <span className="text-5xl md:text-7xl lg:text-[80px] lg:tracking-[-0.04em]">{t('title2')}</span>
                         </h2>
 
                         <p className="text-base md:text-lg text-muted-foreground/70 max-w-lg leading-relaxed font-medium">
-                            Precision engineering meets <span className="text-foreground font-bold underline decoration-primary/30 underline-offset-4">unbound imagination</span>.
-                            Let's transform ambitious ideas into production-ready solutions and construct a legacy of innovation.
+                            {t('description_p1')}<span className="text-foreground font-bold underline decoration-primary/30 underline-offset-4">{t('description_highlight')}</span>{t('description_p2')}
                         </p>
                     </motion.div>
 
@@ -97,7 +98,7 @@ export const SkillsClosing = () => {
                             href="/projects"
                             className="group relative inline-flex items-center gap-4 bg-primary/10 hover:bg-primary/20 backdrop-blur-md border border-primary/20 text-primary px-10 py-5 rounded-xl text-lg font-black transition-all shadow-2xl hover:shadow-primary/20 active:scale-95 uppercase tracking-tight"
                         >
-                            <span>More Projects</span>
+                            <span>{t('moreProjects')}</span>
                             <MoveRight className="w-6 h-6 transition-transform group-hover:translate-x-2" />
                         </Link>
                     </motion.div>

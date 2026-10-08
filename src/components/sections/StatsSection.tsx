@@ -7,6 +7,7 @@ import { Book } from "@/components/ui/book";
 import { portfolioData } from "@/data/portfolio";
 import Link from "next/link";
 import { ArrowUpRight, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const CATEGORY_COLORS: Record<string, string> = {
     'applied-ai': '#9D2127', // Deep Red
@@ -20,6 +21,7 @@ export default function StatsSection({ scrollYProgress, showOnly }: { scrollYPro
     const [loading, setLoading] = useState(true);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState(0);
+    const t = useTranslations('statsSection');
 
     const blogs = portfolioData.blogs.slice(0, 6);
     const visibleCount = 3;
@@ -76,7 +78,7 @@ export default function StatsSection({ scrollYProgress, showOnly }: { scrollYPro
                             viewport={{ once: true }}
                             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight"
                         >
-                            Journal & Insights
+                            {t('journal')}
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0 }}
@@ -85,7 +87,7 @@ export default function StatsSection({ scrollYProgress, showOnly }: { scrollYPro
                             transition={{ delay: 0.2 }}
                             className="text-muted-foreground/80 text-lg md:text-xl font-medium max-w-2xl mx-auto"
                         >
-                            A curated collection of technical articles, engineering blueprints, and reflections on building intelligent systems.
+                            {t('journalDesc')}
                         </motion.p>
                     </div>
 
@@ -96,7 +98,7 @@ export default function StatsSection({ scrollYProgress, showOnly }: { scrollYPro
                                 href="/gallery" 
                                 className="group flex items-center gap-3 px-6 py-3.5 bg-foreground text-background rounded-full font-bold uppercase tracking-widest text-xs hover:scale-105 active:scale-95 transition-all shadow-xl border border-border/10"
                             >
-                                View Gallery
+                                {t('viewGallery')}
                                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                             </Link>
                         </ZoomParallax>
@@ -110,12 +112,12 @@ export default function StatsSection({ scrollYProgress, showOnly }: { scrollYPro
                     <div className="flex items-center justify-between border-b border-border/50 pb-8">
                         <div className="space-y-1">
                             <h3 className="text-2xl font-bold text-foreground flex items-center gap-3">
-                                Latest Stories
+                                {t('latestStories')}
                             </h3>
-                            <p className="text-muted-foreground/60 font-medium uppercase tracking-widest text-xs">Articles • Insights • Technical Deep Dives</p>
+                            <p className="text-muted-foreground/60 font-medium uppercase tracking-widest text-xs">{t('tags')}</p>
                         </div>
                         <Link href="/blog" className="hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground/40 hover:text-foreground transition-colors group">
-                            Browse Full Archive
+                            {t('browseArchive')}
                             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                         </Link>
                     </div>
@@ -218,7 +220,7 @@ export default function StatsSection({ scrollYProgress, showOnly }: { scrollYPro
 
                     <div className="flex justify-center md:hidden pt-8">
                         <Link href="/blog" className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground/40 hover:text-foreground transition-colors group">
-                            Browse Full Archive
+                            {t('browseArchive')}
                             <ArrowUpRight className="w-4 h-4" />
                         </Link>
                     </div>

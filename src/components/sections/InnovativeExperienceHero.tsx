@@ -6,6 +6,7 @@ import { Plus, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 interface NodeData {
     label: string;
@@ -53,7 +54,18 @@ const OUTER_PATH = "M 100,300 a 400,180 -15 1,0 800,0 a 400,180 -15 1,0 -800,0";
 const INNER_PATH = "M 250,300 a 250,110 -15 1,0 500,0 a 250,110 -15 1,0 -500,0";
 
 export function InnovativeExperienceHero({ type, title, highlight, description }: InnovativeExperienceHeroProps) {
-    const rawNodes = NODES_DATA[type] || NODES_DATA.experience;
+    const t = useTranslations('innovativeNodes');
+    
+    // Default to 'experience' if type is not found in translations
+    const typeKey = t.has(type) ? type : 'experience';
+    const localizedNodes = t.raw(typeKey) as { label: string; description: string; }[];
+    
+    const rawNodes = (NODES_DATA[type] || NODES_DATA.experience).map((node, i) => ({
+        ...node,
+        label: localizedNodes[i]?.label || node.label,
+        description: localizedNodes[i]?.description || node.description
+    }));
+
     const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
     return (
@@ -83,7 +95,7 @@ export function InnovativeExperienceHero({ type, title, highlight, description }
                                 href="/resume"
                                 className="group flex items-center gap-2 w-fit px-6 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-black dark:text-white font-bold text-sm transition-all hover:bg-neutral-200 dark:hover:bg-neutral-700"
                             >
-                                View resume <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                {t('viewResume')} <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                             </Link>
                         </div>
                     </motion.div>

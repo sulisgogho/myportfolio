@@ -7,10 +7,12 @@ import Image from "next/image";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 export default function BlogPortalFooter({ isLowPowerMode }: { isLowPowerMode?: boolean }) {
     const [hoveredBlog, setHoveredBlog] = useState<string | null>(null);
     const frameRef = useRef<number | null>(null);
+    const t = useTranslations('blogPortalFooter');
 
     // Get latest 3 blogs
     const latestBlogs = portfolioData.blogs.slice(0, 3);
@@ -44,16 +46,16 @@ export default function BlogPortalFooter({ isLowPowerMode }: { isLowPowerMode?: 
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 border-b border-neutral-500 dark:border-white/20 pb-8">
                     <div>
                         <span className="text-xs font-mono text-cyan-500 uppercase tracking-widest mb-2 block">
-                            Knowledge Base
+                            {t('knowledgeBase')}
                         </span>
                         <h2 className="text-5xl md:text-7xl font-serif leading-none">
-                            The Engineering<br />
-                            <span className="text-muted-foreground italic">Process.</span>
+                            <span dangerouslySetInnerHTML={{ __html: t.raw('theEngineering') }} />
+                            <span className="text-muted-foreground italic">{t('process')}</span>
                         </h2>
                     </div>
                     <div className="mt-8 md:mt-0">
                         <Link href="/blog" className="group flex items-center gap-2 text-sm font-mono uppercase tracking-widest hover:text-cyan-500 transition-colors">
-                            View All Articles
+                            {t('viewAll')}
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
@@ -84,7 +86,7 @@ export default function BlogPortalFooter({ isLowPowerMode }: { isLowPowerMode?: 
                                         !isLowPowerMode && "group-hover:translate-x-4"
                                     )}>
                                         <span className="text-cyan-500">{blog.category}</span>
-                                        <span>{blog.readTime} min read</span>
+                                        <span>{blog.readTime} {t('minRead')}</span>
                                     </div>
                                 </div>
 
@@ -99,11 +101,11 @@ export default function BlogPortalFooter({ isLowPowerMode }: { isLowPowerMode?: 
                 {/* Large CTA at bottom */}
                 <div className="mt-32 text-center">
                     <p className="text-muted-foreground font-serif italic text-xl mb-8">
-                        "Documenting the journey from concept to deployment."
+                        {t('documenting')}
                     </p>
                     <Link href="/blog">
                         <button className="relative px-12 py-6 bg-foreground text-background font-bold uppercase tracking-widest hover:bg-cyan-500 hover:text-white transition-colors duration-300">
-                            Read the Journal
+                            {t('readJournal')}
                         </button>
                     </Link>
                 </div>

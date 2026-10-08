@@ -13,6 +13,7 @@ import { SocialCorner } from '@/components/layout/SocialCorner';
 import { ScrollNavigationHUD } from "@/components/ui/ScrollNavigationHUD";
 import Link from 'next/link';
 import { Sparkles, ArrowUpRight, MessageCircle, Zap, ShieldCheck, Clock } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export default function HomePage() {
     // 1. Smooth Spring Scroll Progress Bar
@@ -22,6 +23,8 @@ export default function HomePage() {
         damping: 30,
         restDelta: 0.001
     });
+
+    const t = useTranslations('ctaSection');
 
     return (
         <motion.main
@@ -104,20 +107,20 @@ export default function HomePage() {
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                         </span>
-                        <span>Open for New Projects &amp; Opportunities</span>
+                        <span>{t('status')}</span>
                     </div>
 
                     {/* 2. Headline with Modern Gradient */}
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.2] text-foreground mb-4">
-                        Ready to Build Something <br className="hidden sm:block" />
+                        {t('headline1')} <br className="hidden sm:block" />
                         <span className="bg-gradient-to-r from-primary via-sky-500 to-emerald-500 bg-clip-text text-transparent">
-                            Remarkable Together?
+                            {t('headline2')}
                         </span>
                     </h2>
 
                     {/* 3. Subtitle */}
                     <p className="max-w-xl mx-auto text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed mb-7">
-                        Whether you need a high-performance web platform, an interactive fullstack system, or data intelligence solutions — let&apos;s build software that makes a real impact.
+                        {t('desc')}
                     </p>
 
                     {/* 4. Action Buttons */}
@@ -130,7 +133,7 @@ export default function HomePage() {
                             >
                                 <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/btn:translate-x-full duration-1000 transition-transform" />
                                 <Sparkles className="w-4 h-4 transition-transform group-hover/btn:rotate-12" />
-                                <span>Start Project Discussion</span>
+                                <span>{t('btn1')}</span>
                                 <ArrowUpRight className="w-4 h-4 opacity-70 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all" />
                             </Link>
                         </motion.div>
@@ -144,7 +147,7 @@ export default function HomePage() {
                                 className="group/wa inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full border border-black/15 dark:border-white/15 bg-background/80 hover:bg-emerald-500/10 hover:border-emerald-500/50 hover:text-emerald-500 dark:hover:text-emerald-400 font-semibold text-sm transition-all duration-300 shadow-sm hover:shadow-md hover:shadow-emerald-500/15"
                             >
                                 <MessageCircle className="w-4 h-4 text-emerald-500 transition-transform group-hover/wa:scale-110" />
-                                <span>Chat via WhatsApp</span>
+                                <span>{t('btn2')}</span>
                                 <ArrowUpRight className="w-4 h-4 opacity-50 group-hover/wa:opacity-100 group-hover/wa:translate-x-0.5 group-hover/wa:-translate-y-0.5 transition-all" />
                             </a>
                         </motion.div>
@@ -154,15 +157,15 @@ export default function HomePage() {
                     <div className="pt-6 border-t border-black/5 dark:border-white/5 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-semibold text-muted-foreground/80">
                         <div className="flex items-center gap-1.5">
                             <Zap className="w-3.5 h-3.5 text-amber-500" />
-                            <span>Quick Response (&lt; 24h)</span>
+                            <span>{t('badge1')}</span>
                         </div>
                         <div className="flex items-center gap-1.5">
                             <ShieldCheck className="w-3.5 h-3.5 text-primary" />
-                            <span>Fullstack &amp; Analytics Expertise</span>
+                            <span>{t('badge2')}</span>
                         </div>
                         <div className="flex items-center gap-1.5">
                             <Clock className="w-3.5 h-3.5 text-emerald-500" />
-                            <span>Flexible Timezone / Remote Ready</span>
+                            <span>{t('badge3')}</span>
                         </div>
                     </div>
                 </motion.div>

@@ -1,6 +1,7 @@
-import { PortfolioData } from '@/types';
-
-export const portfolioData: PortfolioData = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.portfolioData = void 0;
+exports.portfolioData = {
     personal: {
         name: 'Sulistyowati Munawaroh',
         title: 'Fullstack Developer & Data Analyst',
@@ -102,8 +103,8 @@ export const portfolioData: PortfolioData = {
         },
         {
             id: 'proj-3',
-            slug: 'dataco',
-            title: 'DataCo Supply Chain Analytics',
+            slug: 'dataco-supply-chain-audit',
+            title: 'DataCo Supply Chain Analysis',
             description: 'An end-to-end data analytics and storytelling project identifying logistical inefficiencies and revenue risks for C-Level executives.',
             longDescription: 'Conducted a comprehensive C-Level data storytelling and performance audit based on the DataCo Supply Chain dashboard. Analyzed global operational data (2015-2017) to identify the root causes behind a low net profit margin (10.8%) despite a high gross revenue of $36.7M. The analysis uncovered major logistical bottlenecks causing $20.1M in late delivery costs, destructive discount strategies, and over $827K in potential fraud risks detected via AI predictive modeling.',
             image: '/project/dataco.png',
@@ -161,11 +162,7 @@ export const portfolioData: PortfolioData = {
             slug: 'golib-goghotech-library',
             title: 'GoLib - Interactive Digital Library',
             description: 'Part of the Goghotech ecosystem, GoLib is an interactive digital library web application designed to make reading PDF book collections easy and comfortable.',
-            longDescription: `GoLib is a digital library platform developed as part of the Goghotech ecosystem. The inspiration for creating this website stems from my personal hobby of reading books, but being constrained by a lack of funds to purchase them directly. Therefore, this platform was built to organize and arrange PDF books to resemble a real library layout, making it easy for users to browse and read books for free.
-
-The website features an interactive flipbook-style reading interface, complete with dark and light theme options to provide an optimal reading experience.
-
-Disclaimer: The GoLib platform is intended purely as an educational medium[cite: 1]. I strongly encourage all readers to continue appreciating and supporting the authors' works by reading or purchasing books legally through official websites, bookstores, or authorized provider applications[cite: 1].`,
+            longDescription: "GoLib is a digital library platform developed as part of the Goghotech ecosystem. The inspiration for creating this website stems from my personal hobby of reading books, but being constrained by a lack of funds to purchase them directly. Therefore, this platform was built to organize and arrange PDF books to resemble a real library layout, making it easy for users to browse and read books for free.\n\nThe website features an interactive flipbook-style reading interface, complete with dark and light theme options to provide an optimal reading experience.\n\nDisclaimer: The GoLib platform is intended purely as an educational medium[cite: 1]. I strongly encourage all readers to continue appreciating and supporting the authors' works by reading or purchasing books legally through official websites, bookstores, or authorized provider applications[cite: 1].",
             image: '/project/golib/golib.png',
             techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'GSAP', 'Radix UI'],
             tools: ['Git', 'VS Code'],
@@ -329,7 +326,7 @@ Disclaimer: The GoLib platform is intended purely as an educational medium[cite:
         },
         {
             id: 'proj-8',
-            slug: 'adventureworks',
+            slug: 'adventure-works-control-tower',
             title: 'AdventureWorks Enterprise Analytics',
             description: 'Full-stack enterprise analytics dashboard combining Sales, Logistics, and PPIC data using FastAPI and React.',
             longDescription: 'Developed an Enterprise Control Tower providing comprehensive analytics for Sales, Logistics, PPIC, Finance, HR, Territory, and Sentiment. The backend is powered by Python (FastAPI) to process complex data and deliver insights via RESTful APIs, which are then consumed and interactively visualized through a modern React dashboard using Recharts.',
@@ -373,8 +370,6 @@ Disclaimer: The GoLib platform is intended purely as an educational medium[cite:
                 }
             ]
         },
-
-
         {
             id: 'proj-9',
             slug: 'gogames',
@@ -442,17 +437,12 @@ Disclaimer: The GoLib platform is intended purely as an educational medium[cite:
                 }
             ]
         },
-
         {
             id: 'proj-11',
             slug: 'emerging-skill-trends',
             title: 'Analyzing Emerging Skill Requirements and Technology Trends',
             description: 'Interactive dashboard using Python and SQLite to analyze global developer ecosystem trends.',
-            longDescription: `Analyzed the global developer ecosystem using Stack Overflow Survey data, BeautifulSoup web-scraping data, and API simulations to identify future technology trend shifts.
-Detailed technical competencies and workflows learned:
-• Data Collection & Wrangling (SQL & Python): Merged survey CSV data with external scraped salary data, handled missing values (Mode/Median), removed duplicates, and filtered outliers using the Interquartile Range (IQR) method.
-• Exploratory Data Analysis (Python): Performed string manipulation and data aggregation using Pandas and NumPy to map programming language trends, databases, cloud infrastructure, and demographics in depth.
-• Data Visualization & Dashboarding (Plotly, Seaborn, & WordCloud): Built interactive stakeholder dashboards with multi-panel visualizations such as Bubble Charts, Word Clouds, Treemaps, and dynamic geographic mapping to generate actionable business insights.`,
+            longDescription: "Analyzed the global developer ecosystem using Stack Overflow Survey data, BeautifulSoup web-scraping data, and API simulations to identify future technology trend shifts.\nDetailed technical competencies and workflows learned:\n\u2022 Data Collection & Wrangling (SQL & Python): Merged survey CSV data with external scraped salary data, handled missing values (Mode/Median), removed duplicates, and filtered outliers using the Interquartile Range (IQR) method.\n\u2022 Exploratory Data Analysis (Python): Performed string manipulation and data aggregation using Pandas and NumPy to map programming language trends, databases, cloud infrastructure, and demographics in depth.\n\u2022 Data Visualization & Dashboarding (Plotly, Seaborn, & WordCloud): Built interactive stakeholder dashboards with multi-panel visualizations such as Bubble Charts, Word Clouds, Treemaps, and dynamic geographic mapping to generate actionable business insights.",
             image: '/project/project1.png',
             techStack: ['Python', 'SQL', 'Pandas', 'BeautifulSoup', 'Plotly', 'Data Visualization'],
             tools: ['Jupyter', 'SQLite'],
@@ -622,7 +612,6 @@ Detailed technical competencies and workflows learned:
                 }
             ]
         },
-
     ],
     experiences: [
         {

@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 const TERMINAL_TEXT = `// Initializing blog system...
 const blog = {
@@ -118,6 +119,7 @@ const TypewriterText = ({ text, speed = 30 }: { text: string; speed?: number }) 
 
 export const TypewriterCodeHero = () => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const t = useTranslations('typewriterCodeHero');
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ['start start', 'end start']
@@ -214,7 +216,7 @@ export const TypewriterCodeHero = () => {
                     }}
                 >
                     <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-                        Scroll to explore
+                        {t('scrollToExplore')}
                     </span>
                     <motion.div
                         animate={{ y: [0, 8, 0] }}

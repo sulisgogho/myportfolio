@@ -4,7 +4,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, BookOpen } from "lucide-react";
 
+import { useTranslations } from "next-intl";
+
 export default function NarrativeBridge() {
+    const t = useTranslations('narrativeBridge');
     return (
         <section className="relative py-32 bg-foreground text-background overflow-hidden flex flex-col items-center justify-center text-center px-6">
 
@@ -25,18 +28,19 @@ export default function NarrativeBridge() {
                 </div>
 
                 <h2 className="text-4xl md:text-7xl font-serif leading-tight mb-8">
-                    You've seen the <span className="italic opacity-50">results</span>.
-                    <br />
-                    Now read the <span className="italic text-primary">process</span>.
+                    {t.rich('title', {
+                        results: (chunks) => <span className="italic opacity-50">{chunks}</span>,
+                        br: () => <br />,
+                        process: (chunks) => <span className="italic text-primary">{chunks}</span>
+                    })}
                 </h2>
 
                 <p className="text-lg md:text-xl font-mono opacity-60 mb-12 max-w-2xl mx-auto leading-relaxed">
-                    Every image in this archive has a story behind it.
-                    Explore the technical deep-dives and creative journals in the blog.
+                    {t('description')}
                 </p>
 
                 <Link href="/blog" className="group relative inline-flex items-center gap-4 px-12 py-6 bg-background text-foreground rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-300">
-                    <span>Enter the Archives</span>
+                    <span>{t('button')}</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                 </Link>
 

@@ -20,7 +20,7 @@ const Meteors = dynamic(() => import('@/components/ui/meteors').then(mod => mod.
 import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 import { DeferredMount } from '@/components/ui/DeferredMount';
 
-function SocialTicker({ items, direction = 'left', speed = 30, isLowPowerMode = false }: { items: any[], direction?: 'left' | 'right', speed?: number, isLowPowerMode?: boolean }) {
+function SocialTicker({ items, direction = 'left', speed = 30, isLowPowerMode = false, t }: { items: any[], direction?: 'left' | 'right', speed?: number, isLowPowerMode?: boolean, t: any }) {
     // 8x duplication ensures enough width to cover large screens twice over, allowing -50% translation without empty gaps on the right edge.
     const multipliedItems = [...items, ...items, ...items, ...items, ...items, ...items, ...items, ...items];
 
@@ -39,7 +39,7 @@ function SocialTicker({ items, direction = 'left', speed = 30, isLowPowerMode = 
             >
                 {multipliedItems.map((item, idx) => (
                     <div key={`${item.name}-${idx}`} className="pr-4">
-                        <SocialCard item={item} />
+                        <SocialCard item={item} t={t} />
                     </div>
                 ))}
             </motion.div>
@@ -60,7 +60,7 @@ const socialIconsMap: Record<string, React.ElementType> = {
     spotify: Music
 };
 
-function SocialCard({ item }: { item: any }) {
+function SocialCard({ item, t }: { item: any; t: any }) {
     const Icon = item.image || ArrowUpRight;
     const cleanUsername = (item.username || '').replace(/^@+/, '');
     return (
@@ -86,7 +86,7 @@ function SocialCard({ item }: { item: any }) {
 
             <div className="relative z-10 flex items-center justify-between mt-auto pt-4 border-t border-border">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/60 group-hover:text-foreground/70 transition-colors truncate max-w-[200px]">
-                    {item.body || "Connect"}
+                    {item.body || t('connect')}
                 </span>
                 <ExternalLink className="w-3 h-3 text-muted-foreground group-hover:text-primary opacity-50 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0 flex-shrink-0" />
             </div>
@@ -205,7 +205,7 @@ function ContactForm() {
                             {status === 'loading' ? t('form.sending') : status === 'success' ? t('form.sent') : t('form.submit')}
                         </span>
                         <span className="text-xs text-muted-foreground mt-1 group-hover:pl-4 transition-all duration-300">
-                            {portfolioData.personal.phone} · Chat langsung via WhatsApp
+                            {portfolioData.personal.phone} · {t('form.chatDirectly')}
                         </span>
                     </div>
 
@@ -252,7 +252,7 @@ function FAQSection() {
         <div className="w-full max-w-6xl mx-auto py-20 px-4 md:px-8">
             <div className="flex flex-col items-center mb-16 relative z-10 text-center">
 
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-4">Frequently Asked Questions</h2>
+                <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-4">{t('faq.title')}</h2>
                 <div className="h-1 w-20 bg-primary/20 rounded-full" />
             </div>
 
@@ -301,13 +301,13 @@ function FAQSection() {
     );
 }
 
-const socialDescriptions: Record<string, string> = {
-    GitHub: "Open Source & Code",
-    LinkedIn: "Career & Network",
-    Instagram: "Creative & Moments",
-    Twitter: "Thoughts",
-    Discord: "Community",
-    Spotify: "Music"
+const socialKeys: Record<string, string> = {
+    GitHub: "GitHub",
+    LinkedIn: "LinkedIn",
+    Instagram: "Instagram",
+    Twitter: "Twitter",
+    Discord: "Discord",
+    Spotify: "Spotify"
 };
 
 import { usePerformance } from '@/hooks/usePerformance';
@@ -323,7 +323,9 @@ export default function ContactPage() {
         return {
             name: link?.platform || (platform.charAt(0).toUpperCase() + platform.slice(1)),
             username: cleanUsername,
-            body: socialDescriptions[link?.platform || platform] || "Connect",
+            body: t.has(`socialDescriptions.${socialKeys[link?.platform || platform] || platform}`) 
+                ? t(`socialDescriptions.${socialKeys[link?.platform || platform] || platform}`)
+                : t('connect'),
             image: socialIconsMap[platform.toLowerCase()] || ArrowUpRight,
             url: link?.url || '#'
         };
@@ -399,7 +401,7 @@ export default function ContactPage() {
                             <DeferredMount fallback={<div className="w-full h-full flex items-center justify-center opacity-50"><Loader2 className="w-8 h-8 animate-spin" /></div>}>
                                 <div className="w-full h-full pointer-events-auto overflow-visible">
                                     {!isLowPowerMode ? (
-                                        <ErrorBoundary fallback={<div className="w-full h-full flex items-center justify-center opacity-50">Interactive Card Unavailable</div>}>
+                                        <ErrorBoundary fallback={<div className="w-full h-full flex items-center justify-center opacity-50">{t('interactiveCardUnavailable')}</div>}>
                                             {/* Z position reduced from 15 to 11 to make it appear larger/taller */}
                                             <Lanyard position={[0, 0, 11]} gravity={[0, -40, 0]} isLowPowerMode={isLowPowerMode} />
                                         </ErrorBoundary>
@@ -407,7 +409,7 @@ export default function ContactPage() {
                                         <div className="w-full h-full flex items-center justify-center p-8">
                                             <div className="relative w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 bg-primary/5">
                                                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/20 italic font-serif">
-                                                    Archive ID // Static
+                                                    {t('archiveIdStatic')}
                                                 </div>
                                             </div>
                                         </div>
@@ -427,8 +429,8 @@ export default function ContactPage() {
                                 viewport={{ once: true }}
                             >
                                 <div className="flex flex-col gap-1">
-                                    <SocialTicker items={row1Real} direction="right" speed={50} isLowPowerMode={isLowPowerMode} />
-                                    <SocialTicker items={row2Real} direction="left" speed={50} isLowPowerMode={isLowPowerMode} />
+                                    <SocialTicker items={row1Real} direction="right" speed={50} isLowPowerMode={isLowPowerMode} t={t} />
+                                    <SocialTicker items={row2Real} direction="left" speed={50} isLowPowerMode={isLowPowerMode} t={t} />
                                 </div>
                             </motion.div>
 

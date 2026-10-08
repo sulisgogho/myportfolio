@@ -3,8 +3,10 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function ManifestoHero({ isLowPowerMode }: { isLowPowerMode?: boolean }) {
+    const t = useTranslations('manifestoHero');
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -52,7 +54,7 @@ export default function ManifestoHero({ isLowPowerMode }: { isLowPowerMode?: boo
                                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                                 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.8] text-transparent bg-clip-text bg-gradient-to-br from-foreground/80 to-foreground/20 [-webkit-text-stroke:1px_rgba(0,0,0,0.1)] dark:[-webkit-text-stroke:1px_rgba(255,255,255,0.1)]"
                             >
-                                <span className="font-serif italic font-light opacity-80 text-foreground/60">The</span> Code
+                                <span className="font-serif italic font-light opacity-80 text-foreground/60">{t('word1')}</span> {t('word2')}
                             </motion.h1>
                         </motion.div>
 
@@ -69,7 +71,7 @@ export default function ManifestoHero({ isLowPowerMode }: { isLowPowerMode?: boo
                                 transition={{ duration: 1, delay: 0.8 }}
                                 className="font-mono text-xs md:text-sm uppercase tracking-widest text-muted-foreground"
                             >
-                                Is merely a vessel for
+                                {t('word3')}
                             </motion.p>
                             <motion.div
                                 initial={{ scaleX: 0 }}
@@ -86,7 +88,7 @@ export default function ManifestoHero({ isLowPowerMode }: { isLowPowerMode?: boo
                                 transition={{ duration: 1, delay: isLowPowerMode ? 0 : 0.2, ease: [0.22, 1, 0.36, 1] }}
                                 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.8] text-transparent bg-clip-text bg-gradient-to-br from-foreground/80 to-foreground/20 [-webkit-text-stroke:1px_rgba(0,0,0,0.1)] dark:[-webkit-text-stroke:1px_rgba(255,255,255,0.1)]"
                             >
-                                Human <span className="font-serif italic font-light text-primary/80">Emotion.</span>
+                                {t('word4')} <span className="font-serif italic font-light text-primary/80">{t('word5')}</span>
                             </motion.h1>
                         </motion.div>
                     </div>
@@ -99,8 +101,7 @@ export default function ManifestoHero({ isLowPowerMode }: { isLowPowerMode?: boo
                         className="mt-6 md:mt-10 max-w-xl mx-auto"
                     >
                         <p className="text-lg md:text-xl font-serif text-muted-foreground leading-relaxed">
-                            "We build systems not just to process data, but to feel something.
-                            This archive is a collection of moments where logic met beauty."
+                            {t('paragraph')}
                         </p>
                     </motion.div>
 

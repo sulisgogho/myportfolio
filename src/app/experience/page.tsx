@@ -37,38 +37,22 @@ import { DeferredMount } from '@/components/ui/DeferredMount';
 
 type TabType = 'education' | 'journey' | 'experience';
 
-const highlightContent = {
-    education: {
-        title: "Building the Future",
-        highlight: "Through Knowledge",
-        description: "Every line of code starts with understanding. My academic journey at Universitas Muhammadiyah Jember shapes how I approach complex problems with systematic thinking."
-    },
-    journey: {
-        title: "Crafting Experiences",
-        highlight: "That Matter",
-        description: "From internships to leadership roles, each step has been a lesson in collaboration, innovation, and pushing boundaries."
-    },
-    experience: {
-        title: "Turning Ideas",
-        highlight: "Into Reality",
-        description: "Real-world projects that solve real problems. Building solutions that make a difference."
-    }
-};
+// Highlight content translations are moved to messages/en.json and messages/id.json
 
 import { usePerformance } from '@/hooks/usePerformance';
 
 import { getJourneyImages } from '@/app/actions/getJourneyImages';
 
 function ExperienceHighlightSection({ type, isLowPowerMode }: { type: TabType; isLowPowerMode: boolean }) {
-    const content = highlightContent[type];
+    const t = useTranslations('experience.highlight');
 
     return (
         <div className="mt-6">
             <InnovativeExperienceHero
                 type={type}
-                title={content.title}
-                highlight={content.highlight}
-                description={content.description}
+                title={t(`${type}.title`)}
+                highlight={t(`${type}.highlight`)}
+                description={t(`${type}.description`)}
             />
         </div>
     );
@@ -94,20 +78,22 @@ interface TabItem {
 import MagneticEffect from '@/components/ui/MagneticEffect';
 
 function ExperienceTabSlider({ isLowPowerMode }: { isLowPowerMode: boolean }) {
+    const t = useTranslations('experience');
     const contentRef = useRef<HTMLDivElement>(null);
     const [activeTab, setActiveTab] = useState<number>(1);
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
     const tabs: TabItem[] = [
-        { id: 'education', label: 'Education', description: 'Building strong foundations through academic excellence at Universitas Muhammadiyah Jember and SMAN 1 Kraksaan.' },
-        { id: 'journey', label: 'Journey', description: 'A timeline of roles, responsibilities, and professional growth across various organizations.' },
+        { id: 'education', label: t('tabs.education.label'), description: t('tabs.education.description') },
+        { id: 'journey', label: t('tabs.journey.label'), description: t('tabs.journey.description') },
+        { id: 'experience', label: t('tabs.experience.label'), description: t('tabs.experience.description') },
     ];
 
     const categories = [
-        { id: 'professional', label: 'Professional Experience', icon: Briefcase, color: 'bg-blue-600', prefix: 'prof-' },
-        { id: 'leadership', label: 'Leadership & Organizational', icon: Users, color: 'bg-purple-600', prefix: 'lead-' },
-        { id: 'volunteer', label: 'Volunteer Experience', icon: Heart, color: 'bg-orange-500', prefix: 'vol-' },
-        { id: 'certifications', label: 'Certifications & Development', icon: Award, color: 'bg-emerald-500', prefix: 'cert-' },
+        { id: 'professional', label: t('categories.professional.label'), icon: Briefcase, color: 'bg-blue-600', prefix: 'prof-' },
+        { id: 'leadership', label: t('categories.leadership.label'), icon: Users, color: 'bg-purple-600', prefix: 'lead-' },
+        { id: 'volunteer', label: t('categories.volunteer.label'), icon: Heart, color: 'bg-orange-500', prefix: 'vol-' },
+        { id: 'certifications', label: t('categories.certifications.label'), icon: Award, color: 'bg-emerald-500', prefix: 'cert-' },
     ];
 
     const heightFix = () => {
@@ -261,13 +247,13 @@ function ExperienceTabSlider({ isLowPowerMode }: { isLowPowerMode: boolean }) {
                                                 transition={{ delay: 0.2 }}
                                             >
                                                 <h2 className="text-5xl md:text-7xl font-black text-neutral-900 dark:text-white tracking-tighter mb-6 leading-[0.9]">
-                                                    SELECT <br />
+                                                    {t('ui.selectArchive')} <br />
                                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 via-neutral-600 to-neutral-400 dark:from-white dark:via-neutral-200 dark:to-neutral-500">
-                                                        ARCHIVE
+                                                        {t('ui.archive')}
                                                     </span>
                                                 </h2>
                                                 <p className="text-xl text-neutral-500 dark:text-neutral-400 max-w-md leading-relaxed">
-                                                    Navigate through the timeline of my career. Choose a lens to filter the experience database.
+                                                    {t('ui.navigateTimeline')}
                                                 </p>
                                             </motion.div>
 
@@ -307,7 +293,7 @@ function ExperienceTabSlider({ isLowPowerMode }: { isLowPowerMode: boolean }) {
                                                             {cat.label}
                                                         </h4>
                                                         <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400 line-clamp-1 group-hover:text-neutral-900 dark:group-hover:text-neutral-200 transition-colors">
-                                                            Tap to explore {cat.label.toLowerCase()} records
+                                                            {t(`categories.${cat.id}.desc`)}
                                                         </p>
                                                     </div>
 
@@ -334,7 +320,7 @@ function ExperienceTabSlider({ isLowPowerMode }: { isLowPowerMode: boolean }) {
                                                 className="group flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-neutral-500 hover:text-black dark:hover:text-white transition-colors px-4 py-2 -ml-4 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800/50 w-fit"
                                             >
                                                 <ArrowRight className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" />
-                                                <span>Back to Selection</span>
+                                                <span>{t('ui.backToSelection')}</span>
                                             </button>
 
                                             <div className="space-y-2">
@@ -346,7 +332,7 @@ function ExperienceTabSlider({ isLowPowerMode }: { isLowPowerMode: boolean }) {
 
                                             <div className="hidden lg:flex flex-col gap-2">
                                                 <p className="text-xs font-bold uppercase text-neutral-400 tracking-widest mb-2">
-                                                    Filter View
+                                                    {t('ui.filterView')}
                                                 </p>
                                                 {categories.map(cat => (
                                                     <button
@@ -374,7 +360,7 @@ function ExperienceTabSlider({ isLowPowerMode }: { isLowPowerMode: boolean }) {
 
                                             {filteredExperiences.length === 0 && (
                                                 <div className="flex flex-col items-center justify-center py-20 text-neutral-400">
-                                                    <p>No records found in this sector.</p>
+                                                    <p>{t('ui.noRecords')}</p>
                                                 </div>
                                             )}
                                         </div>
@@ -793,9 +779,9 @@ function TimelineGallery({ images, id, title, externalLink, logo }: { images: st
                     className="flex items-center gap-1.5 text-xs font-bold text-neutral-500 hover:text-primary transition-colors uppercase tracking-widest pl-1"
                 >
                     {isExpanded ? (
-                        <>Show Less <ChevronDown className="w-3 h-3 rotate-180" /></>
+                        <>{t('showLess')} <ChevronDown className="w-3 h-3 rotate-180" /></>
                     ) : (
-                        <>+{galleryItems.length - 2} More Attachments <ChevronDown className="w-3 h-3" /></>
+                        <>{t('moreAttachments', { count: galleryItems.length - 2 })} <ChevronDown className="w-3 h-3" /></>
                     )}
                 </button>
             )}

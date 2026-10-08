@@ -5,6 +5,7 @@ import { portfolioData } from '@/data/portfolio';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 const skillVisuals: Record<string, string> = {
     'Leadership': 'https://illustrations.popsy.co/white/team-idea.svg',
@@ -47,6 +48,7 @@ const EXTRA_SKILLS = [
 
 export const SoftSkills = () => {
     const skills = portfolioData.softSkills.slice(0, 7); // Use top 7 skills for a tight bento
+    const t = useTranslations('softSkills');
 
     return (
         <section id="soft-skills" className="py-32 px-6 relative overflow-hidden bg-background">
@@ -59,9 +61,8 @@ export const SoftSkills = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.1 }}
                         className="text-6xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.05] max-w-5xl"
-                    >
-                        Strategic <br /> Directives
-                    </motion.h2>
+                        dangerouslySetInnerHTML={{ __html: t.raw('title') }}
+                    />
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 0.5 }}
@@ -69,8 +70,7 @@ export const SoftSkills = () => {
                         transition={{ duration: 0.8, delay: 0.3 }}
                         className="text-foreground text-lg font-sans max-w-2xl pt-6 leading-relaxed border-t border-border mt-4"
                     >
-                        Interpersonal capabilities engineered for high-impact
-                        leadership and systemic problem solving in complex environments.
+                        {t('desc')}
                     </motion.p>
                 </div>
 
@@ -120,6 +120,7 @@ const BentoSkillCard = ({
     illustration?: string,
     isWide?: boolean
 }) => {
+    const t = useTranslations('softSkills');
     return (
         <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -171,7 +172,7 @@ const BentoSkillCard = ({
                 </p>
                 <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary/50 transition-colors" />
-                    <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-muted-foreground/40 group-hover:text-muted-foreground/80 transition-colors">Core Capability</span>
+                    <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-muted-foreground/40 group-hover:text-muted-foreground/80 transition-colors">{t('coreCapability')}</span>
                 </div>
             </div>
 
@@ -183,6 +184,7 @@ const BentoSkillCard = ({
 
 const BentoMoreCard = ({ index }: { index: number }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const t = useTranslations('softSkills');
 
     return (
         <motion.div
@@ -204,7 +206,7 @@ const BentoMoreCard = ({ index }: { index: number }) => {
                         className="h-full flex flex-col justify-between"
                     >
                         <div className="space-y-2 relative z-10 flex justify-between items-start">
-                            <h3 className="text-4xl font-bold text-foreground italic">Read More</h3>
+                            <h3 className="text-4xl font-bold text-foreground italic">{t('readMore')}</h3>
                             <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/30 group-hover:text-muted-foreground/60 transition-colors">#{String(index).padStart(2, '0')}</span>
                         </div>
 
@@ -220,11 +222,11 @@ const BentoMoreCard = ({ index }: { index: number }) => {
 
                         <div className="relative z-10 space-y-4">
                             <p className="text-muted-foreground leading-relaxed text-[15px]">
-                                Exploring a broader set of professional capabilities and tactical expertise.
+                                {t('exploreMore')}
                             </p>
                             <div className="flex items-center gap-2">
                                 <span className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary/60 transition-colors" />
-                                <span className="text-[8px] font-mono uppercase tracking-[0.2em] text-muted-foreground/30 group-hover:text-muted-foreground/60 transition-colors">Hover to reveal catalog</span>
+                                <span className="text-[8px] font-mono uppercase tracking-[0.2em] text-muted-foreground/30 group-hover:text-muted-foreground/60 transition-colors">{t('hoverReveal')}</span>
                             </div>
                         </div>
                     </motion.div>
@@ -237,7 +239,7 @@ const BentoMoreCard = ({ index }: { index: number }) => {
                         className="h-full flex flex-col justify-between"
                     >
                         <div className="space-y-4 pt-4">
-                            <h4 className="text-[10px] font-mono uppercase tracking-[0.3em] text-muted-foreground/40 border-b border-border pb-2">Skill Expansion</h4>
+                            <h4 className="text-[10px] font-mono uppercase tracking-[0.3em] text-muted-foreground/40 border-b border-border pb-2">{t('skillExpansion')}</h4>
                             <div className="grid grid-cols-1 gap-y-3">
                                 {EXTRA_SKILLS.map((skill, i) => (
                                     <motion.div
@@ -256,7 +258,7 @@ const BentoMoreCard = ({ index }: { index: number }) => {
 
                         <div className="pt-8 opacity-40">
                             <p className="text-[10px] font-mono leading-relaxed italic text-foreground">
-                                & systematically expanding the directive framework...
+                                {t('systematically')}
                             </p>
                         </div>
                     </motion.div>

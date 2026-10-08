@@ -4,6 +4,7 @@ import Image from "next/image";
 import { GraduationCap, BookOpen, Binary, Sparkles, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const CornerAccents = ({ hoverClass }: { hoverClass: string }) => (
     <>
@@ -15,6 +16,7 @@ const CornerAccents = ({ hoverClass }: { hoverClass: string }) => (
 );
 
 export default function ExperienceStickyScroll({ isLowPowerMode = false }: { isLowPowerMode?: boolean }) {
+    const t = useTranslations('experienceStickyScroll');
     return (
         <div className="w-full max-w-6xl mx-auto p-4 md:p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -31,11 +33,11 @@ export default function ExperienceStickyScroll({ isLowPowerMode = false }: { isL
                     {/* Text Section (Top) */}
                     <div className="flex-1 p-8 relative z-10 transition-transform duration-500 group-hover:translate-x-1">
                         <div className="flex items-center gap-2 mb-4">
-                            <span className="text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Higher Education • Bachelor Degree</span>
+                            <span className="text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{t('uni.type')}</span>
                         </div>
                         <h3 className="text-3xl font-black text-neutral-900 dark:text-white mb-4">Universitas Muhammadiyah Jember</h3>
                         <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                            Informatics Engineering major with a GPA of 3.86/4.0. Focused on Data Analyst and Fullstack Developer roles.
+                            {t('uni.desc')}
                         </p>
                     </div>
 
@@ -65,13 +67,13 @@ export default function ExperienceStickyScroll({ isLowPowerMode = false }: { isL
                             </div>
 
                             <div className="flex flex-wrap gap-2 justify-center mb-4">
-                                {["GPA 3.86", "Data Analyst", "Fullstack Developer"].map(s => (
+                                {t.raw('uni.tags').map((s: string) => (
                                     <span key={s} className="px-3 py-1 rounded-full text-[10px] bg-black/40 dark:bg-white/10 text-white border border-white/20 font-mono font-bold backdrop-blur-md shadow-lg group-hover:bg-blue-600/50 transition-colors">
                                         {s}
                                     </span>
                                 ))}
                             </div>
-                            <p className="text-[10px] font-mono text-white/90 uppercase tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm border border-white/10 group-hover:border-blue-500/50 transition-colors">Digital Innovation Hub</p>
+                            <p className="text-[10px] font-mono text-white/90 uppercase tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm border border-white/10 group-hover:border-blue-500/50 transition-colors">{t('uni.badge')}</p>
                         </div>
 
                         {/* Holographic Scan Effect */}
@@ -93,11 +95,11 @@ export default function ExperienceStickyScroll({ isLowPowerMode = false }: { isL
                     {/* Text Section (Top) */}
                     <div className="flex-1 p-8 relative z-10 transition-transform duration-500">
                         <div className="flex items-center gap-2 mb-4">
-                            <span className="text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">Foundation • High School</span>
+                            <span className="text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">{t('hs.type')}</span>
                         </div>
                         <h3 className="text-3xl font-black text-neutral-900 dark:text-white mb-4">SMAN 1 Kraksaan</h3>
                         <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                            Science Major (MIPA). Developed strong analytical foundations in Mathematics and Physics, shaping a logical approach to problem-solving and technical engineering.
+                            {t('hs.desc')}
                         </p>
                     </div>
 
@@ -126,13 +128,13 @@ export default function ExperienceStickyScroll({ isLowPowerMode = false }: { isL
                             </div>
 
                             <div className="flex flex-wrap gap-2 justify-center mb-4">
-                                {["Science Major", "Probolinggo", "Foundation"].map(s => (
+                                {t.raw('hs.tags').map((s: string) => (
                                     <span key={s} className="px-3 py-1 rounded-full text-[10px] bg-black/40 dark:bg-white/10 text-white border border-white/20 font-mono font-bold backdrop-blur-md shadow-lg group-hover:bg-orange-600/50 transition-colors">
                                         {s}
                                     </span>
                                 ))}
                             </div>
-                            <p className="text-[10px] font-mono text-white/90 uppercase tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm border border-white/10 group-hover:border-orange-500/50 transition-colors">Logical Foundation</p>
+                            <p className="text-[10px] font-mono text-white/90 uppercase tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm border border-white/10 group-hover:border-orange-500/50 transition-colors">{t('hs.badge')}</p>
                         </div>
                     </div>
                 </motion.div>

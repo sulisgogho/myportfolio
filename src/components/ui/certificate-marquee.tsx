@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const certificates = [
   "/certificate/IPK Tertinggi.jpg",
@@ -20,9 +21,10 @@ const certificates = [
 ];
 
 function ScrambleButton({ href }: { href: string }) {
-  const [displayText, setDisplayText] = useState("View All Achievements");
+  const t = useTranslations('certificateMarquee');
+  const originalText = t('viewAll');
+  const [displayText, setDisplayText] = useState(originalText);
   const [isScrambling, setIsScrambling] = useState(false);
-  const originalText = "View All Achievements";
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
 
   const scramble = () => {
@@ -94,6 +96,7 @@ const Column = ({ images, y }: ColumnProps) => {
 };
 
 export function CertificateShowcase() {
+  const t = useTranslations('certificateMarquee');
   const gallery = useRef<HTMLDivElement>(null);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
 
@@ -143,13 +146,13 @@ export function CertificateShowcase() {
           <div className="space-y-6 w-full">
             <div className="space-y-4">
               <h2 className="text-sm font-bold tracking-[0.2em] text-primary/60 uppercase">
-                Certifications & Achievements
+                {t('certifications')}
               </h2>
               <h3 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight max-w-none text-foreground">
-                Validating <span className="text-shiny">Excellence</span> through Global Standards.
+                {t('validating')}<span className="text-shiny">{t('excellence')}</span>{t('through')}
               </h3>
               <p className="text-lg text-muted-foreground max-w-none leading-relaxed lg:whitespace-nowrap">
-                A collection of my professional certifications in AI, Web Development, and Cloud Engineering from industry leaders.
+                {t('description')}
               </p>
             </div>
           </div>

@@ -16,6 +16,7 @@ import {
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import * as THREE from 'three';
 import { useTheme } from 'next-themes';
+import { useTranslations } from 'next-intl';
 
 import { usePerformance } from '@/hooks/usePerformance';
 import { portfolioData } from '@/data/portfolio';
@@ -47,6 +48,7 @@ export function Lanyard({
     const isLowPowerMode = isLowPowerModeProp ?? isLowPowerModeHook;
     const { resolvedTheme } = useTheme();
     const isDark = resolvedTheme === 'dark';
+    const t = useTranslations('lanyard');
 
     useEffect(() => {
         setIsMobile(window.innerWidth < 768);
@@ -84,7 +86,7 @@ export function Lanyard({
                                     <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                                 </div>
                                 <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 flex items-center">
-                                    Archive Link Active
+                                    {t('archiveLinkActive')}
                                 </span>
                             </div>
                         </div>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { portfolioData } from "@/data/portfolio";
 import { ArrowUpRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import ScrollAdventure from "@/components/ui/animated-scroll";
 import { ArgentLoopInfiniteSlider } from "@/components/ui/argent-loop-infinite-slider";
@@ -56,6 +57,7 @@ export default function AboutSection() {
     const yLeadIn = useTransform(scrollYProgress, [0, 0.12], [0, -80]);
 
     const leadInTriggerRef = useRef(null);
+    const t = useTranslations('aboutSection');
 
     return (
         <section
@@ -94,7 +96,7 @@ export default function AboutSection() {
                             </div>
                             <div className="w-full pb-0">
                                 <HorizontalTimeline data={showcaseMembers.map((member) => ({
-                                    title: member.id === 'view-more' ? 'Explore all experiences' : (member.role || member.name),
+                                    title: member.id === 'view-more' ? t('viewMore.role') : (member.role || member.name),
                                     isEnd: member.id === 'view-more',
                                     period: 'period' in member ? member.period : undefined,
                                     content: member.id === 'view-more' ? (
@@ -107,7 +109,7 @@ export default function AboutSection() {
                                                     <ArrowUpRight className="w-8 h-8 text-neutral-600 dark:text-neutral-400 transition-all duration-500 group-hover:text-primary-foreground group-hover:rotate-45 group-hover:scale-110" />
                                                 </div>
                                                 <span className="text-lg md:text-xl font-bold text-neutral-900 dark:text-white opacity-0 -translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 whitespace-nowrap drop-shadow-sm">
-                                                    View more
+                                                    {t('viewMore.name')}
                                                 </span>
                                             </div>
                                         </Link>

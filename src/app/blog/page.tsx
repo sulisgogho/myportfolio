@@ -147,9 +147,9 @@ function BlogContent() {
                             className="text-4xl md:text-6xl lg:text-[5.5rem] font-black text-foreground leading-tight tracking-[-0.04em] uppercase whitespace-nowrap cursor-pointer group"
                         >
                             <span className="relative inline-block">
-                                <span>FEATURE &</span>{' '}
+                                <span>{t('hero.title1')}</span>{' '}
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground to-foreground/20">
-                                    DOCS
+                                    {t('hero.title2')}
                                 </span>
                                 {/* Animated underline on hover */}
                                 <span className="absolute -bottom-1 left-0 w-full h-[4px] bg-foreground scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
@@ -162,7 +162,7 @@ function BlogContent() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="mt-6 text-[11px] md:text-sm font-medium text-muted-foreground/80 max-w-3xl mx-auto leading-relaxed tracking-wide"
                         >
-                            A dedicated space for documenting technical blueprints, architectural patterns, and engineering reflections. This archive serves as a living knowledge base where innovation meets practical execution.
+                            {t('hero.subtitle')}
                         </motion.p>
                     </div>
                 </header>
@@ -213,7 +213,7 @@ function BlogContent() {
                                         )}
                                     >
                                         <span className="relative">
-                                            {cat === 'all' ? 'All Publications' : t(`categories.${cat}`)}
+                                            {cat === 'all' ? t('categories.all') : t(`categories.${cat}`)}
 
                                             {/* Animated Underline Indicator */}
                                             {selectedCategory === cat && (
@@ -309,7 +309,7 @@ function BlogContent() {
                             <div className="relative flex-1 md:w-80 group">
                                 <input
                                     type="text"
-                                    placeholder="SEARCH ARCHIVE"
+                                    placeholder={t('searchPlaceholder')}
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                     className="w-full bg-transparent border-b border-foreground/10 focus:border-primary/60 outline-none py-3 text-[14px] font-bold tracking-[0.1em] text-foreground transition-all placeholder:text-muted-foreground/20 uppercase"
@@ -346,10 +346,10 @@ function BlogContent() {
                         >
                             <div className="flex flex-col items-center text-center -translate-x-1/2 -translate-y-1/2 leading-[1.1]">
                                 <span className="text-[35px] font-black text-white uppercase tracking-[0.2em] drop-shadow-md">
-                                    Read
+                                    {t('read')}
                                 </span>
                                 <span className="text-[35px] font-black text-white uppercase tracking-[0.2em] drop-shadow-md">
-                                    Detail
+                                    {t('detail')}
                                 </span>
                             </div>
                         </motion.div>
@@ -390,7 +390,7 @@ function BlogContent() {
                                     disabled={currentPage === 1}
                                     className="text-[18px] font-bold uppercase tracking-[0.2em] text-muted-foreground/40 hover:text-foreground disabled:opacity-0 transition-all duration-300"
                                 >
-                                    PREV
+                                    {t('prev')}
                                 </button>
 
                                 <div className="flex items-center gap-8">
@@ -421,7 +421,7 @@ function BlogContent() {
                                     disabled={currentPage === totalPages}
                                     className="text-[18px] font-bold uppercase tracking-[0.2em] text-muted-foreground/40 hover:text-foreground disabled:opacity-0 transition-all duration-300"
                                 >
-                                    NEXT
+                                    {t('next')}
                                 </button>
                             </div>
                         )}

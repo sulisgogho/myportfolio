@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Code2, Award, Sparkles, TrendingUp } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio';
 import { Counter } from '@/components/ui/Counter';
+import { useTranslations } from 'next-intl';
 
 // Calculate metrics from portfolio data
 const calculateMetrics = () => {
@@ -95,30 +96,31 @@ const StatCard = ({ value, label, icon, delay, gradient, isLowPowerMode }: StatC
 };
 
 export function ProjectStats({ isLowPowerMode }: { isLowPowerMode?: boolean }) {
+    const t = useTranslations('projectStats');
     const metrics = calculateMetrics();
 
     const stats = [
         {
             value: `${metrics.projects}+`,
-            label: 'Projects Built',
+            label: t('projectsBuilt'),
             icon: <Code2 className="w-6 h-6 text-primary" />,
             gradient: 'rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.3)'
         },
         {
             value: `${metrics.yearsExp}+`,
-            label: 'Years Experience',
+            label: t('yearsExperience'),
             icon: <TrendingUp className="w-6 h-6 text-emerald-500" />,
             gradient: 'rgba(16, 185, 129, 0.3), rgba(6, 182, 212, 0.3), rgba(16, 185, 129, 0.3)'
         },
         {
             value: `${metrics.techCount}+`,
-            label: 'Tech Stack',
+            label: t('techStack'),
             icon: <Code2 className="w-6 h-6 text-violet-500" />,
             gradient: 'rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.3), rgba(139, 92, 246, 0.3)'
         },
         {
             value: metrics.impactScore,
-            label: 'Active Deployments',
+            label: t('activeDeployments'),
             icon: <Award className="w-6 h-6 text-amber-500" />,
             gradient: 'rgba(245, 158, 11, 0.3), rgba(251, 146, 60, 0.3), rgba(245, 158, 11, 0.3)'
         }
@@ -143,16 +145,16 @@ export function ProjectStats({ isLowPowerMode }: { isLowPowerMode?: boolean }) {
                     >
                         <Sparkles className="w-4 h-4 text-primary" />
                         <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider">
-                            Project Impact
+                            {t('section')}
                         </span>
                     </motion.div>
 
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-3">
-                        Building The Future
+                        {t('title')}
                     </h2>
 
                     <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Transforming ideas into production-ready solutions that drive real-world impact
+                        {t('subtitle')}
                     </p>
                 </motion.div>
 

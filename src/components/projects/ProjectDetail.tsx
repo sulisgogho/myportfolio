@@ -117,7 +117,7 @@ const ProjectGallery = ({
                         className="group flex items-center gap-3 px-6 py-3 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 hover:border-emerald-500/50 transition-all text-zinc-600 dark:text-zinc-400 hover:text-emerald-500"
                     >
                         <Github className="w-5 h-5" />
-                        <span className="text-sm font-medium">View Source</span>
+                        <span className="text-sm font-medium">{t('viewSource')}</span>
                     </a>
                 </div>
             )}
@@ -167,6 +167,7 @@ const Typewriter = ({ examples }: { examples: string[] }) => {
 
 export function ProjectDetail({ project, onClose, isLowPowerMode }: { project: Project; onClose: () => void; isLowPowerMode?: boolean }) {
     const t = useTranslations('projects');
+    const tSections = useTranslations('projects.sections');
     const isOngoing = project.status === 'ongoing';
     const [selectedFeature, setSelectedFeature] = useState<number | null>(null);
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -341,7 +342,7 @@ export function ProjectDetail({ project, onClose, isLowPowerMode }: { project: P
                                     whileHover={project.demoUrl === '#' ? {} : { scale: 1.02 }}
                                     whileTap={project.demoUrl === '#' ? {} : { scale: 0.98 }}
                                 >
-                                    <span>Live Demo</span>
+                                    <span>{tSections('liveDemo')}</span>
                                     {project.demoUrl === '#' ? (
                                         <div className="w-4 h-4 rounded-full border-2 border-zinc-600 border-t-transparent animate-spin hidden" />
                                     ) : (
@@ -359,7 +360,7 @@ export function ProjectDetail({ project, onClose, isLowPowerMode }: { project: P
                                     whileTap={{ scale: 0.98 }}
                                 >
                                     <Github className="w-4 h-4" />
-                                    <span>Source Code</span>
+                                    <span>{tSections('sourceCode')}</span>
                                 </motion.a>
                             )}
                             {project.docUrl && (
@@ -372,7 +373,7 @@ export function ProjectDetail({ project, onClose, isLowPowerMode }: { project: P
                                     whileTap={{ scale: 0.98 }}
                                 >
                                     <FileText className="w-4 h-4" />
-                                    <span>Document</span>
+                                    <span>{tSections('document')}</span>
                                 </motion.a>
                             )}
                         </div>
@@ -401,8 +402,8 @@ export function ProjectDetail({ project, onClose, isLowPowerMode }: { project: P
                                             <Box className="w-5 h-5" />
                                         </div>
                                         <div>
-                                            <h3 className="text-xl font-bold text-foreground">Mission Brief</h3>
-                                            <p className="text-xs text-muted-foreground uppercase tracking-wider">Project Overview</p>
+                                            <h3 className="text-xl font-bold text-foreground">{tSections('missionBrief')}</h3>
+                                            <p className="text-xs text-muted-foreground uppercase tracking-wider">{t('projectOverview')}</p>
                                         </div>
                                     </div>
                                     <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-muted-foreground font-light tracking-wide border-l-2 border-black/15 dark:border-white/10 pl-6">
@@ -413,10 +414,10 @@ export function ProjectDetail({ project, onClose, isLowPowerMode }: { project: P
                                 {/* Metadata Strip */}
                                 <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 py-10 border-y border-black/25 dark:border-white/5">
                                     {[
-                                        { label: 'Role', value: project.role || 'Full Stack Dev', icon: Code },
-                                        { label: 'Timeline', value: project.customTimeline || '3 Months', icon: Calendar },
-                                        { label: 'Tech', value: project.techStack?.[0] || 'Next.js', icon: Cpu },
-                                        { label: 'Status', value: project.status === 'ongoing' ? 'Ongoing' : 'Finished', icon: Info },
+                                        { label: t('metadata.role'), value: project.role || 'Full Stack Dev', icon: Code },
+                                        { label: t('metadata.timeline'), value: project.customTimeline || '3 Months', icon: Calendar },
+                                        { label: t('metadata.tech'), value: project.techStack?.[0] || 'Next.js', icon: Cpu },
+                                        { label: t('metadata.status'), value: project.status === 'ongoing' ? t('metadata.ongoing') : t('metadata.finished'), icon: Info },
                                     ].map((item, idx) => (
                                         <div key={idx} className="flex flex-col items-center gap-3">
                                             <div className="flex items-center gap-2 text-slate-500 dark:text-muted-foreground">
@@ -437,7 +438,7 @@ export function ProjectDetail({ project, onClose, isLowPowerMode }: { project: P
                                             <Sparkles className="w-5 h-5" />
                                         </div>
                                         <div>
-                                            <h3 className="text-xl font-bold text-foreground">Key Features</h3>
+                                            <h3 className="text-xl font-bold text-foreground">{tSections('keyFeatures')}</h3>
                                             <p className="text-xs text-muted-foreground uppercase tracking-wider">Core Capabilities</p>
                                         </div>
                                     </div>
@@ -492,7 +493,7 @@ export function ProjectDetail({ project, onClose, isLowPowerMode }: { project: P
                                             <Terminal className="w-5 h-5" />
                                         </div>
                                         <div>
-                                            <h3 className="text-xl font-bold text-foreground">Engineering Chronicles</h3>
+                                            <h3 className="text-xl font-bold text-foreground">{tSections('engineeringChronicles')}</h3>
                                             <p className="text-xs text-muted-foreground uppercase tracking-wider">Challenges & Solutions</p>
                                         </div>
                                     </div>
@@ -522,7 +523,7 @@ export function ProjectDetail({ project, onClose, isLowPowerMode }: { project: P
                                             <Maximize2 className="w-5 h-5" />
                                         </div>
                                         <div>
-                                            <h3 className="text-xl font-bold text-foreground">Visual Gallery</h3>
+                                            <h3 className="text-xl font-bold text-foreground">{tSections('visualGallery')}</h3>
                                             <p className="text-xs text-muted-foreground uppercase tracking-wider">Screenshots & UI</p>
                                         </div>
                                     </div>
@@ -539,7 +540,7 @@ export function ProjectDetail({ project, onClose, isLowPowerMode }: { project: P
                             {project.techStack && (
                                 <motion.section variants={itemVariants} className="pt-8 border-t border-black/10 dark:border-white/5">
                                     <div className="mb-8">
-                                        <h3 className="text-xl font-bold text-foreground">Tech Stack</h3>
+                                        <h3 className="text-xl font-bold text-foreground">{t('techStack')}</h3>
                                     </div>
                                     <TechStack techStack={project.techStack} tools={project.tools} />
                                 </motion.section>
@@ -568,7 +569,7 @@ export function ProjectDetail({ project, onClose, isLowPowerMode }: { project: P
                                                 className="px-8 py-3 rounded-full bg-emerald-500 text-white font-bold hover:bg-emerald-400 transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/20"
                                             >
                                                 <ExternalLink className="w-4 h-4" />
-                                                Live Demo
+                                                {tSections('liveDemo')}
                                             </a>
                                         )}
                                         {project.repoUrl && (
@@ -579,7 +580,7 @@ export function ProjectDetail({ project, onClose, isLowPowerMode }: { project: P
                                                 className="px-8 py-3 rounded-full bg-black dark:bg-white text-white dark:text-black font-bold hover:opacity-90 transition-all flex items-center gap-2 shadow-lg"
                                             >
                                                 <Github className="w-4 h-4" />
-                                                Source Code
+                                                {tSections('sourceCode')}
                                             </a>
                                         )}
                                         {project.docUrl && (
@@ -590,7 +591,7 @@ export function ProjectDetail({ project, onClose, isLowPowerMode }: { project: P
                                                 className="px-8 py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-500 transition-all flex items-center gap-2 shadow-lg shadow-blue-500/20"
                                             >
                                                 <FileText className="w-4 h-4" />
-                                                View Document
+                                                {tSections('document')}
                                             </a>
                                         )}
                                         <a

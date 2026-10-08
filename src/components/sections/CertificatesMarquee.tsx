@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Award } from 'lucide-react';
 import Image from 'next/image';
 
+import { useTranslations } from 'next-intl';
 import { portfolioData } from '@/data/portfolio';
 
 const certificates = portfolioData.achievements;
@@ -13,6 +14,7 @@ const certificates = portfolioData.achievements;
 const marqueeItems = [...certificates, ...certificates];
 
 export function CertificatesMarquee() {
+    const tData = useTranslations('data.achievements');
     return (
         <section className="relative w-full py-8 md:py-10 bg-background overflow-hidden border-b border-black/5 dark:border-white/5">
             <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10 pointer-events-none" />
@@ -55,10 +57,10 @@ export function CertificatesMarquee() {
                                 <Award className="w-8 h-8 text-primary mb-3 opacity-80" />
                             )}
                             <h4 className="text-sm font-bold text-foreground leading-tight line-clamp-1">
-                                {cert.title}
+                                {tData.has(`${cert.id}.title`) ? tData(`${cert.id}.title`) : cert.title}
                             </h4>
                             <p className="text-xs text-muted-foreground mt-1 line-clamp-1">
-                                {cert.issuer}
+                                {tData.has(`${cert.id}.issuer`) ? tData(`${cert.id}.issuer`) : cert.issuer}
                             </p>
                         </div>
                     ))}

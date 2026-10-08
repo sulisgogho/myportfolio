@@ -5,8 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { portfolioData } from "@/data/portfolio";
 import { X, Play, Maximize2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function FocusGrid() {
+    const t = useTranslations('focusGrid');
     const containerRef = useRef<HTMLDivElement>(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -91,7 +93,7 @@ export default function FocusGrid() {
                     >
                         {/* Close Button */}
                         <button onClick={closeLightbox} className="absolute top-8 right-8 p-4 z-[110] text-white/50 hover:text-white transition-colors">
-                            <span className="text-xs font-mono uppercase tracking-widest mr-2">Close Sequence</span>
+                            <span className="text-xs font-mono uppercase tracking-widest mr-2">{t('closeSequence')}</span>
                             <X className="w-6 h-6 inline-block" />
                         </button>
 
@@ -121,7 +123,7 @@ export default function FocusGrid() {
                             <div className="flex flex-col justify-center space-y-8 text-white">
                                 <div>
                                     <p className="text-xs font-mono uppercase tracking-widest text-primary mb-2">
-                                        Sequence_ID: {selectedItem.id}
+                                        {t('sequenceId')} {selectedItem.id}
                                     </p>
                                     <h2 className="text-4xl md:text-5xl font-black uppercase leading-[0.9] mb-4">
                                         {selectedItem.title}
@@ -134,11 +136,11 @@ export default function FocusGrid() {
 
                                 <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-8">
                                     <div>
-                                        <p className="text-[10px] uppercase tracking-widest text-white/40 mb-1">Date Captured</p>
+                                        <p className="text-[10px] uppercase tracking-widest text-white/40 mb-1">{t('dateCaptured')}</p>
                                         <p className="font-mono">{selectedItem.date}</p>
                                     </div>
                                     <div>
-                                        <p className="text-[10px] uppercase tracking-widest text-white/40 mb-1">Format</p>
+                                        <p className="text-[10px] uppercase tracking-widest text-white/40 mb-1">{t('format')}</p>
                                         <p className="font-mono">{selectedItem.type === 'video' ? 'MP4 / H.264' : 'WEBP / Lossless'}</p>
                                     </div>
                                 </div>

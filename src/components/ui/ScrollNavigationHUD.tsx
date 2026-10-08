@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ChevronUp, Code2, Sparkles, Github, Layers, Compass, Briefcase } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
 import { useLenis } from 'lenis/react';
 
@@ -13,16 +14,18 @@ interface SectionItem {
     icon: React.ComponentType<{ className?: string }>;
 }
 
-const SECTIONS: SectionItem[] = [
-    { id: 'hero', label: 'Overview', icon: Compass },
-    { id: 'tech-stack', label: 'Tech Stack', icon: Code2 },
-    { id: 'capabilities', label: 'Capabilities', icon: Layers },
-    { id: 'projects', label: 'Project', icon: Sparkles },
-    { id: 'github-activity', label: 'GitHub', icon: Github },
-    { id: 'experience', label: 'Experience', icon: Briefcase },
+const getSections = (t: any): SectionItem[] => [
+    { id: 'hero', label: t('overview'), icon: Compass },
+    { id: 'tech-stack', label: t('techStack'), icon: Code2 },
+    { id: 'capabilities', label: t('capabilities'), icon: Layers },
+    { id: 'projects', label: t('project'), icon: Sparkles },
+    { id: 'github-activity', label: t('github'), icon: Github },
+    { id: 'experience', label: t('experience'), icon: Briefcase },
 ];
 
 export function ScrollNavigationHUD() {
+    const t = useTranslations('navigation.sections');
+    const SECTIONS = getSections(t);
     const lenis = useLenis();
     const { scrollYProgress } = useScroll();
     const smoothProgress = useSpring(scrollYProgress, {

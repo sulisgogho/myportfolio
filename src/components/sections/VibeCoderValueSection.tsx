@@ -5,8 +5,10 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Database, Code2, LineChart, Cpu, ArrowUpRight, Award, GraduationCap, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { Counter } from '@/components/ui/Counter';
+import { useTranslations } from 'next-intl';
 
 export function VibeCoderValueSection() {
+    const t = useTranslations('vibeCoder');
     const sectionRef = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({
         target: sectionRef,
@@ -16,26 +18,14 @@ export function VibeCoderValueSection() {
     const smoothProgress = useSpring(scrollYProgress, { damping: 30, stiffness: 100 });
     const yParallax = useTransform(smoothProgress, [0, 1], [15, -15]);
 
-    const pillars = [
-        {
-            icon: Code2,
-            title: 'Fullstack Web Engineering',
-            desc: 'Building modern, responsive, and interactive web apps using the React, Next.js, TypeScript, and Tailwind ecosystem with high performance.',
-            badge: 'Fullstack'
-        },
-        {
-            icon: LineChart,
-            title: 'Data Analytics & Insights',
-            desc: 'Processing, analyzing, and visualizing data using Python (Pandas, Plotly), SQL, and interactive dashboards for business decision making.',
-            badge: 'Analytics'
-        },
-        {
-            icon: Database,
-            title: 'System Architecture & Database',
-            desc: 'Designing secure and structured databases (PostgreSQL, SQLite, MySQL) and reliable API integrations with a strong informatics engineering foundation.',
-            badge: 'Engineering'
-        }
-    ];
+    const pillarsData = t.raw('pillars') as Array<{title: string, desc: string, badge: string}>;
+    
+    const icons = [Code2, LineChart, Database];
+    
+    const pillars = pillarsData.map((pillar, index) => ({
+        ...pillar,
+        icon: icons[index] || Code2
+    }));
 
     return (
         <section
@@ -58,10 +48,10 @@ export function VibeCoderValueSection() {
                     className="text-center max-w-3xl mx-auto mb-16"
                 >
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-foreground">
-                        Turning Ideas into Real Digital Assets.
+                        {t('headline')}
                     </h2>
                     <p className="text-muted-foreground mt-4 text-sm sm:text-base leading-relaxed">
-                        An IT grad building web systems, crafting creative assets, and analyzing research data zero time wasted.
+                        {t('subtext')}
                     </p>
                 </motion.div>
 

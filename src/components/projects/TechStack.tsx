@@ -1,4 +1,5 @@
 'use client';
+import { useTranslations } from 'next-intl';
 
 import { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
@@ -58,6 +59,7 @@ const CENTER_PULL = 0.002;
 const MAX_SPEED = 12;
 
 export function TechStack({ techStack, tools, isLowPowerMode }: TechStackProps & { isLowPowerMode?: boolean }) {
+    const tTech = useTranslations('projects.tech');
     const containerRef = useRef<HTMLDivElement>(null);
     const [bodies, setBodies] = useState<PhysicsBody[]>([]);
     const [mousePos, setMousePos] = useState({ x: -9999, y: -9999 });
@@ -331,7 +333,7 @@ export function TechStack({ techStack, tools, isLowPowerMode }: TechStackProps &
                 <div className="max-w-3xl mx-auto space-y-6">
                     {/* Section Header */}
                     <div className="text-center space-y-2 mb-12 opacity-80">
-                        <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">Tech Breakdown</h2>
+                        <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">{tTech('breakdown')}</h2>
                         <div className="h-1 w-20 bg-gradient-to-r from-emerald-500 to-cyan-500 mx-auto rounded-full blur-[2px]" />
                     </div>
 
@@ -387,7 +389,7 @@ export function TechStack({ techStack, tools, isLowPowerMode }: TechStackProps &
                         >
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="h-[1px] flex-1 bg-black/10 dark:bg-white/10" />
-                                <h3 className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold tracking-widest uppercase">Creative Arsenal</h3>
+                                <h3 className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold tracking-widest uppercase">{tTech('creativeArsenal')}</h3>
                                 <div className="h-[1px] flex-1 bg-black/10 dark:bg-white/10" />
                             </div>
 

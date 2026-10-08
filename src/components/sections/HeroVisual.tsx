@@ -10,8 +10,11 @@ import Link from 'next/link';
 import gsap from "gsap";
 import { ProfileCard } from "@/components/ui/profile-card";
 import { Spotlight } from "@/components/ui/spotlight-new";
+import { useTranslations } from 'next-intl';
 
 export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
+  const t = useTranslations('heroVisual');
+  const tProfile = useTranslations('profileCard');
   const { personal } = portfolioData;
   const [showProfile, setShowProfile] = useState(false);
   const [tooltip, setTooltip] = useState<{ show: boolean; text: string; x: number; y: number; icon: 'zap' | 'bot' | null }>({
@@ -175,7 +178,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-[10px] md:text-xs text-muted-foreground text-start md:text-right leading-relaxed max-w-[200px] md:max-w-[220px] font-medium uppercase tracking-[0.2em] mb-6 md:mb-0"
             >
-              Hi, I'm {personal.name}. I engineer scalable web systems & data intelligence.
+              {t('subtext1', { name: personal.name })}
             </motion.p>
             <div className="relative">
               <div ref={githubRef} className="hidden md:block absolute -top-4 right-2 text-primary/60 hover:text-primary z-20 opacity-0">
@@ -193,7 +196,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 className="text-[clamp(3rem,11vw,13rem)] font-black leading-[0.95] md:leading-[0.85] tracking-tighter text-shiny will-change-transform md:px-4"
               >
-                DATA &
+                {t('text1')}
               </motion.h1>
             </div>
           </div>
@@ -225,12 +228,12 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
                 transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="text-[clamp(3rem,11vw,13rem)] md:flex items-center font-black leading-[0.95] md:leading-[0.85] tracking-tighter text-shiny will-change-transform md:px-4"
               >
-                <span className="">FULL</span>
+                <span className="">{t('text2')}</span>
                 <div
                   ref={zapRef}
                   className="hidden lg:inline-block mx-[0.05em] relative cursor-pointer group"
                   onClick={() => window.location.href = '/projects'}
-                  onMouseEnter={(e) => setTooltip({ show: true, text: "Explore Projects", icon: 'zap', x: e.clientX, y: e.clientY })}
+                  onMouseEnter={(e) => setTooltip({ show: true, text: t('tooltip'), icon: 'zap', x: e.clientX, y: e.clientY })}
                   onMouseMove={(e) => setTooltip(prev => ({ ...prev, x: e.clientX, y: e.clientY }))}
                   onMouseLeave={() => setTooltip(prev => ({ ...prev, show: false }))}
                 >
@@ -240,13 +243,13 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
                   ref={zapSmallRef}
                   className="inline-block lg:hidden mx-[0.02em] relative cursor-pointer group"
                   onClick={() => window.location.href = '/projects'}
-                  onMouseEnter={(e) => setTooltip({ show: true, text: "Explore Projects", icon: 'zap', x: e.clientX, y: e.clientY })}
+                  onMouseEnter={(e) => setTooltip({ show: true, text: t('tooltip'), icon: 'zap', x: e.clientX, y: e.clientY })}
                   onMouseMove={(e) => setTooltip(prev => ({ ...prev, x: e.clientX, y: e.clientY }))}
                   onMouseLeave={() => setTooltip(prev => ({ ...prev, show: false }))}
                 >
                   <Zap className="w-[0.8em] h-[0.8em] text-sky-400 group-hover:text-sky-300 transition-colors" strokeWidth={2} />
                 </div>
-                <span className="">STACK</span>
+                <span className="">{t('text3')}</span>
               </motion.h1>
             </div>
           </div>
@@ -259,7 +262,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
               transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-[clamp(3rem,11vw,13rem)] md:flex items-center font-black leading-[0.95] md:leading-[0.85] tracking-tighter text-shiny will-change-transform md:px-4"
             >
-              <span className="">DEVELOPER</span>
+              <span className="">{t('text4')}</span>
             </motion.h1>
 
             <motion.p
@@ -268,7 +271,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-[10px] md:text-xs text-muted-foreground pt-6 md:pt-8 leading-relaxed max-w-[250px] md:max-w-[200px] font-medium uppercase tracking-widest"
             >
-              Open to fullstack development, data analytics, and software projects.
+              {t('subtext2')}
             </motion.p>
           </div>
 
@@ -300,14 +303,14 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
                 href="#projects"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-background font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all shadow-md"
               >
-                View Projects
+                {t('quickAction1')}
                 <ArrowDown className="w-3.5 h-3.5" />
               </a>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-black/15 dark:border-white/20 bg-background/80 backdrop-blur-sm text-foreground font-semibold text-xs uppercase tracking-wider hover:bg-muted transition-all"
               >
-                Consultation / Contact
+                {t('quickAction2')}
               </Link>
             </div>
 
@@ -340,7 +343,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
           className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1.5 pointer-events-none z-20"
         >
           <span className="text-[9px] font-mono tracking-[0.2em] uppercase text-muted-foreground/80 font-bold">
-            Scroll To Explore
+            {t('scrollText')}
           </span>
           <div className="w-4 h-7 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-1 shadow-sm">
             <motion.div
@@ -365,7 +368,7 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
             className="bg-white text-black py-10 px-4 text-[10px] font-black uppercase tracking-[0.5em] shadow-2xl rounded-r-3xl border-r border-y border-zinc-200 cursor-pointer"
           >
             <span className="rotate-0 [writing-mode:vertical-rl]">
-              AVAILABLE FOR OPPORTUNITY
+              {t('availableText')}
             </span>
           </motion.div>
         </div>
@@ -383,8 +386,8 @@ export function HeroVisual({ isExiting = false }: { isExiting?: boolean }) {
             >
               <ProfileCard
                 name={personal.name}
-                title="Data Analyst & Full-stack Developer"
-                description={`${personal.name} is a dedicated Data Analyst & Full-stack Developer focused on building scalable systems, analyzing complex data, and creating robust web architectures. She specializes in bridging technical innovation with high-performance execution to deliver meaningful and impactful digital solutions.`}
+                title={tProfile('role')}
+                description={tProfile('description', { name: personal.name })}
                 imageUrl={personal.avatar}
                 githubUrl={personal.socialLinks.find(s => s.platform === 'GitHub')?.url}
                 linkedinUrl={personal.socialLinks.find(s => s.platform === 'LinkedIn')?.url}

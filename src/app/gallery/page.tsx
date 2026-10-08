@@ -7,6 +7,7 @@ import ImpactSection from "@/components/ui/impact-section";
 import { usePerformance } from "@/hooks/usePerformance";
 import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 import { DeferredMount } from '@/components/ui/DeferredMount';
+import { useTranslations } from 'next-intl';
 
 const GLSLHills = dynamic(() => import("@/components/ui/glsl-hills").then(mod => mod.GLSLHills), {
     ssr: false,
@@ -14,6 +15,7 @@ const GLSLHills = dynamic(() => import("@/components/ui/glsl-hills").then(mod =>
 
 export default function GalleryPage() {
     const { isLowPowerMode } = usePerformance();
+    const t = useTranslations('gallery');
 
     return (
         <main className="bg-background min-h-screen selection:bg-cyan-500/30 selection:text-cyan-500 overflow-x-hidden relative">
@@ -27,7 +29,7 @@ export default function GalleryPage() {
             <div className="relative z-10">
                 <ManifestoHero isLowPowerMode={isLowPowerMode} />
                 <DeferredMount>
-                    <ErrorBoundary fallback={<div className="container mx-auto py-20 text-center">Gallery Grid Unavailable</div>}>
+                    <ErrorBoundary fallback={<div className="container mx-auto py-20 text-center">{t('unavailable')}</div>}>
                         <CleanFilmGrid isLowPowerMode={isLowPowerMode} />
                     </ErrorBoundary>
                     <ImpactSection />

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Send, Check, Sparkles } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 const THOUGHT_TOPICS: Array<{ text: string; delay: number; size: 'sm' | 'md' | 'lg' }> = [
     { text: 'AI Ethics', delay: 0.2, size: 'sm' as const },
@@ -198,6 +199,7 @@ export const ThoughtStreamClosing = () => {
     const [email, setEmail] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const t = useTranslations('thoughtStreamClosing');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -261,11 +263,11 @@ export const ThoughtStreamClosing = () => {
 
                     {/* Heading */}
                     <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4 bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
-                        Don't Miss My Next Thought
+                        {t('title')}
                     </h2>
 
                     <p className="text-muted-foreground font-mono text-sm md:text-base mb-8 max-w-lg mx-auto">
-                        Subscribe to get fresh ideas, code insights, and tech musings delivered straight to your inbox.
+                        {t('desc')}
                     </p>
 
                     {/* Newsletter Form */}
@@ -285,7 +287,7 @@ export const ThoughtStreamClosing = () => {
                                         type="email"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        placeholder="your@email.com"
+                                        placeholder={t('placeholder')}
                                         required
                                         disabled={isLoading}
                                         className="w-full pl-12 pr-4 py-3 bg-foreground/5 border border-foreground/10 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed font-mono text-sm"
@@ -306,7 +308,7 @@ export const ThoughtStreamClosing = () => {
                                         />
                                     ) : (
                                         <>
-                                            <span>Subscribe</span>
+                                            <span>{t('subscribe')}</span>
                                             <Send className="w-4 h-4" />
                                         </>
                                     )}
@@ -324,10 +326,10 @@ export const ThoughtStreamClosing = () => {
                                     <Check className="w-8 h-8 text-white" />
                                 </div>
                                 <p className="font-bold text-lg text-green-500">
-                                    ✨ Thanks for subscribing!
+                                    {t('successTitle')}
                                 </p>
                                 <p className="text-sm text-muted-foreground">
-                                    Check your inbox for confirmation.
+                                    {t('successDesc')}
                                 </p>
                             </motion.div>
                         )}
@@ -335,7 +337,7 @@ export const ThoughtStreamClosing = () => {
 
                     {/* Privacy Note */}
                     <p className="mt-6 text-xs text-muted-foreground/60 font-mono">
-                        No spam. Unsubscribe anytime. Your data is safe.
+                        {t('privacy')}
                     </p>
                 </motion.div>
             </div>

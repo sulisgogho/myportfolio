@@ -5,8 +5,10 @@ import { motion } from "framer-motion";
 import { FiArrowRight, FiMail, FiMapPin, FiGithub, FiLinkedin } from "react-icons/fi";
 import { SiSpotify, SiInstagram } from "react-icons/si";
 import { portfolioData } from "@/data/portfolio";
+import { useTranslations } from "next-intl";
 
 export const BlogBento = () => {
+    const t = useTranslations('blogBento');
     return (
         <div className="w-full py-16">
             <div className="mx-auto max-w-5xl px-4">
@@ -26,16 +28,16 @@ export const BlogBento = () => {
                             className="mb-3 size-12 rounded-full"
                         />
                         <h1 className="mb-4 text-xl font-medium leading-tight">
-                            Hi, I'm Tom.{" "}
+                            {t('greeting', { name: portfolioData.personal.name.split(' ')[0] })} <br />
                             <span className="text-muted-foreground">
-                                I build cool websites like this one.
+                                {t('subtitle')}
                             </span>
                         </h1>
                         <a
                             href={`mailto:${portfolioData.personal.email}`}
                             className="flex items-center gap-1 text-red-400 hover:underline text-sm"
                         >
-                            Contact me <FiArrowRight />
+                            {t('contact')} <FiArrowRight />
                         </a>
                     </Block>
 
@@ -101,11 +103,9 @@ export const BlogBento = () => {
                     {/* About Block */}
                     <Block className="col-span-12 text-base leading-relaxed">
                         <p>
-                            <span className="text-foreground font-medium">My passion is building innovative solutions.</span>{" "}
+                            <span className="text-foreground font-medium">{t('passion')}</span>{" "}
                             <span className="text-muted-foreground">
-                                An AI Engineer and Full Stack Developer with expertise in architecting intelligent systems that combine Machine Learning, IoT infrastructure, and Web3 technologies.
-                                Currently focused on advancing AI Agent frameworks and exploring decentralized blockchain applications, bridging the gap between cutting-edge research and practical implementation.
-                                Experienced in designing scalable software architectures and engineering complex technical solutions from concept to deployment.
+                                {t('bio')}
                             </span>
                         </p>
                     </Block>
@@ -118,21 +118,21 @@ export const BlogBento = () => {
 
                     {/* Newsletter Block */}
                     <Block className="col-span-12 md:col-span-9" id="newsletter">
-                        <p className="mb-3 text-base">Join my mailing list</p>
+                        <p className="mb-3 text-base">{t('mailingList')}</p>
                         <form
                             onSubmit={(e) => e.preventDefault()}
                             className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2"
                         >
                             <input
                                 type="email"
-                                placeholder="Enter your email"
+                                placeholder={t('emailPlaceholder')}
                                 className="w-full rounded border border-border bg-card px-3 py-1.5 transition-colors focus:border-primary focus:outline-0"
                             />
                             <button
                                 type="submit"
                                 className="flex items-center justify-center gap-2 whitespace-nowrap rounded bg-foreground px-3 py-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
                             >
-                                <FiMail /> Join the list
+                                <FiMail /> {t('joinButton')}
                             </button>
                         </form>
                     </Block>

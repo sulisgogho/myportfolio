@@ -117,6 +117,7 @@ function ProjectListItem({
     index: number;
     isLowPowerMode?: boolean;
 }) {
+    const tData = useTranslations('data.projects');
     const itemRef = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
     const mouseX = useMotionValue(0);
@@ -222,7 +223,7 @@ function ProjectListItem({
                                 animate={{ x: isHovered ? 8 : 0 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                {project.title}
+                                {tData.has(`${project.id}.title`) ? tData(`${project.id}.title`) : project.title}
                             </motion.h3>
                             <span className={cn(
                                 "shrink-0 px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider",
@@ -234,10 +235,10 @@ function ProjectListItem({
                             </span>
                         </div>
                         <p className="text-muted-foreground text-sm sm:text-base truncate max-w-2xl hidden sm:block">
-                            {project.description}
+                            {tData.has(`${project.id}.description`) ? tData(`${project.id}.description`) : project.description}
                         </p>
                         <p className="text-muted-foreground text-xs line-clamp-1 sm:hidden">
-                            {project.description}
+                            {tData.has(`${project.id}.description`) ? tData(`${project.id}.description`) : project.description}
                         </p>
                     </div>
 
@@ -331,6 +332,7 @@ function ProjectListItem({
 }
 
 function FeaturedCard({ project, onClick, index, isLowPowerMode }: { project: Project; onClick: () => void; index: number; isLowPowerMode?: boolean }) {
+    const tData = useTranslations('data.projects');
     const cardRef = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
     const mouseX = useMotionValue(0);
@@ -532,7 +534,7 @@ function FeaturedCard({ project, onClick, index, isLowPowerMode }: { project: Pr
                             className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4"
                             animate={{ x: isHovered ? 6 : 0 }}
                         >
-                            {project.title}
+                            {tData.has(`${project.id}.title`) ? tData(`${project.id}.title`) : project.title}
                             <motion.div
                                 className={cn(
                                     "absolute -bottom-1 left-0 h-1 rounded-full",
@@ -546,7 +548,7 @@ function FeaturedCard({ project, onClick, index, isLowPowerMode }: { project: Pr
 
                         {/* Description */}
                         <p className="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg md:text-xl mb-6 max-w-2xl line-clamp-2">
-                            {project.description}
+                            {tData.has(`${project.id}.description`) ? tData(`${project.id}.description`) : project.description}
                         </p>
 
                         {/* Tech Stack with stagger */}
@@ -630,6 +632,7 @@ function getBadgeColor(label: string, cardIndex: number) {
 }
 
 function ProjectCard({ project, onClick, index, isLowPowerMode }: { project: Project; onClick: () => void; index: number; isLowPowerMode?: boolean; }) {
+    const tData = useTranslations('data.projects');
     const isOngoing = project.status === 'ongoing';
     const cardRef = useRef<HTMLElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
@@ -820,7 +823,7 @@ function ProjectCard({ project, onClick, index, isLowPowerMode }: { project: Pro
                     {/* Title & Badge Row */}
                     <div className="flex items-start justify-between gap-4 mb-3">
                         <h3 className="text-3xl sm:text-4xl font-serif-elegant text-foreground group-hover:text-primary transition-colors tracking-tight">
-                            {project.title}
+                            {tData.has(`${project.id}.title`) ? tData(`${project.id}.title`) : project.title}
                         </h3>
                         <div className="shrink-0 mt-1 sm:mt-2">
                             {(() => {
@@ -844,7 +847,7 @@ function ProjectCard({ project, onClick, index, isLowPowerMode }: { project: Pro
 
                     {/* Description */}
                     <p className="text-muted-foreground/80 md:text-lg leading-relaxed mb-6 line-clamp-3">
-                        {project.description}
+                        {tData.has(`${project.id}.description`) ? tData(`${project.id}.description`) : project.description}
                     </p>
 
                     {/* Footer Tech Badges */}
@@ -880,6 +883,7 @@ function ProjectCard({ project, onClick, index, isLowPowerMode }: { project: Pro
 }
 
 function CompactCard({ project, onClick, index }: { project: Project; onClick: () => void; index: number }) {
+    const tData = useTranslations('data.projects');
     const [isHovered, setIsHovered] = useState(false);
     const isOngoing = project.status === 'ongoing';
 
@@ -925,12 +929,12 @@ function CompactCard({ project, onClick, index }: { project: Project; onClick: (
                         isHovered && (isOngoing ? "text-emerald-400" : "text-blue-400")
                     )}
                 >
-                    {project.title}
+                    {tData.has(`${project.id}.title`) ? tData(`${project.id}.title`) : project.title}
                 </motion.h4>
 
                 {/* Description */}
                 <p className="text-zinc-500 text-sm line-clamp-2 mb-3 z-10 relative">
-                    {project.description}
+                    {tData.has(`${project.id}.description`) ? tData(`${project.id}.description`) : project.description}
                 </p>
 
                 {/* Tech Preview */}
@@ -1019,11 +1023,11 @@ export default function ProjectsPage() {
     const [selectedCategory, setSelectedCategory] = useState('All');
 
     const categories = [
-        { id: 'All', label: 'All Projects', icon: Globe },
-        { id: 'Website', label: 'Website', icon: Layers },
-        { id: 'Data', label: 'Data', icon: Database },
-        { id: 'Goghotech', label: 'Goghotech', icon: Sparkles },
-        { id: 'Trading', label: 'Trading', icon: Zap },
+        { id: 'All', label: t('categories.all'), icon: Globe },
+        { id: 'Website', label: t('categories.website'), icon: Layers },
+        { id: 'Data', label: t('categories.data'), icon: Database },
+        { id: 'Goghotech', label: t('categories.goghotech'), icon: Sparkles },
+        { id: 'Trading', label: t('categories.trading'), icon: Zap },
     ];
 
     const [projects, setProjects] = useState(portfolioData.projects);
@@ -1153,7 +1157,7 @@ export default function ProjectsPage() {
                                 <div className="flex items-center gap-3">
                                     <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                                     <h2 className="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground">
-                                        Projects Archive
+                                        {t('archiveTitle')}
                                     </h2>
                                     <span className="px-2 py-0.5 rounded-md bg-white/5 text-[10px] font-mono text-muted-foreground border border-white/5">
                                         {String(filteredProjects.length).padStart(2, '0')}
@@ -1167,7 +1171,7 @@ export default function ProjectsPage() {
                                         <Search className="absolute left-3 w-4 h-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
                                         <input
                                             type="text"
-                                            placeholder="Search projects..."
+                                            placeholder={t('search')}
                                             value={searchQuery}
                                             onChange={(e) => setSearchQuery(e.target.value)}
                                             className="w-full pl-9 pr-8 py-2.5 bg-transparent text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none"
@@ -1324,7 +1328,7 @@ export default function ProjectsPage() {
                                     onClick={() => setVisibleCount(visibleCount < filteredProjects.length ? filteredProjects.length : 10)}
                                     showArrowFlip={visibleCount >= filteredProjects.length}
                                 >
-                                    {visibleCount < filteredProjects.length ? 'View All Projects' : 'View Less'}
+                                    {visibleCount < filteredProjects.length ? t('viewAll') : t('sections.viewLess')}
                                 </MagneticFillButton>
                             </motion.div>
                         )
@@ -1334,7 +1338,7 @@ export default function ProjectsPage() {
                         filteredProjects.length === 0 && (
                             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-20">
                                 <Layers className="w-16 h-16 mx-auto text-white/20 mb-4" />
-                                <p className="text-lg text-white/50">No projects found</p>
+                                <p className="text-lg text-white/50">{t('noResults')}</p>
                             </motion.div>
                         )
                     }

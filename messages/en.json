@@ -1,516 +1,1196 @@
 {
-    "navigation": {
-        "home": "Home",
-        "about": "About",
-        "projects": "Projects",
-        "experience": "Experience",
-        "skills": "Skills",
-        "achievements": "Achievements",
-        "blog": "Blog",
-        "gallery": "Gallery",
-        "contact": "Contact",
-        "resume": "Resume",
-        "tools": "Tools",
-        "menu": {
-            "achievements": "Achievements",
-            "achievementsDesc": "Certifications, awards, and milestones",
-            "skills": "Skills",
-            "skillsDesc": "Technologies and tools I work with",
-            "experience": "Experience",
-            "experienceDesc": "My professional journey and growth",
-            "projects": "Projects",
-            "projectsDesc": "A showcase of all my work",
-            "blog": "Blog",
-            "blogDesc": "Thoughts and technical explorations",
-            "gallery": "Gallery",
-            "galleryDesc": "Visual archive of media and projects"
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "skills": "Skills",
+    "achievements": "Achievements",
+    "blog": "Blog",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "resume": "Resume",
+    "tools": "Tools",
+    "menu": {
+      "achievements": "Achievements",
+      "achievementsDesc": "Certifications and awards",
+      "skills": "Skills",
+      "skillsDesc": "Tools and technologies I use",
+      "experience": "Experience",
+      "experienceDesc": "A timeline of my professional roles",
+      "projects": "Projects",
+      "projectsDesc": "A showcase of all my work",
+      "blog": "Blog",
+      "blogDesc": "Thoughts and tutorials",
+      "gallery": "Gallery",
+      "galleryDesc": "Visual archive of media and projects"
+    },
+    "shortcuts": {
+      "volume1": "Volume I: Identity",
+      "volume2": "Volume II: Professional Sequence",
+      "volume3": "Volume III: Competency Matrix",
+      "volume4": "Volume IV: Creative Output",
+      "preview": "Preview Mode",
+      "idRef": "ID_REF"
+    },
+    "sections": {
+      "overview": "Overview",
+      "techStack": "Tech Stack",
+      "capabilities": "Capabilities",
+      "project": "Project",
+      "github": "GitHub",
+      "experience": "Experience"
+    }
+  },
+  "hero": {
+    "greeting": "Welcome to my digital space",
+    "subtitle": "Full Stack Developer • Data Analyst • Software Engineer",
+    "cta": {
+      "primary": "Explore Projects",
+      "secondary": "Get in Touch",
+      "exploreMore": "Explore More"
+    },
+    "badge": "Available for collaboration",
+    "scroll": "Scroll Down",
+    "role": "Full Stack Developer",
+    "description": "Building intelligent systems at the intersection of <span class='text-primary font-semibold'>Full Stack Development</span>, <span class='text-secondary font-semibold'>Data Analytics</span>, and <span class='text-accent font-semibold'>Engineering</span>."
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Full Stack Developer & Data Analyst",
+    "description": "Informatics Engineering graduate (GPA 3.86) specializing in Full Stack Development and Data Analytics. Experienced in building high-performance interactive web apps and data-driven intelligence systems.",
+    "stats": {
+      "experience": "Years Learning",
+      "projects": "Projects Done",
+      "certifications": "Certifications",
+      "competitions": "Competitions"
+    },
+    "identity": "Identity Link Established",
+    "architecting": "Architecting",
+    "digitalReality": "Digital Reality",
+    "leadIn": {
+      "label": "WHAT I DO",
+      "tagline": "CORE FOCUS",
+      "headlineAI": "Data Analytics.",
+      "headlineData": "Integrated Systems.",
+      "headlineSoftware": "Efficient operations",
+      "thesis": "I build systems and <span class='text-primary italic font-serif-elegant font-normal'>data infrastructure</span> that help businesses operate smartly and efficiently.",
+      "scope": "Focusing on data mining, full-stack development, as well as optimizing administrative processes and risk management.",
+      "bridging": "Transforming raw data into business insights.",
+      "integration": "Beyond data analytics, I architect full-stack ecosystems and ensure smooth operational risk management.",
+      "signature": "Sulis",
+      "role": "Fullstack Developer & Data Analyst",
+      "aboutMe": "About Me",
+      "scroll": "Scroll to Explore",
+      "shortStory": "My Short Story"
+    },
+    "coreEngineering": {
+      "label": "Core Expertise",
+      "title": "Proven <span class='text-primary italic font-serif font-light lowercase'>skills.</span> <br /> Real <span class='italic font-serif font-light text-foreground'>results.</span>",
+      "p1": "I develop data-driven solutions using Excel, SQL, and Python, creating interactive visual dashboards with Tableau and Power BI.",
+      "p2": "Integrated into full-stack web applications using React.js and Node.js, ensuring a responsive user experience.",
+      "p3": "All my projects are backed by solid risk management, technical trading insights, and strong administrative skills.",
+      "gpa": "Academic GPA",
+      "projects": "Completed Projects",
+      "years": "Years Exp."
+    },
+    "emergingResearch": {
+      "label": "Exploration Phase",
+      "title": "EMERGING RESEARCH <span class='italic font-serif font-light text-primary lowercase'>&</span> EXPANSION",
+      "agentic": {
+        "title": "AGENTIC AI SYSTEMS",
+        "desc": "Exploring autonomous agents, multi-agent orchestration, and reasoning frameworks — extending my applied AI foundation into self-directed decision-making systems."
+      },
+      "web3": {
+        "title": "WEB3 & BLOCKCHAIN",
+        "desc": "Building decentralized applications with Solidity and Hardhat. Currently hands-on with smart contract development through projects like the Web3 Guestbook DApp on Ethereum."
+      }
+    },
+    "profile": {
+      "title": "Architecting Scalable Systems <br /> Where Intelligence Meets Engineering.",
+      "narrativeLabel": "Core Narrative",
+      "narrative": "As an Informatics Engineering graduate from Universitas Muhammadiyah Jember, specializing in Data Analysis and Full-stack Development, I focus on building systems that bridge data insights with production-ready implementation.",
+      "narrative2": "My work combines analytical thinking, frontend and backend engineering, and scalable architecture to deliver solutions that are insightful, reliable, and built for real-world impact.",
+      "pillars": {
+        "reliable": {
+          "title": "Robust by Design",
+          "desc": "Engineered for reliability under scale and operational pressure."
         },
-        "shortcuts": {
-            "volume1": "Volume I: Identity",
-            "volume2": "Volume II: Professional Sequence",
-            "volume3": "Volume III: Competency Matrix",
-            "volume4": "Volume IV: Creative Output",
-            "preview": "Preview Mode",
-            "idRef": "ID_REF"
+        "optimized": {
+          "title": "Production-Ready",
+          "desc": "From prototype to deployment with engineering discipline."
+        },
+        "maintainable": {
+          "title": "Architected for Evolution",
+          "desc": "Designed to grow, adapt, and sustain long-term system development."
+        },
+        "evolvable": {
+          "title": "Data-Driven Intelligence",
+          "desc": "Decisions powered by models, metrics, and measurable performance."
         }
+      }
     },
-    "hero": {
-        "greeting": "Welcome to my digital space",
-        "subtitle": "Full Stack Developer • Data Analyst • Software Engineer",
-        "cta": {
-            "primary": "Explore Projects",
-            "secondary": "Get in Touch",
-            "exploreMore": "Explore More"
+    "closing": {
+      "experience": {
+        "label": "BACKGROUND",
+        "title1": "KEY",
+        "title2": "EXPERIENCE",
+        "viewMore": "Full Experience"
+      },
+      "projects": {
+        "label": "PORTFOLIO",
+        "title1": "FLAGSHIP",
+        "title2": "PROJECTS",
+        "viewMore": "All Projects"
+      },
+      "experiencesList": [
+        {
+          "company": "Dicoding Academy",
+          "role": "MACHINE LEARNING CODE REVIEWER",
+          "desc": "Technical evaluation and quality assurance of ML project submissions. Validating logical correctness, efficiency, and enforcing industry best practices for learners."
         },
-        "badge": "Available for collaboration",
-        "scroll": "Scroll Down",
-        "role": "Full Stack Developer",
-        "description": "Building intelligent systems at the intersection of <span class='text-primary font-semibold'>Full Stack Development</span>, <span class='text-secondary font-semibold'>Data Analytics</span>, and <span class='text-accent font-semibold'>Engineering</span>."
-    },
-    "about": {
-        "title": "About Me",
-        "subtitle": "Full Stack Developer & Data Analyst",
-        "description": "Informatics Engineering graduate (GPA 3.86) specializing in Full Stack Development and Data Analytics. Experienced in building high-performance interactive web apps and data-driven intelligence systems.",
-        "stats": {
-            "experience": "Years Learning",
-            "projects": "Projects Done",
-            "certifications": "Certifications",
-            "competitions": "Competitions"
+        {
+          "company": "Advanced Software Engineering Laboratory",
+          "role": "SYSTEM ANALYST INTERN",
+          "desc": "Translating complex requirements into SRS documentation and designing system architectures using UML diagrams. focused on software design."
         },
-        "identity": "Identity Link Established",
-        "architecting": "Architecting",
-        "digitalReality": "Digital Reality",
-        "leadIn": {
-            "label": "WHAT I DO",
-            "tagline": "CORE FOCUS",
-            "headlineAI": "Data Analytics.",
-            "headlineData": "Integrated Systems.",
-            "headlineSoftware": "Efficient operations",
-            "thesis": "I build systems and <span class='text-primary italic font-serif-elegant font-normal'>data infrastructure</span> that help businesses operate smartly and efficiently.",
-            "scope": "Focusing on data mining, full-stack development, as well as optimizing administrative processes and risk management.",
-            "bridging": "Transforming raw data into business insights.",
-            "integration": "Beyond data analytics, I architect full-stack ecosystems and ensure smooth operational risk management.",
-            "signature": "Sulis",
-            "role": "Fullstack Developer & Data Analyst",
-            "aboutMe": "About Me",
-            "scroll": "Scroll to Explore",
-            "shortStory": "My Short Story"
+        {
+          "company": "Cyber Physical System Laboratory",
+          "role": "RESEARCH ASSISTANT (CONTRACT)",
+          "desc": "Developing AI-driven research products and designing learning materials for Deep Learning and Computer Vision. Contributing to intelligent systems."
         },
-        "coreEngineering": {
-            "label": "Core Expertise",
-            "title": "Proven <span class='text-primary italic font-serif font-light lowercase'>skills.</span> <br /> Real <span class='italic font-serif font-light text-foreground'>results.</span>",
-            "p1": "I develop data-driven solutions using Excel, SQL, and Python, creating interactive visual dashboards with Tableau and Power BI.",
-            "p2": "Integrated into full-stack web applications using React.js and Node.js, ensuring a responsive user experience.",
-            "p3": "All my projects are backed by solid risk management, technical trading insights, and strong administrative skills.",
-            "gpa": "Academic GPA",
-            "projects": "Completed Projects",
-            "years": "Years Exp."
+        {
+          "company": "HUMIC Engineering Research Center",
+          "role": "AI DEVELOPER INTERN",
+          "desc": "Built Transformer-based attack detection models for cybersecurity applications. Managed large-scale datasets through the full ML pipeline."
         },
-        "emergingResearch": {
-            "label": "Exploration Phase",
-            "title": "EMERGING RESEARCH <span class='italic font-serif font-light text-primary lowercase'>&</span> EXPANSION",
-            "agentic": {
-                "title": "AGENTIC AI SYSTEMS",
-                "desc": "Exploring autonomous agents, multi-agent orchestration, and reasoning frameworks — extending my applied AI foundation into self-directed decision-making systems."
-            },
-            "web3": {
-                "title": "WEB3 & BLOCKCHAIN",
-                "desc": "Building decentralized applications with Solidity and Hardhat. Currently hands-on with smart contract development through projects like the Web3 Guestbook DApp on Ethereum."
-            }
-        },
-        "profile": {
-            "title": "Architecting Scalable Systems <br /> Where Intelligence Meets Engineering.",
-            "narrativeLabel": "Core Narrative",
-            "narrative": "As an Informatics Engineering graduate from Universitas Muhammadiyah Jember, specializing in Data Analysis and Full-stack Development, I focus on building systems that bridge data insights with production-ready implementation.",
-            "narrative2": "My work combines analytical thinking, frontend and backend engineering, and scalable architecture to deliver solutions that are insightful, reliable, and built for real-world impact.",
-            "pillars": {
-                "reliable": {
-                    "title": "Robust by Design",
-                    "desc": "Engineered for reliability under scale and operational pressure."
-                },
-                "optimized": {
-                    "title": "Production-Ready",
-                    "desc": "From prototype to deployment with engineering discipline."
-                },
-                "maintainable": {
-                    "title": "Architected for Evolution",
-                    "desc": "Designed to grow, adapt, and sustain long-term system development."
-                },
-                "evolvable": {
-                    "title": "Data-Driven Intelligence",
-                    "desc": "Decisions powered by models, metrics, and measurable performance."
-                }
-            }
-        },
-        "closing": {
-            "experience": {
-                "label": "BACKGROUND",
-                "title1": "KEY",
-                "title2": "EXPERIENCE",
-                "viewMore": "Full Experience"
-            },
-            "projects": {
-                "label": "PORTFOLIO",
-                "title1": "FLAGSHIP",
-                "title2": "PROJECTS",
-                "viewMore": "All Projects"
-            },
-            "experiencesList": [
-                {
-                    "company": "Dicoding Academy",
-                    "role": "MACHINE LEARNING CODE REVIEWER",
-                    "desc": "Technical evaluation and quality assurance of ML project submissions. Validating logical correctness, efficiency, and enforcing industry best practices for learners."
-                },
-                {
-                    "company": "Advanced Software Engineering Laboratory",
-                    "role": "SYSTEM ANALYST INTERN",
-                    "desc": "Translating complex requirements into SRS documentation and designing system architectures using UML diagrams. focused on software design."
-                },
-                {
-                    "company": "Cyber Physical System Laboratory",
-                    "role": "RESEARCH ASSISTANT (CONTRACT)",
-                    "desc": "Developing AI-driven research products and designing learning materials for Deep Learning and Computer Vision. Contributing to intelligent systems."
-                },
-                {
-                    "company": "HUMIC Engineering Research Center",
-                    "role": "AI DEVELOPER INTERN",
-                    "desc": "Built Transformer-based attack detection models for cybersecurity applications. Managed large-scale datasets through the full ML pipeline."
-                },
-                {
-                    "company": "Cyber Physical System Laboratory",
-                    "role": "COMPUTER VISION RESEARCHER INTERN",
-                    "desc": "End-to-end development of intelligent models using state-of-the-art Deep Learning architectures. Implemented ML algorithms for real-world applications."
-                }
-            ],
-            "projectsList": [
-                {
-                    "title": "Creative Portfolio Website",
-                    "desc": "Modern, animated portfolio with 3D elements, physics-simulated interactions, and shader-based warp effects. Engineered for high performance & optimization."
-                },
-                {
-                    "title": "SNBTIn - Platform Persiapan SNBT 2025",
-                    "desc": "Leading EdTech platform in Indonesia for exam preparation. Featuring a comprehensive learning ecosystem with interactive and real-time analytics."
-                },
-                {
-                    "title": "TerraFlow Platform",
-                    "desc": "Enterprise IoT solution for precision agriculture. ESP32 sensor nodes communicate with Firebase via a Go (Gin), with a Next.js dashboard for real-time monitoring"
-                },
-                {
-                    "title": "DocsInsight Engine",
-                    "desc": "Private RAG platform for intelligent document analysis. Powered by local LLMs through Ollama, with LangChain orchestration and ChromaDB vector search."
-                },
-                {
-                    "title": "POLABDC Dental Management",
-                    "desc": "AI-powered dental clinic SaaS with disease prediction, real-time queue management, and a Monorepo architecture Next.js, Express.js, and Python"
-                }
-            ],
-            "discoverMore": "Discover More"
+        {
+          "company": "Cyber Physical System Laboratory",
+          "role": "COMPUTER VISION RESEARCHER INTERN",
+          "desc": "End-to-end development of intelligent models using state-of-the-art Deep Learning architectures. Implemented ML algorithms for real-world applications."
         }
-    },
-    "projects": {
-        "title": "Projects",
-        "subtitle": "A showcase of my creative and technical work",
-        "search": "Search projects...",
-        "viewAll": "View All Projects",
-        "viewProject": "View Project",
-        "liveDemo": "Live Demo",
-        "sourceCode": "Source Code",
-        "techStack": "Tech Stack",
-        "tools": "Tools Used",
-        "highlights": "Highlights",
-        "challenges": "Challenges",
-        "filters": {
-            "all": "All",
-            "ongoing": "Ongoing",
-            "completed": "Completed"
+      ],
+      "projectsList": [
+        {
+          "title": "Creative Portfolio Website",
+          "desc": "Modern, animated portfolio with 3D elements, physics-simulated interactions, and shader-based warp effects. Engineered for high performance & optimization."
         },
-        "sections": {
-            "missionBrief": "Mission Brief",
-            "keyFeatures": "Key Features",
-            "engineeringChronicles": "Engineering Chronicles",
-            "visualGallery": "Visual Gallery",
-            "installation": "Installation Instructions",
-            "projectAccess": "Project Access",
-            "technologies": "Technologies",
-            "contents": "Table of Contents",
-            "moreProjects": "More Projects",
-            "backToProjects": "Back to Projects",
-            "viewMore": "View More",
-            "viewLess": "Show Less",
-            "solution": "Solution",
-            "liveDemo": "Live Demo",
-            "sourceCode": "Source Code"
+        {
+          "title": "SNBTIn - Platform Persiapan SNBT 2025",
+          "desc": "Leading EdTech platform in Indonesia for exam preparation. Featuring a comprehensive learning ecosystem with interactive and real-time analytics."
         },
-        "status": {
-            "ongoing": "Active Development",
-            "completed": "Completed Project"
+        {
+          "title": "TerraFlow Platform",
+          "desc": "Enterprise IoT solution for precision agriculture. ESP32 sensor nodes communicate with Firebase via a Go (Gin), with a Next.js dashboard for real-time monitoring"
         },
-        "metadata": {
-            "role": "Role",
-            "timeline": "Timeline",
-            "team": "Team",
-            "techStack": "Tech Stack",
-            "roleValue": "Full Stack Dev",
-            "teamValue": "Individual",
-            "techStackValue": "{count} Technologies"
+        {
+          "title": "DocsInsight Engine",
+          "desc": "Private RAG platform for intelligent document analysis. Powered by local LLMs through Ollama, with LangChain orchestration and ChromaDB vector search."
+        },
+        {
+          "title": "POLABDC Dental Management",
+          "desc": "AI-powered dental clinic SaaS with disease prediction, real-time queue management, and a Monorepo architecture Next.js, Express.js, and Python"
         }
+      ],
+      "discoverMore": "Discover More"
     },
-    "experience": {
-        "title": "Experience",
-        "subtitle": "My professional journey and growth",
-        "showDetail": "Show Detail",
-        "hideDetail": "Hide Detail",
-        "tasks": "TASKS",
-        "learned": "WHAT I LEARNED",
-        "impact": "IMPACT",
-        "present": "Present",
-        "responsibilities": "Responsibilities",
-        "skills": "Skills Used",
-        "month": "month",
-        "months": "months",
-        "year": "year",
-        "years": "years",
-        "type": {
-            "full-time": "Full-time",
-            "part-time": "Part-time",
-            "internship": "Internship",
-            "freelance": "Freelance",
-            "contract": "Contract",
-            "apprenticeship": "Apprenticeship",
-            "volunteer": "Volunteer"
-        },
-        "filters": {
-            "all": "All",
-            "latest": "Latest",
-            "oldest": "Oldest",
-            "ongoing": "Ongoing"
-        },
-        "education": {
-            "title": "Education"
-        }
+    "techStackEcosystem": "Tech Stack & Ecosystem"
+  },
+  "profileCard": {
+    "role": "Data Analyst & Full-stack Developer",
+    "description": "{name} is a dedicated Data Analyst & Full-stack Developer focused on building scalable systems, analyzing complex data, and creating robust web architectures. She specializes in bridging technical innovation with high-performance execution to deliver meaningful and impactful digital solutions."
+  },
+  "impactSection": {
+    "knowledgeBase": "Knowledge Base",
+    "engineering": "The Engineering",
+    "process": "Process.",
+    "desc": "Documenting the journey from concept to deployment. Read the latest thoughts on AI, engineering, and digital architecture.",
+    "readArticle": "Read Article",
+    "accessBase": "Access the Complete Knowledge Base"
+  },
+  "manifestoHero": {
+    "word1": "The",
+    "word2": "Code",
+    "word3": "Is merely a vessel for",
+    "word4": "Human",
+    "word5": "Emotion.",
+    "paragraph": "\"We build systems not just to process data, but to feel something. This archive is a collection of moments where logic met beauty.\""
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A showcase of my creative and technical work",
+    "search": "Search projects...",
+    "viewAll": "View All Projects",
+    "viewProject": "View Project",
+    "liveDemo": "Live Demo",
+    "sourceCode": "Source Code",
+    "techStack": "Tech Stack",
+    "tools": "Tools Used",
+    "highlights": "Highlights",
+    "challenges": "Challenges",
+    "filters": {
+      "all": "All",
+      "ongoing": "Ongoing",
+      "completed": "Completed"
     },
-    "expertise": {
-        "title": "Core Capabilities",
-        "subtitle": "Specialized in cutting-edge technologies that power modern digital experiences",
-        "dragHint": "Drag or scroll to explore"
+    "sections": {
+      "missionBrief": "Mission Brief",
+      "keyFeatures": "Key Features",
+      "engineeringChronicles": "Engineering Chronicles",
+      "visualGallery": "Visual Gallery",
+      "installation": "Installation Instructions",
+      "projectAccess": "Project Access",
+      "technologies": "Technologies",
+      "contents": "Table of Contents",
+      "moreProjects": "More Projects",
+      "backToProjects": "Back to Projects",
+      "viewMore": "View More",
+      "viewLess": "Show Less",
+      "solution": "Solution",
+      "liveDemo": "Live Demo",
+      "sourceCode": "Source Code",
+      "document": "Document"
     },
-    "skills": {
-        "title": "Skills & Tools",
-        "subtitle": "Technologies and tools I work with",
-        "hard": "Hard Skills",
-        "soft": "Soft Skills",
-        "technical": "Technical Proficiency",
-        "tools": "Tools & Software",
-        "pillars": "Core Pillars",
-        "achievements": "Verified Achievements",
-        "level": {
-            "beginner": "Beginner",
-            "intermediate": "Intermediate",
-            "advanced": "Advanced",
-            "expert": "Expert"
-        }
+    "status": {
+      "ongoing": "Active Development",
+      "completed": "Completed Project"
     },
-    "achievements": {
-        "title": "Achievements",
-        "subtitle": "Certifications, awards, and milestones",
-        "search": "Search achievements...",
-        "viewCredential": "View Credential",
-        "category": {
-            "all": "All",
-            "certification": "Certification",
-            "award": "Award",
-            "publication": "Publication",
-            "competition": "Competition"
-        },
-        "sort": {
-            "newest": "Newest",
-            "oldest": "Oldest"
-        },
-        "stats": {
-            "total": "Total Achievements",
-            "awards": "Awards Won",
-            "certifications": "Certifications"
-        }
+    "metadata": {
+      "role": "Role",
+      "timeline": "Timeline",
+      "team": "Team",
+      "techStack": "Tech Stack",
+      "roleValue": "Full Stack Dev",
+      "teamValue": "Individual",
+      "techStackValue": "{count} Technologies",
+      "status": "Status",
+      "ongoing": "Ongoing",
+      "finished": "Finished",
+      "tech": "Tech"
     },
-    "contact": {
-        "title": "Get in Touch",
-        "subtitle": "Let's build something amazing together",
-        "form": {
-            "name": "Your Name",
-            "email": "Your Email",
-            "subject": "Subject",
-            "message": "Your Message",
-            "messagePlaceholder": "Tell me about your project...",
-            "send": "Send Message",
-            "submit": "SEND VIA WHATSAPP",
-            "sending": "OPENING WHATSAPP...",
-            "sent": "OPENED!",
-            "success": "Opening WhatsApp...",
-            "error": "Something went wrong. Please try again."
-        },
-        "social": {
-            "title": "Connect on Social Media"
-        },
-        "faq": {
-            "title": "Frequently Asked Questions"
-        },
-        "info": {
-            "email": "Email",
-            "phone": "Phone",
-            "location": "Location",
-            "availability": "Open for opportunities"
-        },
-        "hero": {
-            "title": "LET'S TALK",
-            "subtitle": "Have an idea? Let's build something extraordinary together.",
-            "ticker": {
-                "build": "Let's Build Something Amazing · ",
-                "freelance": "Available for Freelance · "
-            }
-        },
-        "faqData": [
-            {
-                "q": "What is your main area of expertise?",
-                "a": "As an Informatics Engineering graduate from Universitas Muhammadiyah Jember with a focus on Data Analyst and Full-stack Developer, I specialize in data analysis, database management, and efficient web application development."
-            },
-            {
-                "q": "Are you available for research or freelance collaborations?",
-                "a": "Absolutely. I am always open to innovative freelance projects, full-time roles, or technical collaborations that focus on data-driven problem solving and web application development."
-            },
-            {
-                "q": "What is your typical tech stack for production?",
-                "a": "For data analysis, I use Python, SQL, Pandas, Tableau, and Power BI. For web applications, I typically use React, Node.js, Tailwind CSS, and Next.js."
-            },
-            {
-                "q": "Do you have experience with enterprise or lab projects?",
-                "a": "Yes, I have worked on various projects such as a daily financial tracking system, technology trend analysis using large-scale datasets, and developing a company profile website for SMEs."
-            },
-            {
-                "q": "How can we start a partnership or project?",
-                "a": "The most efficient way is to use the contact form above or reach out directly via email at sulistyowatimunawaroh@gmail.com. I will be happy to respond to discuss your data analysis or system requirements."
-            }
-        ]
+    "archiveTitle": "Projects Archive",
+    "categories": {
+      "all": "All Projects",
+      "website": "Website",
+      "data": "Data",
+      "goghotech": "Goghotech",
+      "trading": "Trading"
     },
-    "footer": {
-        "copyright": "All rights reserved.",
-        "madeWith": "Made with",
-        "more": "More",
-        "marquee": [
-            "Open to Opportunities",
-            "Frontend Development",
-            "Backend Architecture",
-            "UI/UX Design",
-            "Creative Coding",
-            "System Optimization"
-        ],
-        "cta": {
-            "title": "Let's Work",
-            "titleHighlight": "Together",
-            "subtitle": "Have a project in mind? Let's build something extraordinary that solves real problems."
-        },
-        "links": "LINKS",
-        "socials": "SOCIALS",
-        "localTime": "LOCAL TIME",
-        "version": "VERSION",
-        "versionEdition": "2026 © Edition"
+    "exploreProject": "Explore Project",
+    "noResults": "No projects found",
+    "viewSource": "View Source",
+    "projectOverview": "Project Overview",
+    "tech": {
+      "breakdown": "Tech Breakdown",
+      "creativeArsenal": "Creative Arsenal",
+      "exploreTechStack": "Explore Tech Stack"
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "My professional journey and growth",
+    "showDetail": "Show Detail",
+    "hideDetail": "Hide Detail",
+    "tasks": "TASKS & RESPONSIBILITIES",
+    "learned": "WHAT I LEARNED",
+    "impact": "IMPACT",
+    "present": "Present",
+    "responsibilities": "Responsibilities",
+    "skills": "Skills Used",
+    "month": "month",
+    "months": "months",
+    "year": "year",
+    "years": "years",
+    "type": {
+      "full-time": "Full-time",
+      "part-time": "Part-time",
+      "internship": "Internship",
+      "freelance": "Freelance",
+      "contract": "Contract",
+      "apprenticeship": "Apprenticeship",
+      "volunteer": "Volunteer"
     },
-    "ctaSection": {
-        "title": "Let's Build Something",
-        "together": "Together",
-        "subtitle": "Open to strategic collaborations in AI driven systems and scalable full Stack Engineering. Let’s transform ambitious ideas into production ready solutions.",
-        "start": "Hire Me",
-        "work": "View My Resume",
-        "words": {
-            "amazing": "Amazing",
-            "innovative": "Innovative",
-            "intelligent": "Intelligent",
-            "creative": "Creative"
-        },
-        "ribbon1": "Next.js • React • Python • PyTorch • Pandas • TypeScript • Node.js • Scikit-Learn • TensorFlow • SQL",
-        "ribbon2": "Software Engineer • AI Engineer • Data Scientist • Data Analyst • Machine Learning Engineer • Backend Developer • Full Stack Engineer • NLP Engineer • Data Engineer • Web Developer"
+    "filters": {
+      "all": "All",
+      "latest": "Latest",
+      "oldest": "Oldest",
+      "ongoing": "Ongoing"
+    },
+    "education": {
+      "title": "Education"
+    },
+    "tabs": {
+      "education": {
+        "label": "Education",
+        "description": "Building strong foundations through academic excellence at Universitas Muhammadiyah Jember and SMAN 1 Kraksaan."
+      },
+      "journey": {
+        "label": "Journey",
+        "description": "A timeline of roles, responsibilities, and professional growth across various organizations."
+      },
+      "experience": {
+        "label": "Experience",
+        "description": "Real-world projects that solve real problems. Building solutions that make a difference."
+      }
+    },
+    "categories": {
+      "professional": {
+        "label": "Professional Experience",
+        "desc": "Tap to explore professional records"
+      },
+      "leadership": {
+        "label": "Leadership & Organizational",
+        "desc": "Tap to explore leadership records"
+      },
+      "volunteer": {
+        "label": "Volunteer Experience",
+        "desc": "Tap to explore volunteer records"
+      },
+      "certifications": {
+        "label": "Certifications & Development",
+        "desc": "Tap to explore certification records"
+      }
+    },
+    "ui": {
+      "selectArchive": "SELECT",
+      "archive": "ARCHIVE",
+      "navigateTimeline": "Navigate through the timeline of my career. Choose a lens to filter the experience database.",
+      "backToSelection": "Back to Selection",
+      "filterView": "Filter View",
+      "noRecords": "No records found in this sector."
+    },
+    "highlight": {
+      "education": {
+        "title": "Building the Future",
+        "highlight": "Through Knowledge",
+        "description": "Every line of code starts with understanding. My academic journey at Universitas Muhammadiyah Jember shapes how I approach complex problems with systematic thinking."
+      },
+      "journey": {
+        "title": "Crafting Experiences",
+        "highlight": "That Matter",
+        "description": "From internships to leadership roles, each step has been a lesson in collaboration, innovation, and pushing boundaries."
+      },
+      "experience": {
+        "title": "Turning Ideas",
+        "highlight": "Into Reality",
+        "description": "Real-world projects that solve real problems. Building solutions that make a difference."
+      }
+    },
+    "showLess": "Show Less",
+    "moreAttachments": "+{count} More Attachments"
+  },
+  "expertise": {
+    "title": "Core Capabilities",
+    "subtitle": "Specialized in cutting-edge technologies that power modern digital experiences",
+    "dragHint": "Drag or scroll to explore"
+  },
+  "skills": {
+    "title": "Skills & Tools",
+    "subtitle": "Technologies and tools I work with",
+    "hard": "Hard Skills",
+    "soft": "Soft Skills",
+    "technical": "Technical Proficiency",
+    "tools": "Tools & Software",
+    "pillars": "Core Pillars",
+    "achievements": "Verified Achievements",
+    "coreTechnologies": "CORE TECHNOLOGIES",
+    "engineeringFoundation": "The Engineering Foundation",
+    "engineeringDesc": "Building scalable architectures using modern languages and frameworks optimized for high-performance execution.",
+    "level": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "expert": "Expert"
+    }
+  },
+  "achievements": {
+    "title": "Achievements",
+    "subtitle": "Certifications, awards, and milestones",
+    "search": "Search achievements...",
+    "viewCredential": "View Credential",
+    "verifiedCredential": "Verified Credential",
+    "expandArchive": "Expand Archive",
+    "verifySource": "Verify Source",
+    "searchPlaceholder": "Search archive...",
+    "searchPlaceholderMobile": "Search...",
+    "theArchive": "The Archive",
+    "allEntries": "All Entries",
+    "certifications": "Certifications",
+    "awards": "Awards",
+    "competitions": "Competitions",
+    "recognitions": "Recognitions",
+    "achievementsCountLabel": "Achievements",
+    "noEntriesFound": "No Archive Entries Found",
+    "resourceNotFound": "[ ERROR 404: RESOURCE_NOT_FOUND ]",
+    "resetQuery": "$ reset --query",
+    "noAchievements": "No achievements found",
+    "technicalUniverse": "Technical Universe",
+    "technicalUniverseDesc": "Interact with the core technologies and values that drive my research and development journey.",
+    "category": {
+      "all": "All",
+      "certification": "Certification",
+      "award": "Award",
+      "publication": "Publication",
+      "competition": "Competition"
+    },
+    "sort": {
+      "newest": "Newest",
+      "oldest": "Oldest"
     },
     "stats": {
-        "systemStatus": "System Status: Analytics Active",
-        "portfolio": "Engineering Metrics",
-        "totalPulse": "Total Pulse",
-        "peakActivity": "Peak Activity",
-        "dailyAverage": "Daily Average",
-        "currentSprint": "Current Sprint",
-        "engageFlow": "Engage Flow",
-        "weeklyEffort": "Weekly Coding Effort",
-        "processSpeed": "Process Speed",
-        "avgPerf": "Average Performance",
-        "latency": "LATENCY: 14MS",
-        "system": "SYSTEM: DARWIN_X64_STABLE",
-        "scanning": "SCANNING_LIVE_RESOURCES",
-        "engineering": "ENGINEERING",
-        "metrics": "METRICS",
-        "analyticsSub": "ANALYTICS / INFRASTRUCTURE / PERFORMANCE DATA",
-        "statusOnline": "STATUS: ONLINE",
-        "loadStable": "SYSTEM_LOAD: STABLE"
-    },
-    "projectHeader": {
-        "title": "Architecting Scalable Web & Data Systems",
-        "subtitle": "A curated showcase of technical innovation and creative engineering. Exploring the synergy of <span class='font-bold text-foreground'>Fullstack Web Development</span>, Data Analytics, and Automated Systems."
-    },
-    "common": {
-        "loading": "Loading...",
-        "error": "Something went wrong",
-        "notFound": "Page not found",
-        "backHome": "Back to Home",
-        "viewMore": "View More",
-        "readMore": "Read More",
-        "close": "Close",
-        "download": "Download",
-        "share": "Share",
-        "scrollAudit": "Scroll to explore"
-    },
-    "technical": {
-        "github": {
-            "title": "GitHub Contributions",
-            "description": "My GitHub activity over the last year.",
-            "total": "Total",
-            "thisWeek": "This Week",
-            "best": "Best",
-            "average": "Average",
-            "less": "Less",
-            "more": "More"
-        },
-        "wakatime": {
-            "title": "WakaTime Stats",
-            "description": "Coding activity over the last 7 days.",
-            "lastUpdate": "Last Updated",
-            "startDate": "Start Date",
-            "endDate": "End Date",
-            "dailyAverage": "Daily Average",
-            "totalWeek": "Total This Week",
-            "bestDay": "Best Day",
-            "totalSince": "Total Since Joined",
-            "topLanguages": "Top Languages"
-        }
-    },
-    "blog": {
-        "title": "Thoughts & Explorations",
-        "subtitle": "Bridging the gap between technical complexity and practical implementation. A collection of insights on AI, Web3, and Software Engineering.",
-        "sectionBadge": "The Digital Archive",
-        "search": "Search articles...",
-        "readTime": "min read",
-        "readMore": "Read Post",
-        "back": "Back to Blog",
-        "noResults": "No articles found",
-        "categories": {
-            "Data": "Data",
-            "Fullstack": "Fullstack",
-            "Trading": "Trading",
-            "more": "More"
-        }
-    },
-    "gallery": {
-        "title": "Visual Archive",
-        "subtitle": "A curated collection of project highlights, technical documentation, and creative visual explorations.",
-        "filter": {
-            "all": "All Media",
-            "image": "Photos",
-            "video": "Videos"
-        },
-        "viewMedia": "View Media"
-    },
-    "chatbot": {
-        "title": "AI Assistant",
-        "subtitle": "Ask me about Sulis",
-        "placeholder": "Type a message...",
-        "greeting": "Hi! I'm an AI assistant for **{name}**. 👋\n\nI can answer questions about:\n- Skills & technical expertise\n- Projects and work\n- Experience\n- Education\n- And more!\n\nAnything you'd like to ask?",
-        "suggestions": [
-            "What are your main skills?",
-            "Tell me about your best project",
-            "What is your work experience?",
-            "What AI skills do you have?"
-        ],
-        "error": "An error occurred. Please try again.",
-        "invalidResponse": "Invalid response from server.",
-        "unknownError": "An unknown error occurred.",
-        "retry": "Try again",
-        "inputHint": "Enter to send, Shift+Enter for newline",
-        "close": "Close chat"
+      "total": "Total Achievements",
+      "awards": "Awards Won",
+      "certifications": "Certifications"
     }
+  },
+  "resume": {
+    "backToPortfolio": "Back to Portfolio",
+    "openInNewTab": "Open in New Tab"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Let's build something amazing together",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Your Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "send": "Send Message",
+      "submit": "SEND VIA WHATSAPP",
+      "sending": "OPENING WHATSAPP...",
+      "sent": "OPENED!",
+      "success": "Opening WhatsApp...",
+      "error": "Something went wrong. Please try again.",
+      "chatDirectly": "Chat directly via WhatsApp"
+    },
+    "social": {
+      "title": "Connect on Social Media"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions"
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "availability": "Open for opportunities"
+    },
+    "hero": {
+      "title": "LET'S TALK",
+      "subtitle": "Have an idea? Let's build something extraordinary together.",
+      "ticker": {
+        "build": "Let's Build Something Amazing · ",
+        "freelance": "Available for Freelance · "
+      }
+    },
+    "faqData": [
+      {
+        "q": "What is your main area of expertise?",
+        "a": "As an Informatics Engineering graduate from Universitas Muhammadiyah Jember with a focus on Data Analyst and Full-stack Developer, I specialize in data analysis, database management, and efficient web application development."
+      },
+      {
+        "q": "Are you available for research or freelance collaborations?",
+        "a": "Absolutely. I am always open to innovative freelance projects, full-time roles, or technical collaborations that focus on data-driven problem solving and web application development."
+      },
+      {
+        "q": "What is your typical tech stack for production?",
+        "a": "For data analysis, I use Python, SQL, Pandas, Tableau, and Power BI. For web applications, I typically use React, Node.js, Tailwind CSS, and Next.js."
+      },
+      {
+        "q": "Do you have experience with enterprise or lab projects?",
+        "a": "Yes, I have worked on various projects such as a daily financial tracking system, technology trend analysis using large-scale datasets, and developing a company profile website for SMEs."
+      },
+      {
+        "q": "How can we start a partnership or project?",
+        "a": "The most efficient way is to use the contact form above or reach out directly via email at sulistyowatimunawaroh@gmail.com. I will be happy to respond to discuss your data analysis or system requirements."
+      }
+    ],
+    "interactiveCardUnavailable": "Interactive Card Unavailable",
+    "archiveIdStatic": "Archive ID // Static",
+    "connect": "Connect",
+    "socialDescriptions": {
+      "GitHub": "Open Source & Code",
+      "LinkedIn": "Career & Network",
+      "Instagram": "Creative & Moments",
+      "Twitter": "Thoughts",
+      "Discord": "Community",
+      "Spotify": "Music"
+    }
+  },
+  "footer": {
+    "copyright": "All rights reserved.",
+    "madeWith": "Made with",
+    "more": "More",
+    "marquee": {
+      "0": "Sulistyo",
+      "1": "Portfolio",
+      "2": "Fullstack Developer",
+      "3": "Data Analyst",
+      "4": "Available for Work",
+      "5": "Let's Connect"
+    },
+    "cta": {
+      "title": "Let's Work",
+      "titleHighlight": "Together",
+      "subtitle": "Have a project in mind? Let's build something extraordinary that solves real problems."
+    },
+    "links": "Navigation",
+    "socials": "Socials",
+    "localTime": "Local Time",
+    "version": "Version",
+    "versionEdition": "2026 Edition"
+  },
+  "ctaSection": {
+    "status": "Open for New Projects & Opportunities",
+    "headline1": "Ready to Build Something",
+    "headline2": "Remarkable Together?",
+    "desc": "Whether you need a high-performance web platform, an interactive fullstack system, or data intelligence solutions — let's build software that makes a real impact.",
+    "btn1": "Start Project Discussion",
+    "btn2": "Chat via WhatsApp",
+    "badge1": "Quick Response (< 24h)",
+    "badge2": "Fullstack & Analytics Expertise",
+    "badge3": "Flexible Timezone / Remote Ready"
+  },
+  "stats": {
+    "systemStatus": "System Status: Analytics Active",
+    "portfolio": "Engineering Metrics",
+    "totalPulse": "Total Pulse",
+    "peakActivity": "Peak Activity",
+    "dailyAverage": "Daily Average",
+    "currentSprint": "Current Sprint",
+    "engageFlow": "Engage Flow",
+    "weeklyEffort": "Weekly Coding Effort",
+    "processSpeed": "Process Speed",
+    "avgPerf": "Average Performance",
+    "latency": "LATENCY: 14MS",
+    "system": "SYSTEM: DARWIN_X64_STABLE",
+    "scanning": "SCANNING_LIVE_RESOURCES",
+    "engineering": "ENGINEERING",
+    "metrics": "METRICS",
+    "analyticsSub": "ANALYTICS / INFRASTRUCTURE / PERFORMANCE DATA",
+    "statusOnline": "STATUS: ONLINE",
+    "loadStable": "SYSTEM_LOAD: STABLE"
+  },
+  "projectHeader": {
+    "title": "Architecting Scalable Web & Data Systems",
+    "subtitle": "A curated showcase of technical innovation and creative engineering. Exploring the synergy of <span class='font-bold text-foreground'>Fullstack Web Development</span>, Data Analytics, and Automated Systems."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "notFound": "Page not found",
+    "backHome": "Back to Home",
+    "viewMore": "View More",
+    "readMore": "Read More",
+    "close": "Close",
+    "download": "Download",
+    "share": "Share",
+    "scrollAudit": "Scroll to explore"
+  },
+  "technical": {
+    "github": {
+      "title": "GitHub Contributions",
+      "description": "My GitHub activity over the last year.",
+      "total": "Total",
+      "thisWeek": "This Week",
+      "best": "Best",
+      "average": "Average",
+      "less": "Less",
+      "more": "More"
+    },
+    "wakatime": {
+      "title": "WakaTime Stats",
+      "description": "Coding activity over the last 7 days.",
+      "lastUpdate": "Last Updated",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "dailyAverage": "Daily Average",
+      "totalWeek": "Total This Week",
+      "bestDay": "Best Day",
+      "totalSince": "Total Since Joined",
+      "topLanguages": "Top Languages"
+    }
+  },
+  "blog": {
+    "title": "Thoughts & Explorations",
+    "subtitle": "Bridging the gap between technical complexity and practical implementation. A collection of insights on AI, Web3, and Software Engineering.",
+    "sectionBadge": "The Digital Archive",
+    "search": "Search articles...",
+    "readTime": "min read",
+    "readMore": "Read Post",
+    "back": "Back to Blog",
+    "noResults": "No articles found",
+    "categories": {
+      "Data": "Data",
+      "Fullstack": "Fullstack",
+      "Trading": "Trading",
+      "more": "More",
+      "all": "All Publications"
+    },
+    "searchPlaceholder": "SEARCH ARCHIVE",
+    "read": "Read",
+    "detail": "Detail",
+    "prev": "PREV",
+    "next": "NEXT",
+    "hero": {
+      "title1": "FEATURE &",
+      "title2": "DOCS",
+      "subtitle": "A dedicated space for documenting technical blueprints, architectural patterns, and engineering reflections. This archive serves as a living knowledge base where innovation meets practical execution."
+    }
+  },
+  "gallery": {
+    "unavailable": "Gallery Grid Unavailable",
+    "exhibitionSpace": "Exhibition Space",
+    "selectedWorks": "Selected Works",
+    "all": "All",
+    "loadMore": "Load More",
+    "view": "View",
+    "noItems": "No items found matching filter.",
+    "title": "Visual Archive",
+    "subtitle": "A curated collection of project highlights, technical documentation, and creative visual explorations.",
+    "filter": {
+      "all": "All Media",
+      "image": "Photos",
+      "video": "Videos"
+    },
+    "viewMedia": "View Media"
+  },
+  "chatbot": {
+    "title": "AI Assistant",
+    "subtitle": "Ask me about Sulis",
+    "placeholder": "Type a message...",
+    "greeting": "Hi! I'm an AI assistant for **{name}**. 👋\n\nI can answer questions about:\n- Skills & technical expertise\n- Projects and work\n- Experience\n- Education\n- And more!\n\nAnything you'd like to ask?",
+    "suggestions": [
+      "What are your main skills?",
+      "Tell me about your best project",
+      "What is your work experience?",
+      "What AI skills do you have?"
+    ],
+    "error": "An error occurred. Please try again.",
+    "invalidResponse": "Invalid response from server.",
+    "unknownError": "An unknown error occurred.",
+    "retry": "Try again",
+    "inputHint": "Enter to send, Shift+Enter for newline",
+    "close": "Close chat"
+  },
+  "heroVisual": {
+    "tooltip": "Explore Projects",
+    "subtext1": "Hi, I'm {name}. I engineer scalable web systems & data intelligence.",
+    "text1": "DATA &",
+    "text2": "FULL",
+    "text3": "STACK",
+    "text4": "DEVELOPER",
+    "subtext2": "Open to fullstack development, data analytics, and software projects.",
+    "quickAction1": "Explore Portfolio",
+    "quickAction2": "View Developer Profile",
+    "availableText": "Available for new projects",
+    "scrollText": "SCROLL TO EXPLORE"
+  },
+  "vibeCoder": {
+    "headline": "Turning Ideas into Real Digital Assets.",
+    "subtext": "An IT grad building web systems, crafting creative assets, and analyzing research data zero time wasted.",
+    "pillars": [
+      {
+        "title": "Fullstack Web Engineering",
+        "desc": "Building modern, responsive, and interactive web apps using the React, Next.js, TypeScript, and Tailwind ecosystem with high performance.",
+        "badge": "Fullstack"
+      },
+      {
+        "title": "Data Analytics & Insights",
+        "desc": "Processing, analyzing, and visualizing data using Python (Pandas, Plotly), SQL, and interactive dashboards for business decision making.",
+        "badge": "Analytics"
+      },
+      {
+        "title": "System Architecture & Database",
+        "desc": "Designing secure and structured databases (PostgreSQL, SQLite, MySQL) and reliable API integrations with a strong informatics engineering foundation.",
+        "badge": "Engineering"
+      }
+    ]
+  },
+  "featuredProjects": {
+    "totalProjects": "Total Projects",
+    "exploreArchive": "Explore full archive",
+    "spotlight": "SPOTLIGHT PROJECT",
+    "active": "Active",
+    "select": "Select",
+    "detail": "Detail",
+    "viewCaseStudy": "View Case Study Details",
+    "liveDemo": "Live Demo",
+    "source": "Source",
+    "interactivePreview": "Interactive Web Preview",
+    "clickToView": "Click to view case study details",
+    "topProjects": "Top Projects",
+    "exploreFullArchiveBtn": "Explore Full Project Archive",
+    "title": "Featured <highlight>Projects</highlight>"
+  },
+  "experienceTabs": {
+    "higherEducation": "Higher Education",
+    "current": "Current",
+    "completed": "Completed",
+    "gpa": "GPA",
+    "aiResearcher": "AI Researcher",
+    "itMajor": "IT Major",
+    "digitalInnovation": "Digital Innovation Hub",
+    "timeline": "Timeline",
+    "present": "Present",
+    "workExperienceTitle": "Work Experience",
+    "workExperienceDesc": "I've been working on various projects and roles. Here's a timeline of my professional experience.",
+    "experienceLabel": "Work Experience",
+    "educationLabel": "Education",
+    "academicFoundation": "Academic Foundation",
+    "experienceSubtitle": "A timeline of roles, responsibilities, and growth",
+    "educationSubtitle": "Building strong foundations through academic excellence",
+    "professionalExperience": "Professional Experience"
+  },
+  "githubShowcase": {
+    "totalRepositories": "TOTAL REPOSITORIES",
+    "totalStars": "TOTAL STARS",
+    "showcase": "Showcase",
+    "contributions": "Contributions",
+    "featured": "Featured",
+    "pinned": "Pinned",
+    "projects": "Projects",
+    "stars": "Stars",
+    "forks": "Forks",
+    "languages": "Languages",
+    "activity": "Activity",
+    "recent": "Recent",
+    "viewOnGithub": "View on GitHub",
+    "topLanguages": "Top Languages",
+    "commits": "Commits",
+    "ecosystem": "GitHub Ecosystem",
+    "creativeEngineering": "Creative Engineering,",
+    "now": "now",
+    "openSource": "Open Source.",
+    "totalContributions": "Total Contributions",
+    "followers": "Followers",
+    "repositories": "Repositories",
+    "dashboardDesc": "A verified dashboard of technical milestones, total contributions, and real-time project activity.",
+    "yearlyContributions": "Yearly Contributions",
+    "activityHeatmap": "Activity Heatmap",
+    "highlightFeature": "Highlight Feature",
+    "pinnedRepositories": "Pinned Repositories",
+    "realtimeActivity": "Realtime Activity",
+    "commitHistory": "Commit History",
+    "noRecentActivity": "No recent activity",
+    "exploreMyGithub": "Explore my GitHub",
+    "viewFullProfile": "View Full Profile",
+    "initializing": "Initializing..."
+  },
+  "data": {
+    "projects": {
+      "proj-1": {
+        "title": "Infly Network",
+        "description": "A comprehensive customer management and multi-month billing application designed specifically for WiFi service providers.",
+        "longDescription": "Developed a full-stack customer management system tailored for Infly Networks to streamline their WiFi service operations. The application facilitates efficient subscriber data management, network service tracking, and multi-month billing cycles. Built with Next.js, Tailwind CSS, and Supabase, the platform provides administrators with a secure, fast, and responsive dashboard to manage daily business operations and customer relationships seamlessly."
+      },
+      "proj-2": {
+        "title": "Probolinggo Web Portal",
+        "description": "Integrated digital information portal to promote tourism and regional potential of Probolinggo.",
+        "longDescription": "Built a responsive website platform presenting the latest information, tourist destinations, and local SMEs in Probolinggo. Integrated modern design and a content management system to facilitate regular regional information updates."
+      },
+      "proj-3": {
+        "title": "DataCo Supply Chain Analysis",
+        "description": "An end-to-end data analytics and storytelling project identifying logistical inefficiencies and revenue risks for C-Level executives.",
+        "longDescription": "Conducted a comprehensive C-Level data storytelling and performance audit based on the DataCo Supply Chain dashboard. Analyzed global operational data (2015-2017) to identify the root causes behind a low net profit margin (10.8%) despite a high gross revenue of $36.7M. The analysis uncovered major logistical bottlenecks causing $20.1M in late delivery costs, destructive discount strategies, and over $827K in potential fraud risks detected via AI predictive modeling."
+      },
+      "proj-4": {
+        "title": "GoLib - Interactive Digital Library",
+        "description": "Part of the Goghotech ecosystem, GoLib is an interactive digital library web application designed to make reading PDF book collections easy and comfortable.",
+        "longDescription": "GoLib is a digital library platform developed as part of the Goghotech ecosystem. The inspiration for creating this website stems from my personal hobby of reading books, but being constrained by a lack of funds to purchase them directly. Therefore, this platform was built to organize and arrange PDF books to resemble a real library layout, making it easy for users to browse and read books for free.\n\nThe website features an interactive flipbook-style reading interface, complete with dark and light theme options to provide an optimal reading experience.\n\nDisclaimer: The GoLib platform is intended purely as an educational medium[cite: 1]. I strongly encourage all readers to continue appreciating and supporting the authors' works by reading or purchasing books legally through official websites, bookstores, or authorized provider applications[cite: 1]."
+      },
+      "proj-5": {
+        "title": "GoNotes - Productivity & Habit Tracker",
+        "description": "A web-based productivity application equipped with a habit tracker, to-do list, Pomodoro timer, daily journal, and analytics dashboard.",
+        "longDescription": "Stemming from a personal struggle to manage a disorganized daily schedule, GoNotes was developed into a comprehensive productivity application. It features custom habit tracking, a Pomodoro-integrated to-do list, daily journaling, and analytical dashboards spanning daily to yearly scales. Built with Next.js, Firebase (Authentication & Database), and Tailwind CSS, the application supports Dark/Light mode, is fully responsive, and can be installed as a PWA across various devices."
+      },
+      "proj-6": {
+        "title": "UD Cahaya Makmur Company Profile",
+        "description": "Company profile and catalog website for UD Cahaya Makmur.",
+        "longDescription": "A company profile website for branding purposes and making it easier for potential customers to view the sales catalog of UD Cahaya Makmur."
+      },
+      "proj-7": {
+        "title": "Momentum Candle Trading Bot",
+        "description": "Automated trading bot implementing the Momentum Candle strategy.",
+        "longDescription": "Developed an automated trading bot using MQL5 that executes strategies in the XAUUSD Forex market."
+      },
+      "proj-8": {
+        "title": "AdventureWorks Enterprise Analytics",
+        "description": "Full-stack enterprise analytics dashboard combining Sales, Logistics, and PPIC data using FastAPI and React.",
+        "longDescription": "Developed an Enterprise Control Tower providing comprehensive analytics for Sales, Logistics, PPIC, Finance, HR, Territory, and Sentiment. The backend is powered by Python (FastAPI) to process complex data and deliver insights via RESTful APIs, which are then consumed and interactively visualized through a modern React dashboard using Recharts."
+      },
+      "proj-9": {
+        "title": "GoGames - Educational and Entertaining Game",
+        "description": "Educational game application to train speed and accuracy in basic arithmetic.",
+        "longDescription": "Built an interactive web-based platform to test users fast counting skills with various difficulty levels, precision timing calculations, and a dynamic on-screen scoring system."
+      },
+      "proj-10": {
+        "title": "GoFin - Financial Tracking System",
+        "description": "Web application for tracking daily financial expenses for singles and couples.",
+        "longDescription": "Built a full-stack application to track inventory items in real-time with notification features and a comprehensive dashboard."
+      },
+      "proj-11": {
+        "title": "Analyzing Emerging Skill Requirements and Technology Trends",
+        "description": "Interactive dashboard using Python and SQLite to analyze global developer ecosystem trends.",
+        "longDescription": "Analyzed the global developer ecosystem using Stack Overflow Survey data, BeautifulSoup web-scraping data, and API simulations to identify future technology trend shifts.\nDetailed technical competencies and workflows learned:\n• Data Collection & Wrangling (SQL & Python): Merged survey CSV data with external scraped salary data, handled missing values (Mode/Median), removed duplicates, and filtered outliers using the Interquartile Range (IQR) method.\n• Exploratory Data Analysis (Python): Performed string manipulation and data aggregation using Pandas and NumPy to map programming language trends, databases, cloud infrastructure, and demographics in depth.\n• Data Visualization & Dashboarding (Plotly, Seaborn, & WordCloud): Built interactive stakeholder dashboards with multi-panel visualizations such as Bubble Charts, Word Clouds, Treemaps, and dynamic geographic mapping to generate actionable business insights."
+      },
+      "proj-12": {
+        "title": "Gotest - Job Preparation Test",
+        "description": "Web-based Kraepelin/Pauli psychological test simulation for recruitment practice.",
+        "longDescription": "Digitized the number concentration test (newspaper test) into a dynamic web application. The system can calculate speed metrics, accuracy rates, and generate a user work endurance graph instantly once the test session ends."
+      },
+      "proj-13": {
+        "title": "Tutoring Attendance System",
+        "description": "Integrated digital attendance management system for tutoring centers.",
+        "longDescription": "Web-based application for tracking student attendance in real-time. This system is equipped with automatic monthly recapitulation features and an analytical reporting dashboard to facilitate monitoring by tutors."
+      },
+      "proj-14": {
+        "title": "Superstore Sales Analysis & Customer Segmentation Engine",
+        "description": "Machine Learning model to optimize marketing strategies using Python (RFM) & React Dashboard.",
+        "longDescription": "Developed a Full-Stack analysis system using Python (Pandas) for automated data processing and RFM Segmentation algorithms, subsequently visualized through an interactive React JS dashboard."
+      },
+      "proj-15": {
+        "title": "Deep Talk Snakes and Ladders Game",
+        "description": "Snakes and ladders game designed for couples to have deep talks.",
+        "longDescription": "An interactive snakes and ladders game specifically tailored for couples to engage in meaningful and deep conversations."
+      }
+    },
+    "experiences": {
+      "exp-1": {
+        "title": "Daily Worker Staff Processing",
+        "company": "PT Global Jet Express (J&T Express)",
+        "description": "Managed the accuracy of inbound/outbound logistics package data and optimized daily distribution data processing using advanced Excel functions.\n\nResponsible for ensuring real-time logistics data synchronization between physical scanning and the central database using an integrated logistics system."
+      },
+      "exp-2": {
+        "title": "Account Officer",
+        "company": "PT Federal International Finance (FIF Group)",
+        "description": "Verified customer documents, managed daily report databases, and maintained corporate administrative archives.\n\nResponsible for the validity of application data and the accuracy of daily consumer administrative reporting."
+      },
+      "exp-3": {
+        "title": "Head of Research and Technology Division",
+        "company": "Faculty of Engineering Student Executive Board (BEM FT)",
+        "description": "Led the division engaged in research development and technology implementation within the Engineering Faculty student organization environment."
+      },
+      "exp-4": {
+        "title": "Human Resources Division Board",
+        "company": "ICT Volunteers (Relawan TIK) Jember",
+        "description": "Provided digital literacy education to more than 1,000 participants and conducted technology socialization to various public institutions."
+      }
+    }
+  },
+  "projectStats": {
+    "section": "Project Impact",
+    "title": "Building The Future",
+    "subtitle": "Transforming ideas into production-ready solutions that drive real-world impact",
+    "projectsBuilt": "Projects Built",
+    "yearsExperience": "Years Experience",
+    "techStack": "Tech Stack",
+    "activeDeployments": "Active Deployments"
+  },
+  "skillsClosing": {
+    "marquee1": "System Architecture",
+    "marquee2": "Creative Engineering",
+    "title1": "DRIVE",
+    "title2": "INNOVATION",
+    "description_p1": "Precision engineering meets ",
+    "description_highlight": "unbound imagination",
+    "description_p2": ". Let's transform ambitious ideas into production-ready solutions and construct a legacy of innovation.",
+    "moreProjects": "More Projects",
+    "phases": {
+      "stage1": {
+        "time": "Stage 01",
+        "title": "Concept Audit",
+        "desc": "Analyzing project requirements, feasibility check, and establishing core technical objectives."
+      },
+      "stage2": {
+        "time": "Stage 02",
+        "title": "Strategic Blueprint",
+        "desc": "Architecting the system design, choosing the stack, and finalizing the development roadmap."
+      },
+      "stage3": {
+        "time": "Stage 03",
+        "title": "Launch & Scale",
+        "desc": "Full-scale development, rigorous testing, and initial deployment of the production system."
+      }
+    }
+  },
+  "trustStats": {
+    "stat1": {
+      "title": "Informatics Engineering GPA",
+      "desc": "Universitas Muhammadiyah Jember"
+    },
+    "stat2": {
+      "value": "Gold Medal",
+      "title": "National Achievement",
+      "desc": "1st Place National Scientific Paper"
+    },
+    "stat3": {
+      "value": "IBM & Microsoft",
+      "title": "Data Analysis Certification",
+      "desc": "Coursera Professional Certified"
+    },
+    "stat4": {
+      "unit": "Systems",
+      "title": "Completed Projects",
+      "desc": "Fullstack Web & Data Apps"
+    }
+  },
+  "aboutMeHub": {
+    "explore": "Explore Section",
+    "items": {
+      "competency": {
+        "title": "Competency",
+        "subtitle": "Tech Stack & Soft Skills",
+        "desc": "A comprehensive matrix of my technical arsenal from AI/ML research to enterprise full-stack architectures."
+      },
+      "trajectory": {
+        "title": "Trajectory",
+        "subtitle": "Professional Journey",
+        "desc": "A detailed timeline of my evolution within CPS Lab, HUMIC Engineering, and high-impact industrial roles."
+      },
+      "projects": {
+        "title": "Projects",
+        "subtitle": "System Implementations",
+        "desc": "Deep dives into core systems, from predictive supply chain models to microservice-driven analytics platforms."
+      },
+      "accolades": {
+        "title": "Accolades",
+        "subtitle": "Verified Credentials",
+        "desc": "National achievements, professional certifications, and validated milestones in engineering excellence."
+      }
+    }
+  },
+  "aboutSection": {
+    "viewMore": {
+      "name": "View more",
+      "role": "Explore all experiences"
+    }
+  },
+  "experienceStickyScroll": {
+    "uni": {
+      "type": "Higher Education • Bachelor Degree",
+      "desc": "Informatics Engineering major with a GPA of 3.86/4.0. Focused on Data Analyst and Fullstack Developer roles.",
+      "tags": [
+        "GPA 3.86",
+        "Data Analyst",
+        "Fullstack Developer"
+      ],
+      "badge": "Digital Innovation Hub"
+    },
+    "hs": {
+      "type": "Foundation • High School",
+      "desc": "Science Major (MIPA). Developed strong analytical foundations in Mathematics and Physics, shaping a logical approach to problem-solving and technical engineering.",
+      "tags": [
+        "Science Major",
+        "Analytical Logic",
+        "Core Physics"
+      ],
+      "badge": "Analytical Foundation"
+    }
+  },
+  "statsSection": {
+    "journal": "Journal & Insights",
+    "journalDesc": "A curated collection of technical articles, engineering blueprints, and reflections on building intelligent systems.",
+    "viewGallery": "View Gallery",
+    "latestStories": "Latest Stories",
+    "tags": "Articles • Insights • Technical Deep Dives",
+    "browseArchive": "Browse Full Archive"
+  },
+  "experienceHero": {
+    "title": "EXPERIENCE",
+    "desc1": "Merging technical precision with creative vision.",
+    "desc2": "A curated timeline of my professional journey, from foundational code to AI solutions."
+  },
+  "innovativeNodes": {
+    "education": [
+      {
+        "label": "Universitas Muhammadiyah Jember",
+        "description": "Informatics Engineering (GPA 3.86/4.0)."
+      },
+      {
+        "label": "SMAN 1 Kraksaan",
+        "description": "High School Diploma - Science (MIPA) Major."
+      },
+      {
+        "label": "Coding Camp DBS",
+        "description": "Scholarship Awardee – Intensive AI Engineer training."
+      },
+      {
+        "label": "IDCamp IOH",
+        "description": "Machine Learning Engineer Program (Industry Standard)."
+      },
+      {
+        "label": "CPS Research Asst",
+        "description": "Deep Learning & CV instruction and academic review."
+      },
+      {
+        "label": "GDSC ML Path",
+        "description": "Mastering regression, classification, and core ML."
+      }
+    ],
+    "journey": [
+      {
+        "label": "Project Officer",
+        "description": "Telkom Digistar - Managing digital talent programs."
+      },
+      {
+        "label": "Academic Affairs",
+        "description": "HMIT Telkom - Planning academic & student support."
+      },
+      {
+        "label": "Public Relations",
+        "description": "Youth Ranger Indonesia - Brand narrative & engagement."
+      },
+      {
+        "label": "Fundraising Lead",
+        "description": "GI BEI Telkom - Strategic donor & sponsorship outreach."
+      },
+      {
+        "label": "Network Assistant",
+        "description": "IFLAB Assistant - Guiding Socket Programming projects."
+      },
+      {
+        "label": "HR Management",
+        "description": "CPS Laboratory - Fostering lab development & culture."
+      }
+    ],
+    "experience": [
+      {
+        "label": "CV Researcher",
+        "description": "CPS Lab - End-to-end intelligent model development."
+      },
+      {
+        "label": "System Analyst",
+        "description": "ASE Lab - Translating requirements to SRS/SDD/UML."
+      },
+      {
+        "label": "Swarm AI Lead",
+        "description": "Multi-agent blog generation engine (Llama 3.3)."
+      },
+      {
+        "label": "Automation Eng.",
+        "description": "Browser Agent CLI for AI-driven browser control."
+      },
+      {
+        "label": "IoT Engineering",
+        "description": "Terraflow - Direct-to-Cloud IoT for agriculture."
+      },
+      {
+        "label": "RAG Systems",
+        "description": "DocsInsight Engine - Enterprise private RAG system."
+      }
+    ],
+    "viewResume": "View resume"
+  },
+  "certificateHero": {
+    "milestones": "Professional Milestones",
+    "title": "Certificates<br />& Awards",
+    "desc": "A visual journey through certifications and achievements.",
+    "scroll": "Scroll to Explore"
+  },
+  "marqueeClosing": {
+    "title": "Ready to Build?",
+    "desc": "I'm always open to discussing product design work or partnership opportunities. Let's create something extraordinary together.",
+    "placeholder": "Enter your email for updates...",
+    "join": "Join",
+    "contact": "Contact Me",
+    "projects": "View Projects"
+  },
+  "thoughtStreamClosing": {
+    "title": "Don't Miss My Next Thought",
+    "desc": "Subscribe to get fresh ideas, code insights, and tech musings delivered straight to your inbox.",
+    "placeholder": "your@email.com",
+    "subscribe": "Subscribe",
+    "successTitle": "✨ Thanks for subscribing!",
+    "successDesc": "Check your inbox for confirmation.",
+    "privacy": "No spam. Unsubscribe anytime. Your data is safe."
+  },
+  "blogBento": {
+    "greeting": "Hi, I'm {name}.",
+    "subtitle": "I build cool websites like this one.",
+    "contact": "Contact me",
+    "passion": "My passion is building innovative solutions.",
+    "bio": "An AI Engineer and Full Stack Developer with expertise in architecting intelligent systems that combine Machine Learning, IoT infrastructure, and Web3 technologies. Currently focused on advancing AI Agent frameworks and exploring decentralized blockchain applications, bridging the gap between cutting-edge research and practical implementation. Experienced in designing scalable software architectures and engineering complex technical solutions from concept to deployment.",
+    "mailingList": "Join my mailing list",
+    "emailPlaceholder": "Enter your email",
+    "joinButton": "Join the list"
+  },
+  "hardSkills": {
+    "title": "Core Focus",
+    "subtitle": "Capabilities & Architectures",
+    "appliedAI": "Applied AI",
+    "softwareEngineering": "Software Engineering",
+    "additionalSkills": "Additional Skills",
+    "viewLess": "View Less",
+    "viewMore": "View More"
+  },
+  "softSkills": {
+    "title": "Strategic<br />Directives",
+    "desc": "Interpersonal capabilities engineered for high-impact leadership and systemic problem solving in complex environments.",
+    "coreCapability": "Core Capability",
+    "readMore": "Read More",
+    "exploreMore": "Exploring a broader set of professional capabilities and tactical expertise.",
+    "hoverReveal": "Hover to reveal catalog",
+    "skillExpansion": "Skill Expansion",
+    "systematically": "& systematically expanding the directive framework..."
+  },
+  "toolsSection": {
+    "workflow": "WORKFLOW & INFRASTRUCTURE",
+    "title": "Professional Tooling",
+    "desc": "Leveraging industrial-grade platforms for development, design, and deployment to ensure rapid and reliable software delivery."
+  },
+  "blogPortalFooter": {
+    "knowledgeBase": "Knowledge Base",
+    "theEngineering": "The Engineering<br />",
+    "process": "Process.",
+    "viewAll": "View All Articles",
+    "minRead": "min read",
+    "documenting": "\"Documenting the journey from concept to deployment.\"",
+    "readJournal": "Read the Journal"
+  },
+  "creditsFooter": {
+    "directedBy": "Directed By",
+    "visualEngineering": "Visual Engineering",
+    "motionSystems": "Motion Systems",
+    "stylingArchitecture": "Styling Architecture",
+    "typography": "Typography",
+    "production": "Production © 2024",
+    "replaySequence": "Replay Sequence"
+  },
+  "focusGrid": {
+    "closeSequence": "Close Sequence",
+    "sequenceId": "Sequence_ID:",
+    "dateCaptured": "Date Captured",
+    "format": "Format"
+  },
+  "lanyard": {
+    "archiveLinkActive": "Archive Link Active"
+  },
+  "certificateMarquee": {
+    "viewAll": "View All Achievements",
+    "certifications": "Certifications & Achievements",
+    "validating": "Validating ",
+    "excellence": "Excellence",
+    "through": " through Global Standards.",
+    "description": "A collection of my professional certifications in AI, Web Development, and Cloud Engineering from industry leaders."
+  },
+  "projectContact": {
+    "tag": "/ Let's Connect",
+    "ready": "Ready to build the extraordinary?",
+    "collab": "From intelligent AI solutions to scalable software architectures, let's collaborate on your big idea.",
+    "example1": "Looking for a Software & AI Engineer?",
+    "example2": "Need an AI solution for your business?",
+    "example3": "Just want to say hi?",
+    "sendMessage": "Send Message",
+    "discussionTopic": "DISCUSSION TOPIC:"
+  },
+  "narrativeBridge": {
+    "title": "You've seen the <results>results</results>.<br></br>Now read the <process>process</process>.",
+    "description": "Every image in this archive has a story behind it. Explore the technical deep-dives and creative journals in the blog.",
+    "button": "Enter the Archives"
+  },
+  "typewriterCodeHero": {
+    "scrollToExplore": "Scroll to explore"
+  }
 }

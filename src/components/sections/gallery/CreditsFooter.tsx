@@ -2,31 +2,33 @@
 
 import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function CreditsFooter() {
+    const t = useTranslations('creditsFooter');
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     const credits = [
         {
-            role: "Directed By",
+            role: t('directedBy'),
             name: "Sulis Gogho"
         },
         {
-            role: "Visual Engineering",
+            role: t('visualEngineering'),
             name: "React Three Fiber"
         },
         {
-            role: "Motion Systems",
+            role: t('motionSystems'),
             name: "Framer Motion"
         },
         {
-            role: "Styling Architecture",
+            role: t('stylingArchitecture'),
             name: "Tailwind CSS"
         },
         {
-            role: "Typography",
+            role: t('typography'),
             name: "Geist & Inter"
         }
     ];
@@ -61,7 +63,7 @@ export default function CreditsFooter() {
                     className="pt-24"
                 >
                     <p className="text-[10px] font-mono uppercase tracking-widest text-white/20 mb-8">
-                        Production © 2024
+                        {t('production')}
                     </p>
 
                     <button
@@ -71,7 +73,7 @@ export default function CreditsFooter() {
                         <div className="p-4 rounded-full border border-white/10 group-hover:border-white/50 transition-colors">
                             <ArrowUp className="w-6 h-6 animate-bounce" />
                         </div>
-                        <span className="text-xs font-mono uppercase tracking-widest">Replay Sequence</span>
+                        <span className="text-xs font-mono uppercase tracking-widest">{t('replaySequence')}</span>
                     </button>
                 </motion.div>
 

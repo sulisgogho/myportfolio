@@ -4,6 +4,7 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Mail, ArrowUpRight } from 'lucide-react';
 import { twMerge } from 'tailwind-merge';
+import { useTranslations } from 'next-intl';
 import { portfolioData } from '@/data/portfolio';
 import { InteractiveRobotSpline } from '@/components/ui/interactive-3d-robot';
 import Link from 'next/link';
@@ -56,6 +57,7 @@ const Hover3DFlipText = ({ text }: { text: string }) => {
 // --- MAIN WRAPPER COMPONENT ---
 export const ProjectContact = ({ isLowPowerMode }: { isLowPowerMode?: boolean }) => {
     const ROBOT_SCENE_URL = "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode";
+    const t = useTranslations('projectContact');
 
     return (
         <section className="relative z-10 w-full bg-transparent px-6 md:px-12 py-20 md:py-32 overflow-hidden">
@@ -68,17 +70,17 @@ export const ProjectContact = ({ isLowPowerMode }: { isLowPowerMode?: boolean })
             <div className="max-w-[1536px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20">
                 <div className="relative z-10 w-full lg:w-1/2">
                     <BlockInTextCard
-                        tag="/ Let's Connect"
+                        tag={t('tag')}
                         isLowPowerMode={isLowPowerMode}
                         text={
                             <>
-                                <strong><Hover3DFlipText text="Ready to build the extraordinary?" /></strong> <Hover3DFlipText text="From intelligent AI solutions to scalable software architectures, let's collaborate on your big idea." />
+                                <strong><Hover3DFlipText text={t('ready')} /></strong> <Hover3DFlipText text={t('collab')} />
                             </>
                         }
                         examples={[
-                            "Looking for a Software & AI Engineer?",
-                            "Need an AI solution for your business?",
-                            "Just want to say hi?",
+                            t('example1'),
+                            t('example2'),
+                            t('example3'),
                         ]}
                     />
                 </div>
@@ -110,6 +112,7 @@ const BlockInTextCard = ({
     examples: string[];
     isLowPowerMode?: boolean;
 }) => {
+    const t = useTranslations('projectContact');
     return (
         <div className="w-full max-w-3xl space-y-12 border-none">
             <div>
@@ -129,7 +132,7 @@ const BlockInTextCard = ({
                         className="group w-fit relative flex items-center gap-6 py-6 transition-all hover:px-2 border-none ring-0 outline-none"
                     >
                         <span className="relative text-2xl md:text-4xl font-bold uppercase tracking-wide text-foreground pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-foreground group-hover:after:w-full after:transition-all after:duration-300 after:ease-out">
-                            Send Message
+                            {t('sendMessage')}
                         </span>
                         <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-foreground text-background transition-all duration-300 ease-out group-hover:-rotate-45 group-hover:scale-110">
                             <ArrowUpRight className="h-6 w-6" />
@@ -150,6 +153,7 @@ const SWAP_DELAY_IN_MS = 5500;
 
 const Typewrite = ({ examples, isLowPowerMode }: { examples: string[]; isLowPowerMode?: boolean }) => {
     const [exampleIndex, setExampleIndex] = useState(0);
+    const t = useTranslations('projectContact');
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -164,7 +168,7 @@ const Typewrite = ({ examples, isLowPowerMode }: { examples: string[]; isLowPowe
             <span className={twMerge("mt-1.5 shrink-0 size-2 rounded-full bg-emerald-500", !isLowPowerMode && "animate-pulse")} />
             <div className="flex-1">
                 <p className="text-xs font-mono text-muted-foreground mb-2 uppercase tracking-widest">
-                    DISCUSSION TOPIC:
+                    {t('discussionTopic')}
                 </p>
                 <div className="min-h-[3rem] text-lg font-medium text-foreground">
                     {isLowPowerMode ? examples[exampleIndex] : examples[exampleIndex].split("").map((l, i) => (

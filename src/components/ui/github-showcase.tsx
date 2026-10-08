@@ -24,6 +24,7 @@ import { createPortal } from 'react-dom';
 import { motion, AnimatePresence, useInView, animate } from 'framer-motion';
 
 import { useLenis } from 'lenis/react';
+import { useTranslations } from 'next-intl';
 
 const GITHUB_USER = "sulisgogho";
 
@@ -120,6 +121,7 @@ interface GitHubActivity {
 }
 
 export const GitHubShowcase = () => {
+  const t = useTranslations('githubShowcase');
   const [mounted, setMounted] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -378,12 +380,12 @@ export const GitHubShowcase = () => {
           <motion.div layout className="space-y-6 max-w-2xl">
             <motion.div layout className="flex items-center gap-3 text-[#39d353]">
               <Github className="w-8 h-8" />
-              <span className="text-sm font-bold tracking-[0.3em] uppercase opacity-70">GitHub Ecosystem</span>
+              <span className="text-sm font-bold tracking-[0.3em] uppercase opacity-70">{t('ecosystem')}</span>
             </motion.div>
             <motion.h2 layout className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.9em] text-black dark:text-white">
-              {loading ? "Initializing..." : <>Creative Engineering, <br />
+              {loading ? t('initializing') : <>{t('creativeEngineering')} <br />
                 <span className="flex items-center gap-2">
-                  now <span className="text-[#39d353]">Open Source.</span>
+                  {t('now')} <span className="text-[#39d353]">{t('openSource')}</span>
                   <Gift className="inline-flex text-[#39d353] rotate-12" size={40} />
                 </span></>}
             </motion.h2>
@@ -392,25 +394,25 @@ export const GitHubShowcase = () => {
                 <span className="text-3xl font-black text-[#39d353] tabular-nums tracking-tighter">
                   <Counter value={data.stats.totalCommits || 345} trigger={!loading} />
                 </span>
-                <span className="text-[10px] font-black uppercase opacity-40 tracking-widest">Total Contributions</span>
+                <span className="text-[10px] font-black uppercase opacity-40 tracking-widest">{t('totalContributions')}</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-3xl font-black text-[#39d353] tabular-nums tracking-tighter">
                   <Counter value={data.stats.followers ?? 2} trigger={!loading} />
                 </span>
-                <span className="text-[10px] font-black uppercase opacity-40 tracking-widest">Followers</span>
+                <span className="text-[10px] font-black uppercase opacity-40 tracking-widest">{t('followers')}</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-3xl font-black text-[#39d353] tabular-nums tracking-tighter">
                   <Counter value={data.stats.totalRepos || 53} trigger={!loading} />
                 </span>
-                <span className="text-[10px] font-black uppercase opacity-40 tracking-widest">Repositories</span>
+                <span className="text-[10px] font-black uppercase opacity-40 tracking-widest">{t('repositories')}</span>
               </div>
             </motion.div>
           </motion.div>
 
           <motion.p layout className='max-w-sm font-semibold text-lg text-black/50 dark:text-white/40 leading-relaxed pt-12 md:pt-20'>
-            {"A verified dashboard of technical milestones, total contributions, and real-time project activity."}
+            {t('dashboardDesc')}
           </motion.p>
         </motion.div>
       </motion.div>
@@ -450,12 +452,12 @@ export const GitHubShowcase = () => {
                   <div className="space-y-6 max-w-2xl">
                     <div className="flex items-center gap-3 text-[#39d353]">
                       <Github className="w-8 h-8" />
-                      <span className="text-sm font-bold tracking-[0.3em] uppercase opacity-70">GitHub Ecosystem</span>
+                      <span className="text-sm font-bold tracking-[0.3em] uppercase opacity-70">{t('ecosystem')}</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.9em] text-black dark:text-white">
-                      Creative Engineering, <br />
+                      {t('creativeEngineering')} <br />
                       <span className="flex items-center gap-2">
-                        now <span className="text-[#39d353]">Open Source.</span>
+                        {t('now')} <span className="text-[#39d353]">{t('openSource')}</span>
                         <Gift className="inline-flex text-[#39d353] rotate-12" size={40} />
                       </span>
                     </h2>
@@ -467,13 +469,13 @@ export const GitHubShowcase = () => {
                   <div className="lg:col-span-2 relative bg-[#F8F8F8] dark:bg-[#111111] rounded-[2rem] p-8 border border-border/10">
                     <div className="relative z-10 flex flex-col h-full justify-between gap-8">
                       <div className="flex flex-col items-start gap-2">
-                        <p className="text-black/30 dark:text-white/20 text-[10px] font-black uppercase tracking-widest ml-4">Yearly Contributions</p>
+                        <p className="text-black/30 dark:text-white/20 text-[10px] font-black uppercase tracking-widest ml-4">{t('yearlyContributions')}</p>
                         <motion.h3
                           whileHover={{ scale: 1.1, rotate: 0 }}
                           whileTap={{ scale: 0.9 }}
                           className="bg-[#39d353] text-black px-8 py-3 rounded-full text-xl font-black -rotate-1 shadow-lg hover:shadow-[#39d353]/50 hover:shadow-2xl transition-all w-fit cursor-pointer"
                         >
-                          Activity Heatmap
+                          {t('activityHeatmap')}
                         </motion.h3>
                       </div>
                       <div className="w-full overflow-x-auto py-4 scrollbar-hide relative github-calendar-wrapper">
@@ -490,7 +492,7 @@ export const GitHubShowcase = () => {
                         whileTap={{ scale: 0.9 }}
                         className="bg-white text-black px-10 py-3 rounded-full text-xl font-black rotate-2 shadow-xl hover:shadow-white/50 hover:shadow-2xl transition-all cursor-pointer"
                       >
-                        Highlight Feature
+                        {t('highlightFeature')}
                       </motion.h3>
                     </div>
 
@@ -540,7 +542,7 @@ export const GitHubShowcase = () => {
                           whileTap={{ scale: 0.9 }}
                           className="bg-white text-black px-10 py-3 rounded-full text-xl font-black -rotate-1 shadow-xl hover:shadow-white/50 hover:shadow-2xl transition-all cursor-pointer"
                         >
-                          Pinned Repositories
+                          {t('pinnedRepositories')}
                         </motion.h3>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -565,20 +567,20 @@ export const GitHubShowcase = () => {
                   {/* 4. Commit History */}
                   <div className="relative bg-[#F8F8F8] dark:bg-[#111111] rounded-[2rem] p-6 lg:p-8 border border-border/10 flex flex-col h-full">
                     <div className="flex flex-col items-start gap-2 mb-6 shrink-0">
-                      <p className="text-black/30 dark:text-white/20 text-[10px] font-black uppercase tracking-widest ml-2">Realtime Activity</p>
+                      <p className="text-black/30 dark:text-white/20 text-[10px] font-black uppercase tracking-widest ml-2">{t('realtimeActivity')}</p>
                       <motion.h3
                         whileHover={{ scale: 1.1, rotate: 0 }}
                         whileTap={{ scale: 0.9 }}
                         className="bg-[#39d353] text-black px-8 py-3 rounded-full text-xl font-black rotate-1 shadow-lg hover:shadow-[#39d353]/50 hover:shadow-2xl transition-all w-fit cursor-pointer"
                       >
-                        Commit History
+                        {t('commitHistory')}
                       </motion.h3>
                     </div>
 
                     <div className="relative flex-1 min-h-[200px]">
                       <div className="absolute inset-0 flex flex-col gap-3 overflow-y-auto pr-2 custom-scrollbar">
                         {data.activity.length === 0 ? (
-                          <div className="text-sm opacity-50 text-center py-4">No recent activity</div>
+                          <div className="text-sm opacity-50 text-center py-4">{t('noRecentActivity')}</div>
                         ) : data.activity.map((act, i) => (
                           <div key={i} className="flex justify-between w-full gap-4 p-4 rounded-xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/5 hover:border-[#39d353]/50 transition-colors shrink-0">
 

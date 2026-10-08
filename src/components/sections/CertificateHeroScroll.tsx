@@ -9,6 +9,7 @@ import Image from "next/image";
 import { usePerformance } from "@/hooks/usePerformance";
 import { ChevronDown } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
+import { useTranslations } from "next-intl";
 
 interface ImageItem {
     id: string;
@@ -52,6 +53,7 @@ const CertificateHeroScroll: FC<CertificateHeroScrollProps> = ({ onDownloadClick
     const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
     const { isLowPowerMode: performanceLowPower, isMobile } = usePerformance();
     const isLowPowerMode = isLowPowerModeProp ?? performanceLowPower;
+    const t = useTranslations('certificateHero');
 
     // Select and randomize certificates on mount to avoid hydration mismatch
     const [randomCertificates, setRandomCertificates] = useState<ImageItem[]>([]);
@@ -267,19 +269,20 @@ const CertificateHeroScroll: FC<CertificateHeroScrollProps> = ({ onDownloadClick
                     className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-50 pt-10 pb-32"
                 >
                     <div className="inline-block px-4 py-1.5 rounded-full bg-secondary/50 backdrop-blur-md border border-border/50 text-xs font-medium mb-6 animate-fade-in-up">
-                        Professional Milestones
+                        {t('milestones')}
                     </div>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 animate-fade-in-up delay-100">
-                        Certificates<br />& Awards
-                    </h1>
+                    <h1 
+                        className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 animate-fade-in-up delay-100"
+                        dangerouslySetInnerHTML={{ __html: t.raw('title') }}
+                    />
                     <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10 animate-fade-in-up delay-200">
-                        A visual journey through certifications and achievements.
+                        {t('desc')}
                     </p>
                     <button
                         onClick={() => window.scrollTo({ top: window.innerHeight * 1.2, behavior: 'smooth' })}
                         className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all group animate-fade-in-up delay-300 pointer-events-auto"
                     >
-                        <span>Scroll to Explore</span>
+                        <span>{t('scroll')}</span>
                         <ChevronDown className="w-4 h-4 animate-bounce" />
                     </button>
                 </div>

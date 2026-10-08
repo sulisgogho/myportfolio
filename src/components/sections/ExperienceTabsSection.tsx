@@ -7,6 +7,7 @@ import { useTheme } from 'next-themes';
 import { cn, formatDate } from '@/lib/utils';
 import { portfolioData } from '@/data/portfolio';
 import { Education, Experience } from '@/types/index';
+import { useTranslations } from 'next-intl';
 
 type TabType = 'experience' | 'education';
 
@@ -44,6 +45,7 @@ function TabButton({ label, isActive, onClick, icon }: TabButtonProps) {
 }
 
 function EducationContent() {
+    const t = useTranslations('experienceTabs');
     const [showTimeline, setShowTimeline] = useState(false);
     const education = portfolioData.education[0];
 
@@ -61,7 +63,7 @@ function EducationContent() {
                         <div className="w-1 h-8 bg-primary rounded-full" />
                         <div>
                             <p className="text-xs font-mono text-muted-foreground tracking-widest uppercase">
-                                — Higher Education • {education.isOngoing ? 'Current' : 'Completed'}
+                                — {t('higherEducation')} • {education.isOngoing ? t('current') : t('completed')}
                             </p>
                         </div>
                     </div>
@@ -73,7 +75,7 @@ function EducationContent() {
                     </h2>
 
                     <p className="text-muted-foreground leading-relaxed max-w-md">
-                        {education.major} major with a GPA of {education.gpa}. Focused on AI Engineering and Systems Research. Active in multiple high-impact research laboratories and national competitions.
+                        {t('eduDesc', { major: education.major, gpa: education.gpa || '' })}
                     </p>
                 </div>
 
@@ -94,18 +96,18 @@ function EducationContent() {
 
                         <div className="flex flex-wrap justify-center gap-2">
                             <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
-                                GPA {education.gpa}
+                                {t('gpa')} {education.gpa}
                             </span>
                             <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-secondary/50 text-foreground border border-secondary/30">
-                                AI Researcher
+                                {t('aiResearcher')}
                             </span>
                             <span className="px-3 py-1.5 rounded-full text-xs font-medium bg-secondary/50 text-foreground border border-secondary/30">
-                                IT Major
+                                {t('itMajor')}
                             </span>
                         </div>
 
                         <p className="text-xs font-mono text-muted-foreground tracking-widest uppercase">
-                            Digital Innovation Hub
+                            {t('digitalInnovation')}
                         </p>
                     </div>
                 </motion.div>
@@ -115,7 +117,7 @@ function EducationContent() {
                 onClick={() => setShowTimeline(!showTimeline)}
                 className="mx-auto flex flex-col items-center gap-2 px-6 py-3 rounded-full border border-primary/20 hover:border-primary/40 transition-colors group"
             >
-                <span className="text-xs font-mono text-muted-foreground tracking-widest uppercase">Timeline</span>
+                <span className="text-xs font-mono text-muted-foreground tracking-widest uppercase">{t('timeline')}</span>
                 <motion.div
                     animate={{ rotate: showTimeline ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
@@ -149,7 +151,7 @@ function EducationContent() {
                                         <h4 className="font-semibold text-foreground">{edu.institution}</h4>
                                         <p className="text-sm text-muted-foreground">{edu.degree} - {edu.major}</p>
                                         <p className="text-xs text-muted-foreground mt-1">
-                                            {formatDate(edu.startDate)} - {edu.endDate ? formatDate(edu.endDate) : 'Present'}
+                                            {formatDate(edu.startDate)} - {edu.endDate ? formatDate(edu.endDate) : t('present')}
                                         </p>
                                     </div>
                                     {edu.gpa && (
@@ -166,6 +168,8 @@ function EducationContent() {
 }
 
 function ExperienceContent() {
+    const t = useTranslations('experienceTabs');
+    const tData = useTranslations('data.experiences');
     const experiences = portfolioData.experiences;
 
     const groupedExperiences = useMemo(() => {
@@ -197,10 +201,10 @@ function ExperienceContent() {
         >
             <div className="space-y-2">
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                    Work Experience
+                    {t('workExperienceTitle')}
                 </h2>
                 <p className="text-muted-foreground max-w-lg">
-                    I've been working on various projects and roles. Here's a timeline of my professional experience.
+                    {t('workExperienceDesc')}
                 </p>
             </div>
 
@@ -237,19 +241,19 @@ function ExperienceContent() {
                                         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-2">
                                             <div>
                                                 <h3 className="text-lg font-bold text-foreground">
-                                                    {exp.position}
+                                                    {tData.has(`${exp.id}.title`) ? tData(`${exp.id}.title`) : exp.position}
                                                 </h3>
                                                 <p className="text-primary font-medium">
-                                                    {exp.company}
+                                                    {tData.has(`${exp.id}.company`) ? tData(`${exp.id}.company`) : exp.company}
                                                 </p>
                                             </div>
                                             <span className="text-xs font-mono text-muted-foreground bg-secondary/50 px-2 py-1 rounded whitespace-nowrap">
-                                                {formatDate(exp.startDate)} - {exp.endDate ? formatDate(exp.endDate) : 'Present'}
+                                                {formatDate(exp.startDate)} - {exp.endDate ? formatDate(exp.endDate) : t('present')}
                                             </span>
                                         </div>
 
                                         <p className="text-sm text-muted-foreground mb-3">
-                                            {exp.description}
+                                            {tData.has(`${exp.id}.description`) ? tData(`${exp.id}.description`) : exp.description}
                                         </p>
 
                                         {exp.responsibilities && exp.responsibilities.length > 0 && (
@@ -285,12 +289,13 @@ function ExperienceContent() {
 }
 
 export default function ExperienceTabsSection() {
+    const t = useTranslations('experienceTabs');
     const [activeTab, setActiveTab] = useState<TabType>('experience');
     const { resolvedTheme } = useTheme();
 
     const tabs = [
-        { id: 'experience' as TabType, label: 'Work Experience', icon: <Briefcase className="w-4 h-4" /> },
-        { id: 'education' as TabType, label: 'Education', icon: <GraduationCap className="w-4 h-4" /> },
+        { id: 'experience' as TabType, label: t('experienceLabel'), icon: <Briefcase className="w-4 h-4" /> },
+        { id: 'education' as TabType, label: t('educationLabel'), icon: <GraduationCap className="w-4 h-4" /> },
     ];
 
     return (
@@ -307,12 +312,12 @@ export default function ExperienceTabsSection() {
                     {activeTab === 'education' && <GraduationCap className="w-8 h-8 text-primary" />}
                 </div>
                 <h3 className="text-2xl font-bold text-center text-foreground capitalize">
-                    {activeTab === 'experience' && 'Professional Experience'}
-                    {activeTab === 'education' && 'Academic Foundation'}
+                    {activeTab === 'experience' && t('professionalExperience')}
+                    {activeTab === 'education' && t('academicFoundation')}
                 </h3>
                 <p className="text-center text-muted-foreground mt-2 max-w-md mx-auto">
-                    {activeTab === 'experience' && 'A timeline of roles, responsibilities, and growth'}
-                    {activeTab === 'education' && 'Building strong foundations through academic excellence'}
+                    {activeTab === 'experience' && t('experienceSubtitle')}
+                    {activeTab === 'education' && t('educationSubtitle')}
                 </p>
             </motion.div>
 

@@ -7,8 +7,10 @@ import Image from "next/image";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import Link from "next/link";
 import { portfolioData } from "@/data/portfolio";
+import { useTranslations } from "next-intl";
 
 export default function ImpactSection() {
+  const t = useTranslations('impactSection');
   const [openCard, setOpenCard] = useState(0);
   const containerRef = useRef<HTMLElement>(null);
 
@@ -54,14 +56,14 @@ export default function ImpactSection() {
         <div className="flex items-start justify-between gap-6 mb-12 sm:mb-20">
           <div className="max-w-[720px]">
             <motion.p style={{ y: yLabel }} className="text-[11px] tracking-[3px] uppercase font-mono font-bold text-cyan-400 mb-6">
-              Knowledge Base
+              {t('knowledgeBase')}
             </motion.p>
             <motion.h2 style={{ y: yTitle }} className="text-5xl md:text-7xl lg:text-[80px] leading-[1.05] font-black tracking-tighter uppercase mb-8">
-              The Engineering <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D1FF4D] via-cyan-300 to-amber-300">Process.</span>
+              {t('engineering')} <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D1FF4D] via-cyan-300 to-amber-300">{t('process')}</span>
             </motion.h2>
             <motion.p style={{ y: yDesc }} className="text-[15px] sm:text-[16px] text-muted-foreground/80 leading-[1.7] max-w-[560px] font-medium">
-              Documenting the journey from concept to deployment. Read the latest thoughts on AI, engineering, and digital architecture.
+              {t('desc')}
             </motion.p>
           </div>
         </div>
@@ -106,7 +108,7 @@ export default function ImpactSection() {
                             type="button"
                             className="mt-4 inline-flex items-center gap-2 text-[11px] tracking-[1.4px] uppercase font-bold hover:underline"
                           >
-                            Read Article <ArrowRight size={14} />
+                            {t('readArticle')} <ArrowRight size={14} />
                           </button>
                         </Link>
                       </div>
@@ -163,7 +165,7 @@ export default function ImpactSection() {
             className="px-8 sm:px-12 py-4 sm:py-5 border-white/10 bg-white/5 dark:bg-black/20 backdrop-blur-md hover:border-white/20"
           >
             <span className="text-[12px] sm:text-[13px] tracking-[2px] uppercase font-bold relative z-10">
-              Access the Complete Knowledge Base
+              {t('accessBase')}
             </span>
           </MagneticButton>
         </div>

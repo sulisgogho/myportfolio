@@ -10,10 +10,12 @@ import { cn } from "@/lib/utils";
 import { getAllGalleryImages, GalleryImage } from "@/app/actions/getGalleryImages";
 import MagneticEffect from "@/components/ui/MagneticEffect";
 import { InfiniteImageField } from "@/components/ui/infinite-image-field";
+import { useTranslations } from "next-intl";
 
 type FilterType = 'all' | 'image' | 'video' | string;
 
 export default function CleanFilmGrid({ isLowPowerMode }: { isLowPowerMode?: boolean }) {
+    const t = useTranslations('gallery');
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [filter, setFilter] = useState<FilterType>('all');
     const [viewMode, setViewMode] = useState<'rows' | 'grid' | 'infinite'>('grid'); // Default grid
@@ -171,10 +173,10 @@ export default function CleanFilmGrid({ isLowPowerMode }: { isLowPowerMode?: boo
                 {/* Title */}
                 <div className="flex-1">
                     <span className="text-[11px] md:text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground/80 block mb-3 transition-colors duration-300">
-                        Exhibition Space
+                        {t('exhibitionSpace')}
                     </span>
                     <h2 className="text-3xl md:text-5xl font-sans tracking-tight text-foreground/90 font-medium leading-tight transition-colors duration-300">
-                        Selected Works
+                        {t('selectedWorks')}
                     </h2>
                 </div>
 
@@ -194,8 +196,8 @@ export default function CleanFilmGrid({ isLowPowerMode }: { isLowPowerMode?: boo
                                         : "text-muted-foreground hover:text-foreground hover:bg-white/50 dark:hover:bg-white/10"
                                 )}
                             >
-                                {f === 'all' ? 'All' : f}
-                            </button>
+                                    {f === 'all' ? t('all') : f}
+                                </button>
                         ))}
                     </div>
 
@@ -387,7 +389,7 @@ export default function CleanFilmGrid({ isLowPowerMode }: { isLowPowerMode?: boo
                                                         {/* {item.date} */}
                                                     </span>
                                                     <span className="text-[10px] text-white/60 uppercase tracking-widest border border-white/20 px-2 py-0.5 rounded-full">
-                                                        View
+                                                        {t('view')}
                                                     </span>
                                                 </div>
                                             </div>
@@ -461,7 +463,7 @@ export default function CleanFilmGrid({ isLowPowerMode }: { isLowPowerMode?: boo
                                             className="group flex flex-col items-center gap-4 py-4 px-8 relative mt-6"
                                         >
                                             <span className="text-[11px] font-mono uppercase tracking-[3px] font-bold text-foreground opacity-0 -translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out absolute top-[-10px] whitespace-nowrap">
-                                                Load More
+                                                {t('loadMore')}
                                             </span>
                                             <div className="w-14 h-14 rounded-full border border-neutral-500 dark:border-white/20 flex items-center justify-center group-hover:bg-foreground group-hover:text-background group-hover:scale-110 transition-all duration-500 ease-out z-10 shadow-sm group-hover:shadow-xl bg-background">
                                                 <ArrowDownUp className="w-5 h-5" />
@@ -481,7 +483,7 @@ export default function CleanFilmGrid({ isLowPowerMode }: { isLowPowerMode?: boo
 
                     {categories.length === 0 && (
                         <div className="py-20 text-center">
-                            <p className="text-muted-foreground font-mono">No items found matching filter.</p>
+                            <p className="text-muted-foreground font-mono">{t('noItems')}</p>
                         </div>
                     )}
                 </div>

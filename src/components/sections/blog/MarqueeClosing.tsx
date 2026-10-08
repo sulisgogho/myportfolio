@@ -8,13 +8,14 @@ import { cn } from '@/lib/utils';
 
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-
 import { usePerformance } from '@/hooks/usePerformance';
+import { useTranslations } from 'next-intl';
 
 export const MarqueeClosing = ({ isLowPowerMode: parentLowPowerMode }: { isLowPowerMode?: boolean }) => {
     const { theme, systemTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
     const { isMobile } = usePerformance();
+    const t = useTranslations('marqueeClosing');
 
     // Use isMobile to strictly limit CSS fallback to mobile devices only.
     // Desktop (even in low power mode) should try to render the effect as per user request.
@@ -99,14 +100,14 @@ export const MarqueeClosing = ({ isLowPowerMode: parentLowPowerMode }: { isLowPo
                         "text-6xl md:text-8xl font-black tracking-tighter drop-shadow-2xl pb-4 leading-tight",
                         isDark ? "text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60" : "text-foreground"
                     )}>
-                        Ready to Build?
+                        {t('title')}
                     </h2>
 
                     <p className={cn(
                         "text-xl md:text-2xl font-light leading-relaxed max-w-2xl drop-shadow-md pb-2",
                         isDark ? "text-white/70" : "text-muted-foreground font-medium"
                     )}>
-                        I'm always open to discussing product design work or partnership opportunities. Let's create something extraordinary together.
+                        {t('desc')}
                     </p>
 
                     {/* Action Area: Newsletter & Navigation */}
@@ -124,7 +125,7 @@ export const MarqueeClosing = ({ isLowPowerMode: parentLowPowerMode }: { isLowPo
                             </div>
                             <input
                                 type="email"
-                                placeholder="Enter your email for updates..."
+                                placeholder={t('placeholder')}
                                 className={cn(
                                     "w-full bg-transparent border-none focus:ring-0 px-4 py-2 outline-none text-sm font-medium",
                                     isDark ? "text-white placeholder:text-white/40" : "text-foreground placeholder:text-muted-foreground"
@@ -136,7 +137,7 @@ export const MarqueeClosing = ({ isLowPowerMode: parentLowPowerMode }: { isLowPo
                                     ? "bg-cyan-500 text-black hover:bg-cyan-400 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)]"
                                     : "bg-foreground text-background hover:bg-primary shadow-xl shadow-primary/20"
                             )}>
-                                Join
+                                {t('join')}
                             </button>
                         </div>
 
@@ -146,14 +147,14 @@ export const MarqueeClosing = ({ isLowPowerMode: parentLowPowerMode }: { isLowPo
                                 "flex items-center gap-2 transition-colors",
                                 isDark ? "text-white/50 hover:text-cyan-400" : "text-muted-foreground hover:text-primary"
                             )}>
-                                <span>Contact Me</span>
+                                <span>{t('contact')}</span>
                                 <ArrowUpRight className="w-3 h-3" />
                             </Link>
                             <Link href="/projects" className={cn(
                                 "flex items-center gap-2 transition-colors",
                                 isDark ? "text-white/50 hover:text-cyan-400" : "text-muted-foreground hover:text-primary"
                             )}>
-                                <span>View Projects</span>
+                                <span>{t('projects')}</span>
                                 <ArrowUpRight className="w-3 h-3" />
                             </Link>
                         </div>

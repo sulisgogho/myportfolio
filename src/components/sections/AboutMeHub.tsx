@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { ArrowUpRight, Cpu, Briefcase, Rocket, Award } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio';
 
@@ -21,6 +22,7 @@ const PreviewCard = ({
     icon: any;
     index: number;
 }) => {
+    const t = useTranslations('aboutMeHub');
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -66,7 +68,7 @@ const PreviewCard = ({
                             <div className="flex items-center gap-2">
                                 <div className="h-px flex-1 bg-black/5 dark:bg-white/5 group-hover:bg-primary/20 transition-colors duration-700" />
                                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-700 text-primary">
-                                    Explore Section
+                                    {t('explore')}
                                 </span>
                             </div>
                         </div>
@@ -86,32 +88,33 @@ export default function AboutMeHub() {
 
     const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
+    const t = useTranslations('aboutMeHub');
     const items = [
         {
-            title: "Competency",
-            subtitle: "Tech Stack & Soft Skills",
-            description: "A comprehensive matrix of my technical arsenal from AI/ML research to enterprise full-stack architectures.",
+            title: t('items.competency.title'),
+            subtitle: t('items.competency.subtitle'),
+            description: t('items.competency.desc'),
             href: "/skills",
             icon: Cpu
         },
         {
-            title: "Trajectory",
-            subtitle: "Professional Journey",
-            description: "A detailed timeline of my evolution within CPS Lab, HUMIC Engineering, and high-impact industrial roles.",
+            title: t('items.trajectory.title'),
+            subtitle: t('items.trajectory.subtitle'),
+            description: t('items.trajectory.desc'),
             href: "/experience",
             icon: Briefcase
         },
         {
-            title: "Production",
-            subtitle: "Featured Engineering",
-            description: "Deep-dives into my most significant builds across AI systems, Web3 protocols, and enterprise SaaS.",
+            title: t('items.projects.title'),
+            subtitle: t('items.projects.subtitle'),
+            description: t('items.projects.desc'),
             href: "/projects",
             icon: Rocket
         },
         {
-            title: "Validation",
-            subtitle: "Credentials & Honors",
-            description: "A curated archive of global certifications, academic honors, and professional industry validation.",
+            title: t('items.accolades.title'),
+            subtitle: t('items.accolades.subtitle'),
+            description: t('items.accolades.desc'),
             href: "/achievements",
             icon: Award
         }

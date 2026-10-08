@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { Counter } from '@/components/ui/Counter';
 
 const containerVariants = {
@@ -25,6 +26,7 @@ const itemVariants = {
 };
 
 export function TrustStatsBanner() {
+    const t = useTranslations('trustStats');
     return (
         <section className="relative w-full py-20 lg:py-28 bg-background border-y border-black/5 dark:border-white/5 overflow-hidden">
             <motion.div
@@ -44,36 +46,36 @@ export function TrustStatsBanner() {
                             <span className="text-muted-foreground text-lg ml-1 font-semibold">/ 4.0</span>
                         </span>
                         <span className="block text-sm font-bold text-foreground/90 mt-1">
-                            Informatics Engineering GPA
+                            {t('stat1.title')}
                         </span>
                         <span className="block text-xs text-muted-foreground mt-0.5">
-                            Universitas Muhammadiyah Jember
+                            {t('stat1.desc')}
                         </span>
                     </motion.div>
 
                     {/* Stat 2 */}
                     <motion.div variants={itemVariants} className="flex flex-col items-center flex-1 text-center border-b md:border-b-0 md:border-r border-black/5 dark:border-white/5 pb-6 md:pb-0">
                         <span className="text-3xl font-black text-amber-500 tracking-tight">
-                            Gold Medal
+                            {t('stat2.value')}
                         </span>
                         <span className="block text-sm font-bold text-foreground/90 mt-1">
-                            National Achievement
+                            {t('stat2.title')}
                         </span>
                         <span className="block text-xs text-muted-foreground mt-0.5">
-                            1st Place National Scientific Paper
+                            {t('stat2.desc')}
                         </span>
                     </motion.div>
 
                     {/* Stat 3 */}
                     <motion.div variants={itemVariants} className="flex flex-col items-center flex-1 text-center border-b md:border-b-0 md:border-r border-black/5 dark:border-white/5 pb-6 md:pb-0">
                         <span className="text-3xl font-black text-sky-500 tracking-tight">
-                            IBM & Microsoft
+                            {t('stat3.value')}
                         </span>
                         <span className="block text-sm font-bold text-foreground/90 mt-1">
-                            Data Analysis Certification
+                            {t('stat3.title')}
                         </span>
                         <span className="block text-xs text-muted-foreground mt-0.5">
-                            Coursera Professional Certified
+                            {t('stat3.desc')}
                         </span>
                     </motion.div>
 
@@ -82,13 +84,13 @@ export function TrustStatsBanner() {
                         <span className="text-3xl font-black text-foreground tracking-tight flex items-center justify-center">
                             <Counter value={14} decimal={0} duration={2} />
                             <span className="text-primary text-xl ml-0.5 font-bold">+</span>
-                            <span className="text-sm text-muted-foreground ml-1.5 font-medium">Systems</span>
+                            <span className="text-sm text-muted-foreground ml-1.5 font-medium">{t('stat4.unit')}</span>
                         </span>
                         <span className="block text-sm font-bold text-foreground/90 mt-1">
-                            Completed Projects
+                            {t('stat4.title')}
                         </span>
                         <span className="block text-xs text-muted-foreground mt-0.5">
-                            Fullstack Web & Data Apps
+                            {t('stat4.desc')}
                         </span>
                     </motion.div>
 
