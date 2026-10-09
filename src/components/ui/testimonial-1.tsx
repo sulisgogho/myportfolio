@@ -165,7 +165,7 @@ export default function Testimonial1() {
                     >
                       {/* The 'Smoke' Layer - Solid Center Masking */}
                       <div
-                        className="absolute inset-0 bg-white dark:bg-zinc-950 backdrop-blur-[50px]"
+                        className="absolute inset-0 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md"
                         style={{
                           maskImage: 'radial-gradient(circle, black 45%, transparent 95%)',
                           WebkitMaskImage: 'radial-gradient(circle, black 45%, transparent 95%)',

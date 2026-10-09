@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { useInView } from 'framer-motion';
 import {
   Brain, Network, Cpu, Database, Fingerprint, Zap,
   Server, Code, Terminal, Layers, Shield, Workflow,
@@ -54,6 +55,10 @@ const Loader = ({ type = 'default' }: LoaderProps) => {
 
   const faces = config[type] || config.default;
 
+  // Track visibility to pause/play GSAP and save CPU
+  const isInView = useInView(stageRef, { margin: "200px" });
+  const tweensRef = useRef<gsap.core.Tween[]>([]);
+
   useEffect(() => {
     // Stage Jump
     gsap.set(stageRef.current, { scale: 1, rotateX: -20, rotateY: 0 });
@@ -87,12 +92,22 @@ const Loader = ({ type = 'default' }: LoaderProps) => {
       repeat: -1
     });
 
+    tweensRef.current = [stageTween, cubeTween, shadowTween];
+
     return () => {
       stageTween.kill();
       cubeTween.kill();
       shadowTween.kill();
     };
   }, []);
+
+  useEffect(() => {
+    if (isInView) {
+      tweensRef.current.forEach(t => t.play());
+    } else {
+      tweensRef.current.forEach(t => t.pause());
+    }
+  }, [isInView]);
 
   return (
     <div className="relative w-full h-full min-h-[400px] flex items-center justify-center overflow-hidden bg-transparent" style={{ perspective: 1500 }}>

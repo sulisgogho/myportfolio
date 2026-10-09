@@ -17,8 +17,13 @@ const CornerAccents = ({ hoverClass }: { hoverClass: string }) => (
 
 export default function ExperienceStickyScroll({ isLowPowerMode = false }: { isLowPowerMode?: boolean }) {
     const t = useTranslations('experienceStickyScroll');
+    const ref = React.useRef(null);
+    const { useInView } = require('framer-motion');
+    const isInView = useInView(ref, { margin: "200px" });
+    const shouldAnimate = !isLowPowerMode && isInView;
+
     return (
-        <div className="w-full max-w-6xl mx-auto p-4 md:p-8">
+        <div ref={ref} className="w-full max-w-6xl mx-auto p-4 md:p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
                 {/* Telkom University Box (Left) - Hover Effect: Translate Y & Blue Glow */}
@@ -62,8 +67,8 @@ export default function ExperienceStickyScroll({ isLowPowerMode = false }: { isL
 
                         <div className="relative z-10 flex flex-col items-center transition-transform duration-500 group-hover:scale-105">
                             <div className="relative mb-6">
-                                <GraduationCap className={cn("w-20 h-20 text-white drop-shadow-xl transition-all duration-300", !isLowPowerMode && "group-hover:animate-pulse")} />
-                                <Binary className={cn("w-8 h-8 text-blue-400 absolute -top-2 -right-2 opacity-80 transition-all duration-300", !isLowPowerMode && "group-hover:-translate-y-2 group-hover:opacity-100")} />
+                                <GraduationCap className={cn("w-20 h-20 text-white drop-shadow-xl transition-all duration-300", shouldAnimate && "group-hover:animate-pulse")} />
+                                <Binary className={cn("w-8 h-8 text-blue-400 absolute -top-2 -right-2 opacity-80 transition-all duration-300", shouldAnimate && "group-hover:-translate-y-2 group-hover:opacity-100")} />
                             </div>
 
                             <div className="flex flex-wrap gap-2 justify-center mb-4">
@@ -77,7 +82,7 @@ export default function ExperienceStickyScroll({ isLowPowerMode = false }: { isL
                         </div>
 
                         {/* Holographic Scan Effect */}
-                        {!isLowPowerMode && (
+                        {shouldAnimate && (
                             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent animate-scan z-20" />
                         )}
                     </div>
@@ -124,7 +129,7 @@ export default function ExperienceStickyScroll({ isLowPowerMode = false }: { isL
                         <div className="relative z-10 flex flex-col items-center">
                             <div className="relative mb-6">
                                 <BookOpen className="w-20 h-20 text-white drop-shadow-xl group-hover:rotate-12 transition-transform duration-500" />
-                                <Sparkles className={cn("w-6 h-6 text-yellow-400 absolute -bottom-2 -left-2 transition-all duration-300", !isLowPowerMode && "group-hover:scale-125")} />
+                                <Sparkles className={cn("w-6 h-6 text-yellow-400 absolute -bottom-2 -left-2 transition-all duration-300", shouldAnimate && "group-hover:scale-125")} />
                             </div>
 
                             <div className="flex flex-wrap gap-2 justify-center mb-4">
