@@ -10,12 +10,15 @@ import { Search, X, Layers, ArrowRight, ArrowUpRight, Sparkles, Code2, Zap, Brai
 import { cn } from '@/lib/utils';
 import { portfolioData } from '@/data/portfolio';
 import { Project } from '@/types';
-import { HeroParallax } from '@/components/ui/hero-parallax';
-import { LogoTimeline, LogoItem } from '@/components/ui/logo-timeline';
+import dynamic from 'next/dynamic';
+
+const HeroParallax = dynamic(() => import('@/components/ui/hero-parallax').then(mod => mod.HeroParallax));
+const LogoTimeline = dynamic(() => import('@/components/ui/logo-timeline').then(mod => mod.LogoTimeline));
+import { LogoItem } from '@/components/ui/logo-timeline';
 import { Icons } from '@/components/icons';
-import { Meteors } from '@/components/ui/meteors';
-import { ProjectContact } from '@/components/sections/ProjectContact';
-import { ProjectStats } from '@/components/sections/ProjectStats';
+const Meteors = dynamic(() => import('@/components/ui/meteors').then(mod => mod.Meteors));
+const ProjectContact = dynamic(() => import('@/components/sections/ProjectContact').then(mod => mod.ProjectContact), { ssr: false });
+const ProjectStats = dynamic(() => import('@/components/sections/ProjectStats').then(mod => mod.ProjectStats), { ssr: false });
 
 import { usePerformance } from '@/hooks/usePerformance';
 import { ProjectPlaceholder, getPlaceholderImageUrl } from '@/components/projects/ProjectPlaceholder';

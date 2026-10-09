@@ -1,16 +1,18 @@
 'use client';
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import { HeroVisual } from "@/components/sections/HeroVisual";
-import { BrandScroller } from "@/components/ui/brand-scroller";
 import { BeamDivider } from "@/components/ui/BeamDivider";
-import { DeveloperActivitySection } from "@/components/sections/DeveloperActivitySection";
-import { FeaturedProjectsSection } from "@/components/sections/FeaturedProjectsSection";
-import { VibeCoderValueSection } from "@/components/sections/VibeCoderValueSection";
-import { CertificatesMarquee } from "@/components/sections/CertificatesMarquee";
-import ExperienceTabsSection from "@/components/sections/ExperienceTabsSection";
-import { SocialCorner } from '@/components/layout/SocialCorner';
 import { ScrollNavigationHUD } from "@/components/ui/ScrollNavigationHUD";
+import { SocialCorner } from '@/components/layout/SocialCorner';
+
+const BrandScroller = dynamic(() => import("@/components/ui/brand-scroller").then(mod => mod.BrandScroller), { ssr: false });
+const DeveloperActivitySection = dynamic(() => import("@/components/sections/DeveloperActivitySection").then(mod => mod.DeveloperActivitySection), { ssr: false });
+const FeaturedProjectsSection = dynamic(() => import("@/components/sections/FeaturedProjectsSection").then(mod => mod.FeaturedProjectsSection), { ssr: true });
+const VibeCoderValueSection = dynamic(() => import("@/components/sections/VibeCoderValueSection").then(mod => mod.VibeCoderValueSection), { ssr: true });
+const CertificatesMarquee = dynamic(() => import("@/components/sections/CertificatesMarquee").then(mod => mod.CertificatesMarquee), { ssr: false });
+const ExperienceTabsSection = dynamic(() => import("@/components/sections/ExperienceTabsSection"));
 import Link from 'next/link';
 import { Sparkles, ArrowUpRight, MessageCircle, Zap, ShieldCheck, Clock } from 'lucide-react';
 import { useTranslations } from 'next-intl';

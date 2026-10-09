@@ -2,8 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { Navbar, Footer, SidebarStatus } from '@/components/layout';
-import { BackToTop } from '@/components/ui/BackToTop';
+import { Navbar } from '@/components/layout/Navbar';
+import dynamic from 'next/dynamic';
+
+const Footer = dynamic(() => import('@/components/layout').then(mod => mod.Footer));
+const SidebarStatus = dynamic(() => import('@/components/layout').then(mod => mod.SidebarStatus));
+const BackToTop = dynamic(() => import('@/components/ui/BackToTop').then(mod => mod.BackToTop));
 
 export function ConditionalNavigation({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();

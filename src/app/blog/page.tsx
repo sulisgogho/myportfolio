@@ -5,9 +5,11 @@ import { motion, AnimatePresence, useMotionValue, useSpring, animate } from 'fra
 import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { portfolioData } from '@/data/portfolio';
+import dynamic from 'next/dynamic';
 import { BlogCard } from '@/components/ui/BlogCard';
-import { BentoHero } from '@/components/sections/blog/BentoHero';
-import { MarqueeClosing } from '@/components/sections/blog/MarqueeClosing';
+
+const BentoHero = dynamic(() => import('@/components/sections/blog/BentoHero').then(mod => mod.BentoHero));
+const MarqueeClosing = dynamic(() => import('@/components/sections/blog/MarqueeClosing').then(mod => mod.MarqueeClosing));
 import { Search, SortDesc, SortAsc, LayoutGrid, List } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -15,7 +17,7 @@ import { usePerformance } from '@/hooks/usePerformance';
 import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 import { DeferredMount } from '@/components/ui/DeferredMount';
 
-import FlowingMenu from '@/components/ui/flowing-menu';
+const FlowingMenu = dynamic(() => import('@/components/ui/flowing-menu'));
 
 function BlogContent() {
     const t = useTranslations('blog');
