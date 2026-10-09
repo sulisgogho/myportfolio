@@ -626,7 +626,24 @@ Detailed technical competencies and workflows learned:
     ],
     experiences: [
         {
-            id: 'exp-1',
+            id: 'prof-0',
+            company: 'Independent Data & Web Developer',
+            position: 'Freelance Data Analyst & Full-Stack Web Developer',
+            description: 'Delivered integrated services in custom full-stack web development and academic research data consulting, transforming complex client requirements into scalable digital platforms and validated statistical insights.',
+            skills: ['Python', 'SPSS', 'Next.js', 'React', 'PostgreSQL', 'Supabase'],
+            startDate: '2024-05-01',
+            isOngoing: true,
+            location: 'Remote',
+            type: 'freelance',
+            responsibilities: [
+                'Conducted rigorous data cleaning, statistical analysis, hypothesis testing, and diagnostic evaluation using Python, SPSS, and Excel to strictly support academic journal publications and research data processing.',
+                'Developed comprehensive analytical reports and interactive visualizations to present complex research findings clearly, partnering directly with clients to align methodologies with their primary objectives.',
+                'Delivered integrated services in custom full-stack web development and academic research data consulting, transforming complex client requirements into scalable digital platforms and validated statistical insights.',
+                'Designed and deployed responsive, data-driven web applications (including CRM, billing systems, and productivity tools) utilizing modern tech stacks such as Next.js, React, Tailwind CSS, Node.js, PostgreSQL, and Supabase.'
+            ]
+        },
+        {
+            id: 'prof-1',
             company: 'PT Global Jet Express (J&T Express)',
             position: 'Daily Worker Staff Processing',
             description: 'Managed the accuracy of inbound/outbound logistics package data and optimized daily distribution data processing using advanced Excel functions.\n\nResponsible for ensuring real-time logistics data synchronization between physical scanning and the central database using an integrated logistics system.',
@@ -643,7 +660,7 @@ Detailed technical competencies and workflows learned:
             ]
         },
         {
-            id: 'exp-2',
+            id: 'prof-2',
             company: 'PT Federal International Finance (FIF Group)',
             position: 'Account Officer',
             description: 'Verified customer documents, managed daily report databases, and maintained corporate administrative archives.\n\nResponsible for the validity of application data and the accuracy of daily consumer administrative reporting.',
@@ -660,7 +677,7 @@ Detailed technical competencies and workflows learned:
             ]
         },
         {
-            id: 'exp-3',
+            id: 'lead-1',
             company: 'Faculty of Engineering Student Executive Board (BEM FT)',
             position: 'Head of Research and Technology Division',
             description: 'Led the division engaged in research development and technology implementation within the Engineering Faculty student organization environment.',
@@ -677,7 +694,7 @@ Detailed technical competencies and workflows learned:
             ]
         },
         {
-            id: 'exp-4',
+            id: 'vol-1',
             company: 'ICT Volunteers (Relawan TIK) Jember',
             position: 'Human Resources Division Board',
             description: 'Provided digital literacy education to more than 1,000 participants and conducted technology socialization to various public institutions.',

@@ -842,19 +842,24 @@
       }
     },
     "experiences": {
-      "exp-1": {
+      "prof-0": {
+        "title": "Freelance Data Analyst & Full-Stack Web Developer",
+        "company": "Independent Data & Web Developer",
+        "description": "Delivered integrated services in custom full-stack web development and academic research data consulting, transforming complex client requirements into scalable digital platforms and validated statistical insights."
+      },
+      "prof-1": {
         "company": "PT Global Jet Express (J&T Express)",
         "description": "Managed the accuracy of inbound/outbound logistics package data and optimized daily distribution data processing using advanced Excel functions.\n\nResponsible for ensuring real-time logistics data synchronization between physical scanning and the central database using an integrated logistics system."
       },
-      "exp-2": {
+      "prof-2": {
         "company": "PT Federal International Finance (FIF Group)",
         "description": "Verified customer documents, managed daily report databases, and maintained corporate administrative archives.\n\nResponsible for the validity of application data and the accuracy of daily consumer administrative reporting."
       },
-      "exp-3": {
+      "lead-1": {
         "company": "Faculty of Engineering Student Executive Board (BEM FT)",
         "description": "Led the division engaged in research development and technology implementation within the Engineering Faculty student organization environment."
       },
-      "exp-4": {
+      "vol-1": {
         "company": "ICT Volunteers (Relawan TIK) Jember",
         "description": "Provided digital literacy education to more than 1,000 participants and conducted technology socialization to various public institutions."
       }
