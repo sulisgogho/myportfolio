@@ -158,7 +158,7 @@ export const portfolioData: PortfolioData = {
         },
         {
             id: 'proj-4',
-            slug: 'golib-goghotech-library',
+            slug: 'golib',
             title: 'GoLib - Interactive Digital Library',
             description: 'Part of the Goghotech ecosystem, GoLib is an interactive digital library web application designed to make reading PDF book collections easy and comfortable.',
             longDescription: `GoLib is a digital library platform developed as part of the Goghotech ecosystem. The inspiration for creating this website stems from my personal hobby of reading books, but being constrained by a lack of funds to purchase them directly. Therefore, this platform was built to organize and arrange PDF books to resemble a real library layout, making it easy for users to browse and read books for free.
@@ -209,7 +209,7 @@ Disclaimer: The GoLib platform is intended purely as an educational medium[cite:
         },
         {
             id: 'proj-5',
-            slug: 'gonotes-productivity-app',
+            slug: 'gonotes',
             title: 'GoNotes - Productivity & Habit Tracker',
             description: 'A web-based productivity application equipped with a habit tracker, to-do list, Pomodoro timer, daily journal, and analytics dashboard.',
             longDescription: 'Stemming from a personal struggle to manage a disorganized daily schedule, GoNotes was developed into a comprehensive productivity application. It features custom habit tracking, a Pomodoro-integrated to-do list, daily journaling, and analytical dashboards spanning daily to yearly scales. Built with Next.js, Firebase (Authentication & Database), and Tailwind CSS, the application supports Dark/Light mode, is fully responsive, and can be installed as a PWA across various devices.',
@@ -257,7 +257,7 @@ Disclaimer: The GoLib platform is intended purely as an educational medium[cite:
         },
         {
             id: 'proj-6',
-            slug: 'cahaya-makmur-profile',
+            slug: 'cahayamakmur',
             title: 'UD Cahaya Makmur Company Profile',
             description: 'Company profile and catalog website for UD Cahaya Makmur.',
             longDescription: 'A company profile website for branding purposes and making it easier for potential customers to view the sales catalog of UD Cahaya Makmur.',
@@ -410,7 +410,7 @@ Disclaimer: The GoLib platform is intended purely as an educational medium[cite:
         },
         {
             id: 'proj-10',
-            slug: 'gofin-goghotech-financial',
+            slug: 'gofin',
             title: 'GoFin - Financial Tracking System',
             description: 'Web application for tracking daily financial expenses for singles and couples.',
             longDescription: 'Built a full-stack application to track inventory items in real-time with notification features and a comprehensive dashboard.',
@@ -463,10 +463,6 @@ Detailed technical competencies and workflows learned:
             role: 'Data Analyst / Quantitative Analyst',
             galleryImages: [
                 '/project/project1.png',
-                '/project/project1.png',
-                '/project/project1.png',
-                '/project/project1.png',
-                '/project/project1.png',
             ],
             features: [
                 {
@@ -486,8 +482,8 @@ Detailed technical competencies and workflows learned:
         },
         {
             id: 'proj-12',
-            slug: 'test-koran',
-            title: 'Gotest - Job Preparation Test',
+            slug: 'gotest',
+            title: 'GoTest - Job Preparation Test',
             description: 'Web-based Kraepelin/Pauli psychological test simulation for recruitment practice.',
             longDescription: 'Digitized the number concentration test (newspaper test) into a dynamic web application. The system can calculate speed metrics, accuracy rates, and generate a user work endurance graph instantly once the test session ends.',
             image: '/project/teskoran.png',
@@ -519,7 +515,7 @@ Detailed technical competencies and workflows learned:
         },
         {
             id: 'proj-13',
-            slug: 'absensi-les',
+            slug: 'absensi',
             title: 'Tutoring Attendance System',
             description: 'Integrated digital attendance management system for tutoring centers.',
             longDescription: 'Web-based application for tracking student attendance in real-time. This system is equipped with automatic monthly recapitulation features and an analytical reporting dashboard to facilitate monitoring by tutors.',
@@ -555,7 +551,7 @@ Detailed technical competencies and workflows learned:
         },
         {
             id: 'proj-14',
-            slug: 'sales-analysis',
+            slug: 'superstore',
             title: 'Superstore Sales Analysis & Customer Segmentation Engine',
             description: 'Machine Learning model to optimize marketing strategies using Python (RFM) & React Dashboard.',
             longDescription: 'Developed a Full-Stack analysis system using Python (Pandas) for automated data processing and RFM Segmentation algorithms, subsequently visualized through an interactive React JS dashboard.',
@@ -590,7 +586,7 @@ Detailed technical competencies and workflows learned:
         },
         {
             id: 'proj-15',
-            slug: 'game-ular-tangga-deeptalk',
+            slug: 'ulartangga',
             title: 'Deep Talk Snakes and Ladders Game',
             description: 'Snakes and ladders game designed for couples to have deep talks.',
             longDescription: 'An interactive snakes and ladders game specifically tailored for couples to engage in meaningful and deep conversations.',
