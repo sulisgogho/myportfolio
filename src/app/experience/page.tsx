@@ -680,6 +680,7 @@ function TimelineGallery({ images, id, title, externalLink, logo }: { images: st
     const [isExpanded, setIsExpanded] = useState(false);
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
+    const t = useTranslations('experience');
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {

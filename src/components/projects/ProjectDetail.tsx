@@ -78,6 +78,7 @@ const ProjectGallery = ({
     onImageClick: (img: string) => void,
     scrollContainerRef?: React.RefObject<HTMLDivElement | null> // Optional/Unused now
 }) => {
+    const t = useTranslations('projects');
     return (
         <div className="flex flex-col gap-12 pb-12">
             {images.map((img, idx) => (
